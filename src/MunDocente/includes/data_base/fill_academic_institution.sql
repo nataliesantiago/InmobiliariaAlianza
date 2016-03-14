@@ -1,0 +1,5 @@
+INSERT INTO ACADEMIC_ISTITUTION(NAME, EMAIL, PHONE, DESCRIPTION, UBICATION, TYPE) VALUES ('UNIVERSIDAD PEDAGÓGICA Y TECNOLÓGICA DE COLOMBIA','uptc@uptc.edu.co', '7765456', 'lorem ipsum lorem ipsum lorem ipsum ..... ', 'Tunja, Boyacá', 1);
+INSERT INTO ACADEMIC_ISTITUTION(NAME, EMAIL, PHONE, DESCRIPTION, UBICATION, TYPE) VALUES ('SENA','sena@sena.edu.co', '7762345', 'lorem ipsum lorem ipsum lorem sipsum ..... ', 'Bogotá D.C.', 3);
+INSERT INTO ACADEMIC_ISTITUTION(NAME, EMAIL, PHONE, DESCRIPTION, UBICATION, TYPE) VALUES ('UNIVERSIDAD NACIONAL','unal@unal.edu.co', '2223256', 'lorem ipsum lorem ipsum lorem ipsum ..... ', 'Bogotá D.C.', 1);
+INSERT INTO ACADEMIC_ISTITUTION(NAME, EMAIL, PHONE, DESCRIPTION, UBICATION, TYPE) VALUES ('INSTITUCIÓN EDUCATIVA DE COLOMBIA','iec@eic.edu.co', '773123122', 'lorem ipsum lorem ipsum lorem ipsum ..... ', 'Tunja, Boyacá', 1);
+INSERT INTO ACADEMIC_ISTITUTION(NAME, EMAIL, PHONE, DESCRIPTION, UBICATION, TYPE) VALUES ('UNIVERSIDAD PEDAGÓGICA Y TECNOLÓGICA DE COLOMBIA','uptc@uptc.edu.co', '7765456', 'lorem ipsum lorem ipsum lorem ipsum ..... ', 'Tunja, Boyacá', 1);

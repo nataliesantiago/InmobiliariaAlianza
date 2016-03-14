@@ -33,6 +33,56 @@ mysqli_query($connection,"SET NAMES 'utf8'");
 mysqli_query($connection,"SET_FOREIGN_KEY_CHECKS=0");
 
 
+//CREAMOS LA TABLA TIPO DE LUGAR
+$sql = explode(";", file_get_contents('data_base/create_type_of_place.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {
+	if($connection->query($sql2)){
+		echo 'Tabla TIPO DE LUGAR creada <br/> ';
+		break;
+	}else{
+		echo $connection->error;
+		break;
+	}	
+}
+
+//LLENAMOS LA TABLA TIPO DE LUGAR
+$sql = explode(";", file_get_contents('data_base/fill_type_of_place.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {//recorremos todas las consultas
+	if(!empty($sql2)){
+		if($connection->query($sql2)){
+			echo 'fila afectada <br/>';		
+		}else{
+			break;
+		}	
+	} else {
+		break;
+	}
+}
+
+//CREAMOS LA TABLA LUGAR
+$sql = explode(";", file_get_contents('data_base/create_place.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {
+	if($connection->query($sql2)){
+		echo 'Tabla LUGAR creada <br/> ';
+		break;
+	}else{
+		echo $connection->error;
+		break;
+	}	
+}
+
+//CREAMOS LA TABLA AREA
+$sql = explode(";", file_get_contents('data_base/create_area.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {
+	if($connection->query($sql2)){
+		echo 'Tabla AREA creada <br/> ';
+		break;
+	}else{
+		echo $connection->error;
+		break;
+	}	
+}
+
 //CREAMOS LA TABLA TIPO DE INSTITUCIÓN ACADEMICA
 $sql = explode(";", file_get_contents('data_base/create_type_of_academic_institution.sql')); //abrimos el archivo
 foreach ($sql as $sql2) {
@@ -108,11 +158,11 @@ foreach ($sql as $sql2) {
 	}	
 }
 
-//CREAMOS LA TABLA AREA
-$sql = explode(";", file_get_contents('data_base/create_area.sql')); //abrimos el archivo
+//CREAMOS LA TABLA ENROLL
+$sql = explode(";", file_get_contents('data_base/create_enroll.sql')); //abrimos el archivo
 foreach ($sql as $sql2) {
 	if($connection->query($sql2)){
-		echo 'Tabla AREA creada <br/> ';
+		echo 'Tabla ENROLL creada <br/> ';
 		break;
 	}else{
 		echo $connection->error;
@@ -147,6 +197,33 @@ foreach ($sql as $sql2) {//recorremos todas las consultas
 	}
 }
 
+//CREAMOS LA TABLA TIPO DE REVISTAS CIENTIFICA
+$sql = explode(";", file_get_contents('data_base/create_type_of_scientific_magazine.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {
+	if($connection->query($sql2)){
+		echo 'Tabla TIPO DE REVISTA CIENTIFICAS creada <br/> ';
+		break;
+	}else{
+		echo $connection->error;
+		break;
+	}	
+}
+
+//LLENAMOS LA TABLA TIPO DE REVISTAS CIENTIFICAS
+$sql = explode(";", file_get_contents('data_base/fill_type_of_scientific_magazine.sql')); //abrimos el archivo
+foreach ($sql as $sql2) {//recorremos todas las consultas
+	if(!empty($sql2)){
+		if($connection->query($sql2)){
+			echo 'fila afectada <br/>';		
+		}else{
+			echo $connection->error;
+			break;
+		}	
+	} else {
+		break;
+	}
+}
+
 //CREAMOS LA TABLA PUBLICACIÓN
 $sql = explode(";", file_get_contents('data_base/create_publication.sql')); //abrimos el archivo
 foreach ($sql as $sql2) {
@@ -159,17 +236,7 @@ foreach ($sql as $sql2) {
 	}	
 }
 
-//CREAMOS LA TABLA ENROLL
-$sql = explode(";", file_get_contents('data_base/create_enroll.sql')); //abrimos el archivo
-foreach ($sql as $sql2) {
-	if($connection->query($sql2)){
-		echo 'Tabla ENROLL creada <br/> ';
-		break;
-	}else{
-		echo $connection->error;
-		break;
-	}	
-}
+
 
 //CREAMOS LA TABLA REGISTRO
 $sql = explode(";", file_get_contents('data_base/create_register.sql')); //abrimos el archivo
