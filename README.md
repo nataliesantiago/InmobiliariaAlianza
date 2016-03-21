@@ -1,4 +1,4 @@
-# Mundocente
+﻿# Mundocente
 Repositorio para subir los archivos correspondientes del proyecto.
 
 
@@ -11,6 +11,9 @@ Repositorio para subir los archivos correspondientes del proyecto.
 'munDocente' y contraseña 'munDocente' 
 (https://www.digitalocean.com/community/tutorials/crear-un-nuevo-usuario-y-otorgarle-permisos-en-mysql-es)
 
-2) crear una base de datos desde phpMyAdmin con nombre 'mundocente' y en cotejamiento asignarle 'utf8-unicode-ci'
+3) crear una base de datos desde phpMyAdmin con nombre 'mundocente' y en cotejamiento asignarle 'utf8-unicode-ci'
 
-3) ejecutar el archivo de la siguiente dirección MunDocente/includes/initial_data_base.php ¡Listo!
+4) ejecutar el archivo de la siguiente dirección MunDocente/includes/initial_data_base.php ¡Listo!
+
+
+-SI NECESITAS ACTUALIZAR LA VERSIÓN DE LA BASE DE DATOS, BORRA LA BASE DE DATOS DESDE PHPMYADMIN Y CONTINUA DESDE EL PASO 3
