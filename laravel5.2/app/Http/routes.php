@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('controlador', 'ControllerPrueba@showMessage');
+//Route::get('controlador', 'ControllerPrueba@showMessage');
 
-Route::resource('controladorResource', 'ControllerResource');
+//Route::resource('controladorResource', 'ControllerResource');
 
-Route::get('nombre/{nombre}', function($nombre){
-	return 'Hola '.$nombre.', ¿cómo estás?';
-});
+//Route::get('nombre/{nombre}', function($nombre){
+//	return 'Hola '.$nombre.', ¿cómo estás?';
+//});
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
