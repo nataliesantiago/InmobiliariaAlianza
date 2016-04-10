@@ -13,7 +13,29 @@
 	<!-- Wrapper -->
 	<section id="wrapper">
 
-		<!-- One -->
+	@foreach($publications as $publication)
+		<section id="one" class="wrapper style3">
+			<div class="inner">
+				<div class="content">
+					<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+					<h2 class="major">{{ $publication->name }}</h2>
+					<h4 class><time class="published" datetime="2016-05-01">{{ $publication->start_date }}</time></h4>
+					<h4 class>TODAVÍA NO SE TIENE INSITUCION</h4>
+					<h4 class>PUBLICADOR: {{ $publication->username }}</h4>
+					<h4 class>{{ $publication->place }}</h4>
+					<h4 class>AREAS: TODAVIA NO SE TIENE</h4>
+					<a href="http://www.ccb.org.co">{{ $publication->url }}</a>
+					<h1></h1>
+					<ul class="stats">
+						<li><a href="#" class="icon fa-heart"> 28</a></li>
+						<li><a href="#" class="icon fa-comment"> 128</a></li>
+					</ul>
+					<a href="#" class="special">Más información</a>
+				</div>
+			</div>
+		</section>
+	@endforeach
+		<!-- One 
 		<section id="one" class="wrapper style3">
 			<div class="inner">
 				<div class="content">
@@ -34,8 +56,8 @@
 				</div>
 			</div>
 		</section>
-
-
+-->
+		<!-- Two
 		<section id="two" class="wrapper alt style5">
 			<div class="inner">
 				<div class="content">
@@ -60,7 +82,7 @@
 				</div>
 			</div>
 		</section>
-
+-->
 	<section id="banner">	
 		<div class="inner">
 		<ul class="actions pagination">

@@ -19,6 +19,4 @@
 //	return 'Hola '.$nombre.', ¿cómo estás?';
 //});
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index');
