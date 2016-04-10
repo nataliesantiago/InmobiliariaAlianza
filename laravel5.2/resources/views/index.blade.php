@@ -17,24 +17,34 @@
 		<section id="one" class="wrapper style3">
 			<div class="inner">
 				<div class="content">
-					<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+					<time class="published" datetime="2016-05-01">Fecha publicación: {{ $publication->date_publication }}</time>
 					<h2 class="major">{{ $publication->name }}</h2>
-					<h4 class><time class="published" datetime="2016-05-01">{{ $publication->start_date }}</time></h4>
-					<h4 class>TODAVÍA NO SE TIENE INSITUCION</h4>
-					<h4 class>PUBLICADOR: {{ $publication->username }}</h4>
+					<h4 class><time class="published" datetime="2016-05-01">Fecha de inicio: {{ $publication->start_date }}</time></h4>
+					<h4 class>Institución: falta relacionar al publicador</h4>
+					<h4 class>Publicador: {{ $publication->username }}</h4>
 					<h4 class>{{ $publication->place }}</h4>
-					<h4 class>AREAS: TODAVIA NO SE TIENE</h4>
-					<a href="http://www.ccb.org.co">{{ $publication->url }}</a>
+					<h4 class>Area(s): son agregadas pro el publicador</h4>
+					<a href="http://www.ccb.org.co">Url externa: {{ $publication->url }}</a>
 					<h1></h1>
 					<ul class="stats">
-						<li><a href="#" class="icon fa-heart"> 28</a></li>
-						<li><a href="#" class="icon fa-comment"> 128</a></li>
+						<li><a href="#" class="icon fa-heart"> 0</a></li>
+						<li><a href="#" class="icon fa-comment"> 0</a></li>
 					</ul>
 					<a href="#" class="special">Más información</a>
 				</div>
 			</div>
 		</section>
 	@endforeach
+
+	<section id="banner">	
+		<div class="inner">
+		<ul class="actions pagination">
+			<center><li>{!! $publications->links() !!}</li></center>
+		</ul>
+	</div>
+	</section>
+
+	
 		<!-- One 
 		<section id="one" class="wrapper style3">
 			<div class="inner">
@@ -83,7 +93,7 @@
 			</div>
 		</section>
 -->
-	<section id="banner">	
+	<!--<section id="banner">	
 		<div class="inner">
 		<ul class="actions pagination">
 			<li><a href="" class="disabled button big previous">Página anterior</a></li>
@@ -91,44 +101,8 @@
 		</ul>
 	</div>
 	</section>
-
+-->
 	<!-- Footer -->
-	<section id="footer">
-		<div class="inner">
-			<h2 class="major">Contacto</h2>
-			<form method="post" action="#">
-				<div class="field">
-					<label for="name">Nombre</label>
-					<input type="text" name="name" id="name" />
-				</div>
-				<div class="field">
-					<label for="email">Email</label>
-					<input type="email" name="email" id="email" />
-				</div>
-				<div class="field">
-					<label for="message">Mensaje</label>
-					<textarea name="message" id="message" rows="4"></textarea>
-				</div>
-				<ul class="actions">
-					<li><input type="submit" value="Send Message" /></li>
-				</ul>
-			</form>
-			<ul class="contact">
-				<li class="fa-home">
-					Untitled Inc<br />
-					1234 Somewhere Road Suite #2894<br />
-					Nashville, TN 00000-0000
-				</li>
-				<li class="fa-phone">(000) 000-0000</li>
-				<li class="fa-envelope"><a href="#">mundocente@dominoo.com</a></li>
-				<li class="fa-twitter"><a href="#">twitter.com/mundocente</a></li>
-				<li class="fa-facebook"><a href="#">facebook.com/mundocente</a></li>
-				<li class="fa-instagram"><a href="#">instagram.com/mundocente</a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled Inc. Tdoso los derechos reservados.</li><li>Design: <a href="http://html5up.net">MUNDOCENTE</a></li>
-			</ul>
-		</div>
-	</section>
+	
 
-	@endsection
+	@stop

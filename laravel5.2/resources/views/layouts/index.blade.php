@@ -54,6 +54,44 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 	@yield('content')
 
+	<section id="footer">
+		<div class="inner">
+			<h2 class="major">Contacto</h2>
+			<form method="post" action="#">
+				<div class="field">
+					<label for="name">Nombre</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="field">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" />
+				</div>
+				<div class="field">
+					<label for="message">Mensaje</label>
+					<textarea name="message" id="message" rows="4"></textarea>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" /></li>
+				</ul>
+			</form>
+			<ul class="contact">
+				<li class="fa-home">
+					Untitled Inc<br />
+					1234 Somewhere Road Suite #2894<br />
+					Nashville, TN 00000-0000
+				</li>
+				<li class="fa-phone">(000) 000-0000</li>
+				<li class="fa-envelope"><a href="#">mundocente@dominoo.com</a></li>
+				<li class="fa-twitter"><a href="#">twitter.com/mundocente</a></li>
+				<li class="fa-facebook"><a href="#">facebook.com/mundocente</a></li>
+				<li class="fa-instagram"><a href="#">instagram.com/mundocente</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled Inc. Tdoso los derechos reservados.</li><li>Design: <a href="http://html5up.net">MUNDOCENTE</a></li>
+			</ul>
+		</div>
+	</section>
+
 	</div>
 
 <div>
