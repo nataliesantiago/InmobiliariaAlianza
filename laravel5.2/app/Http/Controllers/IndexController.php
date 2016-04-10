@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
+use MunDocente\Models\Publication;
 
 class IndexController extends Controller
 {
     public function index(){
-    	$publications = \MunDocente\Publication::all();
+    	$publications = Publication::all();
     	return view('index', compact('publications'));
     }
 }
