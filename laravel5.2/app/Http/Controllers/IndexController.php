@@ -10,7 +10,7 @@ use MunDocente\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function index(){
-    	$publications = \MunDocente\Publication::all();
+    	$publications = \MunDocente\Publication::paginate(5);
     	return view('index', compact('publications'));
     }
 }
