@@ -3,7 +3,7 @@
 
 				<div class="span8">
 				@foreach($publications as $publication)
-
+				@if($publication->type==2)
 				<h2>{{ $publication->name }}</h2>
 					<h4>Publicado por <a href="#">{{ $publication->username }}</a>&nbsp;&#124;&nbsp; {{ $publication->date_publication }}</h4>
 					<h4>{{ $publication->place }}</h4>					
@@ -37,14 +37,13 @@
 					
 
 					<hr class="soften">
+				@endif
 				@endforeach
 					<div class="inner">
 					<ul class="actions pagination">
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 					</div>
-				
 				</div>
-
 
 	@stop

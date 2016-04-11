@@ -29,16 +29,16 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="../index.html">MunDocente</a>
+				<a class="brand" href="/">MunDocente</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><a href="#">Convocatorias docente</a></li>
+						<li><a href="/teacher_call">Convocatorias docente</a></li>
 					</ul>
 					<ul class="nav">
-						<li><a href="#">Eventos académicos</a></li>
+						<li><a href="/academic_event">Eventos académicos</a></li>
 					</ul>
 					<ul class="nav">
-						<li><a href="#">Revistas científicas</a></li>
+						<li><a href="/scientific_magazine">Revistas científicas</a></li>
 					</ul>
 					<form class="navbar-form form-search pull-right">
 						<input id="Search" name="Search" type="text" placeholder="¿qué deseas buscar?" class="input-medium search-query">
@@ -84,9 +84,9 @@
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							<li class="nav-header"><center><h3>PUBLICACIONES</h3></center></li>
-							<li><a href="#">Convocatorias docente</a></li>
-							<li><a href="#">Eventos académicos</a></li>
-							<li><a href="#">Revista científica</a></li>							
+							<li><a href="/teacher_call">Convocatorias docente</a></li>
+							<li><a href="/academic_event">Eventos académicos</a></li>
+							<li><a href="/scientific_magazine">Revista científica</a></li>							
 						</ul>
 					</div>
 					<div class="well sidebar-nav">
