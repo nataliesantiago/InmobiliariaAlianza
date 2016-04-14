@@ -26,8 +26,6 @@
 					@endif
 					
 					<h4 href="{{ $publication->url }}" class="btn btn-link pull-left"> Abrir link original </h4>
-					<br>
-					<br>
 						
 					</h5>
 					

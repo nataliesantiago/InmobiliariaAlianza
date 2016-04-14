@@ -59,22 +59,28 @@
 				<div class="span4">
 
 
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+							<li class="nav-header"><center><h3 style="color: #5A5A5A;">PUBLICACIONES</h3></center></li>
+							<li><a href="/teacher_call">Convocatorias docente</a></li>
+							<li><a href="/academic_event">Eventos académicos</a></li>
+							<li><a href="/scientific_magazine">Revistas científicas</a></li>							
+						</ul>
+					</div>
+
 					<div class="well">
 						<form class="form login-form">
-							<center><h2>Ingresa</h2></center>
+							<center><h2>Ingresar</h2></center>
 							<div>
 								<center><label>Usuario</label></center>
 								<center><input id="Username" name="Username" type="text" /></center>
-
 								<center><label>Contraseña</label></center>
 								<center><input id="Password" name="Password" type="password" /></center>
-
 								<center><label class="checkbox inline">
-									<center><input type="checkbox" id="RememberMe" value="option1"></center> Recuerdame
-								</label></center>
-
+									<center><input type="checkbox" id="RememberMe" value="option1"></center> Recordar
+								</label>
 								<br /><br />
-
+								</center>
 								<center><button type="submit" class="btn btn-success">Ingresar</button></center>
 							</div>
 							<br />
@@ -84,14 +90,6 @@
 
 					</div>
 
-					<div class="well sidebar-nav">
-						<ul class="nav nav-list">
-							<li class="nav-header"><center><h3 style="color: #5A5A5A;">PUBLICACIONES</h3></center></li>
-							<li><a href="/teacher_call">Convocatorias docente</a></li>
-							<li><a href="/academic_event">Eventos académicos</a></li>
-							<li><a href="/scientific_magazine">Revista científica</a></li>							
-						</ul>
-					</div>
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							<li class="nav-header"><center><h3 style="color: #5A5A5A;">Areas</h3></center></li>
