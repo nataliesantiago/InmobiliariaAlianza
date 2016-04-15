@@ -3,7 +3,6 @@
 
 				<div class="span8">
 				@foreach($publications as $publication)
-				@if($publication->type==3)
 				<h2 style="color: black;">{{ $publication->name }}</h2>
 
 					@if($publication->description!=null)
@@ -33,7 +32,6 @@
 					
 
 					<hr class="soften">
-				@endif
 				@endforeach
 
 				<div class="inner">

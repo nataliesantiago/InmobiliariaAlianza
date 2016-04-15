@@ -9,6 +9,8 @@ use MunDocente\Http\Controllers\Controller;
 use MunDocente\Models\Publication;
 use MunDocente\Models\Area;
 
+use DB;
+
 class IndexController extends Controller
 {
     public function index(){
@@ -18,19 +20,25 @@ class IndexController extends Controller
     }
 
     public function teacher_call(){
-    	$publications = Publication::paginate(5);
+    	$publications = DB::table('publications')
+                                    ->where('type', '=', 1)
+                                    ->paginate(5);
     	$areas = Area::all();
     	return view('teacher_call', compact('publications', 'areas'));
     }
 
     public function academic_event(){
-    	$publications = Publication::paginate(5);
+    	$publications = DB::table('publications')
+                                    ->where('type', '=', 3)
+                                    ->paginate(5);
     	$areas = Area::all();
     	return view('academic_event', compact('publications', 'areas'));
     }
 
     public function scientific_magazine(){
-    	$publications = Publication::paginate(5);
+    	$publications = DB::table('publications')
+                                    ->where('type', '=', 2)
+                                    ->paginate(5);
     	$areas = Area::all();
     	return view('scientific_magazine', compact('publications', 'areas'));
     }
