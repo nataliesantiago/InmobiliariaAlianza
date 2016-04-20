@@ -129,9 +129,39 @@ ul.tagcloud a {
     left: 500px;
 }
 
-
-
 .span8{
-	background-color: rgba(245, 245, 245, 0.61);
+		column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -o-column-count: 2;
+
+    column-gap: 2em;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    -o-column-gap: 2em;
+
+     column-rule: 2px solid #666;
+    -webkit-column-rule: 2px solid #666;
+    -moz-column-rule: 2px solid #666;
+    -o-column-rule: 2px solid #666;
+    background-color: rgba(245, 245, 245, 0.61);
+}
+
+.information{
+	position: relative;
+    width: 300px;
+    left: 20px;
+}
+
+.inner{
+	position: relative;
+    top: 1400px;
+    left: -580px;
+}
+
+.span4{
+	position: relative;
+    top: -95px;
+    padding-top: 30px;
 }
 
