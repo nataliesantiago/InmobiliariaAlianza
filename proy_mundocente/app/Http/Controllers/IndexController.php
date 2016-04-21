@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
-use MunDocente\Models\Publication;
-use MunDocente\Models\Area;
+use MunDocente\Publication;
+use MunDocente\Area;
 
 use DB;
 

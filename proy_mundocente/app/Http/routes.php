@@ -16,3 +16,7 @@ Route::get('/', 'IndexController@index');
 Route::get('/teacher_call', 'IndexController@teacher_call');
 Route::get('/academic_event', 'IndexController@academic_event');
 Route::get('/scientific_magazine', 'IndexController@scientific_magazine');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
