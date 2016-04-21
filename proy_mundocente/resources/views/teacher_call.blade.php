@@ -3,11 +3,12 @@
 
 				<div class="span8">
 				@foreach($publications as $publication)
-				<h2 style="color: black;">{{ $publication->name }}</h2>
+				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+				<h4 style="color: black;">{{ $publication->name }}</h4>
 				@if($publication->description!=null)
 					<p style="color: black;">{{ $publication->description }}</p>
 					@endif
-					<p style="color: black;">Publicado por <a href="#">{{ $publication->username }}</a>&nbsp;&#124;&nbsp; {{ $publication->date_publication }}</p>
+					<p style="color: black;">Publicado por <a href="#">{{ $publication->username }}</a></p>
 					<p style="color: black;">{{ $publication->place }}</p>					
 					<p style="color: black;">Fecha de comienzo: {{ $publication->start_date }}</p>
 					@if($publication->end_date!=null)
@@ -32,11 +33,12 @@
 
 					<hr class="soften">
 				@endforeach
-					<div class="inner">
+					
+				</div>
+
+<div class="inner">
 					<ul class="actions pagination">
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 					</div>
-				</div>
-
 	@stop

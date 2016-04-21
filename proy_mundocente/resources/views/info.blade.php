@@ -1,16 +1,15 @@
-@extends('layouts.index')
+@extends('layouts.planInfo')
 	@section('content')
 
 				<div class="span8">
-				<div class="information">
 				@foreach($publications as $publication)
-				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
-				<h4 style="color: black;">{{ $publication->name }}</h4>
 
-					@if($publication->description!=null)
+				<h2 style="color: black;">{{ $publication->name }}</h2>
+				@if($publication->description!=null)
 					<p style="color: black;">{{ $publication->description }}</p>
 					@endif
-					<p style="color: black;">Publicado por <a href="#">{{ $publication->username }}</a></p>
+
+					<p style="color: black;">Publicado por <a href="#">{{ $publication->username }}</a>&nbsp;&#124;&nbsp; {{ $publication->date_publication }}</p>
 					<p style="color: black;">{{ $publication->place }}</p>					
 					<p style="color: black;">Fecha de comienzo: {{ $publication->start_date }}</p>
 					@if($publication->end_date!=null)
@@ -26,23 +25,22 @@
 					<p style="color: black;">Categoria: {{ $publication->category }}</p>
 					@endif
 					
-					<a href="{{ $publication->url }}" class="btn btn-link pull-left"> Abrir link original </a>
+					<h4 href="{{ $publication->url }}" class="btn btn-link pull-left"> Abrir link original </h4>
 					<br>
 					<br>
-					
+						
 					</h5>
 					
 
 					<hr class="soften">
 				@endforeach
-				</div>
-
-				</div>
-
-				<div class="inner">
+					<div class="inner">
 					<ul class="actions pagination">
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 					</div>
+				
+				</div>
+
 
 	@stop

@@ -13,6 +13,8 @@
 
 .vspace20 {
 	padding: 20px 0px;
+	position: relative;
+    top: -60px;
 }
 
 .vspace30 {
@@ -199,7 +201,7 @@ hr.soften {
 	}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 400px) {
 	body {
 		padding: 0;
 	}
@@ -217,6 +219,14 @@ hr.soften {
 		margin-right: 0;
 		padding-left: 20px;
 		padding-right: 0;
+	}
+
+	.span7{
+		float: none;
+	}
+
+	.information{
+	float: none;
 	}
 	
 }
