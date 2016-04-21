@@ -28,7 +28,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 						<li><h2><a href="index">Mundocente</a></h2></li>
 						<li class="current"><a href="/">Home</a></li>
 						<li><a href="#">Publicaciones</a></li>
-						<li><a href="/teacher_call">Convocatorias docente</a></li>
+						<li><a href="teacher_call">Convocatorias docente</a></li>
 						<li><a href="#">Revistas científicas</a></li>
 						<li><a href="#">Eventos académicos</a></li>
 					</ul>
