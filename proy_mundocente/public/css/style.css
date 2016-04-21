@@ -5,12 +5,11 @@
 
 body{
 	background-color: #2e3141;
-	background-image: linear-gradient(to top, rgba(46,49,65,0.4), rgba(46,59,65,0.1)), url("../../images/bj.png");
+	background-image: linear-gradient(to top, rgba(46,49,65,0.4), rgba(46,59,65,0.1)), url("../../images/logomundodocente.jpg");
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
-}
-
+}				
 /*********************
 	 Marketing Area
 **********************/
