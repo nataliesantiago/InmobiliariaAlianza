@@ -13,10 +13,8 @@ use DB;
 
 class IndexController extends Controller
 {
-    public function index(){
-    	$publications = Publication::paginate(5);
-    	$areas = Area::all();
-    	return view('index', compact('publications', 'areas'));
+   public function index(){
+        return view('index');
     }
 
     public function teacher_call(){
