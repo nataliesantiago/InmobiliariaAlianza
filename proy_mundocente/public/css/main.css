@@ -2617,3 +2617,65 @@ div#slider div.elemento img{
 				}
 
 	}
+
+
+.name{
+	position: relative;
+    top: -20px;
+}
+
+.description{
+	position: relative;
+    top: -50px;
+}
+
+.publicator{
+	    position: relative;
+    top: -80px;
+}
+
+.place{
+	position: relative;
+    top: -110px;
+}
+
+.start{
+	position: relative;
+    top: -85px;
+}
+
+.end{
+	    position: relative;
+    top: -120px;
+}
+
+.carge{
+	    position: relative;
+    top: -150px;
+}
+
+.category{
+	    position: relative;
+    top: -150px;
+}
+
+.link{
+	    position: relative;
+    top: -160px;
+}
+
+.divition{
+	    position: relative;
+    top: -30px;
+    right: 80px;
+}
+
+.navbar {
+	height: 80px;
+	background-color: #FFFFFF;
+}
+
+.forgot{
+	color: #9A618A;
+	text-decoration: underline;
+}

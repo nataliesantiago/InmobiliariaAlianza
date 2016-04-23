@@ -14,7 +14,9 @@ use DB;
 class IndexController extends Controller
 {
    public function index(){
-        return view('index');
+        $publications = Publication::paginate(2);
+        $areas = Area::all();
+        return view('app', compact('publications', 'areas'));
     }
 
     public function teacher_call(){
