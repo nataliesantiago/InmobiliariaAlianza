@@ -51,12 +51,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <ul class="nav navbar-nav">
                     
                         <li><img  src="images/logo.jpg"></li>
-                        <li><h2><a href="/">Mundocente</a></h2></li>
                         <li class="current"><a href="/">Home</a></li>
-                        <li><a href="#">Publicaciones</a></li>  
-                        <li><a href="#">Convocatorias docente</a></li>
-                        <li><a href="#">Revistas científicas</a></li>
-                        <li><a href="#">Eventos académicos</a></li>
+                        <li><a href="/">Publicaciones</a></li>  
+                        <li><a href="/teacher_call">Convocatorias docente</a></li>
+                        <li><a href="/scientific_magazine">Revistas científicas</a></li>
+                        <li><a href="/academic_event">Eventos académicos</a></li>
                     
                 </ul>
 
@@ -189,7 +188,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </header>
                 <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
                 <br>
-                <a href="#" class="button big">Ver más</a>
+                <a href="/teacher_call" class="button big">Ver más</a>
             </section>
         </div>
         <div class="4u 12u(mobile)">
@@ -200,7 +199,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </header>
                 <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
                 <br>
-                <a href="#" class="button alt big">Ver más</a>
+                <a href="/scientific_magazine" class="button alt big">Ver más</a>
             </section>
         </div>
         <div class="4u 12u(mobile)">
@@ -211,7 +210,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </header>
                 <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
                 <br>
-                <a href="#" class="button alt2 big">Ver más</a>
+                <a href="/academic_event" class="button alt2 big">Ver más</a>
             </section>
         </div>
     </div>
