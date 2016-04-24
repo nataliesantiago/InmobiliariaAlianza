@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MundocenteUsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class MundocenteUsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'PepitoPerez',
             'password' => 'miPassword',
             'fullname' => 'Pedro Jimenez Perez',
@@ -19,7 +19,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 1,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'JuanMore2',
             'password' => '123x100pre',
             'fullname' => 'Juan Andres Moreno Torres',
@@ -27,7 +27,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 9,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'MariSol',
             'password' => 'iloveyou',
             'fullname' => 'Marisol Mercado Rodriguez',
@@ -35,7 +35,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 7,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Juani',
             'password' => 'cc430212021',
             'fullname' => 'Juana Indis Macareno',
@@ -43,7 +43,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 3,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Dani33',
             'password' => 'noolvidar',
             'fullname' => 'Danilo José Puierto Triungo',
@@ -51,7 +51,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 4,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Dieguit2',
             'password' => 'ilovescrum',
             'fullname' => 'Diego Escobar Gaviria',
@@ -59,7 +59,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 8,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Jj',
             'password' => 'soyrajon',
             'fullname' => 'Juan Jose Camargo',
@@ -67,7 +67,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 2,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Nestor123',
             'password' => '987654321',
             'fullname' => 'Nestor Felipe Fuzme Carrillo',
@@ -75,7 +75,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 5,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Mile99',
             'password' => 'mundocente',
             'fullname' => 'Milena de los Rios',
@@ -83,7 +83,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 10,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Apa33',
             'password' => '420xever',
             'fullname' => 'Aparicio Hernández',
@@ -91,7 +91,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 6,
             'type' => 2,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Juan23',
             'password' => 'juan123x',
             'fullname' => 'Juan Martinez',
@@ -99,7 +99,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 6,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Andrea',
             'password' => 'adreita89',
             'fullname' => 'Andrea Perez',
@@ -107,7 +107,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 2,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'MariaS',
             'password' => '407582',
             'fullname' => 'Maria Sandoval',
@@ -115,7 +115,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 7,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Pedro53',
             'password' => '7654se',
             'fullname' => 'Pedro Alvarez',
@@ -123,7 +123,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 6,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Daniel',
             'password' => 'danielito12',
             'fullname' => 'Daniel Felipe Sanchez',
@@ -131,7 +131,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 3,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'DanielaA',
             'password' => '6723daa',
             'fullname' => 'Daniela Albarracin',
@@ -139,7 +139,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 8,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Esperanza',
             'password' => 'esperanza12E',
             'fullname' => 'Esperanza Escobar',
@@ -147,7 +147,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 10,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Fanny',
             'password' => 'fanny77',
             'fullname' => 'Fanny Ramirez',
@@ -155,7 +155,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 10,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'Esteban',
             'password' => 'xeste13x',
             'fullname' => 'Esteban Martinez',
@@ -163,7 +163,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 2,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'AndresM_87',
             'password' => 'm87andres',
             'fullname' => 'Andres Moreno',
@@ -171,7 +171,7 @@ class MundocenteUsersTableSeeder extends Seeder
             'academic_institution' => 1,
             'type' => 1,
         ]);
-        DB::table('mundocente_users')->insert([
+        DB::table('users')->insert([
             'username' => 'JuanR',
             'password' => 'juanr24',
             'fullname' => 'Juan Rodriguez',

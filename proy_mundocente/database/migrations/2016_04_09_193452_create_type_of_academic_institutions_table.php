@@ -14,7 +14,7 @@ class CreateTypeOfAcademicInstitutionsTable extends Migration
     {
         Schema::create('type_of_academic_institutions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value');
+            $table->string('value',45);
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMundocenteUsersTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,19 +12,20 @@ class CreateMundocenteUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('mundocente_users', function (Blueprint $table) {
-            $table->string('username');
+        Schema::create('users', function (Blueprint $table) {
+            $table->string('username', 45);
             $table->primary('username');
-            $table->string('password');
-            $table->string('fullname');
-            $table->string('email')->unique();
-            $table->string('phone')->nullable()->unique();
-            $table->string('contact')->nullable();
+            $table->string('password', 45);
+            $table->string('fullname', 60);
+            $table->string('email', 45)->unique();
+            $table->string('phone', 15)->nullable()->unique();
+            $table->string('contact', 200)->nullable();
             $table->integer('academic_institution')->unsigned();
             $table->integer('type')->unsigned();
-            $table->timestamps();
             $table->foreign('academic_institution')->references('id')->on('academic_institutions');
             $table->foreign('type')->references('id')->on('type_of_mundocente_users');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -35,6 +36,6 @@ class CreateMundocenteUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('mundocente_users');
+        Schema::drop('users');
     }
 }

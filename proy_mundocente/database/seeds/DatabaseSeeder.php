@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TypeOfMundocenteUsersTableSeeder::class);
         $this->command->info('Tabla tipo de usuarios mundocete llenada');
 
-        $this->call(MundocenteUsersTableSeeder::class);
-        $this->command->info('Tabla usuarios mundocete llenada');
+        $this->call(UsersTableSeeder::class);
+        $this->command->info('Tabla usuarios llenada');
 
         $this->call(TypeOfPublicationsTableSeeder::class);
         $this->command->info('Tabla tipo de publicaión llenada');

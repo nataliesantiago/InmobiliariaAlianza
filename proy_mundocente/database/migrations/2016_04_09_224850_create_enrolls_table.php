@@ -17,7 +17,7 @@ class CreateEnrollsTable extends Migration
             $table->string('username');
             $table->integer('area')->unsigned();
             $table->timestamps();
-            $table->foreign('username')->references('username')->on('mundocente_users');
+            $table->foreign('username')->references('username')->on('users');
             $table->foreign('area')->references('id')->on('areas');
         });
     }
