@@ -1,42 +1,39 @@
-@extends('layouts.index')
-	@section('content')
+@extends('layouts.info_publication')
+@section('content')
 
-				<div class="span8">
-				<div class="information">
+
+<div class="info">
 				@foreach($publications as $publication)
 				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
-				<h4 style="color: black;">{{ $publication->name }}</h4>
+                    <header class="name">
+                        <h3 style="color: black;">{{ $publication->name }}</h3>
+                    </header>
+                  
+                    @if($publication->description!=null)
+                    <p class="description">{{ $publication->description }}</p>
+                    @endif
 
-					@if($publication->description!=null)
-					<p style="color: black;">{{ $publication->description }}</p>
-					@endif
-					<p style="color: black;">Publicado por <a href="#">{{ $publication->username }}</a></p>
-					<p style="color: black;">{{ $publication->place }}</p>					
-					<p style="color: black;">Fecha de comienzo: {{ $publication->start_date }}</p>
+                    <p class="publicator">Publicado por: {{ $publication->username }}</p>
+                    <p class="place">{{ $publication->place }}</p>					
+					<p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
+
 					@if($publication->end_date!=null)
-					<p style="color: black;">Fecha final: {{ $publication->end_date }}</p>
+					<p class="end">Fecha final: {{ $publication->end_date }}</p>
 					@endif					
 					@if($publication->contact!=null)
-					<p style="color: black;">Contacto: {{ $publication->contact }}</p>
+					<p class="contact">Contacto: {{ $publication->contact }}</p>
 					@endif
 					@if($publication->position!=null)
-					<p style="color: black;">Cargo: {{ $publication->position }}</p>
+					<p class="carge">Cargo: {{ $publication->position }}</p>
 					@endif
 					@if($publication->category!=null)
-					<p style="color: black;">Categoria: {{ $publication->category }}</p>
+					<p class="category">Categoria: {{ $publication->category }}</p>
 					@endif
 					
-					<a href="{{ $publication->url }}" class="btn btn-link pull-left"> Abrir link original </a>
-					<br>
-					<br>
-					
-					</h5>
-					
-
-					<hr class="soften">
+					<h4 href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link original </h4>
+                <hr class="divition">
 				@endforeach
-				</div>
-
+					
 				</div>
 
 				<div class="inner">
@@ -44,5 +41,4 @@
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 					</div>
-
-	@stop
+@stop

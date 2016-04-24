@@ -12,7 +12,6 @@ return array(
     'CreateAdministratorsTable' => $baseDir . '/database/migrations/2016_04_09_235119_create_administrators_table.php',
     'CreateAreasTable' => $baseDir . '/database/migrations/2016_04_09_202918_create_areas_table.php',
     'CreateEnrollsTable' => $baseDir . '/database/migrations/2016_04_09_224850_create_enrolls_table.php',
-    'CreateMundocenteUsersTable' => $baseDir . '/database/migrations/2016_04_09_214611_create_mundocente_users_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePlacesTable' => $baseDir . '/database/migrations/2016_04_09_184915_create_places_table.php',
     'CreatePublicationsTable' => $baseDir . '/database/migrations/2016_04_09_231143_create_publications_table.php',
@@ -537,4 +536,5 @@ return array(
     'TypeOfPlacesTableSeeder' => $baseDir . '/database/seeds/TypeOfPlacesTableSeeder.php',
     'TypeOfPublicationsTableSeeder' => $baseDir . '/database/seeds/TypeOfPublicationsTableSeeder.php',
     'TypeOfScientificMagazinesTableSeeder' => $baseDir . '/database/seeds/TypeOfScientificMagazinesTableSeeder.php',
+    'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
 );

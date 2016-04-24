@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
-use MunDocente\Models\Publication;
-use MunDocente\Models\Area;
+use MunDocente\Publication;
+use MunDocente\Area;
 
 use DB;
 
 class IndexController extends Controller
 {
-    public function index(){
-    	$publications = Publication::paginate(5);
-    	$areas = Area::all();
-    	return view('index', compact('publications', 'areas'));
+   public function index(){
+        $publications = Publication::paginate(2);
+        $areas = Area::all();
+        return view('app', compact('publications', 'areas'));
     }
 
     public function teacher_call(){
