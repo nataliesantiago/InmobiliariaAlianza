@@ -2671,11 +2671,52 @@ div#slider div.elemento img{
 }
 
 .navbar {
-	height: 80px;
+	height: 120px;
 	background-color: #FFFFFF;
 }
 
 .forgot{
 	color: #9A618A;
 	text-decoration: underline;
+}
+
+.dropdown{
+	position: relative;
+    left: 130px;
+}
+
+.register{
+	position: relative;
+    left: 60px;
+}
+
+.navbar .nav>li.current>a{
+	    background: #9A618A;
+    color: #fff !important;
+    font-weight: 700;
+  
+}
+
+
+.navbar .nav>li{
+	display: inline-block;
+					font-style: italic;
+					margin: 0 0.35em 0 0.35em;
+}
+
+.navbar .nav>li>a{
+	border-radius: 5px;
+						color: #5d5d5d;
+						text-decoration: none;
+						padding: 0.6em 1.2em 0.6em 1.2em;
+						-moz-transition: background-color .25s ease-in-out;
+						-webkit-transition: background-color .25s ease-in-out;
+						-ms-transition: background-color .25s ease-in-out;
+						transition: background-color .25s ease-in-out;
+						outline: 0;
+}
+
+.formu{
+	position: relative;
+    left: 100px;
 }
