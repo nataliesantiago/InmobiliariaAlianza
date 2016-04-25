@@ -30,7 +30,7 @@
 					<p class="category">Categoria: {{ $publication->category }}</p>
 					@endif
 					
-					<h4 href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link original </h4>
+					<a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link </a>
                 <hr class="divition">
 				@endforeach
 					

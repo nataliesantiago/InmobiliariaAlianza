@@ -32,38 +32,35 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <!-- Nav -->
                  <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-               
+             <div class="row">
+                <div class="2u 12u(mobile)">
+                    <a href="/"><img  src="images/logo.jpg"></a>
+                </div>
+                <div class="8u 12u(mobile)">
+                </div>              
+                <div class="2u 12u(mobile)">
+                    <form class="form login-form">
+                        <input type="text" name="query" placeholder="Búsqueda" />
+                        <a href="#">Búsqueda avanzada</a>
+                        <br>
+                    </form>
+                </div>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div class="formu navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     
-                         <li><img  src="images/logo.jpg"></li>
                         <li class="current"><a href="/">Home</a></li>
                         <li><a href="/">Publicaciones</a></li>  
                         <li><a href="/teacher_call">Convocatorias docente</a></li>
                         <li><a href="/scientific_magazine">Revistas científicas</a></li>
                         <li><a href="/academic_event">Eventos académicos</a></li>
                     
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+               
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li class="register"><a href="{{ url('/register') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -87,55 +84,64 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>
 
 			<!-- Main -->
-				<div id="main-wrapper">
-					<div class="container">
-						<div class="row">
-							<div class="4u 12u(mobile)">
+                <div id="main-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="8u 12u(mobile)">
 
-								<!-- Sidebar -->
-									<section class="box">
-										<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
-										<header>
-											<h3>Sed etiam lorem nulla</h3>
-										</header>
-										<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-										<footer>
-											<a href="#" class="button alt">Magna sed taciti</a>
-										</footer>
-									</section>
-									<section class="box">
-										<header>
-											<h3>Feugiat consequat</h3>
-										</header>
-										<p>Veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat sed lorem consequat feugiat lorem dolore.</p>
-										<ul class="divided">
-											<li><a href="#">Sed et blandit consequat sed</a></li>
-											<li><a href="#">Hendrerit tortor vitae sapien dolore</a></li>
-											<li><a href="#">Sapien id suscipit magna sed felis</a></li>
-											<li><a href="#">Aptent taciti sociosqu ad litora</a></li>
-										</ul>
-										<footer>
-											<a href="#" class="button alt">Ipsum consequat</a>
-										</footer>
-									</section>
+                                <!-- Content -->
+                                    <article class="box post">
+                                        <a class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                                        <div class="information">
+                                            @yield('content')
+                                        </div>
+                                    </article>
 
-							</div>
-							<div class="8u 12u(mobile) important(mobile)">
+                            </div>
 
-								<!-- Content -->
-									<article class="box post">
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<div class="information">
-                							@yield('content')
-                    					</div>
-									</article>
+                            
+                            <div class="4u 12u(mobile)">
+                            <section class="box">
+                            <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
+                             {!! csrf_field() !!}
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>                 
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Usuario"/>
+                                     @if ($errors->has('email'))
+                                             <span class="help-block">
+                                                 <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                         @endif
+                                </div><br>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                 
+                                    <input type="password" class="form-control" name="password" placeholder="Contraseña" />
+                                    @if ($errors->has('password'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                </div>
+                                <center><label class="checkbox inline">
+                                </label><input type="checkbox" name="remember">Recordar</center><br>
+                                <center>
+                                    <ul class="social">
+                                        <li><button type="submit" class="btn2 btn-default">Ingresar</button></li>
+                                        <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                        <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
+                                    </ul>
+                                </center>
+                                <HR>
+                                <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
+                            </form>
+                        <hr >       
+                    </section>
 
-							</div>
-						</div>
-					</div>
-				</div>
-
-		
+                </div>
+                        </div>
+                    </div>
+                </div>
+	
 		<!-- Scripts -->
 			<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
