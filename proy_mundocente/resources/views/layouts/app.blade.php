@@ -50,8 +50,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     
-                        <li><img  src="images/logo.jpg"></li>
-                        <li class="current"><a href="/">Home</a></li>
+                        <li><a href="/"><img  src="images/logo.jpg"></a></li>
                         <li><a href="/">Publicaciones</a></li>  
                         <li><a href="/teacher_call">Convocatorias docente</a></li>
                         <li><a href="/scientific_magazine">Revistas científicas</a></li>
@@ -67,11 +66,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                             </ul>
                         </li>
                     @endif
