@@ -13,7 +13,6 @@
 
 
 Route::get('/', 'IndexController@index');
-Route::get('/search', 'IndexController@search');
 Route::get('/teacher_call', 'IndexController@teacher_call');
 Route::get('/academic_event', 'IndexController@academic_event');
 Route::get('/scientific_magazine', 'IndexController@scientific_magazine');
