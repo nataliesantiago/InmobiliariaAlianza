@@ -2687,5 +2687,126 @@ div#slider div.elemento img{
 
 .register{
 	position: relative;
-    left: 130px;
+    left: 60px;
+}
+
+.navbar .nav>li.current>a{
+	    background: #9A618A;
+    color: #fff !important;
+    font-weight: 700;
+  
+}
+
+
+.navbar .nav>li{
+	display: inline-block;
+					font-style: Sans MS;
+					margin: 0 0.35em 0 0.35em;
+}
+
+.navbar .nav>li>a{
+	border-radius: 5px;
+						color: #5d5d5d;
+						text-decoration: none;
+						padding: 0.6em 1.2em 0.6em 1.2em;
+						-moz-transition: background-color .25s ease-in-out;
+						-webkit-transition: background-color .25s ease-in-out;
+						-ms-transition: background-color .25s ease-in-out;
+						transition: background-color .25s ease-in-out;
+						outline: 0;
+}
+
+.formu{
+	position: relative;
+    left: 100px;
+}
+
+.checkbox{
+	    position: relative;
+    top: 15px;
+}
+
+ul.social_login {
+		overflow: hidden;
+		cursor: default;
+	}
+
+		ul.social_login li {
+			display: inline-block;
+		}
+
+			ul.social_login li:first-child {
+				margin-left: 0;
+			}
+
+			ul.social_login li a {
+				display: inline-block;
+				width: 3em;
+				height: 3em;
+				text-align: center;
+				border-radius: 5px;
+				background: #888;
+				-moz-transition: background-color .25s ease-in-out;
+				-webkit-transition: background-color .25s ease-in-out;
+				-ms-transition: background-color .25s ease-in-out;
+				transition: background-color .25s ease-in-out;
+			}
+
+				ul.social_login li a:before {
+					color: #fff;
+					font-size: 2em;
+					line-height: 1.5em;
+				}
+
+				ul.social_login li a.fa-facebook {
+					background: #3c5a98;
+				}
+
+					ul.social li a.fa-facebook:hover {
+						background: #4c6aa8;
+					}
+
+				ul.social_login li a.fa-twitter {
+					background: #2daae4;
+				}
+
+					ul.social_login li a.fa-twitter:hover {
+						background: #3dbaf4;
+					}
+
+				ul.social_login li a.fa-dribbble {
+					background: #c4376b;
+				}
+
+					ul.social_login li a.fa-dribbble:hover {
+						background: #d4477b;
+					}
+
+				ul.social_login li a.fa-linkedin {
+					background: #006599;
+				}
+
+					ul.social_login li a.fa-linkedin:hover {
+						background: #1075a9;
+					}
+
+				ul.social_login li a.fa-tumblr {
+					background: #2b4661;
+				}
+
+					ul.social_login li a.fa-tumblr:hover {
+						background: #3b5671;
+					}
+
+				ul.social_login li a.fa-google-plus {
+					background: #da2713;
+				}
+
+					ul.social_login li a.fa-google-plus:hover {
+						background: #ea3723;
+					}
+
+.social_login{
+	position: relative;
+    top: 20px;
 }

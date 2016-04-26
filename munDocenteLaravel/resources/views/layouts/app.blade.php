@@ -34,32 +34,35 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <a href="#"><img  src="images/logo.jpg"></a>
+                    <a href="/"><img  src="images/logo.jpg"></a>
                 </div>
                 <div class="8u 12u(mobile)">
                 </div>              
                 <div class="2u 12u(mobile)">
                     <form class="form login-form">
                         <input type="text" name="query" placeholder="Búsqueda" />
+
                         <a href="#">Búsqueda avanzada</a>
                         <br>
                     </form>
                 </div>
-            </div>  
+            </div>
 
             <div class="formu navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     
+
                         <li class="current"><a href="/">Home</a></li>
-                        <li><a href="/">Publicaciones</a></li>  
-                        <li><a href="/teacher_call">Convocatorias docente</a></li>
-                        <li><a href="/scientific_magazine">Revistas científicas</a></li>
-                        <li><a href="/academic_event">Eventos académicos</a></li>
+                        <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
+                        <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+                        <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+
                     
                
                     <!-- Authentication Links -->
                     @if (Auth::guest())
+                   
                         <li class="register"><a href="{{ url('/register') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
@@ -68,7 +71,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                                               
                             </ul>
                         </li>
                     @endif
@@ -91,15 +96,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                 <div class="8u 12u(mobile)">
                     <article class="box post">
-                        <div id = "slider">
+                         <div id = "slider">
                             <div class ="elemento">
-                                <img src="images/pic08.jpg">
+                                <img src="images/img1.png">
                             </div>
                             <div class ="elemento">
-                                <img src="images/pic09.jpg">
+                                <img src="images/img2.png">
                             </div>
                             <div class ="elemento">
-                                <img src="images/pic10.jpg">
+                                <img src="images/img3.png">
+                            </div>
+                             <div class ="elemento">
+                                <img src="images/img4.png">
                             </div>
                         </div>
                     </section>
@@ -113,7 +121,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <section class="box">
                             <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
                              {!! csrf_field() !!}
-                                <div class="input-group">
+                                <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>                 
                                     <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Usuario"/>
                                      @if ($errors->has('username'))
@@ -134,11 +142,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 <center><label class="checkbox inline">
                                 </label><input type="checkbox" name="remember">Recordar</center><br>
                                 <center>
-                                    <ul class="social">
-                                        <li><button type="submit" class="btn2 btn-default">Ingresar</button></li>
+                                <button type="submit" class="btn2 btn-default">Ingresar</button>
+                                    <ul class="social_login">
+                                        
                                         <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-                                        <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
+                                    <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
                                     </ul>
+                                    
                                 </center>
                                 <HR>
                                 <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
@@ -207,12 +217,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <header>                
                             <h2 class="major">Contacto</h2>
                         </header>
-                        <ul class="social">
-                            <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-                            <li><a class="icon fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-                            <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
-                            <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
-                        </ul>
+                       <ul class="social">
+                            <li><a class="icon fa-facebook" href="https://www.facebook.com/mundocente/?fref=ts"><span class="label">Facebook</span></a></li>
+                            <li><a class="icon fa-twitter" href="https://twitter.com/mundocente"><span class="label">Twitter</span></a></li>
+                         </ul>
                         <ul class="contact">
                             <li>
                                 <h3>Dirección</h3>
@@ -265,7 +273,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <!-- Copyright -->
                         <div id="copyright">
                             <ul class="links">
-                                <li>&copy; Copyright 2016</li><li>Diseño: <a href="http://html5up.net">MunDocente</a></li>
+                                <li>&copy; Copyright 2016</li><li>Diseño: <a href="https://www.facebook.com/mundocente/?fref=ts">MunDocente</a></li>
                             </ul>
                         </div>
 
