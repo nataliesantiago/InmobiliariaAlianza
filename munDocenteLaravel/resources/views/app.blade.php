@@ -1,6 +1,7 @@
 @extends('layouts.app')
 	@section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <!-- Main -->
     <div id="main-wrapper">
@@ -61,7 +62,10 @@
 				
 				@foreach($publications as $publication)
 			
+=======
+>>>>>>> parent of 89cf5dc... Adicion de estilos, primeras correcciones del index, adicion de las ventanas de convocatorias, eventos y revistas, adicion de la opcion configuracion (todavia sin funcionalidad)
 				<div class="info">
+				@foreach($publications as $publication)
 				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
@@ -88,14 +92,12 @@
 					<p class="category">Categoria: {{ $publication->category }}</p>
 					@endif
 					
-
-					<a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
-
+					<h4 href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link original </h4>
                 <hr class="divition">
-                </div>
-             
 				@endforeach
+
 					
+<<<<<<< HEAD
 				
 >>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
 
@@ -153,6 +155,9 @@
             </div>
         </div>
     </div>
+=======
+				</div>
+>>>>>>> parent of 89cf5dc... Adicion de estilos, primeras correcciones del index, adicion de las ventanas de convocatorias, eventos y revistas, adicion de la opcion configuracion (todavia sin funcionalidad)
 
 
 	@stop

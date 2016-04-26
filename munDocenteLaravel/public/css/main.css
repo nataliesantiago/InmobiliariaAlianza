@@ -2687,6 +2687,7 @@ div#slider div.elemento img{
 
 .register{
 	position: relative;
+<<<<<<< HEAD
     left: 60px;
 }
 
@@ -2822,3 +2823,7 @@ ul.social_login {
     top: 20px;
 >>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
 }
+=======
+    left: 130px;
+}
+>>>>>>> parent of 89cf5dc... Adicion de estilos, primeras correcciones del index, adicion de las ventanas de convocatorias, eventos y revistas, adicion de la opcion configuracion (todavia sin funcionalidad)
