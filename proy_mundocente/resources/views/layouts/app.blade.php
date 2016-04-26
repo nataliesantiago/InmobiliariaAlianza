@@ -30,7 +30,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div id="header-wrapper">
         <div id="header">
             <!-- Nav -->
-                 <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 

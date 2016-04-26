@@ -40,5 +40,5 @@
 					<ul class="actions pagination">
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
-					</div>
+				</div>
 @stop

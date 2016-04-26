@@ -8,6 +8,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <head>
 <title>MUNDOCENTE</title>
 <meta charset="utf-8" />
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -49,114 +50,72 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<!--<img src="images/logo.jpg">-->
 </div>
 
-<!-- Main -->
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
-
-			<div class="8u 12u(mobile)">
-				<article class="box post">
-					<div id = "slider">
-						<div class ="elemento">
-							<img src="images/pic08.jpg">
+			<div class="12u 12u(mobile)">
+				<h2>Búsqueda avanzada</h2><hr>
+			<section class="box">
+			<header>
+				
+				<form method="post">
+					<div class="row uniform">
+						<div class="12u$">
+							<label for="demo-name">Buscar</label>
+							<input type="text" name="demo-name" id="demo-name" value="" />
+						</div>     
+						<div class="form-group">
+							 <label class="control-label col-xs-3">Áreas</label>
+					      	<div class="col-xs-12" id="listArea">
+					        <div  class="input-group">
+								<select class="form-control" required name="area[]">             
+					        		<option name>Seleccione una opción</option>
+									<option>Software</option>
+									<option>Educación</option>
+									<option>Web</option>
+									<option>Inglés</option>
+									<option>Matemáticas</option>
+									<option>Ingeniería</option>
+									<option>Medicina</option>
+								</select>
+							    <span class="input-group-btn input-sm">
+					            <button type="button" class= "btn btn-primary" onclick="crearArea(this)"><i class="glyphicon glyphicon-plus"></i></button>
+					          	</span>
+					     	</div>
+					     	</div> 
+					        <br>
+					    </div>  
+						<div class="12u">
+							<label>Categorias</label>
+						</div>								
+						<div class="4u">
+							<input type="checkbox" id="convocatorias" name="convocatorias">
+							<label for="convocatorias">Convocatorias</label>						
 						</div>
-						<div class ="elemento">
-							<img src="images/pic09.jpg">
+						<div class="4u">
+							<input type="checkbox" id="revistas" name="revistas">
+							<label for="revistas">Revistas</label>									
 						</div>
-						<div class ="elemento">
-							<img src="images/pic10.jpg">
+						<div class="4u">
+							<input type="checkbox" id="eventos" name="eventos">
+							<label for="eventos">Eventos</label>									
 						</div>
+						<a href="#" class="special">Más opciones</a>
+						<div class="12u$">
+							<ul class="actions">
+								<li><a id="busqueda" href="#resultado" class="button special icon fa-search">Buscar</a></li>
+							</ul>
+						</div>
+					
 					</div>
-					<section>
-					<header>
-						<h3>MUNDOCENTE</h3>
-					</header>
-					<p>
-						Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-						placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-						eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-						elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-						sit amet nullam consequat feugiat dolore tempus.
-					</p>
-					</section>
-				</article>	
-			</div>
-
-			<div class="4u 12u(mobile)">
-					<section class="box">
-							<form class="form login-form">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>					
-									<input id="Username" name="Username" type="text" class="form-control" placeholder="Usuario"/>
-								</div><br>
-								<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>					
-									<input id="Password" name="Password" type="password" class="form-control" placeholder="Contraseña" />
-								</div>
-								<center><label class="checkbox inline">
-								</label><input type="checkbox" id="RememberMe" value="option1">Recordar</center><br>
-								<center>
-									<button type="submit" name="login" class="button"><i class="glyphicon glyphicon-log-in"></i></button>
-									<br><br>
-									<ul class="social">
-										<li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-										<li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
-									</ul>
-								</center>
-								<HR>
-								<center><a href="registro.html">Registrarse</a>&nbsp;&#124;&nbsp;<a href="#">¿Olvido su contraseña?</a></center>
-							</form>
-						<hr >		
-					</section>
-			</div>
-
+				</form>
+			</header>
+		</section>
 		</div>
 	</div>
 </div>
+</div>
 
-<div id="header-wrapper">
-<div id="header">
-	<!-- Intro -->
-<section id="intro" class="container">
-<div class="row">
-	<div class="4u 12u(mobile)">
-		<section class="first">
-			<i class="icon featured fa-suitcase"></i>
-			<header>
-				<h2>Convocatorias docente</h2>
-			</header>
-			<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
-			<br>
-			<a href="#" class="button big">Ver más</a>
-		</section>
-	</div>
-	<div class="4u 12u(mobile)">
-		<section class="middle">
-			<i class="icon featured alt fa-book"></i>
-			<header>
-				<h2>Revistas científicas</h2>
-			</header>
-			<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
-			<br>
-			<a href="#" class="button alt big">Ver más</a>
-		</section>
-	</div>
-	<div class="4u 12u(mobile)">
-		<section class="last">
-			<i class="icon featured alt2 fa-graduation-cap"></i>
-			<header>
-				<h2>Eventos académicos</h2>
-			</header>
-			<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
-			<br>
-			<a href="#" class="button alt2 big">Ver más</a>
-		</section>
-	</div>
-</div>
-</section>
-
-</div>
-</div>
 
 <!-- Footer -->
 <div id="footer-wrapper">
@@ -247,5 +206,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="assets/js/main.js"></script>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script src="assets/js/slider.js"></script>
+<script src="assets/js/areas.js"></script>
+
 </body>
 </html>
