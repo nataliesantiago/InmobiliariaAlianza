@@ -1131,7 +1131,7 @@
 	}
 
 	a {
-		color: #4D90FE;
+		color: #9A618A;
 		text-decoration: underline;
 	}
 
@@ -2700,11 +2700,7 @@ div#slider div.elemento img{
 
 .navbar .nav>li{
 	display: inline-block;
-<<<<<<< HEAD
-					font-style: italic;
-=======
 					font-style: Sans MS;
->>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
 					margin: 0 0.35em 0 0.35em;
 }
 
@@ -2718,13 +2714,6 @@ div#slider div.elemento img{
 						-ms-transition: background-color .25s ease-in-out;
 						transition: background-color .25s ease-in-out;
 						outline: 0;
-<<<<<<< HEAD
-}
-
-.formu{
-	position: relative;
-    left: 100px;
-=======
 }
 
 .formu{
@@ -2820,5 +2809,4 @@ ul.social_login {
 .social_login{
 	position: relative;
     top: 20px;
->>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
 }

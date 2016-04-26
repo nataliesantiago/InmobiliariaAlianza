@@ -30,7 +30,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div id="header-wrapper">
         <div id="header">
             <!-- Nav -->
-    <nav class="navbar navbar-default navbar-static-top">
+                 <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
@@ -41,12 +41,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <div class="2u 12u(mobile)">
                     <form class="form login-form">
                         <input type="text" name="query" placeholder="Búsqueda" />
-<<<<<<< HEAD
-                        <a href="/search">Búsqueda avanzada</a>
-=======
 
                         <a href="#">Búsqueda avanzada</a>
->>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
                         <br>
                     </form>
                 </div>
@@ -87,16 +83,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </nav>
 
 
-</div>
-    <!-- Nav -->
-</div>      
-</div>
+        </div>
+            <!-- Nav -->
+        </div>      
+        </div>
    
 
-<<<<<<< HEAD
-                @yield('content')
-                
-=======
 <!-- Main -->
     <div id="main-wrapper">
         <div class="container">
@@ -171,7 +163,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>
     </div>
 
->>>>>>> 89cf5dc8a83240692b96460cfddda0b1af88bf20
 <div id="header-wrapper">
     <div id="header">
         <!-- Intro -->
@@ -303,7 +294,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="js/main.js"></script>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script src="js/slider.js"></script>
-<script src="js/areas.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
