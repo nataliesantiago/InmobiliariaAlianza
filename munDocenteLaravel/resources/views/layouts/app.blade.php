@@ -30,7 +30,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div id="header-wrapper">
         <div id="header">
             <!-- Nav -->
-                 <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
@@ -41,7 +41,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <div class="2u 12u(mobile)">
                     <form class="form login-form">
                         <input type="text" name="query" placeholder="Búsqueda" />
-                        <a href="#">Búsqueda avanzada</a>
+                        <a href="/search">Búsqueda avanzada</a>
                         <br>
                     </form>
                 </div>
@@ -78,81 +78,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </nav>
 
 
-        </div>
-            <!-- Nav -->
-        </div>      
-        </div>
+</div>
+    <!-- Nav -->
+</div>      
+</div>
    
 
-<!-- Main -->
-    <div id="main-wrapper">
-        <div class="container">
-            <div class="row">
-
-                <div class="8u 12u(mobile)">
-                    <article class="box post">
-                        <div id = "slider">
-                            <div class ="elemento">
-                                <img src="images/pic08.jpg">
-                            </div>
-                            <div class ="elemento">
-                                <img src="images/pic09.jpg">
-                            </div>
-                            <div class ="elemento">
-                                <img src="images/pic10.jpg">
-                            </div>
-                        </div>
-                    </section>
-                  <div class="information">
                 @yield('content')
-                    </div>
-                </div>
-                 @if (Auth::guest())
-                <div class="4u 12u(mobile)">
-
-                <section class="box">
-                            <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
-                             {!! csrf_field() !!}
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>                 
-                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Usuario"/>
-                                     @if ($errors->has('username'))
-                                             <span class="help-block">
-                                                 <strong>{{ $errors->first('username') }}</strong>
-                                            </span>
-                                         @endif
-                                </div><br>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                 
-                                    <input type="password" class="form-control" name="password" placeholder="Contraseña" />
-                                    @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                </div>
-                                <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">Recordar</center><br>
-                                <center>
-                                    <ul class="social">
-                                        <li><button type="submit" class="btn2 btn-default">Ingresar</button></li>
-                                        <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-                                        <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
-                                    </ul>
-                                </center>
-                                <HR>
-                                <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
-                            </form>
-                        <hr >       
-                    </section>
-
-                </div>
-                @endif
-
-            </div>
-        </div>
-    </div>
-
+                
 <div id="header-wrapper">
     <div id="header">
         <!-- Intro -->
@@ -286,6 +219,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="js/main.js"></script>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script src="js/slider.js"></script>
+<script src="js/areas.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
