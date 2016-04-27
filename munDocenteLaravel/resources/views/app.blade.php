@@ -31,7 +31,6 @@
                                     <ul class="social_login">
                                         
                                     <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-                                    <li><a class="icon fa-twitter" href="#"><span class="label">Twitter</span></a></li>
                                     <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
                                     <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
                                     </ul>

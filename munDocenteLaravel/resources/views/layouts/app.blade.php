@@ -34,7 +34,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <a href="/"><img  src="images/logo.jpg"></a>
+                    <a class="logo" href="/"><img  src="images/logo.jpg"></a>
                 </div>
                 <div class="8u 12u(mobile)">
                 </div>              

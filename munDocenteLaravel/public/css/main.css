@@ -414,6 +414,7 @@
 	}
 
 	.\-2u {
+
 		margin-left: 16.66667%;
 	}
 
@@ -2810,4 +2811,17 @@ ul.social_login {
 .social_login{
 	position: relative;
     top: 20px;
+}
+
+.logo{
+	position: relative;
+    right: 70px;
+}
+
+.info{
+	height: 400px;
+}
+
+.count{
+ color: #FFFFFF
 }

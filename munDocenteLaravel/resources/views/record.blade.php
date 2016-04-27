@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="12u 12u(mobile)">
 				<header>
-					<center><h2>NUEVA CUENTA</h2></center>			
+					<center><h2 class="count">NUEVA CUENTA</h2></center>			
 				</header>
 			</div>
 			<div class="12u 12u(mobile)">
@@ -89,13 +89,13 @@
 			            <input type="hidden" name="type" value="1">
 			            <input type="hidden" name="academic_institution" value="10">
 
-			            <div class="form-group">
+			            <center><div class="form-group">
 			                <div class="12u$">
 			                    <button type="submit" class="button special icon fa-user-plus">
 			                        Registrarse
 			                    </button>
 			                </div>
-			            </div>
+			            </div></center>
 			        </div>
 			        </form>
 			    </section>

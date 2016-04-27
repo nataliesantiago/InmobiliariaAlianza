@@ -26,12 +26,13 @@
                                         @endif
                                 </div>
                                 <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">  Recordar</center><br>
+                                </label><input type="checkbox" name="remember">Recordar</center><br>
                                 <center>
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
                                         
-                                        <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
                                     <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
                                     </ul>
                                     
@@ -44,14 +45,14 @@
 
                 </div>
                 @endif
-        @stop
+     @stop
 
-@section('content')
-
-
-<div class="info">
-				@foreach($publications as $publication)
-				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+@section('content')     
+                
+                @foreach($publications as $publication)
+            
+                <div class="info">
+                <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
@@ -61,31 +62,36 @@
                     @endif
 
                     <p class="publicator">Publicado por: {{ $publication->username }}</p>
-                    <p class="place">{{ $publication->place }}</p>					
-					<p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
+                    <p class="place">{{ $publication->place }}</p>                  
+                    <p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
 
-					@if($publication->end_date!=null)
-					<p class="end">Fecha final: {{ $publication->end_date }}</p>
-					@endif					
-					@if($publication->contact!=null)
-					<p class="contact">Contacto: {{ $publication->contact }}</p>
-					@endif
-					@if($publication->position!=null)
-					<p class="carge">Cargo: {{ $publication->position }}</p>
-					@endif
-					@if($publication->category!=null)
-					<p class="category">Categoria: {{ $publication->category }}</p>
-					@endif
-					
-					<a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link </a>
+                    @if($publication->end_date!=null)
+                    <p class="end">Fecha final: {{ $publication->end_date }}</p>
+                    @endif                  
+                    @if($publication->contact!=null)
+                    <p class="contact">Contacto: {{ $publication->contact }}</p>
+                    @endif
+                    @if($publication->position!=null)
+                    <p class="carge">Cargo: {{ $publication->position }}</p>
+                    @endif
+                    @if($publication->category!=null)
+                    <p class="category">Categoria: {{ $publication->category }}</p>
+                    @endif
+                    
+
+                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
+
                 <hr class="divition">
-				@endforeach
-					
-				</div>
+                </div>
+             
+                @endforeach
+                    
+                
 
-				<div class="inner">
-					<ul class="actions pagination">
-					<center><li>{!! $publications->links() !!}</li></center>
-					</ul>
-					</div>
-@stop
+                <div class="inner">
+                    <ul class="actions pagination">
+                    <center><li>{!! $publications->links() !!}</li></center>
+                    </ul>
+                    </div>
+
+    @stop

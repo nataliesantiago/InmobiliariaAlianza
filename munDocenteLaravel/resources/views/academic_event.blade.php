@@ -26,12 +26,13 @@
                                         @endif
                                 </div>
                                 <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">  Recordar</center><br>
+                                </label><input type="checkbox" name="remember">Recordar</center><br>
                                 <center>
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
                                         
-                                        <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
                                     <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
                                     </ul>
                                     
@@ -43,14 +44,14 @@
                     </section>
 
                 </div>
-                @endif
-        @stop
+            @endif
+     @stop
 
-@section('content')
-
-
-<div class="info">
+@section('content')     
+                
                 @foreach($publications as $publication)
+            
+                <div class="info">
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
@@ -77,15 +78,20 @@
                     <p class="category">Categoria: {{ $publication->category }}</p>
                     @endif
                     
-                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link </a>
+
+                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
+
                 <hr class="divition">
+                </div>
+             
                 @endforeach
                     
-                </div>
+                
 
                 <div class="inner">
                     <ul class="actions pagination">
                     <center><li>{!! $publications->links() !!}</li></center>
                     </ul>
                     </div>
-@stop
+
+    @stop
