@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('principal')
 
 @section('login')
-  @if (Auth::guest())
                 <div class="4u 12u(mobile)">
 
                 <section class="box">
@@ -31,7 +30,9 @@
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
                                         
-                                        <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+                                    <li><a class="icon fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+                                    <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
                                     <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
                                     </ul>
                                     
@@ -43,11 +44,9 @@
                     </section>
 
                 </div>
-                @endif
      @stop
 
-	@section('content')
-				
+	@section('content')		
 				
 				@foreach($publications as $publication)
 			

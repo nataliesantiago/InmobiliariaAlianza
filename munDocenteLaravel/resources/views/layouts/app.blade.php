@@ -42,7 +42,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <form class="form login-form">
                         <input type="text" name="query" placeholder="Búsqueda" />
 
-                        <a href="#">Búsqueda avanzada</a>
+                        <a href="/search">Búsqueda avanzada</a>
                         <br>
                     </form>
                 </div>
@@ -63,7 +63,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
-                        <li class="register"><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li class="register"><a href="/record">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -89,37 +89,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>
    
 
-<!-- Main -->
-    <div id="main-wrapper">
-        <div class="container">
-            <div class="row">
-
-                <div class="8u 12u(mobile)">
-                    <article class="box post">
-                         <div id = "slider">
-                            <div class ="elemento">
-                                <img src="images/img1.png">
-                            </div>
-                            <div class ="elemento">
-                                <img src="images/img2.png">
-                            </div>
-                            <div class ="elemento">
-                                <img src="images/img3.png">
-                            </div>
-                             <div class ="elemento">
-                                <img src="images/img4.png">
-                            </div>
-                        </div>
-                    </section>
-                  <div class="information">
-                @yield('content')
-                    </div>
-                </div>
-               @yield('login')
-
-            </div>
-        </div>
-    </div>
+@yield('principal')
 
 <div id="header-wrapper">
     <div id="header">
@@ -252,6 +222,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="js/main.js"></script>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script src="js/slider.js"></script>
+<script src="js/areas.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

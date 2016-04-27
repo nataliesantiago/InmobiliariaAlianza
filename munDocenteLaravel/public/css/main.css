@@ -1131,7 +1131,7 @@
 	}
 
 	a {
-		color: #9A618A;
+		color: #0044CC;
 		text-decoration: underline;
 	}
 
@@ -1364,7 +1364,7 @@
 		input[type="submit"].alt2,
 		input[type="reset"].alt2,
 		button.alt2,
-		.btn1 {
+		.button.alt2 {
 			background: #827a7c;
 		}
 
@@ -1383,6 +1383,7 @@
 			.button.alt2:active {
 				background: #827a7c;
 			}
+
 
 
 		input[type="button"].icon:before,
@@ -2676,7 +2677,7 @@ div#slider div.elemento img{
 }
 
 .forgot{
-	color: #9A618A;
+	color: #0044CC;
 	text-decoration: underline;
 }
 

@@ -42,4 +42,12 @@ class IndexController extends Controller
     	$areas = Area::all();
     	return view('scientific_magazine', compact('publications', 'areas'));
     }
+     public function search(){
+        
+        return view('search');
+    }
+    public function record(){
+        
+        return view('record');
+    }
 }
