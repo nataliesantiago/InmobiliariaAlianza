@@ -63,7 +63,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
-                        <li class="register"><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li class="register"><a href="{{ url('/record') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -88,28 +88,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>      
         </div>
 <!--main-->
-        <div id="main-wrapper">
-                    <div class="container">
-                        <div class="row">
-                                <!-- Sidebar -->
-                                     @yield('login')
-
-                           
-                            <div class="8u 12u(mobile) important(mobile)">
-
-                                <!-- Content -->
-                                      <article class="box post">
-                                        <a class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-                                        <div class="information">
-                                            @yield('content')
-                                        </div>
-                                    </article>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+@yield('principal_info')
 
 				
 <!-- Footer -->

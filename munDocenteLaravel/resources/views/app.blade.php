@@ -1,7 +1,7 @@
 @extends('principal')
 
 @section('login')
-                <div class="4u 12u(mobile)">
+               
 
                 <section class="box">
                             <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
@@ -42,8 +42,10 @@
                         <hr >       
                     </section>
 
-                </div>
+                
      @stop
+
+
 
 	@section('content')		
 				
@@ -93,5 +95,20 @@
 					</div>
 
 	@stop
+
+    @section('area')
+     <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header"><center><h3 style="color: #5A5A5A;">Areas</h3></center></li>
+                            @foreach($areas as $area)
+                            @if($area->parent==null)
+                            <li><a href="#">{{ $area->name }}</a></li>
+                            @else
+                            <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;-{{  $area->name }}</a></li>
+                            @endif
+                            @endforeach
+                        </ul>
+                    </div>
+@stop
 
 				

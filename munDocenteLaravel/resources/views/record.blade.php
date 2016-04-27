@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="12u 12u(mobile)">
 				<header>
-					<center><h2 class="count">NUEVA CUENTA</h2></center>			
+					<center><h2 class="count">NUEVA CUENTA</h2></center><hr>			
 				</header>
 			</div>
 			<div class="12u 12u(mobile)">

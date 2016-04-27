@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="12u 12u(mobile)">
 
-				<h3>Búsqueda avanzada</h3><hr>
+				<center><h3 class="busqueda">BÚSQUEDA AVANZADA</h3></center><hr>
 			<section class="box">
 			<header>
 				
