@@ -2830,11 +2830,6 @@ ul.social_login {
 	color: #FFFFFF
 }
 
-.button {
-	position: relative;
-    left: 219%;
-}
-
 .convocatorias{
     position: relative;
     top: -27px;
@@ -2851,4 +2846,16 @@ ul.social_login {
     position: relative;
     top: -27px;
     left: 20px;
+}
+
+.formregis{
+	width: 800px;
+}
+
+.btnregis{
+	width: 100%;
+}
+
+.formbus{
+	width: 800px;
 }
