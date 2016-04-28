@@ -27,11 +27,10 @@
                                 <img src="images/img4.png">
                             </div>
                         </div>
-                    </section>
-                  <div class="information">
-                @yield('content')
-                    </div>
-
+                        @yield('content')
+  
+                    </article>
+      
                 </div>
               
             @else   
