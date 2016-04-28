@@ -2829,3 +2829,26 @@ ul.social_login {
 .busqueda{
 	color: #FFFFFF
 }
+
+.button {
+	position: relative;
+    left: 219%;
+}
+
+.convocatorias{
+    position: relative;
+    top: -27px;
+    left: 20px;
+}
+
+.revistas{
+    position: relative;
+    top: -27px;
+    left: 20px;
+}
+
+.eventos{
+    position: relative;
+    top: -27px;
+    left: 20px;
+}

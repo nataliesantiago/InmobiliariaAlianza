@@ -42,7 +42,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <form class="form login-form">
                         <input type="text" name="query" placeholder="Búsqueda" />
 
-                        <a href="#">Búsqueda avanzada</a>
+                        <a href="/search">Búsqueda avanzada</a>
                         <br>
                     </form>
                 </div>

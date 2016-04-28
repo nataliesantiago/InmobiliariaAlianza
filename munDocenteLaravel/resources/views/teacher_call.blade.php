@@ -1,7 +1,7 @@
-@extends('layouts.info_publication')
+@extends('principal_info')
 
 @section('login')
- @if (Auth::guest())
+ 
                 <div class="4u 12u(mobile)">
 
                 <section class="box">
@@ -44,7 +44,6 @@
                     </section>
 
                 </div>
-                @endif
         @stop
 
 @section('content')     

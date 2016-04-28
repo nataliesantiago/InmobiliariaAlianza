@@ -39,22 +39,29 @@
 					     	</div> 
 					        <br>
 					    </div>  
+					    <div class="12u">
+							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
+							<div class="col-xs-12">
+							<input class="form-control" type="text" name="search" id="seacrh" value="" />
+							</div>
+						</div> 
 						<div class="12u">
 							<label class="col-xs-12"><H3>Categorías</H3></label>
 															
 							<div class="col-xs-4">
-								<input type="checkbox" id="convocatorias" name="convocatorias">
-								<label for="convocatorias">Convocatorias</label>						
+								<input type="checkbox" id="convocatorias" name="convocatorias"> 
+								<label class="convocatorias" for="convocatorias">Convocatorias</label>						
 							</div>
 							<div class="col-xs-4">
 								<input type="checkbox" id="revistas" name="revistas">
-								<label for="revistas">Revistas</label>									
+								<label class="revistas" for="revistas">Revistas</label>									
 							</div>
 							<div class="col-xs-4">
 								<input type="checkbox" id="eventos" name="eventos">
-								<label for="eventos">Eventos</label>									
+								<label class="eventos" for="eventos">Eventos</label>									
 							</div>
 						</div>
+						
 						<div class="12u">
 							<div class="col-xs-12">
 								<ul class="actions">
