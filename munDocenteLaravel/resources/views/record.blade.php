@@ -4,12 +4,17 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
+		
 			<div class="12u 12u(mobile)">
 				<header>
 					<center><h2 class="count">NUEVA CUENTA</h2></center><hr>			
 				</header>
 			</div>
-			<div class="12u 12u(mobile)">
+			<div class="2u 12u(mobile)">
+			
+		</div>
+
+			<div class="formregis 12u(mobile)">
 				<section class="box">
 					<h3 class="major">Registro</h3><hr>
 			        <form class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
@@ -89,7 +94,7 @@
 			            <input type="hidden" name="type" value="1">
 			            <input type="hidden" name="academic_institution" value="10">
 
-			            <center><div class="form-group">
+			            <center class="btnregis"><div class="form-group">
 			                <div class="12u$">
 			                    <button type="submit" class="button special icon fa-user-plus">
 			                        Registrarse

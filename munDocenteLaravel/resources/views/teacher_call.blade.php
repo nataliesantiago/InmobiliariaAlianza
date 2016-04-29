@@ -26,7 +26,7 @@
                                         @endif
                                 </div>
                                 <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">Recordar</center><br>
+                                 </label><input type="checkbox" name="remember">           Recordar</center><br>
                                 <center>
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
@@ -50,7 +50,6 @@
                 
                 @foreach($publications as $publication)
             
-                <div class="info">
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
@@ -81,7 +80,7 @@
                     <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
 
                 <hr class="divition">
-                </div>
+             
              
                 @endforeach
                     
@@ -94,3 +93,30 @@
                     </div>
 
     @stop
+
+          @section('area')
+    <section class="box">
+            <ul class="nav nav-list">
+                <li class="nav-header"><center><h3 style="color: #5A5A5A;">Areas</h3></center></li>
+                @foreach($areas as $area)
+                @if($area->parent==null)
+                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a></li>
+                @else
+                <label class="control-label col-xs-2">-</label>
+                <li><a class="control-label col-xs-10" href="#">{{  $area->name }}</a></li >
+                @endif
+                @endforeach
+            </ul>
+
+            <li data-jstree='{"opened":true,"selected":true}'>Root
+              <ul>
+                <li data-jstree='{"disabled":true}'>Child</li>
+                <li data-jstree='{"icon":"//jstree.com/tree.png"}'>
+                  Child</li>
+                <li data-jstree='{"icon":"glyphicon glyphicon-leaf"}'>
+                  Child</li>
+              </ul>
+            </li>
+
+    </section>
+@stop

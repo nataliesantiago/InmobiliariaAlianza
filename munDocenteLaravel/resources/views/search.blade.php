@@ -4,9 +4,18 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="12u 12u(mobile)">
 
-				<center><h3 class="busqueda">BÚSQUEDA AVANZADA</h3></center><hr>
+		<div class="12u 12u(mobile)">
+				<header>
+					<center><h3 class="busqueda">BÚSQUEDA AVANZADA</h3></center><hr>		
+				</header>
+			</div>
+
+			<div class="2u 12u(mobile)">
+			
+			</div>
+
+			<div class="formbus 12u(mobile)">
 			<section class="box">
 			<header>
 				
@@ -65,7 +74,7 @@
 						<div class="12u">
 							<div class="col-xs-12">
 								<ul class="actions">
-									<li><a id="busqueda" href="#resultado" class="button special icon fa-search">Buscar</a></li>
+									<center><li><a id="busqueda" href="#resultado" class="button special icon fa-search">Buscar</a></li></center>
 								</ul>
 							</div>
 						</div>			
