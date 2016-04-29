@@ -25,7 +25,7 @@
                                 @endif
                         </div>
                         <center><label class="checkbox inline">
-                        </label><input type="checkbox" name="remember">Recordar</center><br>
+                        </label><input type="checkbox" name="remember">           Recordar</center><br>
                         <center>
                         <button type="submit" class="btn2 btn-default">Ingresar</button>
                             <ul class="social_login">

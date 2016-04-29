@@ -14,7 +14,7 @@ class CreateTypeOfScientificMagazinesTable extends Migration
     {
         Schema::create('type_of_scientific_magazines', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value');
+            $table->string('value', 20);
             $table->timestamps();
         });
     }

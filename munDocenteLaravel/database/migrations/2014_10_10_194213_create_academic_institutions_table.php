@@ -14,10 +14,10 @@ class CreateAcademicInstitutionsTable extends Migration
     {
         Schema::create('academic_institutions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->nullable()->unique();
-            $table->string('description')->nullable();            
+            $table->string('name', 255);
+            $table->string('email', 45)->unique();
+            $table->string('phone', 15)->nullable()->unique();
+            $table->string('description', 255)->nullable();            
             $table->integer('place')->unsigned();
             $table->integer('type')->unsigned();
             $table->timestamps();

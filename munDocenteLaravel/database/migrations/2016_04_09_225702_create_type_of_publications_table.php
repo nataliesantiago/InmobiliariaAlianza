@@ -14,7 +14,7 @@ class CreateTypeOfPublicationsTable extends Migration
     {
         Schema::create('type_of_publications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value');
+            $table->string('value', 25);
             $table->timestamps();
         });
     }

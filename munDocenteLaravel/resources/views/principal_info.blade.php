@@ -21,7 +21,10 @@
 
                             </div>
                             @else
-                            <div class="12u 12u(mobile) important(mobile)">
+                             <div class="4u 12u(mobile)">                   
+                                @yield('area')
+                             </div>
+                            <div class="8u 12u(mobile) important(mobile)">
 
                                 <!-- Content -->
                                       <article class="box post">
