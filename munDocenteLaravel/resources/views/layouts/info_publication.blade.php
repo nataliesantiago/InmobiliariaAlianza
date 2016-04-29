@@ -66,8 +66,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <li class="register"><a href="{{ url('/record') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->fullname }} <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
