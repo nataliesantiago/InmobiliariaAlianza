@@ -13,9 +13,9 @@ return [
     'accepted'             => ':attribute debe ser aceptado.',
     'active_url'           => ':attribute no es una URL válida.',
     'after'                => ':attribute debe ser una fecha posterior a :date.',
-    'alpha'                => ':attribute solo debe contener letras.',
+    'alpha'                => 'Lo sentimos, pero el :attribute solo debe contener letras.',
     'alpha_dash'           => ':attribute solo debe contener letras, números y guiones.',
-    'alpha_num'            => ':attribute solo debe contener letras y números.',
+    'alpha_num'            => 'Lo sentimos, pero el :attribute solo debe contener letras y números.',
     'array'                => ':attribute debe ser un conjunto.',
     'before'               => ':attribute debe ser una fecha anterior a :date.',
     'between'              => [
@@ -103,6 +103,7 @@ return [
     */
     'attributes'           => [
         'name'                  => 'nombre',
+        'fullname'              => 'nombre completo',
         'username'              => 'usuario',
         'email'                 => 'correo electrónico',
         'first_name'            => 'nombre',

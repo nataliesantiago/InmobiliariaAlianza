@@ -14,12 +14,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->unique();
-            $table->string('fullname');
-            $table->string('email')->unique();
+            $table->string('username', 45)->unique();
+            $table->string('fullname', 60);
+            $table->string('email',45 )->unique();
             $table->string('password');
-            $table->string('phone')->nullable()->unique();
-            $table->string('contact')->nullable();
+            $table->string('phone',15)->nullable()->unique();
+            $table->string('contact',255)->nullable();
             $table->integer('academic_institution')->unsigned();
             $table->integer('type')->unsigned();
             $table->foreign('type')->references('id')->on('type_of_mundocente_users');

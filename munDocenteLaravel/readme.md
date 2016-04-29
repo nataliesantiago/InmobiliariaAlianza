@@ -36,9 +36,6 @@ Comprobar que el usuario mysql existe y tiene todos los privilegios
 
 Abrir la consola y ubicarse en donde se descargo este directorio
 
-Ejecutar los dos siguientes comandos: 
-php artisan migrate (crea toda la estructura de la base de datos en phpmyadmin)
+Ejecutar los dos siguientes comandos: php artisan migrate (crea toda la estructura de la base de datos en phpmyadmin)
 
-php artisan migrate:refresh --seed (borra y vuelve a migrar, pero ahora llenando cada una de las tablas)
-
-
+php artisan db:seed --class=DatabaseSeeder (ejecuta la clase principal de llenado que llama a las otras clases)

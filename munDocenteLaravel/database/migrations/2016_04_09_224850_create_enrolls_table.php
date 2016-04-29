@@ -14,10 +14,10 @@ class CreateEnrollsTable extends Migration
     {
         Schema::create('enrolls', function (Blueprint $table) {
             $table->string('description')->nullable();
-            $table->string('username');
+            $table->integer('user')->unsigned();
             $table->integer('area')->unsigned();
             $table->timestamps();
-            $table->foreign('username')->references('username')->on('mundocente_users');
+            $table->foreign('user')->references('id')->on('users');
             $table->foreign('area')->references('id')->on('areas');
         });
     }

@@ -10,10 +10,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'failed'   => 'Estas credenciales no coinciden con nuestros registros.',
-    'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
+    'failed'   => 'Lo sentimos, pero la información suministrada no coincide en nuestra base de datos.',
+    'throttle' => 'Ten cuidado, hemos detectado que has realizado varios intentos de acceso erróneos. Vuelve a intentar en :seconds segundos.',
 ];
-
-    Status API Training Shop Blog About 
-
-    © 2016 GitHub, Inc. Terms Pr
