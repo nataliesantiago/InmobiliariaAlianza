@@ -7,7 +7,7 @@
 
 		<div class="12u 12u(mobile)">
 				<header>
-					<center><h3 class="busqueda">BÚSQUEDA AVANZADA</h3></center><hr>		
+					<center><h3 class="busqueda">BÚSQUEDA AVANZADA</h3></center>		
 				</header>
 			</div>
 
@@ -51,7 +51,12 @@
 					    <div class="12u">
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
 							<div class="col-xs-12">
-							<input class="form-control" type="text" name="search" id="seacrh" value="" />
+							<select class="form-control" name="search" id="seacrh" value="" />
+							<option name>Seleccione una opción</option>
+									<option>Tunja</option>
+									<option>Bogotá</option>
+									<option>Ibague</option>
+								</select>
 							</div>
 						</div> 
 						<div class="12u">

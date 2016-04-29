@@ -4,17 +4,12 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
-		
 			<div class="12u 12u(mobile)">
-				<header>
-					<center><h2 class="count">NUEVA CUENTA</h2></center><hr>			
-				</header>
+					<center><h2 class="count">NUEVA CUENTA</h2></center>			
 			</div>
-			<div class="2u 12u(mobile)">
-			
-		</div>
+			<div class="2u 12u(mobile)"></div>
 
-			<div class="formregis 12u(mobile)">
+			<div class="8u 12u(mobile)">
 				<section class="box">
 					<h3 class="major">Registro</h3><hr>
 			        <form class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
@@ -93,6 +88,13 @@
 
 			            <input type="hidden" name="type" value="1">
 			            <input type="hidden" name="academic_institution" value="10">
+
+
+						<div class="12u 12u$(small)">
+							<center>
+								<label class="checkbox inline"></label><input type="checkbox" id="demo-copy" name="demo-copy"> Acepto términos y condiciones</label>
+							</center>
+						</div>
 
 			            <center class="btnregis"><div class="form-group">
 			                <div class="12u$">
