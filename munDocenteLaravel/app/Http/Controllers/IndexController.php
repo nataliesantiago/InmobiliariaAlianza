@@ -53,4 +53,8 @@ class IndexController extends Controller
         
         return view('record');
     }
+    public function setting_account(){
+        
+        return view('setting_account');
+    }
 }
