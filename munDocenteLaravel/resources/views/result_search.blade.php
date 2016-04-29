@@ -49,7 +49,6 @@
                 
                 @foreach($publications as $publication)
             
-                <div class="info">
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
@@ -80,8 +79,7 @@
                     <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
 
                 <hr class="divition">
-                </div>
-             
+              
                 @endforeach
                     
                 

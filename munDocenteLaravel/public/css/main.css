@@ -2859,3 +2859,12 @@ ul.social_login {
 .formbus{
 	width: 800px;
 }
+
+.config{
+	color: #FFFFFF
+}
+
+.imguser{
+	position: relative;
+    left: 50px;
+}

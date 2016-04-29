@@ -79,7 +79,7 @@
 						<div class="12u">
 							<div class="col-xs-12">
 								<ul class="actions">
-									<center><li><a id="busqueda" href="#resultado" class="button special icon fa-search">Buscar</a></li></center>
+									<center><li><a id="busqueda" href="/result_search" class="button special icon fa-search">Buscar</a></li></center>
 								</ul>
 							</div>
 						</div>			

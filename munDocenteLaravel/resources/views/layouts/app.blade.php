@@ -34,7 +34,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <a class="logo" href="/"><img  src="images/logo.jpg"></a>
+                    <a class="logo" href="/"><img  src="images/logo.png"></a>
                 </div>
                 <div class="8u 12u(mobile)">
                 </div>              
@@ -65,9 +65,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                    
                         <li class="register"><a href="/record">Registrarse</a></li>
                     @else
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->fullname }} <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

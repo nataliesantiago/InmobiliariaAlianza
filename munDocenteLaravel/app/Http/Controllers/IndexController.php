@@ -57,4 +57,13 @@ class IndexController extends Controller
         
         return view('setting_account');
     }
+    public function result_search(){
+         $publications = Publication::paginate(5);
+      
+        $areas = Area::all();
+        return view('result_search', [
+            'publications' => $publications,
+            'areas' => $areas]);      
+    }
+
 }

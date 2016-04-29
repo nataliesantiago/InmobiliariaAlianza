@@ -19,6 +19,7 @@ Route::get('/scientific_magazine', 'IndexController@scientific_magazine');
 Route::get('/search', 'IndexController@search');
 Route::get('/record', 'IndexController@record');
 Route::get('/setting_account', 'IndexController@setting_account');
+Route::get('/result_search', 'IndexController@result_search');
 
 
 Route::auth();
