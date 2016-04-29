@@ -60,7 +60,7 @@
                     <p class="description">{{ $publication->description }}</p>
                     @endif
 
-                    <h4><p class="publicator">Publicado por: {{ $publication->username }}</p></h4>
+                    <h4><p class="publicator">Publicado por: {{ $publication->user }}</p></h4>
                     <p class="place">{{ $publication->place }}</p>					
 					<p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
 

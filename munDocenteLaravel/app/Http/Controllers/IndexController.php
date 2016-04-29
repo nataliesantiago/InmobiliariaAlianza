@@ -15,8 +15,11 @@ class IndexController extends Controller
 {
    public function index(){
         $publications = Publication::paginate(2);
+        //dd($publications);
         $areas = Area::all();
-        return view('app', compact('publications', 'areas'));
+        return view('app', [
+            'publications' => $publications,
+            'areas' => $areas]);
     }
 
     public function teacher_call(){

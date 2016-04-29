@@ -23,4 +23,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function typeOfUser()
+    {
+        return $this->belongsTo(TypeOfMundocenteUser::class, 'type');
+    }
+
+    public function publications(){
+        return $this->hasMany(Publication::class);
+    }
+
+    public function academicInstitution()
+    {
+        return $this->belongsTo(AcademicInstitution::class);
+    }
 }
