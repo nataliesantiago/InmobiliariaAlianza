@@ -1,5 +1,11 @@
 @extends('layouts.info_publication')
 
+@section('menu')
+
+    @yield('menu')
+
+@stop
+
 @section('principal_info')
         <div id="main-wrapper">
                     <div class="container">

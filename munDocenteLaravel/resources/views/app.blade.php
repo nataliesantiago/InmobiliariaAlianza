@@ -1,5 +1,13 @@
 @extends('principal')
 
+@section('menu')
+    <li class="current"><a href="/">Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+
+@stop
+
 @section('login')
                
 
@@ -96,28 +104,33 @@
 
     @section('area')
     <section class="box">
-            <ul class="nav nav-list">
-                <li class="nav-header"><center><h3 style="color: #5A5A5A;">Areas</h3></center></li>
-                @foreach($areas as $area)
+        <center><h3 style="color: #5A5A5A;">Áreas</h3></center>
+            <center>
+                <hr>
+                <a href="javascript:ddtreemenu.flatten('treemenu1', 'expand')" >Abrir subáreas</a>
+                 | <a href="javascript:ddtreemenu.flatten('treemenu1', 'contact')">Cerrar subáreas</a>
+            <hr></center>
+            <ul class="nav nav-list" id="treemenu1" class="treeview">
+                @foreach($areas as $key=>$area)
                 @if($area->parent==null)
-                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a></li>
+                    @if($key > 1)
+                        </ul>
+                        </li>
+                    @endif
+                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a>
+                <ul>
                 @else
-                <label class="control-label col-xs-2">-</label>
                 <li><a class="control-label col-xs-10" href="#">{{  $area->name }}</a></li >
                 @endif
                 @endforeach
-            </ul>
+                </ul>
+                </li>
+            </ul>            
 
-            <li data-jstree='{"opened":true,"selected":true}'>Root
-              <ul>
-                <li data-jstree='{"disabled":true}'>Child</li>
-                <li data-jstree='{"icon":"//jstree.com/tree.png"}'>
-                  Child</li>
-                <li data-jstree='{"icon":"glyphicon glyphicon-leaf"}'>
-                  Child</li>
-              </ul>
-            </li>
-
+            <script type="text/javascript">
+            ddtreemenu.createTree("treemenu1", true)
+            
+            </script>
     </section>
 @stop
 

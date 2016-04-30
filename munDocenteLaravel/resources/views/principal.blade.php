@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('menu')
+  
+  @yield('menu')
+
+@stop
+
 @section('principal')
 <!-- Main -->
     <div id="main-wrapper">

@@ -25,7 +25,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </head>
 <body class="right-sidebar">
 <div id="page-wrapper">
-
 <!-- Header -->
     <div id="header-wrapper">
         <div id="header">
@@ -34,16 +33,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <a class="logo" href="/"><img  src="images/logo.jpg"></a>
+                    <a class="logo" href="/"><img  src="images/logomundocente.jpg"></a>
                 </div>
-                <div class="8u 12u(mobile)">
+                <div class="6u 12u(mobile)">
                 </div>              
-                <div class="2u 12u(mobile)">
+                <div class="4u 12u(mobile)">
                     <form class="form login-form">
-                        <input type="text" name="query" placeholder="Búsqueda" />
-
-                        <a href="/search">Búsqueda avanzada</a>
-                        <br>
+                    <div class="row uniform">
+                         <div class="1u 12u$(xsmall)"></div>
+                         <div class="10u 12u$(xsmall)">
+                            <input type="text" name="query"  placeholder="Búsqueda" />
+                        </div>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -53,18 +54,16 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <ul class="nav navbar-nav">
                     
 
-                        <li class="current"><a href="/">Home</a></li>
-                        <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
-                        <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
-                        <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
-
-                    
+                       @yield('menu')                    
                
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
-                        <li class="register"><a href="{{ url('/record') }}">Registrarse</a></li>
+                        <li class="register"><a href="/record">Registrarse</a></li>
+                        <li class="register"><a href="/search">Búsqueda avanzada</a></li>
+
                     @else
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
@@ -75,6 +74,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                                                
                             </ul>
                         </li>
+                        <a href="/search">Búsqueda avanzada</a>
+
                     @endif
                 </ul>
             </div>
@@ -86,7 +87,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <!-- Nav -->
         </div>      
         </div>
+  
 <!--main-->
+
 @yield('principal_info')
 
 				

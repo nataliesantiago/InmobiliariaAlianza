@@ -1,4 +1,4 @@
- incremento = 1;
+incremento = 1;
 var myarray=new Array(3)
 myarray[0] = "Seleccione una opción";
 myarray[1] = "Software";

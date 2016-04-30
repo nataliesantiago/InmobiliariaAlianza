@@ -1,5 +1,14 @@
 @extends('principal_info')
 
+@section('menu')
+
+    <li style="white-space: nowrap;"><a href="/">Home</a></li>
+    <li class="current"><a href="/teacher_call">Convocatorias docente</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+
+@stop
+
 @section('login')
  
                 <div class="4u 12u(mobile)">

@@ -1,5 +1,14 @@
 @extends('layouts.info_publication')
 
+@section('menu')
+
+    <li class="current"><a href="/">Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+
+@stop
+
 @section('principal_info')
 
 <div id="main-wrapper">
@@ -17,7 +26,7 @@
 				<section class="box">
 					<form method="post" class="form login-form">
 						<div class="row uniform">
-							<div class="12u 12u$(xsmall)">
+								
 								<label class="control-label col-xs-4"><h2>{{ Auth::user()->username }} </h2></label>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar contraseña</a>
