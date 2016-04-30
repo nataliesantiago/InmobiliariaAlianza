@@ -8,13 +8,18 @@ use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
-
+use Carbon\Carbon;
 use DB;
 
 class IndexController extends Controller
 {
    public function index(){
-        $publications = Publication::with('user' ,'typeScientificMagazine')->paginate(2);
+        $dt = Carbon::now()->format('Y-m-d');
+        $publications = Publication::with('user' ,'typeScientificMagazine')
+                                    ->where('end_date', '>=', $dt)
+                                    ->orWhere('end_date', '=', null)
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(2);
         //$users = User::with('typeOfUser')->get();
         //dd($publications);
         $areas = Area::all();
@@ -26,7 +31,13 @@ class IndexController extends Controller
     public function teacher_call(){
     	$publications = Publication::with('user')
                                     ->where('type', '=', 1)
-                                    ->paginate(5);
+                                    ->where(function($query){
+                                        $dt = Carbon::now()->format('Y-m-d');
+                                        $query->where('end_date', '>=', $dt)
+                                              ->orWhere('end_date', '=', null);
+                                    })
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(2);
     	$areas = Area::all();
     	return view('teacher_call', compact('publications', 'areas'));
     }
@@ -34,7 +45,13 @@ class IndexController extends Controller
     public function academic_event(){
     	$publications = Publication::with('user')
                                     ->where('type', '=', 3)
-                                    ->paginate(5);
+                                    ->where(function($query){
+                                        $dt = Carbon::now()->format('Y-m-d');
+                                        $query->where('end_date', '>=', $dt)
+                                              ->orWhere('end_date', '=', null);
+                                    })
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(2);
     	$areas = Area::all();
     	return view('academic_event', compact('publications', 'areas'));
     }
@@ -42,7 +59,13 @@ class IndexController extends Controller
     public function scientific_magazine(){
     	$publications = Publication::with('user','typeScientificMagazine')
                                     ->where('type', '=', 2)
-                                    ->paginate(5);
+                                    ->where(function($query){
+                                        $dt = Carbon::now()->format('Y-m-d');
+                                        $query->where('end_date', '>=', $dt)
+                                              ->orWhere('end_date', '=', null);
+                                    })
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(2);
     	$areas = Area::all();
     	return view('scientific_magazine', compact('publications', 'areas'));
     }
