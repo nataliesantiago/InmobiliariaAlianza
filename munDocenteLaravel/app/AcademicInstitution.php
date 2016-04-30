@@ -1,8 +1,11 @@
 <?php
 
-namespace MunDocente\;
+namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\User;
+use MunDocente\Place;
+use MunDocente\TypeOfAcademicInstitution;
 
 class AcademicInstitution extends Model
 {
@@ -10,14 +13,14 @@ class AcademicInstitution extends Model
 
     public function typeOfAcademicInstitution()
     {
-    	return $this->belongsTo(TypeOfAcademicInstitution::class, 'type');
+    	return $this->belongsTo('MunDocente\TypeOfAcademicInstitution', 'type');
     }
 
     public function users(){
-    	return $this->hasMany(User::class);
+    	return $this->hasMany('MunDocente\User');
     }
 
     public function place()
     {
-    	return $this->belongsTo(Place::class, 'place');
+    	return $this->belongsTo('MunDocente\Place', 'place');
     }

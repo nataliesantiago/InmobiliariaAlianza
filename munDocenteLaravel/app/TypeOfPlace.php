@@ -3,6 +3,7 @@
 namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\Place;
 
 class TypeOfPlace extends Model
 {
@@ -10,6 +11,6 @@ class TypeOfPlace extends Model
 
     public function places()
     {
-    	return $this->hasMany(Place::class);
+    	return $this->hasMany('MunDocente\Place');
     }
 }

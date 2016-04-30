@@ -3,6 +3,7 @@
 namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\Publication;
 
 class TypeOfScientificMagazine extends Model
 {
@@ -10,6 +11,6 @@ class TypeOfScientificMagazine extends Model
 
     public function scientificMagazines()
     {
-    	return $this->hasMany(Publication::class);
+    	return $this->hasMany('MunDocente\Publication');
     }
 }

@@ -3,6 +3,10 @@
 namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\TypeOfPlace;
+use MunDocente\AcademicInstitution;
+use MunDocente\Publication;
+use MunDocente\Place;
 
 class Place extends Model
 {
@@ -11,25 +15,25 @@ class Place extends Model
 
     public function typeOfPlace()
     {
-    	return $this->belongsTo(TypeOfPlace::class, 'type');
+    	return $this->belongsTo('MunDocente\TypeOfPlace', 'type');
     }
 
     public function academicInstitutions()
     {
-    	return $this->hasMany(AcademicInstitution::class);
+    	return $this->hasMany('MunDocente\AcademicInstitution');
     }
 
     public function publications(){
-    	return $this->hasMany(Publication::class);
+    	return $this->hasMany('MunDocente\Publication');
     }
 
     public function parent()
     {
-    	return $this->belongsTo(Place::class, 'parent');
+    	return $this->belongsTo('MunDocente\Place', 'parent');
     }
 
     public function myPlaces()
     {
-    	return $this->hasMany(Place::class);
+    	return $this->hasMany('MunDocente\Place');
     }
 }

@@ -3,7 +3,7 @@
 namespace MunDocente\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Database\Eloquent\Model;
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
@@ -14,7 +14,8 @@ use DB;
 class IndexController extends Controller
 {
    public function index(){
-        $publications = Publication::paginate(2);
+        $publications = Publication::with('user' ,'typeScientificMagazine')->paginate(2);
+        //$users = User::with('typeOfUser')->get();
         //dd($publications);
         $areas = Area::all();
         return view('app', [
@@ -23,7 +24,7 @@ class IndexController extends Controller
     }
 
     public function teacher_call(){
-    	$publications = DB::table('publications')
+    	$publications = Publication::with('user')
                                     ->where('type', '=', 1)
                                     ->paginate(5);
     	$areas = Area::all();
@@ -31,7 +32,7 @@ class IndexController extends Controller
     }
 
     public function academic_event(){
-    	$publications = DB::table('publications')
+    	$publications = Publication::with('user')
                                     ->where('type', '=', 3)
                                     ->paginate(5);
     	$areas = Area::all();
@@ -39,7 +40,7 @@ class IndexController extends Controller
     }
 
     public function scientific_magazine(){
-    	$publications = DB::table('publications')
+    	$publications = Publication::with('user','typeScientificMagazine')
                                     ->where('type', '=', 2)
                                     ->paginate(5);
     	$areas = Area::all();

@@ -3,6 +3,10 @@
 namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\TypeOfPublication;
+use MunDocente\TypeOfScientificMagazine;
+use MunDocente\Place;
+use MunDocente\User;
 
 class Publication extends Model
 {
@@ -11,20 +15,20 @@ class Publication extends Model
 
     public function typeOfPublication()
     {
-    	return $this->belongsTo(TypeOfPublication::class, 'type');
+    	return $this->belongsTo('MunDocente\TypeOfPublication', 'type');
     }
 
     public function typeScientificMagazine()
     {
-    	return $this->belongsTo(TypeOfScientificMagazine::class, 'category');
+    	return $this->belongsTo('MunDocente\TypeOfScientificMagazine', 'category');
     }
 
     public function place()
     {
-    	return $this->belongsTo(Place::class, 'place');
+    	return $this->belongsTo('MunDocente\Place', 'place');
     }
 
     public function user(){
-    	return $this->belongsTo(User::class, 'user');
+    	return $this->belongsTo('MunDocente\User', 'user_id');
     }
 }

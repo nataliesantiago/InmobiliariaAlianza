@@ -3,6 +3,9 @@
 namespace MunDocente;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use MunDocente\TypeOfUser;
+use MunDocente\Publication;
+use MunDocente\AcademicInstitution;
 
 class User extends Authenticatable
 {
@@ -27,15 +30,15 @@ class User extends Authenticatable
 
     public function typeOfUser()
     {
-        return $this->belongsTo(TypeOfMundocenteUser::class, 'type');
+        return $this->belongsTo('MunDocente\TypeOfUser', 'type');
     }
 
     public function publications(){
-        return $this->hasMany(Publication::class);
+        return $this->hasMany('MunDocente\Publication');
     }
 
     public function academicInstitution()
     {
-        return $this->belongsTo(AcademicInstitution::class);
+        return $this->belongsTo('MunDocente\AcademicInstitution', 'academic_institution');
     }
 }

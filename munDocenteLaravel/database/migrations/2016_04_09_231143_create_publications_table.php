@@ -25,10 +25,10 @@ class CreatePublicationsTable extends Migration
             $table->string('position',60)->nullable();
             $table->string('description')->nullable();
             $table->string('contact')->nullable();
-            $table->integer('user')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('type')->references('id')->on('type_of_publications');
-            $table->foreign('user')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('place')->references('id')->on('places');
             $table->foreign('category')->references('id')->on('type_of_scientific_magazines');
         });

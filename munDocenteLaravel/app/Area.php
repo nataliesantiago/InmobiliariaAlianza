@@ -3,6 +3,7 @@
 namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
+use MunDocente\Area;
 
 class Area extends Model
 {
@@ -11,11 +12,11 @@ class Area extends Model
 
     public function parent()
     {
-    	return $this->belongsTo(Area::class, 'parent');
+    	return $this->belongsTo('MunDocente\Area', 'parent');
     }
 
     public function myAreas()
     {
-    	return $this->hasMany(Area::class);
+    	return $this->hasMany('MunDocente\Area');
     }
 }
