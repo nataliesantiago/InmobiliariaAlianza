@@ -36,12 +36,16 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <div class="2u 12u(mobile)">
                     <a class="logo" href="/"><img  src="images/logo.png"></a>
                 </div>
-                <div class="8u 12u(mobile)">
+                <div class="7u 12u(mobile)">
                 </div>              
-                <div class="2u 12u(mobile)">
+                <div class="3u 12u(mobile)">
                     <form class="form login-form">
-                        <input type="text" name="query"  placeholder="Búsqueda" />
-
+                    <div class="row uniform">
+                         <div class="2u 12u$(xsmall)"></div>
+                         <div class="8u 12u$(xsmall)">
+                            <input type="text" name="query"  placeholder="Búsqueda" />
+                        </div>
+                    </div>
                         <a href="/search">Búsqueda avanzada</a>
                         <br>
                     </form>
