@@ -40,7 +40,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </div>              
                 <div class="2u 12u(mobile)">
                     <form class="form login-form">
-                        <input type="text" name="query" placeholder="Búsqueda" />
+                        <input type="text" name="query"  placeholder="Búsqueda" />
 
                         <a href="/search">Búsqueda avanzada</a>
                         <br>

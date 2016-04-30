@@ -19,7 +19,7 @@
 			<section class="box">
 			<header>
 				
-				<form method="post">
+				<form role="form" method="POST" action="{{ url('/search') }}">
 					<div class="row uniform">
 						<div class="12u">
 							<label class="control-label col-xs-12"><h3>Palabra clave</h3></label>
@@ -33,13 +33,9 @@
 					        <div  class="input-group">
 								<select class="form-control" required name="area[]">             
 					        		<option name>Seleccione una opción</option>
-									<option>Software</option>
-									<option>Educación</option>
-									<option>Web</option>
-									<option>Inglés</option>
-									<option>Matemáticas</option>
-									<option>Ingeniería</option>
-									<option>Medicina</option>
+					        		@foreach($areas as $area)
+									<option>{{ $area->name }}</option>
+									@endforeach
 								</select>
 							    <span class="input-group-btn input-m">
 					            <button class= "btn btn-primary" onclick="crearArea(this)"><i class="glyphicon glyphicon-plus"></i></button>
@@ -51,11 +47,11 @@
 					    <div class="12u">
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
 							<div class="col-xs-12">
-							<select class="form-control" name="search" id="seacrh" value="" />
+							<select class="form-control" name="search" id="search" value="" />
 							<option name>Seleccione una opción</option>
-									<option>Tunja</option>
-									<option>Bogotá</option>
-									<option>Ibague</option>
+							@foreach($places as $place)
+									<option>{{ $place->name }}</option>
+							@endforeach
 								</select>
 							</div>
 						</div> 
