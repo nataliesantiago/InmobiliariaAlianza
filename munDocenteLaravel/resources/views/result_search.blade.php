@@ -49,7 +49,6 @@
                 
                 @foreach($publications as $publication)
             
-                <div class="info">
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
@@ -59,7 +58,7 @@
                     <p class="description">{{ $publication->description }}</p>
                     @endif
 
-                    <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
+                    <p class="publicator">Publicado por: {{ $publication->user }}</p>
                     <p class="place">{{ $publication->place }}</p>                  
                     <p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
 
@@ -80,8 +79,7 @@
                     <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
 
                 <hr class="divition">
-                </div>
-             
+              
                 @endforeach
                     
                 

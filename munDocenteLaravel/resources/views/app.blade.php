@@ -6,7 +6,7 @@
                 <section class="box">
                     <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
                      {!! csrf_field() !!}
-                        <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="input-group {{ $errors->has('email') ? ' has-error' : '' }}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>                 
                             <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Usuario"/>
                              @if ($errors->has('username'))
@@ -15,7 +15,7 @@
                                     </span>
                                  @endif
                         </div><br>
-                        <div class="input-group">
+                        <div class="input-group {{ $errors->has('password') ? ' has-error' : '' }}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                 
                             <input type="password" class="form-control" name="password" placeholder="Contraseña" />
                             @if ($errors->has('password'))

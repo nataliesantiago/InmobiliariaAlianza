@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="12u 12u(mobile)">
 				<header>
-					<center><h2>CONFIGURAR CUENTA</h2></center>			
+					<center><h2 class="config">CONFIGURAR CUENTA</h2></center>			
 				</header>
 			</div>
 			<div class="2u 12u(mobile)"></div>

@@ -26,6 +26,15 @@
                              <div class ="elemento">
                                 <img src="images/img4.png">
                             </div>
+                              <div class ="elemento">
+                                <img src="images/img5.png">
+                            </div>
+                              <div class ="elemento">
+                                <img src="images/img6.png">
+                            </div>
+                              <div class ="elemento">
+                                <img src="images/img7.png">
+                            </div>
                         </div>
                         @yield('content')
   
@@ -53,6 +62,15 @@
                             </div>
                              <div class ="elemento">
                                 <img src="images/img4.png">
+                            </div>
+                              <div class ="elemento">
+                                <img src="images/img5.png">
+                            </div>
+                              <div class ="elemento">
+                                <img src="images/img6.png">
+                            </div>
+                              <div class ="elemento">
+                                <img src="images/img7.png">
                             </div>
                         </div>
                     </section>
