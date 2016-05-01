@@ -65,8 +65,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @if (Auth::guest())
                    
                         <li class="register"><a href="/record">Registrarse</a></li>
-                        <li><a href="/search">Búsqueda avanzada</a></li>
-
+                        
                     @else
 
                         <li class="dropdown">
@@ -78,9 +77,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                                                
                             </ul>
+                        
                         </li>
                         <a href="/search">Búsqueda avanzada</a>
-
                     @endif
                 </ul>
             </div>

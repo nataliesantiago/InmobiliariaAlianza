@@ -55,22 +55,23 @@
                 
      @stop
 
-@section('content')     
+    @section('content')     
                 
                 @foreach($publications as $publication)
             
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+                    <br><br>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
-                  
+                    <br>
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
 
-                    <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
+                    <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
                     <p class="place">{{ $publication->place }}</p>                  
-                    <p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
+                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 
                     @if($publication->end_date!=null)
                     <p class="end">Fecha final: {{ $publication->end_date }}</p>
@@ -86,10 +87,9 @@
                     @endif
                     
 
-                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
-
-                <hr class="divition">
-         
+                    <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
+                    </p>
+                <hr>
              
                 @endforeach
                     
@@ -102,7 +102,7 @@
                     </div>
 
     @stop
-
+    
    @section('area')
     <section class="box">
         <center><h3 style="color: #5A5A5A;">Áreas</h3></center>

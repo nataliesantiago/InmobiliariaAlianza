@@ -1,3 +1,4 @@
+
 @extends('layouts.info_publication')
 
 @section('menu')
@@ -26,7 +27,7 @@
 				<section class="box">
 					<form method="post" class="form login-form">
 						<div class="row uniform">
-								
+							<div class="12u 12u$(xsmall)">	
 								<label class="control-label col-xs-4"><h2>{{ Auth::user()->username }} </h2></label>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar contraseña</a>
@@ -50,6 +51,11 @@
 								<div class="col-xs-8">
 								<input type="text" name="demo-email" id="demo-email" class="form-control" placeholder="{{ Auth::user()->email }}" />
 								</div>
+								@if ($errors->has('email'))
+			                        <span class="help-block">
+			                            <strong>{{ $errors->first('email') }}</strong>
+			                        </span>
+			                    @endif
 							</div>
 							<div class="12u$">
 								<label class="control-label col-xs-4">Institución</label>
@@ -96,9 +102,11 @@
 							<div class="12u$">
 								<ul class="actions">
 									<center>
-										<li><a href="index.html" class="button special icon fa-save">Guardar</a></li>
-										<li><a href="index.html" class="button alt2 special icon fa-power-off">Desactivar cuenta</a></li>
-										<li><a href="index.html" class="button alt special icon fa-close">Cancelar</a></li>
+										<li><button type="submit" class="button big special icon fa-save">
+			                        		Guardar
+			                    		</button></li>
+										<li><a href="/" class="button alt2 special icon fa-power-off">Desactivar cuenta</a></li>
+										<li><a href="/" class="button alt special icon fa-close">Cancelar</a></li>
 									</center>
 								</ul>
 							</div>

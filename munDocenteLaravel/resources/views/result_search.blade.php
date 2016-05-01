@@ -8,7 +8,6 @@
     <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
 
 @stop
-
 @section('login')
                 <div class="4u 12u(mobile)">
 
@@ -34,7 +33,7 @@
                                         @endif
                                 </div>
                                 <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">Recordar</center><br>
+                           </label><input type="checkbox" name="remember">           Recordar</center><br>
                                 <center>
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
@@ -51,25 +50,26 @@
                         <hr >       
                     </section>
 
-                </div>            
+                </div>
+                
      @stop
-
-@section('content')     
+    @section('content')     
                 
                 @foreach($publications as $publication)
             
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+                    <br><br>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
-                  
+                    <br>
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
 
-                    <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
+                    <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
                     <p class="place">{{ $publication->place }}</p>                  
-                    <p class="start">Fecha de comienzo: {{ $publication->start_date }}</p>
+                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 
                     @if($publication->end_date!=null)
                     <p class="end">Fecha final: {{ $publication->end_date }}</p>
@@ -85,10 +85,10 @@
                     @endif
                     
 
-                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
-
-                <hr class="divition">
-              
+                    <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
+                    </p>
+                <hr>
+             
                 @endforeach
                     
                 
@@ -101,29 +101,34 @@
 
     @stop
 
-              @section('area')
+   @section('area')
     <section class="box">
-            <ul class="nav nav-list">
-                <li class="nav-header"><center><h3 style="color: #5A5A5A;">Areas</h3></center></li>
-                @foreach($areas as $area)
+        <center><h3 style="color: #5A5A5A;">Áreas</h3></center>
+            <center>
+                <hr>
+                <a href="javascript:ddtreemenu.flatten('treemenu1', 'expand')" >Abrir subáreas</a>
+                 | <a href="javascript:ddtreemenu.flatten('treemenu1', 'contact')">Cerrar subáreas</a>
+            <hr></center>
+            <ul class="nav nav-list" id="treemenu1" class="treeview">
+                @foreach($areas as $key=>$area)
                 @if($area->parent==null)
-                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a></li>
+                    @if($key > 1)
+                        </ul>
+                        </li>
+                    @endif
+                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a>
+                <ul>
                 @else
-                <label class="control-label col-xs-2">-</label>
                 <li><a class="control-label col-xs-10" href="#">{{  $area->name }}</a></li >
                 @endif
                 @endforeach
-            </ul>
+                </ul>
+                </li>
+            </ul>            
 
-            <li data-jstree='{"opened":true,"selected":true}'>Root
-              <ul>
-                <li data-jstree='{"disabled":true}'>Child</li>
-                <li data-jstree='{"icon":"//jstree.com/tree.png"}'>
-                  Child</li>
-                <li data-jstree='{"icon":"glyphicon glyphicon-leaf"}'>
-                  Child</li>
-              </ul>
-            </li>
-
+            <script type="text/javascript">
+            ddtreemenu.createTree("treemenu1", true)
+            
+            </script>
     </section>
 @stop

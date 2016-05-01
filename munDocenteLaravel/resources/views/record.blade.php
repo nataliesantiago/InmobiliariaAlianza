@@ -42,7 +42,7 @@
 			            <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-info"></i></span>
 			                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos" value="{{ old('fullname') }}">
 			                    </div>	
 			                    @if ($errors->has('fullname'))

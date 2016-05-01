@@ -1,7 +1,10 @@
+
 <?php
 	$arrayArea = array();
+	//<?php echo $arrayArea;
+	$arrayArea[0]='Seleccione una opción-'; 
 	foreach ($areas as $i => $area) {
-	$arrayArea[$i]=$area->name;
+	$arrayArea[$i+1]=$area->name.'-';
 	}
 ?>
 
@@ -48,7 +51,8 @@
 							<label class="control-label col-xs-11"><h3>Áreas</h3>
 							</label>
 							<div class="col-xs-1">
-						    <a class="control-label col-xs-1" href="javascript:crearArea(this, this.$arrayArea)" >
+						    <a class="control-label col-xs-1" 
+						    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
 						    	<i class="glyphicon glyphicon-plus"></i>
 						    </a>
 							</div>
@@ -73,7 +77,7 @@
 							</div>
 						</div> 
 						<div class="12u">
-							<label class="col-xs-12"><H3>Categorías</H3></label>
+							<label class="col-xs-12"><H3>Tipo de publicación</H3></label>
 															
 							<div class="col-xs-4">
 								<input type="checkbox" id="convocatorias" name="convocatorias"> 
