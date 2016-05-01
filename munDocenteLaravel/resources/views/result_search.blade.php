@@ -62,7 +62,7 @@
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
-                    <br>
+                    
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif

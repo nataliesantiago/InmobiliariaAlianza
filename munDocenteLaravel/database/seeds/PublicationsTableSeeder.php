@@ -127,5 +127,58 @@ class PublicationsTableSeeder extends Seeder
             'description' => 'La Universidad EAFIT y la Corporación Transporte Vivo en alianza con ISM y LOGYCA quieren compartir con usted la realización del Congreso Internacional de Logística y Supply Chain, evento que ha demostrado ser uno de los certámenes académicos, técnicos e institucionales más representativos que sobre la cadena de abastecimientos, se realiza en Colombia.',
             'user_id' => '12',
         ]);
+         DB::table('publications')->insert([
+            'name' => 'CONVOCATORIA DOCENTE DE ODONTOLOGIA - UIVERSIDAD ANTONIO NARIÑO - BOGOTÁ',
+            'date_publication' => '2016-04-29',
+            'type' => 1,
+            'url' => 'http://www.universidad.edu.co/index.php?option=com_content&view=section&layout=blog&id=4',
+            'start_date' => '2016-04-29',
+            'end_date' => '2016-05-13',
+            'position' => 'COMPLETO',
+            'description' => 'Profesores para pre y posgrado en Periodoncia, Rehabilitación Oral, Ortodoncia, Odontopediatría, Endodoncia, Cirugía Oral y Maxilofacial, Fonoaudiología,  Epidemiología y Bioestadística.',
+            'user_id' => '6',
+        ]);
+          DB::table('publications')->insert([
+            'name' => 'CONVOCATORIA DOCENTES INGENIERÍA DE SISTEMAS - FUNDACIÓN UNIVERSITAIRA JUAN DE CASTELLANOS TUNJA',
+            'date_publication' => '2016-04-29',
+            'type' => 1,
+            'url' => 'http://www.universidad.edu.co/index.php?option=com_content&view=section&layout=blog&id=4',
+            'start_date' => '2016-04-29',
+            'end_date' => '2016-05-15',
+            'position' => 'COMPLETO',
+            'description' => 'Ingeniero de Sistemas, con maestría en el área de seguridad informática o de la información. Dos años de experiencia universitaria, producción Para desarrollar la asignatura de electiva de Profundización en el área de seguridad informática o de la información.',
+            'user_id' => '3',
+        ]);
+          DB::table('publications')->insert([
+            'name' => 'CONVOCATORIA DOCENTES INGENIERÍA CIVIL - FUNDACIÓN UNIVERSITAIRA JUAN DE CASTELLANOS TUNJA',
+            'date_publication' => '2016-04-29',
+            'type' => 1,
+            'url' => 'http://www.universidad.edu.co/index.php?option=com_content&view=section&layout=blog&id=4',
+            'start_date' => '2016-04-29',
+            'end_date' => '2016-05-15',
+            'position' => 'COMPLETO',
+            'description' => 'Ingeniero (a) Civil, Maestría en áreas afines a la profesión. Funciones y tareas a desarrollar (Asignaturas): Topografía, Planimetría, Altimetría, Introducción a la Ingeniera Civil, Presentación de proyectos de investigación.',
+            'user_id' => '3',
+        ]);
+        DB::table('publications')->insert([
+            'name' => 'PANEL NACIONAL SOBRE LA INFLUENCIA E IMPACTO DE LAS TIC EN LA EDUCACION COLOMBIANA',
+            'date_publication' => '2016-04-25',
+            'type' => 3,
+            'url' => 'http://www.uptc.edu.co/universidad/modules/news/news_3351.html?uri=/universidad/modules/noticias.html',
+            'start_date' => '2016-05-12',
+            'end_date' => '2016-05-12',
+            'description' => 'La Maestría en TIC Aplicadas a las Ciencias de la Educación en asocio con la Secretaría de Educación de Duitama, han organizado este evento que pretende presentar ante la comunidad educativa, especialmente a profesores vinculados a los colegios, el panel de discusión e intercambio público de ideas de expertos en el tema de las TIC y sus implicaciones socioeducativas. Con estas acciones se aspira presentar al sector educativo la actualidad e innovaciones que se acontecen para la educación, e integrar los proyectos que se proponen desde los posgrados de la UPTC, con las finalidades propuestas por las unidades educativas de esta región.',
+            'user_id' => '1',
+        ]);   
+         DB::table('publications')->insert([
+            'name' => 'XII CONGRESO COLOMBIANO DE NEUMOLOGÍA Y ASMA PEDIÁTRICA',
+            'date_publication' => '2016-04-25',
+            'type' => 3,
+            'url' => 'http://www.catalogodelasalud.com/eventos/XII-Congreso-Colombiano-de-Neumologia-y-Asma-Pediatrica+110268',
+            'start_date' => '2016-05-26',
+            'end_date' => '2016-05-29',
+            'description' => 'Este evento se realizará de forma simultánea con el XII Encuentro de Fibrosis Quística en la ciudad de Bucaramanga, y contará con la participación de conferencistas internacionales, entre ellos: Dra. Yarury Delgado, de Inglaterra; Dr. Antonio Moreno Galdó, de España; y del Dr. Gustavo Niño, Dr. Octavio Ramilo, Dra. Asunción Mejías, Dr. Juan Celedón y del Dr. Carlos Pérez, de Estados Unidos.',
+            'user_id' => '10',
+        ]); 
     }
 }

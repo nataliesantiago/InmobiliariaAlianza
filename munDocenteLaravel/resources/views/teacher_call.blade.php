@@ -58,13 +58,13 @@
     @section('content')     
                 
                 @foreach($publications as $publication)
-            
+                <div class="info">
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
-                    <br>
+                    
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
@@ -89,6 +89,7 @@
 
                     <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
                     </p>
+                    </div>
                 <hr>
              
                 @endforeach

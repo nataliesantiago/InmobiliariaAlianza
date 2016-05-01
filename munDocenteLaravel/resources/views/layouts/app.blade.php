@@ -106,7 +106,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <header>
                     <h2>Convocatorias docente</h2>
                 </header>
-                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                <p>Acá podrá encontrar todas las publicaciones relacionadas a convocatorias de docentes universitarios.</p>
                 <br>
                 <a href="/teacher_call" class="button big">Ver más</a>
             </section>
@@ -117,7 +117,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <header>
                     <h2>Revistas científicas</h2>
                 </header>
-                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                <p>Acá podrá encontrar todas las publicaciones relacionadas a las revistas científicas indexadas en Colombia.</p>
                 <br>
                 <a href="/scientific_magazine" class="button alt big">Ver más</a>
             </section>
@@ -128,7 +128,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <header>
                     <h2>Eventos académicos</h2>
                 </header>
-                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                <p>Acá podrá encontrar todas las publicaciones relacionadas con eventos académicos en Colombia.</p>
                 <br>
                 <a href="/academic_event" class="button alt2 big">Ver más</a>
             </section>
@@ -161,11 +161,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 </p>
                             </li>
                             <li>
-                                <h3>Mail</h3>
+                                <h3>Email</h3>
                                 <p><a href="#">mundocente@mundocente.com</a></p>
                             </li>
                             <li>
-                                <h3>Telefono</h3>
+                                <h3>Teléfono</h3>
                                 <p>(800) 000-0000</p>
                             </li>
                             <br>
