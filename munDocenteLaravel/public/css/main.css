@@ -2557,8 +2557,8 @@ div#slider div.elemento img{
 }
 
 .dropdown{
-	position: relative;
-    left: 130px;
+	    position: relative;
+    left: -20px;
 }
 
 .register{
@@ -2741,4 +2741,9 @@ ul.social_login {
 .imguser{
 	position: relative;
     left: 50px;
+}
+
+.register{
+	   position: relative;
+    left: 20px;
 }

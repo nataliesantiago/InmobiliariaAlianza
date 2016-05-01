@@ -65,7 +65,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @if (Auth::guest())
                    
                         <li class="register"><a href="/record">Registrarse</a></li>
-                        <li class="register"><a href="/search">Búsqueda avanzada</a></li>
+                        <li><a href="/search">Búsqueda avanzada</a></li>
 
                     @else
 
@@ -79,7 +79,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                                                
                             </ul>
                         </li>
-                        <li class="register"><a href="/search">Búsqueda avanzada</a></li>
+                        <a href="/search">Búsqueda avanzada</a>
 
                     @endif
                 </ul>

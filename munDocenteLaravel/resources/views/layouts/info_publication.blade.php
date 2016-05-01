@@ -22,6 +22,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/simpletree.css" />
+
 </head>
 <body class="right-sidebar">
 <div id="page-wrapper">
@@ -181,6 +183,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script src="js/slider.js"></script>
 <script src="js/areas.js"></script>
+<script type="text/javascript" src="js/simpletreemenu.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
