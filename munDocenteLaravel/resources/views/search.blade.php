@@ -1,3 +1,9 @@
+<?php
+	$arrayArea = array();
+	foreach ($areas as $i => $area) {
+	$arrayArea[$i]=$area->name;
+	}
+?>
 
 @extends('layouts.app')
 
@@ -38,21 +44,22 @@
 							</div>
 						</div>     
 						<div class="12u">
-							<label class="control-label col-xs-3"><h3>Áreas</h3></label>
+							
+							<label class="control-label col-xs-11"><h3>Áreas</h3>
+							</label>
+							<div class="col-xs-1">
+						    <a class="control-label col-xs-1" href="javascript:crearArea(this, this.$arrayArea)" >
+						    	<i class="glyphicon glyphicon-plus"></i>
+						    </a>
+							</div>
 					      	<div class="col-xs-12" id="listArea">
-					        <div  class="input-group">
 								<select class="form-control" required name="area[]">             
 					        		<option name>Seleccione una opción</option>
 					        		@foreach($areas as $area)
 									<option>{{ $area->name }}</option>
 									@endforeach
 								</select>
-							    <span class="input-group-btn input-m">
-					            <button class= "btn btn-primary" onclick="crearArea(this)"><i class="glyphicon glyphicon-plus"></i></button>
-					          	</span>
 					     	</div>
-					     	</div> 
-					        <br>
 					    </div>  
 					    <div class="12u">
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
