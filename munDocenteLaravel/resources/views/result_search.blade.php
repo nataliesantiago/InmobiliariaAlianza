@@ -88,7 +88,7 @@
                    <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
                     </p>
 
-                <hr class="divition">
+                <hr>
               
                 @endforeach
                     
