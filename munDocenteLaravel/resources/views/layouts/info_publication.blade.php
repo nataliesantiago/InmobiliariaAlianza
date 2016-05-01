@@ -96,7 +96,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 				
 <!-- Footer -->
-    <div id="footer-wrapper">
+     <div id="footer-wrapper">
         <section id="footer" class="container">
 
             <div class="row">
@@ -117,11 +117,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 </p>
                             </li>
                             <li>
-                                <h3>Mail</h3>
+                                <h3>Email</h3>
                                 <p><a href="#">mundocente@mundocente.com</a></p>
                             </li>
                             <li>
-                                <h3>Telefono</h3>
+                                <h3>Teléfono</h3>
                                 <p>(800) 000-0000</p>
                             </li>
                             <br>
@@ -169,7 +169,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             </div>
         </section>
     </div>
-
 </div>
 
 <!-- Scripts -->

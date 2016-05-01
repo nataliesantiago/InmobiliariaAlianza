@@ -26,7 +26,7 @@
 				<section class="box">
 					<form method="post" class="form login-form">
 						<div class="row uniform">
-								
+							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4"><h2>{{ Auth::user()->username }} </h2></label>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar contraseña</a>

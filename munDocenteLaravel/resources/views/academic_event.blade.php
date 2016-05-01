@@ -34,7 +34,7 @@
                                         @endif
                                 </div>
                                 <center><label class="checkbox inline">
-                                </label><input type="checkbox" name="remember">Recordar</center><br>
+                                </label><input type="checkbox" name="remember">           Recordar</center><br>
                                 <center>
                                 <button type="submit" class="btn2 btn-default">Ingresar</button>
                                     <ul class="social_login">
@@ -86,10 +86,11 @@
                     @endif
                     
 
-                    <a href="{{ $publication->url }}" class="link btn-link pull-left"> Abrir link</a>
-
-                <hr class="divition">
-                </div>
+                    <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
+                    </p>
+                    </div>
+                <hr>
+                
              
                 @endforeach
                     

@@ -5,7 +5,7 @@
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
     <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
     <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
-
+    
 @stop
 
 @section('login')
@@ -58,13 +58,13 @@
 	@section('content')		
 				
 				@foreach($publications as $publication)
-			
-				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
-                    <br><br>
+			     
+				
+                <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <header class="name">
                         <h3 style="color: black;">{{ $publication->name }}</h3>
                     </header>
-                    <br>
+                    
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
@@ -90,7 +90,8 @@
 					<p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
                     </p>
                 <hr>
-             
+
+                       
 				@endforeach
 					
 				
