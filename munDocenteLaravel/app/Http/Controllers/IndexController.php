@@ -89,9 +89,10 @@ class IndexController extends Controller
         $user = User::with('academicInstitution')
                     ->where('id','=',$id)
                     ->get();
-
+         $areas = Area::whereNotNull('parent')
+                    ->get();           
                // dd($user);
-        return view('setting_account', compact('user'));
+        return view('setting_account', compact('user', 'areas'));
     }
     public function result_search_basic(Request $request){
         $this->validate($request, [
