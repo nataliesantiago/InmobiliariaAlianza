@@ -94,11 +94,19 @@ class IndexController extends Controller
         return view('setting_account', compact('user'));
     }
     public function result_search_basic(Request $request){
+        $this->validate($request, [
+            'query' => 'required',
+            ]);
+        $query = $request->input('query');
+        $publications =Publication::with('user','typeScientificMagazine')
+                                ->where('name', 'LIKE', '%' . $query . '%')
+                                ->paginate(5);
         $places = Place::where('type', '=', 1)
                         ->get();
         $areas = Area::whereNotNull('parent')
                     ->get();
-        return view('search', [
+        return view('result_search', [
+            'publications' => $publications,
             'areas' => $areas,
             'places' => $places
             ]);
