@@ -96,7 +96,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 
         </div>
-            <!-- Nav -->
+            <!-- Nav ES EN COMÚN CON EL OTRO LAYOUT -->
         </div>      
         </div>
   
@@ -105,7 +105,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 @yield('principal_info')
 
                 
-<!-- Footer -->
+<!-- Footer ES LO MISMO DE LA OTRA PARTE -->
     <div id="footer-wrapper">
         <section id="footer" class="container">
 

@@ -10,7 +10,7 @@
 
 @section('login')
                
-
+<!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
                 <section class="box">
                     <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
                      {!! csrf_field() !!}
@@ -50,7 +50,7 @@
                     <hr >       
                </section>
 
-                
+                <!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
      @stop
 
 
@@ -99,7 +99,7 @@
 					<ul class="actions pagination">
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
-					</div>
+				</div>
 
 	@stop
 

@@ -10,7 +10,7 @@
 @stop
 @section('login')
                 <div class="4u 12u(mobile)">
-
+<!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
                 <section class="box">
                             <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
                              {!! csrf_field() !!}
@@ -51,6 +51,8 @@
                     </section>
 
                 </div>
+
+                <!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
                 
      @stop
     @section('content')     

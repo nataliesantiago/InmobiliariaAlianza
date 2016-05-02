@@ -99,7 +99,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 
         </div>
-            <!-- Nav -->
+            <!-- Nav OCURRE LO MISMO -->
         </div>      
         </div>
    
@@ -150,7 +150,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </div>
 
-<!-- Footer -->
+<!-- Footer DIVIDIR APARTIR DE AQUI-->
     <div id="footer-wrapper">
         <section id="footer" class="container">
 
