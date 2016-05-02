@@ -44,13 +44,13 @@
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Nombres y Apellidos</label>
 								<div class="col-xs-8">
-								<input type="text" name="demo-name" id="demo-name" placeholder="{{ $r->fullname }}" />
+								<input type="text" name="name" id="name" placeholder="{{ $r->fullname }}" />
 								</div>
 							</div>
 							<div class="12u$">
 								<label class="control-label col-xs-4">Correo Electrónico</label>
 								<div class="col-xs-8">
-								<input type="text" name="demo-email" id="demo-email" class="form-control" placeholder="{{ $r->email }}" />
+								<input type="text" name="email" id="email" class="form-control" placeholder="{{ $r->email }}" />
 								</div>
 								@if ($errors->has('email'))
 			                        <span class="help-block">
@@ -61,7 +61,7 @@
 							<div class="12u$">
 								<label class="control-label col-xs-4">Institución</label>
 								<div class="col-xs-8">
-								<select name="demo-ins" id="demo-ins" class="form-control" />
+								<select name="ins" id="ins" class="form-control" />
 									<option>{{ $r->academicInstitution->name}}</option>
 								</select>
 								</div>
@@ -72,13 +72,9 @@
 						        <div  class="input-group">
 									<select class="form-control" required name="area[]">             
 						        		<option name>Seleccione una opción</option>
-										<option>Software</option>
-										<option>Educación</option>
-										<option>Web</option>
-										<option>Inglés</option>
-										<option>Matemáticas</option>
-										<option>Ingeniería</option>
-										<option>Medicina</option>
+						        		@foreach($areas as $area)
+										<option>{{ $area->name }}</option>
+										@endforeach
 									</select>
 								    <span class="input-group-btn input-m">
 						            <button class= "btn btn-primary" onclick="crearArea(this)"><i class="glyphicon glyphicon-plus"></i></button>
@@ -89,7 +85,7 @@
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Telefono</label>
 								<div class="col-xs-8">
-								<input type="text" name="demo-phone" id="demo-phone" value="" />
+								<input type="text" name="phone"/>
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
