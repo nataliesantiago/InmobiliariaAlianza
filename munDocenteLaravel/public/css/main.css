@@ -1746,7 +1746,7 @@ div#slider div.elemento img{
 
 	#header-wrapper {
 		position: relative;
-		background: #ffffff;
+		background: #F6F6F6;
 		border-bottom: solid 1px #ccc;
 	}
 
@@ -2016,7 +2016,7 @@ div#slider div.elemento img{
 					}
 
 					#nav > ul > li.current > a {
-						background: #9A618A;
+						background: #4C3571;
 						color: #fff !important;
 						font-weight: 700;
 					}
@@ -2126,7 +2126,7 @@ div#slider div.elemento img{
 						top: 0;
 						display: block;
 						z-index: -1;
-						box-shadow: 32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, 32px 32px 0 0 #fff, 32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+						box-shadow: 32px 0 0 0 #F6F6F6, 0 -32px 0 0 #F6F6F6, 0 32px 0 0 #F6F6F6, 32px 32px 0 0 #F6F6F6, 32px -32px 0 0 #F6F6F6, 0 0 32px 0 rgba(0, 0, 0, 0.15);
 					}
 
 					#intro .middle:after {
@@ -2138,7 +2138,7 @@ div#slider div.elemento img{
 						top: 0;
 						display: block;
 						z-index: -1;
-						box-shadow: -32px 0 0 0 #fff, 0 -32px 0 0 #fff, 0 32px 0 0 #fff, -32px 32px 0 0 #fff, -32px -32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.15);
+						box-shadow: -32px 0 0 0 #F6F6F6, 0 -32px 0 0 #F6F6F6, 0 32px 0 0 #F6F6F6, -32px 32px 0 0 #F6F6F6, -32px -32px 0 0 #F6F6F6, 0 0 32px 0 rgba(0, 0, 0, 0.15);
 					}
 
 				#intro .button {
@@ -2548,7 +2548,7 @@ div#slider div.elemento img{
 
 .navbar {
 	height: 120px;
-	background-color: #FFFFFF;
+	background-color: #F6F6F6;
 }
 
 .forgot{
@@ -2567,7 +2567,7 @@ div#slider div.elemento img{
 }
 
 .navbar .nav>li.current>a{
-	    background: #9A618A;
+	    background: #A54586;
     color: #fff !important;
     font-weight: 700;
   

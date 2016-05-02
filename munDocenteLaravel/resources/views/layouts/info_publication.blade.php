@@ -33,22 +33,33 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <!-- Nav -->
                  <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
-             <div class="row">
+              <div class="row">
                 <div class="2u 12u(mobile)">
                     <a class="logo" href="/"><img  src="images/logomundocente.jpg"></a>
                 </div>
-                <div class="6u 12u(mobile)">
+                <div class="5u 12u(mobile)">
                 </div>              
                 <div class="4u 12u(mobile)">
-                    <form class="form login-form">
+                    <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
+                    {!! csrf_field() !!}
                     <div class="row uniform">
+
                          <div class="1u 12u$(xsmall)"></div>
                          <div class="10u 12u$(xsmall)">
                             <input type="text" name="query"  placeholder="Búsqueda" />
+                            @if ($errors->has('query'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('query') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
-                    </form>
+                    
                 </div>
+                <div class="1u 12u(mobile)">
+                        <input class="btn btn-default" type="submit" value="Ir"></p>
+                </div>
+                </form>
             </div>
 
             <div class="formu navbar-collapse" id="app-navbar-collapse">
@@ -93,7 +104,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 @yield('principal_info')
 
-				
+                
 <!-- Footer -->
     <div id="footer-wrapper">
         <section id="footer" class="container">
@@ -188,5 +199,3 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
-
-
