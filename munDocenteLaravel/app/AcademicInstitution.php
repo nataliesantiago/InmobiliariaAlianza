@@ -24,3 +24,5 @@ class AcademicInstitution extends Model
     {
     	return $this->belongsTo('MunDocente\Place', 'place');
     }
+
+}
