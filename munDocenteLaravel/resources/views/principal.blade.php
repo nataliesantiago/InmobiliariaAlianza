@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('routes.normalroute')
 
 @section('menu')
   
