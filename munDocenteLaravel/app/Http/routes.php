@@ -20,6 +20,7 @@ Route::get('/search', 'IndexController@search');
 Route::get('/record', 'IndexController@record');
 Route::get('/setting_account/{id}', 'IndexController@setting_account');
 Route::post('/result_search_basic', 'IndexController@result_search_basic');
+Route::post('/result_search_advanced', 'IndexController@result_search_advanced');
 
 
 Route::auth();
