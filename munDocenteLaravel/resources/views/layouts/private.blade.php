@@ -17,12 +17,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="js/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap-responsive.min.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="../css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-<link rel="stylesheet" type="text/css" href="css/simpletree.css" />
+<link rel="stylesheet" type="text/css" href="../css/simpletree.css" />
 
 </head>
 <body class="right-sidebar">
@@ -35,7 +35,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <a class="logo" href="/"><img  src="images/logomundocente.jpg"></a>
+                    <a class="logo" href="/"><img  src="../images/logomundocente.jpg"></a>
                 </div>
                 <div class="6u 12u(mobile)">
                 </div>              
@@ -66,7 +66,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @else
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="../images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -93,7 +93,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 @yield('principal_info')
 
-				
+                
 <!-- Footer -->
     <div id="footer-wrapper">
         <section id="footer" class="container">
@@ -172,21 +172,19 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </div>
 
 <!-- Scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.dropotron.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/skel-viewport.min.js"></script>
-<script src="js/util.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.dropotron.min.js"></script>
+<script src="../js/skel.min.js"></script>
+<script src="../js/skel-viewport.min.js"></script>
+<script src="../js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
-<script src="js/slider.js"></script>
-<script src="js/areas.js"></script>
+<script src="../js/slider.js"></script>
+<script src="../js/areas.js"></script>
 <script type="text/javascript" src="js/simpletreemenu.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
-
-

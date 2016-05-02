@@ -1,5 +1,5 @@
 
-@extends('layouts.info_publication')
+@extends('layouts.private')
 
 @section('menu')
 
@@ -26,15 +26,16 @@
 			<div class="8u 12u(mobile)">
 				<section class="box">
 					<form method="post" class="form login-form">
+						@foreach($user as $r)
 						<div class="row uniform">
 							<div class="12u 12u$(xsmall)">	
-								<label class="control-label col-xs-4"><h2>{{ Auth::user()->username }} </h2></label>
+								<label class="control-label col-xs-4"><h2>{{ $r->username }} </h2></label>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar contraseña</a>
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
-								<img class="control-label col-xs-3" src="images/user.png" alt="" />
+								<img class="control-label col-xs-3" src="../images/user.png" alt="" />
 								<div class="col-xs-1"></div>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar foto</a>
@@ -43,13 +44,13 @@
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Nombres y Apellidos</label>
 								<div class="col-xs-8">
-								<input type="text" name="demo-name" id="demo-name" placeholder="{{ Auth::user()->fullname }}" />
+								<input type="text" name="demo-name" id="demo-name" placeholder="{{ $r->fullname }}" />
 								</div>
 							</div>
 							<div class="12u$">
 								<label class="control-label col-xs-4">Correo Electrónico</label>
 								<div class="col-xs-8">
-								<input type="text" name="demo-email" id="demo-email" class="form-control" placeholder="{{ Auth::user()->email }}" />
+								<input type="text" name="demo-email" id="demo-email" class="form-control" placeholder="{{ $r->email }}" />
 								</div>
 								@if ($errors->has('email'))
 			                        <span class="help-block">
@@ -61,11 +62,10 @@
 								<label class="control-label col-xs-4">Institución</label>
 								<div class="col-xs-8">
 								<select name="demo-ins" id="demo-ins" class="form-control" />
-									<option>{{ Auth::user()->academic_institution }}</option>
+									<option>{{ $r->academicInstitution->name}}</option>
 								</select>
 								</div>
 							</div>
-							
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Áreas de interés</label>
 						      	<div class="col-xs-8" id="listArea">
@@ -111,6 +111,7 @@
 								</ul>
 							</div>
 						</div>
+						@endforeach
 					</form>
 				
 				</section>
@@ -118,5 +119,4 @@
 		</div>
 	</div>
 </div>
-
-@stop
+@endsection

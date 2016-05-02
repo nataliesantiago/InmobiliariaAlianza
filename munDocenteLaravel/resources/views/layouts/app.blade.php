@@ -39,16 +39,25 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <div class="2u 12u(mobile)">
                     <a class="logo" href="/"><img  src="images/logomundocente.jpg"></a>
                 </div>
-                <div class="6u 12u(mobile)">
+                <div class="5u 12u(mobile)">
                 </div>              
                 <div class="4u 12u(mobile)">
-                    <form class="form login-form">
+                    <form action="/result" method="post" class="form login-form">
+
                     <div class="row uniform">
+
                          <div class="1u 12u$(xsmall)"></div>
                          <div class="10u 12u$(xsmall)">
                             <input type="text" name="query"  placeholder="Búsqueda" />
+                            
                         </div>
                     </div>
+                    </form>
+                </div>
+                <div class="1u 12u(mobile)">
+                    <form action="/result" method="post" class="form login-form">
+                        <input class="btn btn-default" type="submit" value="Ir"></p>
+                            
                     </form>
                 </div>
             </div>
@@ -73,7 +82,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="/setting_account"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                            <li><a href="/setting_account/{{ Auth::user()->id }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                                                
                             </ul>

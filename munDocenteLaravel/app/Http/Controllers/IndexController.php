@@ -9,6 +9,7 @@ use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
 use MunDocente\Place;
+use MunDocente\User;
 use Carbon\Carbon;
 use DB;
 
@@ -84,9 +85,23 @@ class IndexController extends Controller
         
         return view('record');
     }
-    public function setting_account(){
-        
-        return view('setting_account');
+    public function setting_account($id){
+        $user = User::with('academicInstitution')
+                    ->where('id','=',$id)
+                    ->get();
+
+               // dd($user);
+        return view('setting_account', compact('user'));
+    }
+    public function result_search_basic(Request $request){
+        $places = Place::where('type', '=', 1)
+                        ->get();
+        $areas = Area::whereNotNull('parent')
+                    ->get();
+        return view('search', [
+            'areas' => $areas,
+            'places' => $places
+            ]);
     }
     public function result_search(){
          $publications = Publication::with('user','typeScientificMagazine')->paginate(5);
