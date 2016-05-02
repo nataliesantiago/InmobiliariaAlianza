@@ -30,47 +30,6 @@ class IndexController extends Controller
             'areas' => $areas]);
     }
 
-    public function teacher_call(){
-    	$publications = Publication::with('user')
-                                    ->where('type', '=', 1)
-                                    ->where(function($query){
-                                        $dt = Carbon::now()->format('Y-m-d');
-                                        $query->where('end_date', '>=', $dt)
-                                              ->orWhere('end_date', '=', null);
-                                    })
-                                    ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
-    	$areas = Area::all();
-    	return view('teacher_call', compact('publications', 'areas'));
-    }
-
-    public function academic_event(){
-    	$publications = Publication::with('user')
-                                    ->where('type', '=', 3)
-                                    ->where(function($query){
-                                        $dt = Carbon::now()->format('Y-m-d');
-                                        $query->where('end_date', '>=', $dt)
-                                              ->orWhere('end_date', '=', null);
-                                    })
-                                    ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
-    	$areas = Area::all();
-    	return view('academic_event', compact('publications', 'areas'));
-    }
-
-    public function scientific_magazine(){
-    	$publications = Publication::with('user','typeScientificMagazine')
-                                    ->where('type', '=', 2)
-                                    ->where(function($query){
-                                        $dt = Carbon::now()->format('Y-m-d');
-                                        $query->where('end_date', '>=', $dt)
-                                              ->orWhere('end_date', '=', null);
-                                    })
-                                    ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
-    	$areas = Area::all();
-    	return view('scientific_magazine', compact('publications', 'areas'));
-    }
      public function search(){
         $places = Place::where('type', '=', 1)
                         ->get();
