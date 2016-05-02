@@ -38,12 +38,18 @@
 			<section class="box">
 			<header>
 				
-				<form role="form" method="POST" action="{{ url('/search') }}">
+				<form role="form" method="POST" action="{{ url('/result_search_advanced') }}">
+				 {!! csrf_field() !!}
 					<div class="row uniform">
 						<div class="12u">
 							<label class="control-label col-xs-12"><h3>Palabra clave</h3></label>
 							<div class="col-xs-12">
-							<input class="form-control" type="text" name="search" id="seacrh" value="" />
+							<input class="form-control" type="text" name="search"/>
+							@if ($errors->has('search'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('search') }}</strong>
+                                    </span>
+                            @endif
 							</div>
 						</div>     
 						<div class="12u">
@@ -68,7 +74,7 @@
 					    <div class="12u">
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
 							<div class="col-xs-12">
-							<select class="form-control" name="search" id="search" value="" />
+							<select class="form-control" name="city" id="city" value="" />
 							<option name>Seleccione una opción</option>
 							@foreach($places as $place)
 									<option>{{ $place->name }}</option>
@@ -96,12 +102,14 @@
 						<div class="12u">
 							<div class="col-xs-12">
 								<ul class="actions">
-									<center><li><a id="busqueda" href="/result_search" class="button special icon fa-search">Buscar</a></li></center>
+									<center><li><input class="btn btn-default" type="submit" value="Buscar"></p></li></center>
 								</ul>
 							</div>
 						</div>			
 					</div>
 				</form>
+
+
 			</header>
 		</section>
 			</div>

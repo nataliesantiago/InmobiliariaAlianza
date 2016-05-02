@@ -94,19 +94,35 @@ class IndexController extends Controller
         return view('setting_account', compact('user'));
     }
     public function result_search_basic(Request $request){
+        $this->validate($request, [
+            'query' => 'required',
+            ]);
+        $query = $request->input('query');
+        $publications =Publication::with('user','typeScientificMagazine')
+                                ->where('name', 'LIKE', '%' . $query . '%')
+                                ->paginate(5);
         $places = Place::where('type', '=', 1)
                         ->get();
         $areas = Area::whereNotNull('parent')
                     ->get();
-        return view('search', [
+        return view('result_search', [
+            'publications' => $publications,
             'areas' => $areas,
             'places' => $places
             ]);
     }
-    public function result_search(){
-         $publications = Publication::with('user','typeScientificMagazine')->paginate(5);
+    public function result_search_advanced(Request $request){
+        $this->validate($request, [
+            'search' => 'required'
+            ]);
+
+        $search = $request->input('search');
+        $publications =Publication::with('user','typeScientificMagazine')
+                                ->where('name', 'LIKE', '%' . $search . '%')
+                                ->paginate(5);
       //dd($publications );
-        $areas = Area::all();
+        $areas = Area::whereNotNull('parent')
+                    ->get();
         return view('result_search', [
             'publications' => $publications,
             'areas' => $areas]);      
