@@ -25,6 +25,9 @@
     <a class="logo" href="/"><img  src="images/logomundocente.jpg"></a>
 @stop
 
+@section('principal')
+    @yields('principal')
+@stop
 
 
 @section('scripts')
