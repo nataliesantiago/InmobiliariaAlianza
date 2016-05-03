@@ -40,10 +40,6 @@ class IndexController extends Controller
             'places' => $places
             ]);
     }
-    public function record(){
-        
-        return view('record');
-    }
     public function setting_account($id){
         $user = User::with('academicInstitution')
                     ->where('id','=',$id)

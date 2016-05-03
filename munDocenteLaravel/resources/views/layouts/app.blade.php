@@ -62,7 +62,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
-                        <li class="register"><a href="/record">Registrarse</a></li>
+                        <li class="register"><a href="/user/create">Registrarse</a></li>
                         
                     @else
 
@@ -72,7 +72,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="/setting_account/{{ Auth::user()->id }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                            <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
+                            <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                                                
                             </ul>

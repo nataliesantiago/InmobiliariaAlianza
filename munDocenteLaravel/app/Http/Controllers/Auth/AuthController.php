@@ -3,6 +3,7 @@
 namespace MunDocente\Http\Controllers\Auth;
 
 use MunDocente\User;
+use MunDocente\AcademicInstitution;
 use Validator;
 use MunDocente\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/'; //cambiar esta dirección para que ya cuando se logea cambia todo
     protected $username = 'username'; // Variable para la validación
 
     /**
@@ -67,13 +68,20 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $academic_institution = AcademicInstitution::where('name', '=', $data['academic_institution'])
+                                                    ->select('id', 'name')
+                                                    ->get();
+        foreach ($academic_institution as $key) {
+            $valueId = $key->id;
+        }
+        //dd($valueId);                                                    
         return User::create([
             'username' => $data['username'],
             'fullname' => $data['fullname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'type' => $data['type'],
-            'academic_institution' => $data['academic_institution'],
+            'academic_institution' => $valueId,
         ]);
     }
 }

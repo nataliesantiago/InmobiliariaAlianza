@@ -1,4 +1,4 @@
-@extends('layouts.normalroute')
+@extends('layouts.routes.routedown')
 
 @section('menu')
 
@@ -96,7 +96,14 @@
 			            </div>
 
 			            <input type="hidden" name="type" value="1">
-			            <input type="hidden" name="academic_institution" value="10">
+
+			            <div class="col-xs-8">
+								<select name="academic_institution" id="ins" class="form-control" />
+								@foreach($academic_institutions as $academic_institution)
+									<option>{{ $academic_institution->name }}</option>
+								@endforeach
+								</select>
+						</div>
 
 
 						<div class="12u 12u$(small)">
