@@ -13,15 +13,16 @@
 
 
 Route::get('/', 'IndexController@index');
-Route::get('/search', 'IndexController@search');
-//Route::get('/setting_account/{id}', 'IndexController@setting_account');
-Route::post('/result_search_basic', 'IndexController@result_search_basic');
-Route::post('/result_search_advanced', 'IndexController@result_search_advanced');
 
 Route::resource('teacher_call', 'TeacherCallController');
 Route::resource('academic_event', 'AcademicEventController');
 Route::resource('scientific_magazine', 'ScientificMagazineController');
 Route::resource('user', 'UserController');
+
+Route::get('/search_advanced', 'QueriesController@search_advanced');
+Route::post('/result_search_basic', 'QueriesController@result_search_basic');
+//Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

@@ -38,6 +38,8 @@
 			<section class="box">
 			<header>
 				
+					@can('search-advanced')
+
 				<form role="form" method="POST" action="{{ url('/result_search_advanced') }}">
 				 {!! csrf_field() !!}
 					<div class="row uniform">
@@ -108,7 +110,13 @@
 						</div>			
 					</div>
 				</form>
-
+				@else
+				<div class="row uniform">
+					<div class="12u">
+							<label class="control-label col-xs-12"><h3>Lo sentimos, pero pero para poder ejecutar consultas avanzadas debes<a href="/user/create"> registrarte</a></h3></label>
+						</div>
+				</div>
+				@endcan
 
 			</header>
 		</section>

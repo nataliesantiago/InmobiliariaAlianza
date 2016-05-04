@@ -32,6 +32,7 @@
   					  </div>
 				@endif
 				@foreach($user as $r)
+				@can('owner', $r)
 					{!! Form::model($r, [
     				'method' => 'PATCH',
 					 'route' => ['user.update', $r->id]
@@ -129,6 +130,15 @@
 						</div>
 					{!! Form::close() !!}	
 					</form>
+					@endcan
+					<body>
+					        <div class="container">
+					            <div class="content">
+					                <div class="title">¿Hasta dónde intentas llegar {{ $r->fullname }}? 
+					                Aquí enuentras información no autorizada</div>
+					            </div>
+					        </div>
+					    </body>
 				@endforeach
 				</section>
 			</div>

@@ -90,7 +90,7 @@ class UserController extends Controller
                     ->where('id','=',$id)
                     ->get();
         //dd($request);
-
+        $this->authorize('owner', $user);
         $this->validate($request, [
             'fullname' => 'required|max:255',
             'email' => 'required|email|max:255',

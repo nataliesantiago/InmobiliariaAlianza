@@ -46,7 +46,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             @endif
                             @if (Auth::guest())
                             @else   
-                            <a href="/search">Búsqueda avanzada</a>
+                            <a href="/search_advanced">Búsqueda avanzada</a>
                             @endif
                         </div>
                     </div>

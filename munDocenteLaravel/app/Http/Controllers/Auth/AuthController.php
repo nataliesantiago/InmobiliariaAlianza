@@ -57,6 +57,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'type' => 'required',
             'academic_institution' => 'required',
+            'termsConditions' => 'required',
         ]);
     }
 

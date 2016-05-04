@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'MunDocente\Model' => 'MunDocente\Policies\ModelPolicy',
+        'MunDocente\User'  => 'MunDocente\Policies\UserPolicy',
     ];
 
     /**
@@ -26,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        $gate->define('search-advanced', function($user){
+            return $user->id != null;
+        });
     }
 }
