@@ -1,7 +1,7 @@
 
-@extends('layouts.private')
+@extends('layouts.routes.downtwice')
 
-@section('menu')
+@section('menus')
 
     <li class="current"><a href="/">Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
@@ -10,7 +10,7 @@
 
 @stop
 
-@section('principal_info')
+@section('principal')
 
 <div id="main-wrapper">
 	<div class="container">
@@ -35,7 +35,7 @@
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
-								<img class="control-label col-xs-3" src="../images/user.png" alt="" />
+								<img class="control-label col-xs-3" src="../../images/user.png" alt="" />
 								<div class="col-xs-1"></div>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar foto</a>

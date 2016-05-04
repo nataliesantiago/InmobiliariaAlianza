@@ -1,4 +1,4 @@
-@extends('routes.normalroute')
+@extends('layouts.routes.normalroute')
 
 @section('menu')
 
@@ -12,8 +12,9 @@
             <div class="row">
                     <!-- Sidebar -->
                 @if (Auth::guest())  
-                @yield('login')
-
+                <div class="4u 12u(mobile)">  
+                    @yield('login')
+                </div>
                
                 <div class="8u 12u(mobile) important(mobile)">
 

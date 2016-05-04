@@ -18,14 +18,20 @@
 @stop
 
 @section('menu')
-	@yield('menu')
+
+	@yield('menus')
+
 @stop
 
 @section('logo')
-    <a class="logo" href="/"><img  src="../images/logomundocente.jpg"></a>
+    <a class="logo" href="/"><img  src="../images/logomundocente.png"></a>
 @stop
 
+@section('main')
+    
+    @yield('principal')
 
+@stop
 
 @section('scripts')
 

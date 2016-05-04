@@ -8,9 +8,9 @@
 	}
 ?>
 
-@extends('layouts.app')
+@extends('layouts.routes.normalroute')
 
-@section('menu')
+@section('menus')
 
     <li style="white-space: nowrap;"><a href="/">Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>

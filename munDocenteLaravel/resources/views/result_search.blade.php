@@ -1,4 +1,4 @@
-@extends('principal_info')
+@extends('main_info')
 
 @section('menu')
 
@@ -8,53 +8,13 @@
     <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
 
 @stop
+
 @section('login')
-                <div class="4u 12u(mobile)">
-<!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
-                <section class="box">
-                            <form class="form login-form" role="form" method="POST" action="{{ url('/login') }}">
-                             {!! csrf_field() !!}
-                                <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>                 
-                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Usuario"/>
-                                     @if ($errors->has('username'))
-                                             <span class="help-block">
-                                                 <strong>{{ $errors->first('username') }}</strong>
-                                            </span>
-                                         @endif
-                                </div><br>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                 
-                                    <input type="password" class="form-control" name="password" placeholder="Contraseña" />
-                                    @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                </div>
-                                <center><label class="checkbox inline">
-                           </label><input type="checkbox" name="remember">           Recordar</center><br>
-                                <center>
-                                <button type="submit" class="btn2 btn-default">Ingresar</button>
-                                    <ul class="social_login">
-                                        
-                                    <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-                                    <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
-                                    <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
-                                    </ul>
-                                    
-                                </center>
-                                <HR>
-                                <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
-                            </form>
-                        <hr >       
-                    </section>
+               
+    @include('login')
 
-                </div>
+@stop
 
-                <!--FORMULARIO LLAMANDOSE EN MUCHAS PARTES, CONVERTIRLO EN UN LAYOUT-->
-                
-     @stop
     @section('content')     
                 
                 @foreach($publications as $publication)
@@ -104,33 +64,7 @@
     @stop
 
    @section('area')
-    <section class="box">
-        <center><h3 style="color: #5A5A5A;">Áreas</h3></center>
-            <center>
-                <hr>
-                <a href="javascript:ddtreemenu.flatten('treemenu1', 'expand')" >Abrir subáreas</a>
-                 | <a href="javascript:ddtreemenu.flatten('treemenu1', 'contact')">Cerrar subáreas</a>
-            <hr></center>
-            <ul class="nav nav-list" id="treemenu1" class="treeview">
-                @foreach($areas as $key=>$area)
-                @if($area->parent==null)
-                    @if($key > 1)
-                        </ul>
-                        </li>
-                    @endif
-                <li><a class="control-label col-xs-12" href="#">{{ $area->name }}</a>
-                <ul>
-                @else
-                <li><a class="control-label col-xs-10" href="#">{{  $area->name }}</a></li >
-                @endif
-                @endforeach
-                </ul>
-                </li>
-            </ul>            
+    
+    @include('areas')
 
-            <script type="text/javascript">
-            ddtreemenu.createTree("treemenu1", true)
-            
-            </script>
-    </section>
 @stop

@@ -1,11 +1,11 @@
-@extends('principal')
+@extends('main')
 
 @section('menu')
     <li class="current"><a href="/">Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias</a></li>
     <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
     <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
-
+    <li style="white-space: nowrap;"><a href="#intro">Actividades</a></li>  
 @stop
 
 @section('login')
@@ -13,8 +13,6 @@
     @include('login')
 
 @stop
-
-
 
 	@section('content')		
 				

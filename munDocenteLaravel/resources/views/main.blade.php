@@ -1,6 +1,6 @@
-@extends('routes.normalroute')
+@extends('layouts.routes.normalroute')
 
-@section('menu')
+@section('menus')
   
   @yield('menu')
 
@@ -83,6 +83,7 @@
                   <div class="information">
                 @yield('content')
                     </div>
+
                 </div>
 
             @endif
@@ -91,4 +92,48 @@
             </div>
         </div>
     </div>
+
+    <div id="header-wrapper">
+    <div id="header">
+                <!-- Intro -->
+        <section id="intro" class="container">
+            <div class="row">
+                <div class="4u 12u(mobile)">
+                    <section class="first">
+                        <i class="icon featured fa-suitcase"></i>
+                        <header>
+                            <h2>Convocatorias docente</h2>
+                        </header>
+                        <p>Acá podrá encontrar todas las publicaciones relacionadas a convocatorias de docentes universitarios.</p>
+                        <br>
+                        <a href="/teacher_call" class="button big">Ver más</a>
+                    </section>
+                </div>
+                <div class="4u 12u(mobile)">
+                    <section class="middle">
+                        <i class="icon featured alt fa-edit"></i>
+                        <header>
+                            <h2>Revistas científicas</h2>
+                        </header>
+                        <p>Acá podrá encontrar todas las publicaciones relacionadas a las revistas científicas indexadas en Colombia.</p>
+                        <br>
+                        <a href="/scientific_magazine" class="button alt big">Ver más</a>
+                    </section>
+                </div>
+                <div class="4u 12u(mobile)">
+                    <section class="last">
+                        <i class="icon featured alt2 fa-graduation-cap"></i>
+                        <header>
+                            <h2>Eventos académicos</h2>
+                        </header>
+                        <p>Acá podrá encontrar todas las publicaciones relacionadas con eventos académicos en Colombia.</p>
+                        <br>
+                        <a href="/academic_event" class="button alt2 big">Ver más</a>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
 @stop

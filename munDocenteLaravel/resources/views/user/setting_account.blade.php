@@ -1,7 +1,7 @@
 
-@extends('layouts.private')
+@extends('layouts.routes.routedown')
 
-@section('menu')
+@section('menus')
 
     <li class="current"><a href="/">Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
@@ -10,7 +10,7 @@
 
 @stop
 
-@section('principal_info')
+@section('principal')
 
 <div id="main-wrapper">
 	<div class="container">

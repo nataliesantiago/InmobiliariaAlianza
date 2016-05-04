@@ -24,7 +24,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    @yield('logo')
+                    <div class="2u 12u$(xsmall)"></div>
+                    <div class="9u 12u$(xsmall)">
+                        @yield('logo')
+                    </div>
                 </div>
                 <div class="5u 12u(mobile)">
                 </div>              
@@ -40,6 +43,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                     <span class="help-block">
                                         <strong>{{ $errors->first('query') }}</strong>
                                     </span>
+                            @endif
+                            @if (Auth::guest())
+                            @else   
+                            <a href="/search">Búsqueda avanzada</a>
                             @endif
                         </div>
                     </div>
@@ -57,8 +64,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     
 
                         @yield('menu')
-                    
-               
+                        <li style="white-space: nowrap;"><a href="#footer-wrapper">Contacto</a></li>    
+                        
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
@@ -79,7 +86,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </ul>
                         
                         </li>
-                        <a href="/search">Búsqueda avanzada</a>
                     @endif
                 </ul>
             </div>
@@ -94,50 +100,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
    
 
 @yield('principal')
-
-<div id="header-wrapper">
-    <div id="header">
-        <!-- Intro -->
-<section id="intro" class="container">
-    <div class="row">
-        <div class="4u 12u(mobile)">
-            <section class="first">
-                <i class="icon featured fa-suitcase"></i>
-                <header>
-                    <h2>Convocatorias docente</h2>
-                </header>
-                <p>Acá podrá encontrar todas las publicaciones relacionadas a convocatorias de docentes universitarios.</p>
-                <br>
-                <a href="/teacher_call" class="button big">Ver más</a>
-            </section>
-        </div>
-        <div class="4u 12u(mobile)">
-            <section class="middle">
-                <i class="icon featured alt fa-edit"></i>
-                <header>
-                    <h2>Revistas científicas</h2>
-                </header>
-                <p>Acá podrá encontrar todas las publicaciones relacionadas a las revistas científicas indexadas en Colombia.</p>
-                <br>
-                <a href="/scientific_magazine" class="button alt big">Ver más</a>
-            </section>
-        </div>
-        <div class="4u 12u(mobile)">
-            <section class="last">
-                <i class="icon featured alt2 fa-graduation-cap"></i>
-                <header>
-                    <h2>Eventos académicos</h2>
-                </header>
-                <p>Acá podrá encontrar todas las publicaciones relacionadas con eventos académicos en Colombia.</p>
-                <br>
-                <a href="/academic_event" class="button alt2 big">Ver más</a>
-            </section>
-        </div>
-    </div>
-</section>
-
-    </div>
-</div>
 
 <!-- Footer DIVIDIR APARTIR DE AQUI-->
     <div id="footer-wrapper">

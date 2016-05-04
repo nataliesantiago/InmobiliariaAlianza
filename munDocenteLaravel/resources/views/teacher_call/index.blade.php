@@ -1,4 +1,4 @@
-@extends('principal_info')
+@extends('main_info')
 
 @section('menu')
 
