@@ -21,8 +21,24 @@
 			<div class="8u 12u(mobile)">
 				<section class="box">
 					<h3 class="major">Registro</h3><hr>
+
 			        <form class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
 			            {!! csrf_field() !!}
+
+
+
+			   		<div class="row uniform">
+						<div class="btn-group">
+  							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+   									<label>Tipo de usuario <span class="caret"></span></label> 
+  							</button>
+ 
+ 						 <ul class="dropdown-menu" role="menu">
+					    <li><a href="/docent">Docente</a></li>
+					    <li><a href="/user/create">Publicador</a></li>
+					     </ul>
+					</div>
+					</div>
 
 			        <div class="row uniform">
 			            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -97,6 +113,7 @@
 
 			            <input type="hidden" name="type" value="1">
 
+
 			            <div class="col-xs-8">
 								<select name="academic_institution" id="ins" class="form-control" />
 								@foreach($academic_institutions as $academic_institution)
@@ -105,20 +122,7 @@
 								</select>
 						</div>
 
-						<div class="12u 12u$(xsmall)">
-								
-						      	<div class="col-xs-8" id="listArea">
-						        <div  class="input-group">
-									<select class="form-control" required name="area[]">             
-						        		@foreach($areas as $area)
-										<option>{{ $area->name }}</option>
-										@endforeach
-									</select>
-								    
-						     	</div>
-						     	</div> 
-							</div>
-
+						@yield('areaList')
 
 						<div class="12u 12u$(small)">
 							<center>
