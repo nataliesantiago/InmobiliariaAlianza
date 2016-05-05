@@ -18,10 +18,11 @@ Route::resource('teacher_call', 'TeacherCallController');
 Route::resource('academic_event', 'AcademicEventController');
 Route::resource('scientific_magazine', 'ScientificMagazineController');
 Route::resource('user', 'UserController');
+Route::resource('area', 'AreaController');
 
 Route::get('/search_advanced', 'QueriesController@search_advanced');
 Route::post('/result_search_basic', 'QueriesController@result_search_basic');
-//Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');
+Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');
 
 Route::auth();
 

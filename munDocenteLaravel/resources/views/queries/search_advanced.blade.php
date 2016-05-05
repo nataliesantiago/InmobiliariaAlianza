@@ -2,7 +2,7 @@
 <?php
 	$arrayArea = array();
 	//<?php echo $arrayArea;
-	$arrayArea[0]='Seleccione una opción-'; 
+	$arrayArea[0]='Sin definir-'; 
 	foreach ($areas as $i => $area) {
 	$arrayArea[$i+1]=$area->name.'-';
 	}
@@ -46,7 +46,7 @@
 						<div class="12u">
 							<label class="control-label col-xs-12"><h3>Palabra clave</h3></label>
 							<div class="col-xs-12">
-							<input class="form-control" type="text" name="search"/>
+							<input class="form-control" required type="text" name="search"/>
 							@if ($errors->has('search'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('search') }}</strong>
@@ -66,7 +66,7 @@
 							</div>
 					      	<div class="col-xs-12" id="listArea">
 								<select class="form-control" required name="area[]">             
-					        		<option name>Seleccione una opción</option>
+					        		<option >Sin definir</option>
 					        		@foreach($areas as $area)
 									<option>{{ $area->name }}</option>
 									@endforeach
@@ -77,7 +77,7 @@
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
 							<div class="col-xs-12">
 							<select class="form-control" name="city" id="city" value="" />
-							<option name>Seleccione una opción</option>
+							<option >Sin definir</option>
 							@foreach($places as $place)
 									<option>{{ $place->name }}</option>
 							@endforeach
@@ -86,19 +86,13 @@
 						</div> 
 						<div class="12u">
 							<label class="col-xs-12"><H3>Tipo de publicación</H3></label>
-															
-							<div class="col-xs-4">
-								<input type="checkbox" id="convocatorias" name="convocatorias"> 
-								<label class="convocatorias" for="convocatorias">Convocatorias</label>						
-							</div>
-							<div class="col-xs-4">
-								<input type="checkbox" id="revistas" name="revistas">
-								<label class="revistas" for="revistas">Revistas</label>									
-							</div>
-							<div class="col-xs-4">
-								<input type="checkbox" id="eventos" name="eventos">
-								<label class="eventos" for="eventos">Eventos</label>									
-							</div>
+							<div class="col-xs-12">
+							<select class="form-control" name="type_of_publication" value="" />
+							<option >Sin definir</option>
+							@foreach($type_of_publications as $type_of_publication)
+									<option>{{ $type_of_publication->value }}</option>
+							@endforeach
+								</select>
 						</div>
 						
 						<div class="12u">
@@ -113,7 +107,7 @@
 				@else
 				<div class="row uniform">
 					<div class="12u">
-							<label class="control-label col-xs-12"><h3>Lo sentimos, pero pero para poder ejecutar consultas avanzadas debes<a href="/user/create"> registrarte</a></h3></label>
+							<label class="control-label col-xs-12"><h3>Lo sentimos, pero pero para poder ejecutar consultas avanzadas debes<a href="/user/create"> registrarte</a> o ingresar.</h3></label>
 						</div>
 				</div>
 				@endcan

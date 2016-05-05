@@ -42,5 +42,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PublicationsTableSeeder::class);
         $this->command->info('Tabla publicaón llenada');
+
+        $this->call(AreaPublicationTableSeeder::class);
+        $this->command->info('Tabla areas y publicación llenada');
     }
 }

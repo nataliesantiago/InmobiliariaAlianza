@@ -28,34 +28,6 @@ class IndexController extends Controller
         return view('app', [
             'publications' => $publications,
             'areas' => $areas]);
-    }
-
-    
-    public function setting_account($id){
-        $user = User::with('academicInstitution')
-                    ->where('id','=',$id)
-                    ->get();
-         $areas = Area::whereNotNull('parent')
-                    ->get();           
-               // dd($user);
-        return view('setting_account', compact('user', 'areas'));
-    }
-   
-    public function result_search_advanced(Request $request){
-        $this->validate($request, [
-            'search' => 'required'
-            ]);
-
-        $search = $request->input('search');
-        $publications =Publication::with('user','typeScientificMagazine')
-                                ->where('name', 'LIKE', '%' . $search . '%')
-                                ->paginate(5);
-      //dd($publications );
-        $areas = Area::whereNotNull('parent')
-                    ->get();
-        return view('result_search', [
-            'publications' => $publications,
-            'areas' => $areas]);      
-    }
+    }  
 
 }
