@@ -24,6 +24,13 @@ class UserController extends Controller
         //
     }
 
+    public function create_docent(){
+        $academic_institutions = AcademicInstitution::all();
+        $areas = Area::whereNotNull('parent')
+                    ->get();
+        return view('user.create_docent', compact('academic_institutions','areas'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -17,6 +17,7 @@ Route::get('/', 'IndexController@index');
 Route::resource('teacher_call', 'TeacherCallController');
 Route::resource('academic_event', 'AcademicEventController');
 Route::resource('scientific_magazine', 'ScientificMagazineController');
+Route::get('/user/create_docent', 'UserController@create_docent');
 Route::resource('user', 'UserController');
 Route::resource('area', 'AreaController');
 

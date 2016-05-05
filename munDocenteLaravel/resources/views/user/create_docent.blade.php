@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-					<center><h2 class="count">NUEVA CUENTA PUBLICADOR</h2></center>			
+					<center><h2 class="count">NUEVA CUENTA DOCENTE</h2></center>			
 			</div>
 			<div class="2u 12u(mobile)"></div>
 
