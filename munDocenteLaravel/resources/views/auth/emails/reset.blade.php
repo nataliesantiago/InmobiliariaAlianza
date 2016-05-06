@@ -1,6 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.routes.normalroute)
 
-@section('content')
+@section('menus')
+
+    <li style="white-space: nowrap;"><a href="/">Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+
+@stop
+
+@section('principal')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

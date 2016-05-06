@@ -30,4 +30,13 @@ class IndexController extends Controller
             'areas' => $areas]);
     }  
 
+
+    public function forget(){
+
+            return view('reset');
+
+    }
+
+
+
 }

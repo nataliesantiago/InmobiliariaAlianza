@@ -21,7 +21,7 @@ Route::get('/user/create_docent', 'UserController@create_docent');
 Route::get('/user/create_publisher', 'UserController@create_publisher');
 Route::resource('user', 'UserController');
 Route::resource('area', 'AreaController');
-
+Route::resource('/password/reset', 'IndexController@forget');
 Route::get('/search_advanced', 'QueriesController@search_advanced');
 Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');

@@ -50,6 +50,12 @@ class UserController extends Controller
         return view('user.create', compact('academic_institutions','areas'));
     }
 
+    public function forget(){
+
+            return view('auth.reset');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
