@@ -141,8 +141,8 @@
 
 		.container.\31 25\25 {
 			width: 100%;
-			max-width: 125%;
-			min-width: 100%;
+			max-width: 325%;
+			min-width: 300%;
 		}
 
 		.container.\37 5\25 {
@@ -2179,7 +2179,7 @@ div#slider div.elemento img{
 		/* Section/Article */
 
 			header.major {
-				margin: 0.75em 0 2.5em 0;
+				margin: 0.5em 0 2.5em 0;
 			}
 
 				header.major h2 {
@@ -2547,7 +2547,7 @@ div#slider div.elemento img{
 }
 
 .navbar {
-	height: 120px;
+	height: 135px;
 	background-color: #F6F6F6;
 }
 
@@ -2576,8 +2576,9 @@ div#slider div.elemento img{
 
 .navbar .nav>li{
 	display: inline-block;
-					font-style: Sans MS;
-					margin: 0 0.35em 0 0.35em;
+	font-style: Sans MS;
+	float: none;
+	margin: 0 0.35em 0 0.35em;
 }
 
 .navbar .nav>li>a{

@@ -33,7 +33,7 @@ class IndexController extends Controller
 
     public function forget(){
 
-            return view('reset');
+            return view('resetpass');
 
     }
 

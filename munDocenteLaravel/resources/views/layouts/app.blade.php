@@ -17,27 +17,26 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <div id="page-wrapper">
 
 <!-- Header -->
-    <div id="header-wrapper">
-        <div id="header">
+<div id="header-wrapper">
+<div id="header">
             <!-- Nav -->
-                 <nav class="navbar navbar-default navbar-static-top">
+     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
              <div class="row">
                 <div class="2u 12u(mobile)">
-                    <div class="2u 12u$(xsmall)"></div>
-                    <div class="9u 12u$(xsmall)">
+                         <div class="10u 12u$(xsmall)">
                         @yield('logo')
                     </div>
                 </div>
                 <div class="5u 12u(mobile)">
                 </div>              
-                <div class="4u 12u(mobile)">
+                <div class="5u 12u(mobile)">
                     <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
                     {!! csrf_field() !!}
                     <div class="row uniform">
 
                          <div class="1u 12u$(xsmall)"></div>
-                         <div class="10u 12u$(xsmall)">
+                         <div class="8u 12u$(xsmall)">
                             <input type="text" name="query"  placeholder="Búsqueda" />
                             @if ($errors->has('query'))
                                     <span class="help-block">
@@ -49,54 +48,57 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <a href="/search_advanced">Búsqueda avanzada</a>
                             @endif
                         </div>
+
+                        <div class="2u 12u$(xsmall)">
+                            <input class="btn btn-default" type="submit" value="Ir">
+                        </div>
                     </div>
-                    
+
+                    </form>                    
                 </div>
-                <div class="1u 12u(mobile)">
-                        <input class="btn btn-default" type="submit" value="Ir"></p>
                 </div>
-                </form>
-            </div>
+                <div>
+                    <!-- Left Side Of Navbar -->
 
-            <div class="formu navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    
-
-                        @yield('menu')
-                        <li style="white-space: nowrap;"><a href="#footer-wrapper">Contacto</a></li>    
+                    <ul class="nav navbar-nav navbar-default">
                         
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                   
-                        <li class="register"><a href="/user/create_docent">Registrarse</a></li>
-                        
-                    @else
 
-                        <li class="dropdown">
-                           
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
+                            @yield('menu')
+                            <li style="white-space: nowrap;">
+                                <a href="#footer-wrapper">Contacto <i class="glyphicon glyphicon-user"></i>
                                 </a>
+                            </li>    
+                            
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                       
+                            <li class="white-space: nowrap;"><a href="/user/create_docent">Registrarse</a></li>
+                            
+                        @else
 
-                            <ul class="dropdown-menu" role="menu">
-                            <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                            <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
-                                                               
-                            </ul>
-                        
-                        </li>
-                    @endif
-                </ul>
-            </div>
+                            <li class="dropdown">
+                               
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
+                                    </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
+                                <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                                                   
+                                </ul>
+                            
+                            </li>
+                        @endif
+                    </ul>
+                </div>
         </div>
     </nav>
 
 
-        </div>
-            <!-- Nav OCURRE LO MISMO -->
-        </div>      
-        </div>
+</div>
+<!-- Nav OCURRE LO MISMO -->
+</div>    
    
 
 @yield('principal')
