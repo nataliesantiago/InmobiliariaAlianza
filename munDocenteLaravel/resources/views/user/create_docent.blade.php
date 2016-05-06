@@ -20,13 +20,14 @@
 
 			<div class="8u 12u(mobile)">
 				<section class="box">
-					<h3 class="major">Registro</h3><hr>
+					<h3 class="major">Registro</h3>
+					<p>Campos obligatorios *</p><hr>
 
 			        <form class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
 			            {!! csrf_field() !!}
 
 
-
+						
 			   		<div class="row uniform">
 						<div class="btn-group">
   							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -39,13 +40,14 @@
 					     </ul>
 					</div>
 					</div>
+				
 
 			        <div class="row uniform">
 			            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" value="{{ old('username') }}">
+			                    	<input type="text" class="form-control" placeholder="Nombre de usuario *" name="username" value="{{ old('username') }}">
 			                    </div>		
 			                    @if ($errors->has('username'))
 			                        <span class="help-block">
@@ -59,7 +61,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-info"></i></span>
-			                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos" value="{{ old('fullname') }}">
+			                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos *" value="{{ old('fullname') }}">
 			                    </div>	
 			                    @if ($errors->has('fullname'))
 			                        <span class="help-block">
@@ -73,7 +75,7 @@
 			                <div class="12u$(xsmall)">
 			                	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			                    	<input type="email" class="form-control" placeholder="Correo electrónico" name="email" value="{{ old('email') }}">
+			                    	<input type="email" class="form-control" placeholder="Correo electrónico *" name="email" value="{{ old('email') }}">
 			                	</div>
 			                    @if ($errors->has('email'))
 			                        <span class="help-block">
@@ -87,7 +89,7 @@
 			                <div class="12u$(xsmall)">
 			                	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-			                      	<input type="password" class="form-control" placeholder="Contraseña" name="password">
+			                      	<input type="password" class="form-control" placeholder="Contraseña *" name="password">
 			                    </div> 	
 			                    @if ($errors->has('password'))
 			                        <span class="help-block">
@@ -95,13 +97,15 @@
 			                        </span>
 			                    @endif
 			                </div>
+			                <p>La contraseña debe tener mínimo 6 caracteres</p>
 			            </div>
+
 
 			            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 			                <div class="12u$(xsmall)">
 			                	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				                    <input type="password" class="form-control" placeholder="Confirmar contraseña" name="password_confirmation">
+				                    <input type="password" class="form-control" placeholder="Confirmar contraseña *" name="password_confirmation">
 				                </div>    
 			                    @if ($errors->has('password_confirmation'))
 			                        <span class="help-block">
@@ -117,7 +121,7 @@
 			            <div class="col-xs-8">
 								<select name="academic_institution" id="ins" class="form-control" />
 								@foreach($academic_institutions as $academic_institution)
-									<option>{{ $academic_institution->name }}</option>
+									<option>{{ $academic_institution->name }} *</option>
 								@endforeach
 								</select>
 						</div>
@@ -132,7 +136,7 @@
 								       <div  class="input-group">
 										<select class="form-control" required name="area[]">             
 								      		@foreach($areas as $area)
-											<option>{{ $area->name }}</option>
+											<option>{{ $area->name }} *</option>
 											@endforeach
 										</select>
 								    
