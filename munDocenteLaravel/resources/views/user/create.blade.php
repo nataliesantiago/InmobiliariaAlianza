@@ -55,7 +55,7 @@
 			            <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-info"></i></span>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
 			                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos *" value="{{ old('fullname') }}">
 			                    </div>	
 			                    @if ($errors->has('fullname'))
@@ -112,7 +112,7 @@
 
 			            <div class="col-xs-12">
 			            	<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>				              
+								<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>				              
 								<select name="academic_institution" id="ins" class="form-control" />
 								@foreach($academic_institutions as $academic_institution)
 									<option>{{ $academic_institution->name }} </option>

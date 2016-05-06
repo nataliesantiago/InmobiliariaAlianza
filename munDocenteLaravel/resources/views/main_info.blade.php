@@ -1,6 +1,6 @@
 @extends('layouts.routes.normalroute')
 
-@section('menu')
+@section('menus')
 
     @yield('menu')
 

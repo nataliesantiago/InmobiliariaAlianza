@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <!--
-Dopetrope by HTML5 UP
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
@@ -18,67 +17,68 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 <!-- Header -->
 <div id="header-wrapper">
-<div id="header">
-            <!-- Nav -->
-     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-             <div class="row">
-                <div class="2u 12u(mobile)">
-                         <div class="10u 12u$(xsmall)">
-                        @yield('logo')
-                    </div>
-                </div>
-                <div class="5u 12u(mobile)">
-                </div>              
-                <div class="5u 12u(mobile)">
-                    <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
-                    {!! csrf_field() !!}
-                    <div class="row uniform">
-
-                         <div class="1u 12u$(xsmall)"></div>
-                         <div class="8u 12u$(xsmall)">
-                            <input type="text" name="query"  placeholder="Búsqueda" />
-                            @if ($errors->has('query'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('query') }}</strong>
-                                    </span>
-                            @endif
-                            @if (Auth::guest())
-                            @else   
-                            <a href="/search_advanced">Búsqueda avanzada</a>
-                            @endif
-                        </div>
-
-                        <div class="2u 12u$(xsmall)">
-                            <input class="btn btn-default" type="submit" value="Ir">
+    <div id="header">
+                <!-- Nav -->
+         <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                 <div class="row">
+                    <div class="2u 12u(mobile)">
+                             <div class="10u 12u$(xsmall)">
+                            @yield('logo')
                         </div>
                     </div>
+                    <div class="5u 12u(mobile)">
+                    </div>              
+                    <div class="5u 12u(mobile)">
+                        <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
+                        {!! csrf_field() !!}
+                        <div class="row uniform">
 
-                    </form>                    
+                             <div class="1u 12u$(xsmall)"></div>
+                             <div class="8u 12u$(xsmall)">
+                                <input type="text" name="query"  placeholder="Búsqueda" />
+                                @if ($errors->has('query'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('query') }}</strong>
+                                        </span>
+                                @endif
+                                @if (Auth::guest())
+                                @else   
+                                <a href="/search_advanced">Búsqueda avanzada</a>
+                                @endif
+                            </div>
+
+                            <div class="2u 12u$(xsmall)">
+                                <input class="btn btn-default" type="submit" value="Ir">
+                            </div>
+                        </div>
+
+                        </form>                    
+                    </div>
                 </div>
-                </div>
+              
                 <div>
                     <!-- Left Side Of Navbar -->
-
-                    <ul class="nav navbar-nav navbar-default">
-                        
-
-                            @yield('menu')
-                            <li style="white-space: nowrap;">
-                                <a href="#footer-wrapper">Contacto <i class="glyphicon glyphicon-user"></i>
-                                </a>
-                            </li>    
-                            
+                    <ul class="nav navbar-nav">                            
+                        @yield('menu')
+                        <li style="white-space: nowrap;">
+                            <a href="#footer-wrapper">
+                                <i class="glyphicon glyphicon-info-sign"></i> Contacto
+                            </a>
+                        </li>                                 
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                        
-                            <li class="white-space: nowrap;"><a href="/user/create_docent">Registrarse</a></li>
-                            
+                            <li class="white-space: nowrap;">
+                                <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> Registrarse</i></a>
+                            </li>
                         @else
-
                             <li class="dropdown">
                                
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <img class="imguser col-xs-3" src="images/user.png" alt="" > {{ Auth::user()->fullname }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+                                    {{ Auth::user()->username }} 
+                                    <img class="imguser col-xs-3" src="images/user.png" alt="" > 
+                                    <span class="caret"></span>
                                     </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -90,13 +90,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             
                             </li>
                         @endif
+                        @yield('intro')   
                     </ul>
                 </div>
-        </div>
-    </nav>
+            </div>
+        </nav>
 
-
-</div>
+    </div>
 <!-- Nav OCURRE LO MISMO -->
 </div>    
    
