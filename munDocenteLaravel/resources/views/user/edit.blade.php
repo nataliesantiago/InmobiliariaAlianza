@@ -25,8 +25,18 @@
 			<!-- Content -->
 			<div class="8u 12u(mobile)">
 				<section class="box">
-					<form method="post" class="form login-form">
-						@foreach($user as $r)
+
+				@if(Session::has('flash_message'))
+   					 <div class="alert alert-success">
+      				  {{ Session::get('flash_message') }}
+  					  </div>
+				@endif
+				@foreach($user as $r)
+				@can('owner', $r)
+					{!! Form::model($r, [
+    				'method' => 'PATCH',
+					 'route' => ['user.update', $r->id]
+					]) !!}
 						<div class="row uniform">
 							<div class="12u 12u$(xsmall)">	
 								<label class="control-label col-xs-4"><h2>{{ $r->username }} </h2></label>
@@ -44,13 +54,13 @@
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Nombres y Apellidos</label>
 								<div class="col-xs-8">
-								<input type="text" name="name" id="name" placeholder="{{ $r->fullname }}" />
+								<input type="text" name="fullname" value="{{ $r->fullname }}" />
 								</div>
 							</div>
 							<div class="12u$">
 								<label class="control-label col-xs-4">Correo Electrónico</label>
 								<div class="col-xs-8">
-								<input type="text" name="email" id="email" class="form-control" placeholder="{{ $r->email }}" />
+								<input type="email" name="email" class="form-control" value="{{ $r->email }}" />
 								</div>
 								@if ($errors->has('email'))
 			                        <span class="help-block">
@@ -61,8 +71,13 @@
 							<div class="12u$">
 								<label class="control-label col-xs-4">Institución</label>
 								<div class="col-xs-8">
-								<select name="ins" id="ins" class="form-control" />
+								<select name="academic_institution" class="form-control" />
 									<option>{{ $r->academicInstitution->name}}</option>
+									@foreach($academic_institutions as $academic_institution)
+									@if($r->academicInstitution->name != $academic_institution->name)
+									<option>{{ $academic_institution->name }}</option>
+									@endif
+									@endforeach
 								</select>
 								</div>
 							</div>
@@ -71,7 +86,6 @@
 						      	<div class="col-xs-8" id="listArea">
 						        <div  class="input-group">
 									<select class="form-control" required name="area[]">             
-						        		<option name>Seleccione una opción</option>
 						        		@foreach($areas as $area)
 										<option>{{ $area->name }}</option>
 										@endforeach
@@ -85,14 +99,21 @@
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Telefono</label>
 								<div class="col-xs-8">
-								<input type="text" name="phone"/>
+								@if($r->phone == null)
+								<input type="text" name="phone" placeholder="Ingresa tú número telefónico" />
+								@else
+								<input type="text" name="phone" value="{{ $r->phone }}" />
+								@endif
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Contacto</label>
 								<div class="col-xs-8">
-								<textarea name="contact" id="contact" rows="4" value="">
-								</textarea>
+								@if($r->contact == null)
+								<textarea name="contact" rows="4"></textarea>
+								@else
+								<textarea name="contact" rows="4">{{ $r->contact }}</textarea>
+								@endif
 								</div>
 							</div>
 							<div class="12u$">
@@ -107,9 +128,18 @@
 								</ul>
 							</div>
 						</div>
-						@endforeach
+					{!! Form::close() !!}	
 					</form>
-				
+					@endcan
+					<body>
+					        <div class="container">
+					            <div class="content">
+					                <div class="title">¿Hasta dónde intentas llegar? 
+					                Aquí enuentras información no autorizada para tu tipo de usuario.</div>
+					            </div>
+					        </div>
+					    </body>
+				@endforeach
 				</section>
 			</div>
 		</div>

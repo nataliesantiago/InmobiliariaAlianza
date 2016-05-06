@@ -7,6 +7,7 @@ use MunDocente\TypeOfPublication;
 use MunDocente\TypeOfScientificMagazine;
 use MunDocente\Place;
 use MunDocente\User;
+use MunDocente\Area;
 
 class Publication extends Model
 {
@@ -30,5 +31,9 @@ class Publication extends Model
 
     public function user(){
     	return $this->belongsTo('MunDocente\User', 'user_id');
+    }
+
+    public function areas(){
+        return $this->belongsToMany('MunDocente\Area');
     }
 }

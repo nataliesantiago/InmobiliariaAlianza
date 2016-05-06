@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use MunDocente\TypeOfUser;
 use MunDocente\Publication;
 use MunDocente\AcademicInstitution;
+use MunDocente\Area;
 
 class User extends Authenticatable
 {
@@ -40,5 +41,9 @@ class User extends Authenticatable
     public function academicInstitution()
     {
         return $this->belongsTo('MunDocente\AcademicInstitution', 'academic_institution');
+    }
+
+    public function areas(){
+        return $this->belongsToMany('MunDocente\Area');
     }
 }
