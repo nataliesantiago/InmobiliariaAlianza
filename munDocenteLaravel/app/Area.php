@@ -5,6 +5,7 @@ namespace MunDocente;
 use Illuminate\Database\Eloquent\Model;
 use MunDocente\Area;
 use MunDocente\Publication;
+use MunDocente\User;
 
 class Area extends Model
 {
@@ -22,6 +23,10 @@ class Area extends Model
     }
 
     public function publications(){
-    	return $this->belongsToMany('MunDocente\Publication');
+        return $this->belongsToMany('MunDocente\Publication');
+    }
+
+    public function users(){
+        return $this->belongsToMany('MunDocente\User');
     }
 }

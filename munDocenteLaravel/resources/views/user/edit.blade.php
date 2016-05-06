@@ -134,8 +134,8 @@
 					<body>
 					        <div class="container">
 					            <div class="content">
-					                <div class="title">¿Hasta dónde intentas llegar {{ $r->fullname }}? 
-					                Aquí enuentras información no autorizada</div>
+					                <div class="title">¿Hasta dónde intentas llegar? 
+					                Aquí enuentras información no autorizada para tu tipo de usuario.</div>
 					            </div>
 					        </div>
 					    </body>

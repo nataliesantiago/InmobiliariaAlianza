@@ -69,7 +69,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    
-                        <li class="register"><a href="/user/create">Registrarse</a></li>
+                        <li class="register"><a href="/user/create_docent">Registrarse</a></li>
                         
                     @else
 

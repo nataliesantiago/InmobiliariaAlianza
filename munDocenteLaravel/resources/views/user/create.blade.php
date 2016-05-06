@@ -111,7 +111,7 @@
 			                </div>
 			            </div>
 
-			            <input type="hidden" name="type" value="1">
+			            <input type="hidden" name="type" value="2">
 
 
 			            <div class="col-xs-8">
@@ -121,8 +121,12 @@
 								@endforeach
 								</select>
 						</div>
-
+<!-- NO ESTA FUNCIONANDO ye en esta no se llamarian las areas
 						@yield('areaList')
+-->
+
+						
+
 
 						<div class="12u 12u$(small)">
 							<center>
