@@ -31,6 +31,12 @@ class UserController extends Controller
         return view('user.create_docent', compact('academic_institutions','areas'));
     }
 
+    public function create_publisher(){
+        $academic_institutions = AcademicInstitution::all();
+        return view('user.create_publisher', compact('academic_institutions'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
