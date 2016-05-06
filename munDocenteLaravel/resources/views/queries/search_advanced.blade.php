@@ -66,9 +66,8 @@
 							</div>
 					      	<div class="col-xs-12" id="listArea">
 								<select class="form-control" required name="area[]">             
-					        		<option >Sin definir</option>
 					        		@foreach($areas as $area)
-									<option>{{ $area->name }}</option>
+									<option name="one">{{ $area->name }}</option>
 									@endforeach
 								</select>
 					     	</div>
@@ -77,7 +76,7 @@
 							<label class="control-label col-xs-12"><h3>Ciudad</h3></label>
 							<div class="col-xs-12">
 							<select class="form-control" name="city" id="city" value="" />
-							<option >Sin definir</option>
+							<option >Todas</option>
 							@foreach($places as $place)
 									<option>{{ $place->name }}</option>
 							@endforeach
@@ -88,7 +87,7 @@
 							<label class="col-xs-12"><H3>Tipo de publicación</H3></label>
 							<div class="col-xs-12">
 							<select class="form-control" name="type_of_publication" value="" />
-							<option >Sin definir</option>
+							<option >Todas</option>
 							@foreach($type_of_publications as $type_of_publication)
 									<option>{{ $type_of_publication->value }}</option>
 							@endforeach

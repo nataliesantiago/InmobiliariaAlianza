@@ -16,8 +16,7 @@ class QueriesController extends Controller
 	 public function search_advanced(){
 	        $places = Place::where('type', '=', 1)
 	                        ->get();
-	        $areas = Area::whereNotNull('parent')
-	                    ->get();
+	        $areas = Area::all();
 	        $type_of_publications = TypeOfPublication::all();
 
 
@@ -59,11 +58,10 @@ class QueriesController extends Controller
 
         $cont = 0;
         foreach ($areas as $area) {
-        	if($area != 'Sin definir'){
         		$selectedArea[$cont] = $area;
         		$cont += 1;
-        	}
-        }	
+        }	            //dd($selectedArea);
+
 
         foreach ($selectedArea as $areaId ) {
         	$idArea = Area::where('name', '=', $areaId)
@@ -76,8 +74,11 @@ class QueriesController extends Controller
 	        }
         }
 
+            dd($valueArea);
 
-        if($request->input('city') != 'Sin definir'){
+
+
+        if($request->input('city') != 'Todas'){
 	        $city = Place::where('name', '=', $request->input('city'))
 	                                                    ->select('id', 'name')
 	                                                    ->get();
@@ -87,7 +88,7 @@ class QueriesController extends Controller
 	        }
         }
 
-		if($request->input('type_of_publication') != 'Sin definir'){
+		if($request->input('type_of_publication') != 'Todas'){
 	        $type_of_publication = TypeOfPublication::where('value', '=', $request->input('type_of_publication'))
 	        										->select('id', 'value')
 	        										->get();
