@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('fullname', 60);
             $table->string('email',45 )->unique();
             $table->string('password');
-            $table->string('phone',15)->nullable()->unique();
+            $table->string('phone',15)->nullable();
             $table->string('contact',255)->nullable();
             $table->integer('academic_institution')->unsigned();
             $table->integer('type')->unsigned();

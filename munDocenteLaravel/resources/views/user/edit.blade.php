@@ -37,6 +37,8 @@
     				'method' => 'PATCH',
 					 'route' => ['user.update', $r->id]
 					]) !!}
+								            {!! csrf_field() !!}
+
 						<div class="row uniform">
 							<div class="12u 12u$(xsmall)">	
 								<label class="control-label col-xs-4"><h2>{{ $r->username }} </h2></label>
@@ -130,7 +132,7 @@
 						</div>
 					{!! Form::close() !!}	
 					</form>
-					@endcan
+					@else
 					<body>
 					        <div class="container">
 					            <div class="content">
@@ -139,6 +141,7 @@
 					            </div>
 					        </div>
 					    </body>
+					    @endcan
 				@endforeach
 				</section>
 			</div>

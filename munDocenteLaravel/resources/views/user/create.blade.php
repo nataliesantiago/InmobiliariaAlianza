@@ -108,7 +108,6 @@
 			                    @endif
 			            </div>
 
-			            <input type="hidden" name="type" value="1">
 
 
 			            <div class="col-xs-12">
@@ -123,7 +122,8 @@
 						</div>
 
 						@yield('interes')
- 
+						@yield('type_publisher')
+						
 						<div class="12u 12u$(small)">
 							<center>
 								<label class="checkbox inline"><input type="checkbox" name="termsConditions"> Acepto términos y condiciones

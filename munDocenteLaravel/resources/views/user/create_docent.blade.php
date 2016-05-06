@@ -9,6 +9,7 @@
 @stop
 
 @section('interes')
+	<input type="hidden" name="type" value="1">
 
 	
 	<div class="col-xs-12" id="listArea">
