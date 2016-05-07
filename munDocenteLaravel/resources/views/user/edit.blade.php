@@ -3,7 +3,7 @@
 
 @section('menus')
 
-    <li class="current"><a href="/">Home</a></li>
+    <<li style="white-space: nowrap;"><a href="/">Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
     <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
     <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
@@ -152,8 +152,8 @@
 					<body>
 					        <div class="container">
 					            <div class="content">
-					                <div class="title">¿Hasta dónde intentas llegar? 
-					                Aquí enuentras información no autorizada para tu tipo de usuario.</div>
+					                <div class="title">¿Hasta dónde intenta llegar? 
+					                Aquí encontrará información no autorizada para su tipo de usuario.</div>
 					            </div>
 					        </div>
 					    </body>

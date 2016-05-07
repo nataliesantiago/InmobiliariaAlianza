@@ -49,7 +49,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </div>
 
                             <div class="2u 12u$(xsmall)">
-                                <input class="btn btn-default" type="submit" value="Ir">
+                                <input class="btnSearch btn-default" type="submit" value="Ir">
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         @if (Auth::guest())
                        
                             <li class="white-space: nowrap;">
-                                <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> Registrarse</i></a>
+                                <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> </i>  Registrarse</a>
                             </li>
                         @else
                             <li class="dropdown">

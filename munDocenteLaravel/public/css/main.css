@@ -2752,3 +2752,8 @@ ul.social_login {
 .current{
 	float: left;
 }
+
+.btnSearch{
+	    width: 10px;
+    height: 40px;
+}
