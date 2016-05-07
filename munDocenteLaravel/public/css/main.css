@@ -2558,7 +2558,7 @@ div#slider div.elemento img{
 
 .dropdown{
 	    position: relative;
-    left: -20px;
+    left: -70px;
 }
 
 .register{
@@ -2577,7 +2577,7 @@ div#slider div.elemento img{
 .navbar .nav>li{
 	display: inline-block;
 	font-style: Sans MS;
-	float: none;
+	float: left;
 	margin: 0 0.35em 0 0.35em;
 }
 
@@ -2747,4 +2747,8 @@ ul.social_login {
 .register{
 	   position: relative;
     left: 20px;
+}
+
+.current{
+	float: left;
 }

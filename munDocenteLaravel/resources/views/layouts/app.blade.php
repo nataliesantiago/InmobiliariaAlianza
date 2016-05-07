@@ -83,7 +83,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                                 <ul class="dropdown-menu" role="menu">
                                 <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                                <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                                <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuración</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                                                    
                                 </ul>

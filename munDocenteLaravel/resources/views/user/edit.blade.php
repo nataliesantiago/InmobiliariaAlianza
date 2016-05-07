@@ -15,11 +15,17 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
+
+			<!-- SECCION PARA EL NOMBRE DE LA CONFIGURACION DEPENDIENDO EL USUARIO
+			@yield('name')
+			-->
+
 			<div class="12u 12u(mobile)">
 				<header>
-					<center><h2 class="config">CONFIGURAR CUENTA</h2></center>			
+					<center><h2 class="config">CONFIGURAR CUENTA DOCENTE</h2></center>			
 				</header>
 			</div>
+
 			<div class="2u 12u(mobile)"></div>
 
 			<!-- Content -->
@@ -83,6 +89,15 @@
 								</select>
 								</div>
 							</div>
+
+							<!-- SECCION AREAS DE ITNERES PARA USUARIO DOCENTE
+							@yield('interes')
+
+							SECCION DEPENDIENDO EL TIPO DE USUARIO
+							@yield('type_publisher')
+							-->
+
+
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Áreas de interés</label>
 						      	<div class="col-xs-8" id="listArea">
@@ -98,11 +113,12 @@
 						     	</div>
 						     	</div> 
 							</div>
+
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Telefono</label>
 								<div class="col-xs-8">
 								@if($r->phone == null)
-								<input type="text" name="phone" placeholder="Ingresa tú número telefónico" />
+								<input type="text" name="phone" placeholder="Ingrese su número telefónico" />
 								@else
 								<input type="text" name="phone" value="{{ $r->phone }}" />
 								@endif
