@@ -17,5 +17,8 @@ class TypeOfMundocenteUsersTableSeeder extends Seeder
         DB::table('type_of_mundocente_users')->insert([
             'value' => 'PUBLICADOR',
         ]);
+        DB::table('type_of_mundocente_users')->insert([
+            'value' => 'ADMINISTRADOR',
+        ]);
     }
 }

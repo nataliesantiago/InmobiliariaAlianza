@@ -4,7 +4,7 @@ namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
 
-use MunDocente\User
+use MunDocente\User;
 
 class TypeOfMundocenteUser extends Model
 {

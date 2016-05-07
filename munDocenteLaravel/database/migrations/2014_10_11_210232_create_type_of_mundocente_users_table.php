@@ -14,7 +14,7 @@ class CreateTypeOfMundocenteUsersTable extends Migration
     {
         Schema::create('type_of_mundocente_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value',12);
+            $table->string('value',25);
             $table->timestamps();
         });
     }
