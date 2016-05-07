@@ -17,7 +17,7 @@ class CreatePublicationsTable extends Migration
             $table->string('name',120);
             $table->date('date_publication');
             $table->integer('type')->unsigned();
-            $table->integer('place')->unsigned()->nullable();
+            $table->integer('place_id')->unsigned()->nullable();
             $table->string('url');
             $table->date('start_date');
             $table->date('end_date')->nullable();
@@ -29,7 +29,7 @@ class CreatePublicationsTable extends Migration
             $table->timestamps();
             $table->foreign('type')->references('id')->on('type_of_publications');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('place')->references('id')->on('places');
+            $table->foreign('place_id')->references('id')->on('places');
             $table->foreign('category')->references('id')->on('type_of_scientific_magazines');
         });
     }

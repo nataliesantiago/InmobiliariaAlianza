@@ -30,6 +30,7 @@
                     @endif
 
                     <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
+
                     <p class="place">{{ $publication->place }}</p>                  
                     <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 

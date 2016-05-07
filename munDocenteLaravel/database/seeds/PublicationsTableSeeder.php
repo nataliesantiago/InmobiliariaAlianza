@@ -20,6 +20,7 @@ class PublicationsTableSeeder extends Seeder
             'end_date' => '2016-03-28',
             'description' => 'lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum',
             'user_id' => '10',
+            'place_id' => '3',
         ]);
         DB::table('publications')->insert([
             'name' => 'REVISTA FACULTAD DE INGENIERÍA',
@@ -31,6 +32,8 @@ class PublicationsTableSeeder extends Seeder
             'category' => 2,
             'description' => 'Busca contribuir con la difusión del conocimiento científico y el desarrollo tecnológico en el campo de la ingeniería  está dirigida especialmente a investigadores y demás interesados en temas relacionados con desarrollos científicos y tecnológicos en al campo de las ingenierías: Ambiental, Civil, Electrónica, Electromecánica, Geológica, Metalúrgica, Minas, Sistemas y Computación, Transportes y Vías y otras afines.',
             'user_id' => '5',
+
+            'place_id' => '3',
         ]);
         DB::table('publications')->insert([
             'name' => 'CONVOCATORIA DOCENTE 2015 FACULTAD DE CIENCIAS ECONOMICAS',
@@ -42,6 +45,7 @@ class PublicationsTableSeeder extends Seeder
             'position' => 2,
             'description' => 'Los Concursos Profesorales, abiertos ynen por objeto la provisión de cargos de la Planta Doc.',
             'user_id' => '6',
+            'place_id' => '9',
         ]);
         DB::table('publications')->insert([
             'name' => 'CONVOCATORIA DOCENTE –  DOCENTES OCASIONALES Y CATEDRATICOS UPTC',
@@ -53,6 +57,7 @@ class PublicationsTableSeeder extends Seeder
             'position' => 'COMPLETO',
             'description' => 'Se hace convocatoria a profesionales que deseen participar en un proceso de selección de hojas de vida, para alimentar el Banco de Información de Elegibles - BIE, como docentes ocasionales y catedráticos externos, para las diferentes Facultades de la Universidad Pedagógica y Tecnológica de Colombia.',
             'user_id' => '7',
+            'place_id' => '16',
         ]);
         DB::table('publications')->insert([
             'name' => 'CONVOCATORIA DOCENTE –  DOCENTES OCASIONALES Y CATEDRATICOS UPTC',

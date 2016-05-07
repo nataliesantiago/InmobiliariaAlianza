@@ -20,7 +20,7 @@ class AcademicEventController extends Controller
     public function index()
     {
         $dt = Carbon::now()->format('Y-m-d');
-        $publications = Publication::with('user')
+        $publications = Publication::with('user', 'place')
                                     ->where('type', '=', 3)
                                     ->where(function($query){
                                         $dt = Carbon::now()->format('Y-m-d');

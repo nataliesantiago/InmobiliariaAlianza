@@ -26,7 +26,7 @@ class Publication extends Model
 
     public function place()
     {
-    	return $this->belongsTo('MunDocente\Place', 'place');
+    	return $this->belongsTo('MunDocente\Place');
     }
 
     public function user(){
