@@ -29,9 +29,16 @@
         <p class="description">{{ $publication->description }}</p>
         @endif
 
+<<<<<<< HEAD:munDocenteLaravel/resources/views/queries/result_search.blade.php
         <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
         <p class="place">{{ $publication->place }}</p>                  
         <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
+=======
+                    <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
+
+                    <p class="place">{{ $publication->place }}</p>                  
+                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
+>>>>>>> 3ba842981d2d92f59f15810f6b6c6d871644fee7:munDocenteLaravel/resources/views/queries/result_search_basic.blade.php
 
         @if($publication->end_date!=null)
         <p class="end">Fecha final: {{ $publication->end_date }}</p>

@@ -21,7 +21,7 @@ class TeacherCallController extends Controller
     public function index()
     {
         $dt = Carbon::now()->format('Y-m-d');
-        $publications = Publication::with('user')
+        $publications = Publication::with('user', 'place')
                                     ->where('type', '=', 1)
                                     ->where(function($query){
                                         $dt = Carbon::now()->format('Y-m-d');

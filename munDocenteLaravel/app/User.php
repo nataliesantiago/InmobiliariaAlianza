@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     public function typeOfUser()
     {
-        return $this->belongsTo('MunDocente\TypeOfUser', 'type');
+        return $this->belongsTo('MunDocente\TypeOfMundocenteUser', 'type');
     }
 
     public function publications(){

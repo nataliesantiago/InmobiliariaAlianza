@@ -25,14 +25,14 @@
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">
-                        <h3 style="color: black;">{{ $publication->name }}</h3>
+                        <h3 style="color: black;"><i class="glyphicon glyphicon-education"></i>  {{ $publication->name }}</h3>
                     </header>
                     
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
 
-                    <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
+                    <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
                     <p class="place">{{ $publication->place }}</p>                  
                     <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 

@@ -21,7 +21,7 @@ class ScientificMagazineController extends Controller
     public function index()
     {
         $dt = Carbon::now()->format('Y-m-d');
-        $publications = Publication::with('user','typeScientificMagazine')
+        $publications = Publication::with('user','typeScientificMagazine', 'place')
                                     ->where('type', '=', 2)
                                     ->where(function($query){
                                         $dt = Carbon::now()->format('Y-m-d');

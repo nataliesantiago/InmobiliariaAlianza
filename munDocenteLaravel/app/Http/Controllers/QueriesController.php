@@ -29,17 +29,19 @@ class QueriesController extends Controller
 
 	  public function result_search_basic(Request $request){
 	  		$this->validate($request, [
-	            'query' => 'required',
+	            'keyLetter' => 'required',
 	            ]);
-	        $query = $request->input('query');
-	        $publications =Publication::with('user','typeScientificMagazine')
-	                                ->where('name', 'LIKE', '%' . $query . '%')
+	        $keyLetter = $request->input('keyLetter');
+	        $publications =Publication::with('user','typeScientificMagazine', 'place')
+	                                ->where('name', 'LIKE', '%' . $keyLetter . '%')
 	                                ->paginate(5);
 	        $places = Place::where('type', '=', 1)
 	                        ->get();
 	        $areas = Area::whereNotNull('parent')
 	                    ->get();
-	        return view('queries.result_search', [
+
+	                 //   dd($publications);
+	        return view('queries.result_search_basic', [
 	            'publications' => $publications,
 	            'areas' => $areas,
 	            'places' => $places
@@ -74,8 +76,7 @@ class QueriesController extends Controller
 	        }
         }
 
-            dd($valueArea);
-
+            //dd($valueArea);
 
 
         if($request->input('city') != 'Todas'){
@@ -86,8 +87,10 @@ class QueriesController extends Controller
 	        		$valueCity = $key->id;
 	        	
 	        }
-        }
-
+       } else {
+       	$valueCity = 3;
+       }
+//dd($valueCity);
 		if($request->input('type_of_publication') != 'Todas'){
 	        $type_of_publication = TypeOfPublication::where('value', '=', $request->input('type_of_publication'))
 	        										->select('id', 'value')
@@ -99,12 +102,12 @@ class QueriesController extends Controller
 
         $publications =Publication::with('user','typeScientificMagazine')
                                 ->where('name', 'LIKE', '%' . $search . '%')
-                                
-                                ->paginate(5);
+                                ->orWhere('place_id', '=', $valueCity)
+								->paginate(5);
       //dd($publications );
         $areas = Area::whereNotNull('parent')
                     ->get();
-        return view('queries.result_search', [
+        return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
             ]);      

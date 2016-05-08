@@ -2762,8 +2762,16 @@ ul.social_login {
 .current{
 	float: left;
 }
+<<<<<<< HEAD
  
  .btnSearch{
  	    width: 10px;
      height: 40px;
  }
+=======
+
+.btnSearch{
+	    width: 10px;
+    height: 40px;
+}
+>>>>>>> 3ba842981d2d92f59f15810f6b6c6d871644fee7
