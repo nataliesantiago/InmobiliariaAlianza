@@ -50,7 +50,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 </div>
 
                                 <div class="2u 12u$(xsmall)">
-                                    <input class="btn btn-default" type="submit" value="Ir">
+                                    <input class="btnSearch btn-default" type="submit" value="Ir">
                                 </div>
                             </div>
 
@@ -71,7 +71,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             @if (Auth::guest())
                            
                                 <li class="white-space: nowrap;">
-                                    <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> Registrarse</i></a>
+                                    <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> </i>  Registrarse</a>
                                 </li>
                             @else
                                 <li class="dropdown">
@@ -84,7 +84,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                                     <ul class="dropdown-menu" role="menu">
                                     <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuración</a></li>
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                                                        
                                     </ul>

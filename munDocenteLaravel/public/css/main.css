@@ -2565,9 +2565,10 @@ div#slider div.elemento img{
 	text-decoration: underline;
 }
 
+ 
 .dropdown{
 	    position: relative;
-    left: -20px;
+    left: -70px;
 }
 
 .register{
@@ -2586,7 +2587,7 @@ div#slider div.elemento img{
 .navbar .nav>li{
 	display: inline-block;
 	font-style: Sans MS;
-	float: none;
+	float: left;
 	margin: 0 0.35em 0 0.35em;
 }
 
@@ -2757,3 +2758,12 @@ ul.social_login {
 	   position: relative;
     left: 20px;
 }
+
+.current{
+	float: left;
+}
+ 
+ .btnSearch{
+ 	    width: 10px;
+     height: 40px;
+ }
