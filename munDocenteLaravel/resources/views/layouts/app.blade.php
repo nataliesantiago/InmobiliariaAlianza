@@ -37,10 +37,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                                  <div class="1u 12u$(xsmall)"></div>
                                  <div class="8u 12u$(xsmall)">
-                                    <input type="text" name="query"  placeholder="Búsqueda" />
-                                    @if ($errors->has('query'))
+                                    <input type="text" name="keyLetter"  placeholder="Búsqueda" />
+                                    @if ($errors->has('keyLetter'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('query') }}</strong>
+                                                <strong>{{ $errors->first('keyLetter') }}</strong>
                                             </span>
                                     @endif
                                     @if (Auth::guest())

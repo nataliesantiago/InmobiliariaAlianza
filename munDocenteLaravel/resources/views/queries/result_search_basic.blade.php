@@ -22,23 +22,26 @@
         <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
         <br><br>
         <header class="name">
-            <h3 style="color: black;">{{ $publication->name }}</h3>
+            @if($publication->type==1)
+         <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>
+             @endif
+             @if($publication->type==2)
+             <h3 style="color: black;"><i class="glyphicon glyphicon-edit"></i>  {{ $publication->name }}</h3>
+             @endif
+             @if($publication->type==3)
+              <h3 style="color: black;"><i class="glyphicon glyphicon-education"></i>  {{ $publication->name }}</h3>
+             @endif
         </header>
         
         @if($publication->description!=null)
         <p class="description">{{ $publication->description }}</p>
         @endif
 
-<<<<<<< HEAD:munDocenteLaravel/resources/views/queries/result_search.blade.php
+
         <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
         <p class="place">{{ $publication->place }}</p>                  
         <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
-=======
-                    <p class="publicator">Publicado por: <a href="">{{ $publication->user->fullname }}</a></p>
 
-                    <p class="place">{{ $publication->place }}</p>                  
-                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
->>>>>>> 3ba842981d2d92f59f15810f6b6c6d871644fee7:munDocenteLaravel/resources/views/queries/result_search_basic.blade.php
 
         @if($publication->end_date!=null)
         <p class="end">Fecha final: {{ $publication->end_date }}</p>

@@ -30,8 +30,17 @@
 				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">
-                        <h3 style="color: black;">{{ $publication->name }}</h3>
+                    @if($publication->type==1)
+                    	 <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>
+                   @endif
+                    @if($publication->type==2)
+                    	 <h3 style="color: black;"><i class="glyphicon glyphicon-edit"></i>  {{ $publication->name }}</h3>
+                   @endif
+                    @if($publication->type==3)
+                    	<h3 style="color: black;"><i class="glyphicon glyphicon-education"></i>  {{ $publication->name }}</h3>
+                   @endif
                     </header>
+
                     
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
