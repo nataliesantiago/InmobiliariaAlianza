@@ -1,3 +1,11 @@
+<?php
+	$arrayArea = array();
+	//<?php echo $arrayArea;
+	$arrayArea[0]='Sin definir-'; 
+	foreach ($areas as $i => $area) {
+	$arrayArea[$i+1]=$area->name.'-';
+	}
+?>
 
 @extends('layouts.routes.downtwice')
 
@@ -85,17 +93,17 @@
 							</div>
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Áreas de interés</label>
+						      	<a class="control-label col-xs-1" 
+							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
+							    	<i class="glyphicon glyphicon-plus"></i>
+							    </a>
+						        
 						      	<div class="col-xs-8" id="listArea">
-						        <div  class="input-group">
 									<select class="form-control" required name="area[]">             
 						        		@foreach($areas as $area)
-										<option>{{ $area->name }}</option>
+										<option name="one">{{ $area->name }}</option>
 										@endforeach
 									</select>
-								    <span class="input-group-btn input-m">
-						            <button class= "btn btn-primary" onclick="crearArea(this)"><i class="glyphicon glyphicon-plus"></i></button>
-						          	</span>
-						     	</div>
 						     	</div> 
 							</div>
 							<div class="12u 12u$(xsmall)">

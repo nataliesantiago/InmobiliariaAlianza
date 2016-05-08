@@ -5,108 +5,108 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 <head>
-<title>Mundocente</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mundocente</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-@yield('links')
+    @yield('links')
 
 </head>
+
 <body class="right-sidebar">
 <div id="page-wrapper">
 
-<!-- Header -->
-<div id="header-wrapper">
-    <div id="header">
-                <!-- Nav -->
-         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                 <div class="row">
-                    <div class="2u 12u(mobile)">
-                             <div class="10u 12u$(xsmall)">
-                            @yield('logo')
-                        </div>
-                    </div>
-                    <div class="5u 12u(mobile)">
-                    </div>              
-                    <div class="5u 12u(mobile)">
-                        <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
-                        {!! csrf_field() !!}
-                        <div class="row uniform">
-
-                             <div class="1u 12u$(xsmall)"></div>
-                             <div class="8u 12u$(xsmall)">
-                                <input type="text" name="query"  placeholder="Búsqueda" />
-                                @if ($errors->has('query'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('query') }}</strong>
-                                        </span>
-                                @endif
-                                @if (Auth::guest())
-                                @else   
-                                <a href="/search_advanced">Búsqueda avanzada</a>
-                                @endif
-                            </div>
-
-                            <div class="2u 12u$(xsmall)">
-                                <input class="btn btn-default" type="submit" value="Ir">
+    <!-- Header -->
+    <div id="header-wrapper">
+        <div id="header">
+                    <!-- Nav -->
+             <nav class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                     <div class="row">
+                        <div class="2u 12u(mobile)">
+                                 <div class="10u 12u$(xsmall)">
+                                @yield('logo')
                             </div>
                         </div>
+                        <div class="5u 12u(mobile)">
+                        </div>              
+                        <div class="5u 12u(mobile)">
+                            <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
+                            {!! csrf_field() !!}
+                            <div class="row uniform">
 
-                        </form>                    
+                                 <div class="1u 12u$(xsmall)"></div>
+                                 <div class="8u 12u$(xsmall)">
+                                    <input type="text" name="query"  placeholder="Búsqueda" />
+                                    @if ($errors->has('query'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('query') }}</strong>
+                                            </span>
+                                    @endif
+                                    @if (Auth::guest())
+                                    @else   
+                                    <a href="/search_advanced">Búsqueda avanzada</a>
+                                    @endif
+                                </div>
+
+                                <div class="2u 12u$(xsmall)">
+                                    <input class="btn btn-default" type="submit" value="Ir">
+                                </div>
+                            </div>
+
+                            </form>                    
+                        </div>
+                    </div>
+                  
+                    <div>
+                        <!-- Left Side Of Navbar -->
+                        <ul class="nav navbar-nav">                            
+                            @yield('menu')
+                            <li style="white-space: nowrap;">
+                                <a href="#footer-wrapper">
+                                    <i class="glyphicon glyphicon-info-sign"></i> Contacto
+                                </a>
+                            </li>                                 
+                            <!-- Authentication Links -->
+                            @if (Auth::guest())
+                           
+                                <li class="white-space: nowrap;">
+                                    <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> Registrarse</i></a>
+                                </li>
+                            @else
+                                <li class="dropdown">
+                                   
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+                                        {{ Auth::user()->username }} 
+                                        <img class="imguser col-xs-3" src="images/user.png" alt="" > 
+                                        <span class="caret"></span>
+                                        </a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                    <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
+                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                                                       
+                                    </ul>
+                                
+                                </li>
+                            @endif
+                            @yield('intro')   
+                        </ul>
                     </div>
                 </div>
-              
-                <div>
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">                            
-                        @yield('menu')
-                        <li style="white-space: nowrap;">
-                            <a href="#footer-wrapper">
-                                <i class="glyphicon glyphicon-info-sign"></i> Contacto
-                            </a>
-                        </li>                                 
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                       
-                            <li class="white-space: nowrap;">
-                                <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> Registrarse</i></a>
-                            </li>
-                        @else
-                            <li class="dropdown">
-                               
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
-                                    {{ Auth::user()->username }} 
-                                    <img class="imguser col-xs-3" src="images/user.png" alt="" > 
-                                    <span class="caret"></span>
-                                    </a>
+            </nav>
 
-                                <ul class="dropdown-menu" role="menu">
-                                <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                                <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuracion</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
-                                                                   
-                                </ul>
-                            
-                            </li>
-                        @endif
-                        @yield('intro')   
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-    </div>
-<!-- Nav OCURRE LO MISMO -->
-</div>    
-   
+        </div>
+    <!-- Nav OCURRE LO MISMO -->
+    </div>    
+       
 
 @yield('principal')
 
 <!-- Footer DIVIDIR APARTIR DE AQUI-->
     <div id="footer-wrapper">
         <section id="footer" class="container">
-
             <div class="row">
                 <div class="6u 12u(mobile)">
                     <section>

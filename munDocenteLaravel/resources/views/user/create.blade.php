@@ -122,6 +122,7 @@
 						</div>
 
 						@yield('interes')
+						
 						@yield('type_publisher')
 						
 						<div class="12u 12u$(small)">
