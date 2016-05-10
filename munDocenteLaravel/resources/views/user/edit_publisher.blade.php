@@ -8,7 +8,3 @@
 
 @stop
 
-@section('type_publisher')
-	<input type="hidden" name="type" value="2">
-
-@stop

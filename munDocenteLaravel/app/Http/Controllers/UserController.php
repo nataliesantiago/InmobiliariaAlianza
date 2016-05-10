@@ -89,11 +89,48 @@ class UserController extends Controller
          $user = User::with('academicInstitution')
                     ->where('id','=',$id)
                     ->get();
+
          $areas = Area::whereNotNull('parent')
                     ->get();
+
         $academic_institutions = AcademicInstitution::all();
 
-        return view('user.edit', compact('user', 'areas', 'academic_institutions'));
+        foreach ($user as $key) {
+            $typeUser = $key->type;
+        }
+        
+        if($typeUser == 1){
+                foreach ($user as $key) {
+                    $idUser = $key->id;
+                }
+                $areasUser = DB::table('area_user')
+                            ->where('user_id', '=', $idUser)
+                            ->select('area_id')
+                            ->get();
+                $cont = 0;
+                foreach ($areasUser as $area) {
+                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                        ->select('name')
+                                        ->get();
+                    $cont += 1;
+                }
+                
+               
+                $cont = 0;
+                foreach ($areasUser as $collection) {
+                    
+                    foreach ($collection as $array) {
+                        $name[$cont] = $array->name;
+                        $cont += 1;
+                    }
+               }          
+               // dd($name);
+        } else {
+        }
+        
+       
+
+        return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
     }
 
     /**
@@ -136,15 +173,55 @@ class UserController extends Controller
                         'phone' => $phone,
                         'contact' => $contact
                         ]);
-        $user = User::with('academicInstitution')
+
+        $user = User::with('academicInstitution','areas')
                     ->where('id','=',$id)
                     ->get();
+        foreach ($user as $key) {
+                $userOne = $key;
+        }
+
+        $typeUser = $userOne->type;
+        if($typeUser == 1){
+             $userOne->areas()->detach(); 
+           $areas = $request->input('area'); 
+            $areas = $this->getAreasSelected($areas);
+            //dd($areas);//arreglo de areas seleccionadas en formato de numeros
+            foreach ($areas as $area) {
+                $userOne->areas()->attach($area); 
+            }
+        }
+
+         $areasUser = DB::table('area_user')
+                            ->where('user_id', '=', $userOne->id)
+                            ->select('area_id')
+                            ->get();
+                $cont = 0;
+                foreach ($areasUser as $area) {
+                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                        ->select('name')
+                                        ->get();
+                    $cont += 1;
+                }
+                
+               
+                $cont = 0;
+                foreach ($areasUser as $collection) {
+                    
+                    foreach ($collection as $array) {
+                        $name[$cont] = $array->name;
+                        $cont += 1;
+                    }
+               }          
+               // dd($name);
+        
+
          $areas = Area::whereNotNull('parent')
                     ->get();
         $academic_institutions = AcademicInstitution::all();
 
         Session::flash('flash_message', 'Usuario actualizado correctamente');
-        return view('user.edit', compact('user', 'areas', 'academic_institutions'));
+        return view('user.edit', compact('user', 'typeUser', 'areas', 'name','academic_institutions'));
     }
 
     /**
@@ -157,4 +234,33 @@ class UserController extends Controller
     {
         //
     }
+
+    private function getAreasSelected($areas){   
+       $cont = 0;
+        foreach ($areas as $areaId ) {
+        if(is_numeric($areaId)){
+            $idArea = Area::where('id', '=', $areaId)
+                            ->select('id')
+                            ->get();
+            foreach ($idArea as $key2) {
+                    $valueArea = $key2->id;             
+            }
+            //dd($valueArea);
+            $selectedArea[$cont] = $valueArea;
+            $cont += 1;
+          }
+         else {
+            $idArea = Area::where('name', '=', $areaId)
+                            ->select('id', 'name')
+                            ->get();
+            foreach ($idArea as $key2) {
+                    $valueArea = $key2->id;             
+            }
+            $selectedArea[$cont] = $valueArea;
+            $cont += 1;      
+         //   dd($areas[1]); //Arreglos de areas seleccionadas en numeros :D
+             }
+        }           
+        return $selectedArea;
+      }
 }

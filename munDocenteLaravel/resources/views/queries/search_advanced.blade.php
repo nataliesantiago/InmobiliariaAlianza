@@ -67,7 +67,7 @@
 					      	<div class="col-xs-12" id="listArea">
 								<select class="form-control" required name="area[]">             
 					        		@foreach($areas as $area)
-									<option name="one">{{ $area->name }}</option>
+									<option>{{ $area->name }}</option>
 									@endforeach
 								</select>
 					     	</div>

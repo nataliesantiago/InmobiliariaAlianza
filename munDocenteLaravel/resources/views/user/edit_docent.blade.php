@@ -12,7 +12,7 @@
 
 @section('interes')
 <input type="hidden" name="type" value="1">
-
+<!--
 	<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Áreas de interés</label>
 						      	<div class="col-xs-8" id="listArea">
@@ -28,5 +28,5 @@
 						     	</div>
 						     	</div> 
 							</div>
-
+!-->
 @stop

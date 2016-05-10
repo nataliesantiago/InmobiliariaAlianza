@@ -3,6 +3,7 @@
 namespace MunDocente\Http\Controllers\Auth;
 
 use MunDocente\User;
+use MunDocente\Area;
 use MunDocente\AcademicInstitution;
 use Validator;
 use MunDocente\Http\Controllers\Controller;
@@ -75,8 +76,8 @@ class AuthController extends Controller
         foreach ($academic_institution as $key) {
             $valueId = $key->id;
         }
-        //dd($valueId);                                                    
-        return User::create([
+        //dd($valueId); 
+        $user = User::create([
             'username' => $data['username'],
             'fullname' => $data['fullname'],
             'email' => $data['email'],
@@ -84,5 +85,21 @@ class AuthController extends Controller
             'type' => $data['type'],
             'academic_institution' => $valueId,
         ]);
+        if($user->type == 1){
+        foreach ($data['area'] as $area){
+            $area = Area::where('name', '=', $area)
+                        ->select('id', 'name')
+                        ->get();
+            foreach ($area as $key) {
+                $idArea = $key->id;                
+            }
+         //   dd($idArea);
+        } 
+
+        $user->areas()->attach($idArea); 
+        }
+        
+
+        return $user;
     }
 }

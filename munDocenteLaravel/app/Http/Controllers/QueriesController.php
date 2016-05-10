@@ -132,7 +132,7 @@ class QueriesController extends Controller
         }	          //  dd($selectedArea);
         $cont = 0;
         foreach ($selectedArea as $areaId ) {
-        if($cont == 0){
+        if(! is_numeric($areaId)){
         	$idArea = Area::where('name', '=', $areaId)
         		            ->select('id', 'name')
         					->get();

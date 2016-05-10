@@ -100,11 +100,9 @@
 
 							<!-- SECCION AREAS DE ITNERES PARA USUARIO DOCENTE
 							@yield('interes')
-
-							SECCION DEPENDIENDO EL TIPO DE USUARIO
-							@yield('type_publisher')
 							-->
 
+@if($typeUser == 1)
 
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Áreas de interés</label>
@@ -114,13 +112,18 @@
 							    </a>
 						        
 						      	<div class="col-xs-8" id="listArea">
+						      		@foreach($name as $areaSelected)
 									<select class="form-control" required name="area[]">             
-						        		@foreach($areas as $area)
-										<option name="one">{{ $area->name }}</option>
+										<option>{{ $areaSelected}}</option>
+										@foreach($areas as $area)
+										<option>{{ $area->name }}</option>
 										@endforeach
 									</select>
+									@endforeach
 						     	</div> 
+						     	
 							</div>
+@endif
 
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Telefono</label>
