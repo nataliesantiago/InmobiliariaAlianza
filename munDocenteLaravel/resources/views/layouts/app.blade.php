@@ -83,6 +83,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                         </a>
 
                                     <ul class="dropdown-menu" role="menu">
+                                    @if(Auth::user()->type==2)
+                                    <li><a href="{{ url('/academic_event/teachercall_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Convocatorias</a></li>
+                                    <li><a href="{{ url('/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Revistas Científicas </a></li>
+                                    <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Eventos Académicos</a></li>
+                                    @endif
                                     <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
                                     <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuración</a></li>
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>

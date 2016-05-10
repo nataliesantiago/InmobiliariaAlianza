@@ -65,7 +65,7 @@
                 
 
                 <div class="inner">
-                    <ul class="actions pagination">
+                    <ul>
                     <center><li>{!! $publications->links() !!}</li></center>
                     </ul>
                     </div>
