@@ -25,14 +25,15 @@ class UserController extends Controller
     }
 
     public function create_docent(){
-        $academic_institutions = AcademicInstitution::all();
-        $areas = Area::whereNotNull('parent')
-                    ->get();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
+        $areas = Area::all();
         return view('user.create_docent', compact('academic_institutions','areas'));
     }
 
     public function create_publisher(){
-        $academic_institutions = AcademicInstitution::all();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
         return view('user.create_publisher', compact('academic_institutions'));
     }
 
@@ -44,9 +45,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        $academic_institutions = AcademicInstitution::all();
-        $areas = Area::whereNotNull('parent')
-                    ->get();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
+        $areas = Area::all();
         return view('user.create', compact('academic_institutions','areas'));
     }
 
@@ -90,10 +91,10 @@ class UserController extends Controller
                     ->where('id','=',$id)
                     ->get();
 
-         $areas = Area::whereNotNull('parent')
-                    ->get();
+         $areas = Area::all();
 
-        $academic_institutions = AcademicInstitution::all();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
 
         foreach ($user as $key) {
             $typeUser = $key->type;
@@ -216,9 +217,9 @@ class UserController extends Controller
                // dd($name);
         
 
-         $areas = Area::whereNotNull('parent')
-                    ->get();
-        $academic_institutions = AcademicInstitution::all();
+         $areas = Area::all();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
 
         Session::flash('flash_message', 'Usuario actualizado correctamente');
         return view('user.edit', compact('user', 'typeUser', 'areas', 'name','academic_institutions'));

@@ -12,43 +12,43 @@ class AreaPublicationTableSeeder extends Seeder
     public function run()
     {
          DB::table('area_publication')->insert([
-            'area_id' => 1,
+            'area_id' => 2,
             'publication_id' => 1,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 10,
+            'area_id' => 9,
             'publication_id' => 2,
         ]);
 
         DB::table('area_publication')->insert([
-        	'area_id' => 9,
+        	'area_id' => 8,
             'publication_id' => 3,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 1,
+            'area_id' => 2,
             'publication_id' => 4,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 1,
+            'area_id' => 2,
             'publication_id' => 5,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 63,
+            'area_id' => 62,
             'publication_id' => 6,
         ]);
 
 
         DB::table('area_publication')->insert([
-            'area_id' => 6,
+            'area_id' => 5,
             'publication_id' => 7,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 11,
+            'area_id' => 10,
             'publication_id' => 8,
         ]);
 
@@ -58,12 +58,12 @@ class AreaPublicationTableSeeder extends Seeder
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 10,
+            'area_id' => 9,
             'publication_id' => 10,
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 1,
+            'area_id' => 2,
             'publication_id' => 11,
         ]);
 
@@ -83,7 +83,7 @@ class AreaPublicationTableSeeder extends Seeder
         ]);
 
         DB::table('area_publication')->insert([
-            'area_id' => 10,
+            'area_id' => 9,
             'publication_id' => 15,
         ]);
 

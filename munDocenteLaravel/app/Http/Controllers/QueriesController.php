@@ -132,27 +132,32 @@ class QueriesController extends Controller
         }	          //  dd($selectedArea);
         $cont = 0;
         foreach ($selectedArea as $areaId ) {
-        if(! is_numeric($areaId)){
-        	$idArea = Area::where('name', '=', $areaId)
-        		            ->select('id', 'name')
-        					->get();
-        	foreach ($idArea as $key2) {
-	        		$valueArea = $key2->id;	        	
-	        }
-	       // dd($valueArea);
-	        $selectedArea[$cont] = $valueArea;
-	        $cont += 1;
+        if($areaId != 'Todas'){
+              if(! is_numeric($areaId)){
+                $idArea = Area::where('name', '=', $areaId)
+                              ->select('id', 'name')
+                        ->get();
+                foreach ($idArea as $key2) {
+                    $valueArea = $key2->id;           
+                }
+               // dd($valueArea);
+                $selectedArea[$cont] = $valueArea;
+                $cont += 1;
+              } else {
+                $idArea = Area::where('id', '=', $areaId)
+                              ->select('id')
+                        ->get();
+                foreach ($idArea as $key2) {
+                    $valueArea = $key2->id;           
+                }
+                //dd($valueArea);
+                $selectedArea[$cont] = $valueArea;
+                $cont += 1;
+                }   
         } else {
-        	$idArea = Area::where('id', '=', $areaId)
-        		            ->select('id')
-        					->get();
-        	foreach ($idArea as $key2) {
-	        		$valueArea = $key2->id;	        	
-	        }
-	        //dd($valueArea);
-	        $selectedArea[$cont] = $valueArea;
-	        $cont += 1;
-          }  	
+          $selectedArea[0] = -1;
+        }
+              
         }
         	return $selectedArea;
            //dd($selectedArea); //Arreglos de areas seleccionadas en numeros :D

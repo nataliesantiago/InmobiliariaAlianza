@@ -76,7 +76,7 @@
 							<div class="12u$">
 								<label class="control-label col-xs-4">Correo Electrónico</label>
 								<div class="col-xs-8">
-								<input type="email" name="email" class="form-control" value="{{ $r->email }}" />
+								<input type="email" name="email" required class="form-control" value="{{ $r->email }}" />
 								</div>
 								@if ($errors->has('email'))
 			                        <span class="help-block">
