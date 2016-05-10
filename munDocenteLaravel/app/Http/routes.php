@@ -15,6 +15,7 @@
 Route::get('/', 'IndexController@index');
 
 Route::resource('teacher_call', 'TeacherCallController');
+Route::get('/academic_event/event_form','AcademicEventController@create');
 Route::resource('academic_event', 'AcademicEventController');
 Route::resource('scientific_magazine', 'ScientificMagazineController');
 Route::get('/user/create_docent', 'UserController@create_docent');

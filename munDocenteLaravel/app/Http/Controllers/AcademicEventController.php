@@ -40,7 +40,7 @@ class AcademicEventController extends Controller
      */
     public function create()
     {
-        //
+        return view('academic_event.event_form');
     }
 
     /**

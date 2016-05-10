@@ -64,7 +64,7 @@
         @endforeach
 
         <div class="inner">
-            <ul class="actions pagination">
+            <ul >
                 <center>{!! $publications->links() !!}</center>
             </ul>
         </div>
