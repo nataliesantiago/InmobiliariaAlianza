@@ -8,7 +8,11 @@ use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
+use MunDocente\User;
 use Carbon\Carbon;
+use Auth;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AcademicEventController extends Controller
 {
@@ -19,18 +23,51 @@ class AcademicEventController extends Controller
      */
     public function index()
     {
-        $dt = Carbon::now()->format('Y-m-d');
-        $publications = Publication::with('user', 'place')
-                                    ->where('type', '=', 3)
-                                    ->where(function($query){
-                                        $dt = Carbon::now()->format('Y-m-d');
-                                        $query->where('end_date', '>=', $dt)
-                                              ->orWhere('end_date', '=', null);
-                                    })
-                                    ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
-        $areas = Area::all();
-        return view('academic_event.index', compact('publications', 'areas'));
+        if (Auth::guest()){
+            $publications = $this->publicationsGuest();
+            $areas = Area::all();
+               //dd($publications);
+             return view('academic_event.index', [
+            'publications' => $publications,
+            'areas' => $areas]);
+        } else {
+            $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            //dd($users);
+            foreach ($users as $value) {
+               $user = $value;
+            }
+            if($user->type == 1){
+                 $resultPublications = $this->getPublicationsDocent();
+                 $areas = Area::all();
+                 if( $resultPublications[0] != 'vacio'){
+                    $pageStart = \Request::get('page', 1);
+                     $perPage = 2;
+                     $offSet = ($pageStart * $perPage) - $perPage; 
+                     $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+                     $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));     
+                    return view('academic_event.index', [
+                    'publications' => $publications,
+                    'areas' => $areas]);
+                 } else {
+                    return view('without_publication', [
+                    'areas' => $areas]); 
+                 }                     
+            }
+            //tipo de usuario publicador
+            if($user->type == 2){
+                $publications = $this->publicationsGuest();
+                $areas = Area::all();
+                return view('academic_event.index', [
+                'publications' => $publications,
+                'areas' => $areas]);
+            }
+            //admin
+            if($user->type == 3){
+                echo 'soy el admin :3';
+            } 
+        }
     }
 
     /**
@@ -98,4 +135,45 @@ class AcademicEventController extends Controller
     {
         //
     }
+    //publicacione sde los no registrados
+    private function publicationsGuest(){
+        $publications = $this->publicationsVigent();
+        return $publications;
+   } 
+   //publications vigentes
+    private function publicationsVigent(){
+        $dt = Carbon::now()->format('Y-m-d');
+        return Publication::with('user' ,'typeScientificMagazine', 'place')
+                                    ->where('type', '=', 3)
+                                    ->where('end_date', '>=', $dt)
+                                    ->orWhere('end_date', '=', null)
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(2);
+   }
+   //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
+   private function getPublicationsDocent(){
+        //extrayendo las areas de un usuario
+        $users = User::with('areas')
+                    ->where('id', '=', Auth::user()->id)
+                    ->get();
+        foreach ($users as $user) {
+            $areasDocent = $user->areas()->with('publications')->orderBy('name')->get();
+        }
+        //tomando las publicaciones de las áreas del usuario
+        $dt = Carbon::now()->format('Y-m-d');
+        $count = 0; 
+        foreach ($areasDocent as $area) {
+            if(count($area->publications()->get()) != 0){
+                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('type', '=', 3)->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
+                    $publications[$count] = $publication;
+                    $count += 1;
+                }
+            }           
+        }
+        if($count==0){
+            $publications[$count] = 'vacio';
+        }
+       // dd($publications);
+        return $publications;
+   }
 }
