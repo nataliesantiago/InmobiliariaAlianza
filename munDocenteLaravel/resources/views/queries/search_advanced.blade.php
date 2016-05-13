@@ -65,7 +65,8 @@
 						    </a>
 							</div>
 					      	<div class="col-xs-12" id="listArea">
-								<select class="form-control" required name="area[]">             
+								<select class="form-control" required name="area[]">
+									<option>Todas</option>         
 					        		@foreach($areas as $area)
 									<option>{{ $area->name }}</option>
 									@endforeach

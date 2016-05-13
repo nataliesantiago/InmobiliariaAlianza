@@ -10,6 +10,9 @@ use MunDocente\Place;
 use MunDocente\Publication;
 use MunDocente\TypeOfPublication;
 use MunDocente\AreaPublication;
+use DB;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class QueriesController extends Controller
 {
@@ -57,41 +60,90 @@ class QueriesController extends Controller
             ]);
        // dd($request);
         $search = $request->input('search');
-        $areas = $request->input('area'); 
-        $areas = $this->getAreasSelected($areas);
-        //dd($areas);//arreglo de areas seleccionadas en formato de numeros
+        $areasSelected = $request->input('area'); 
+        $areasSelected = $this->getAreasSelected($areasSelected);
+       // dd($areasSelected);//arreglo de areas seleccionadas en formato de numeros
         $valueCity = $request->input('city');
         $valueCity = $this->getValueCity($valueCity);
-		//dd($valueCity);
-		$valueTypePublication = $request->input('type_of_publication');
-		$valueTypePublication = $this->getTypePublication($valueTypePublication);
+		    //dd($valueCity);
+		    $valueTypePublication = $request->input('type_of_publication');
+		    $valueTypePublication = $this->getTypePublication($valueTypePublication);
         //dd($valueTypePublication);
-        //
-
-        $publications =Publication::with('user','typeScientificMagazine', 'place', 'areas')
-                                ->where('name', 'LIKE', '%' . $search . '%');
-        if($valueCity!=-1){
-        	$publications = $publications->where('place_id', '=', $valueCity);
-        }
-        if($valueTypePublication!=-1){
-        	$publications = $publications->where('type', '=', $valueTypePublication);
-        }
-        /*//conociendo las areas de las publciaciones como el usuario la pidio
-        aqui la idea seria filtrar las publicaciones que estén contenidas 
-        en esa area o en las hijas (PENDIENTE)
-         $publications = $publications->get();
-         foreach ($publications as $publication) {
-         	$areas = $publication->areas;
-         	dd($areas);
-         }
-      */
-       $publications = $publications->paginate(5);
-        $areas = Area::whereNotNull('parent')
-                    ->get();
-        return view('queries.result_search_advanced', [
+        $areas = Area::all();
+        if($areasSelected[0] == -1){
+          $publications =Publication::with('user','typeScientificMagazine', 'place', 'areas')
+                                  ->where('name', 'LIKE', '%' . $search . '%');
+          if($valueCity!=-1){
+          	$publications = $publications->where('place_id', '=', $valueCity);
+          }
+          if($valueTypePublication!=-1){
+          	$publications = $publications->where('type', '=', $valueTypePublication);
+          }
+          $publications = $publications->paginate(5);
+           
+             return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
-            ]);      
+            ]);
+        } else {
+          $result_publications = $this->getPublicationAreas($search,$areasSelected,$valueCity,$valueTypePublication);
+         //dd($result_publications);
+          if($result_publications[0] != 'vacio'){
+            $pageStart = \Request::get('page', 1);
+            $perPage = 50;
+            $offSet = ($pageStart * $perPage) - $perPage; 
+            $itemsForCurrentPage = array_slice($result_publications, $offSet, $perPage, true);
+            $publications = new LengthAwarePaginator($itemsForCurrentPage, count($result_publications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));
+            return view('queries.result_search_advanced', [
+            'publications' => $publications,
+            'areas' => $areas
+            ]);
+          } else {
+            return view('without_publication', [
+            'areas' => $areas
+            ]);
+          }
+        }      
+    }
+    private function getPublicationAreas($search,$areasSelected,$valueCity,$valueTypePublication){
+        $cont = 0;
+          foreach ($areasSelected as $area) {
+            $areasId = DB::table('area_publication')
+                                    ->where('area_id','=',$area)
+                                    ->select('publication_id')
+                                    ->get();
+            if(count($areasId) != 0){
+              foreach ($areasId as $id) {
+                  $publications[$cont] =Publication::with('user','typeScientificMagazine', 'place', 'areas')
+                                  ->where('id', '=', $id->publication_id)
+                                  ->where('name', 'LIKE', '%' . $search . '%');
+                  if($valueCity!=-1){
+                    $publications[$cont] = $publications[$cont]->where('place_id', '=', $valueCity);
+                  }
+                  if($valueTypePublication!=-1){
+                    $publications[$cont] = $publications[$cont]->where('type', '=', $valueTypePublication);
+                  }
+                  $publications[$cont] = $publications[$cont]->get();
+                 $cont += 1;
+                /* if(!isset($publications[$cont])){
+                    $cont -= 1;
+                 }*/
+              }
+            } 
+          }
+          if($cont != 0){
+            $cont = 0;
+            foreach ($publications as $value) {
+              foreach ($value as $key) {
+                $publications[$cont] = $key;
+                $cont += 1;
+              }
+            }
+          } else {
+            $publications[$cont] = 'vacio';
+          }
+         
+          return $publications;
     }
 
     private function  getTypePublication($valueTypePublication){

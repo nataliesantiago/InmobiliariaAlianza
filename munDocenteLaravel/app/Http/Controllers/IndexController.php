@@ -11,7 +11,6 @@ use MunDocente\Area;
 use MunDocente\Place;
 use MunDocente\User;
 use Carbon\Carbon;
-use DB;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
