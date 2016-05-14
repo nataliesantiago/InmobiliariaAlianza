@@ -78,7 +78,7 @@ class TeacherCallController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher_call.call_form');
     }
 
     /**

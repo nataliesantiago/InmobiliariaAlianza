@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use MunDocente\TypeOfScientificMagazine;
 
 
 class ScientificMagazineController extends Controller
@@ -79,7 +80,8 @@ class ScientificMagazineController extends Controller
      */
     public function create()
     {
-        //
+         $type_of_scientific_magazines = TypeOfScientificMagazine::all();
+         return view('scientific_magazine.magazine_form', compact('type_of_scientific_magazines'));
     }
 
     /**
