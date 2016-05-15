@@ -2,10 +2,14 @@
 
 @section('menus')
 
-	<li style="white-space: nowrap;"><a href="/">Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
+	 <li ><a href="/">
+    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">
+    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">
+    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">
+    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
 
 @stop
 
@@ -14,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-		<center><h2 class="count">AGREGAR REVISTAS CIENTIFICAS</h2></center>			
+		<center><h2 class="count">AGREGAR REVISTAS CIENTÍFICAS</h2></center>			
 	</div>
 			<div class="2u 12u(mobile)"></div>
 
@@ -33,7 +37,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la revista cientifica *" name="name" >
+			                    	<input type="text" class="form-control" placeholder="Nombre de la revista científica *" name="name" >
 			                    </div>		
 			                    
 			                </div>
@@ -43,7 +47,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicacion *" >
+			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" >
 			                    	<span class="input-group-addon">
                        				 <span class="glyphicon glyphicon-calendar"></span>
                     				</span>
@@ -90,7 +94,7 @@
 
 			        	  <div >
 			                <div class="12u$(xsmall)">
-			                <p>Categoria *</p>
+			                <p>Categoría *</p>
 			                    <div class="input-group">			                    
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
 								<select name="category" id="cat" placeholder="Categoria *"class="form-control" />

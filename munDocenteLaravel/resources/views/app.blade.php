@@ -26,8 +26,8 @@
 	@section('content')		
 				
 				@foreach($publications as $publication)
-			
-				<time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+			   
+				<time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">
                     @if($publication->type==1)
@@ -51,7 +51,7 @@
 					<p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 
 					@if($publication->end_date!=null)
-					<p class="end">Fecha final: {{ $publication->end_date }}</p>
+					<p class="end">Fecha final: {{ $publication->end_date }} </p>
 					@endif					
 					@if($publication->contact!=null)
 					<p class="contact">Contacto: {{ $publication->contact }}</p>

@@ -37,7 +37,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                                  <div class="1u 12u$(xsmall)"></div>
                                  <div class="8u 12u$(xsmall)">
-                                    <input type="text" name="keyLetter"  placeholder="Búsqueda" />
+                                    <input type="text" name="keyLetter"  placeholder="Búsqueda" /> 
                                     @if ($errors->has('keyLetter'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('keyLetter') }}</strong>
@@ -49,7 +49,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                     @endif
                                 </div>
 
-                                <div class="2u 12u$(xsmall)">
+                                <div class="2u 12u$(small)">
                                     <input class="btnSearch btn-default" type="submit" value="Ir">
                                 </div>
                             </div>
@@ -84,13 +84,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                                     <ul class="dropdown-menu" role="menu">
                                     @if(Auth::user()->type==2)
-                                    <li><a href="{{ url('/teacher_call/call_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Convocatorias</a></li>
-                                    <li><a href="{{ url('/scientific_magazine/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Revistas Científicas </a></li>
-                                    <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>Agregar Eventos Académicos</a></li>
+                                    <li><a href="{{ url('/teacher_call/call_form') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
+                                    <li><a href="{{ url('/scientific_magazine/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
+                                    <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
                                     @endif
                                     <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>Configuración</a></li>
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
                                                                        
                                     </ul>
                                 

@@ -126,7 +126,7 @@
 @endif
 
 							<div class="12u 12u$(xsmall)">
-								<label class="control-label col-xs-4">Telefono</label>
+								<label class="control-label col-xs-4">Teléfono</label>
 								<div class="col-xs-8">
 								@if($r->phone == null)
 								<input type="text" name="phone" placeholder="Ingrese su número telefónico" />

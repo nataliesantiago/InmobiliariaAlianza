@@ -1105,7 +1105,7 @@
 	}
 
 	strong, b {
-		color: #252122;
+		color: #FF0000;
 		font-weight: 400;
 	}
 
@@ -2588,7 +2588,7 @@ div#slider div.elemento img{
 	display: inline-block;
 	font-style: Sans MS;
 	float: left;
-	margin: 0 0.35em 0 0.35em;
+	    margin: 0 0.10em 0 0.15em;
 }
 
 .navbar .nav>li>a{
@@ -2762,16 +2762,12 @@ ul.social_login {
 .current{
 	float: left;
 }
-<<<<<<< HEAD
  
  .btnSearch{
  	    width: 10px;
      height: 40px;
- }
-=======
+     position: relative;
+    right: 30px;
 
-.btnSearch{
-	    width: 10px;
-    height: 40px;
-}
->>>>>>> 3ba842981d2d92f59f15810f6b6c6d871644fee7
+ }
+

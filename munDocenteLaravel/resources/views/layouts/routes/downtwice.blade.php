@@ -6,10 +6,10 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('../css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ elixir('../../css/app.css') }}" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="....//js/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap-responsive.min.css" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="../../css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -19,7 +19,14 @@
 
 @section('menu')
 
-	@yield('menus')
+	<li ><a href="/">
+        <i class="glyphicon glyphicon-home"></i> Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">
+        <i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">
+        <i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">
+        <i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
 
 @stop
 
@@ -48,5 +55,5 @@
 <script type="text/javascript" src="../../js/simpletreemenu.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    {{-- <script src="{{ elixir('../js/app.js') }}"></script> --}}
+    {{-- <script src="{{ elixir('../../js/app.js') }}"></script> --}}
 @stop
