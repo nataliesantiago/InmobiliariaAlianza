@@ -132,7 +132,7 @@
 						
 						<div class="12u 12u$(small)">
 							<center>
-								<label class="checkbox inline"><input type="checkbox" name="termsConditions"> Acepto términos y condiciones
+								<label class="checkbox inline"><input type="checkbox" name="termsConditions"> Acepto términos y condiciones *
 								 @if ($errors->has('termsConditions'))
 			                        <span class="help-block">
 			                            <strong>{{ $errors->first('termsConditions') }}</strong>

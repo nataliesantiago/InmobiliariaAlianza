@@ -46,11 +46,9 @@
 			            <div >
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
-									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" >
-			                    	<span class="input-group-addon">
-                       				 <span class="glyphicon glyphicon-calendar"></span>
-                    				</span>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" id="datePublication">
+			                    	
 			                    </div>	
 			                  
 			                </div>
@@ -69,11 +67,9 @@
 			             <div >
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
-									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			                    	<input type="text" class="form-control" name="start_date" placeholder="Fecha de inicio *" >
-			                    	<span class="input-group-addon">
-                       				 <span class="glyphicon glyphicon-calendar"></span>
-                    				</span>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de inicio *" id="dateInit">
+			                    	
 			                    </div>	
 			                  
 			                </div>
@@ -83,11 +79,9 @@
 			             <div >
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
-									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" >
-			                    	<span class="input-group-addon">
-                       				 <span class="glyphicon glyphicon-calendar"></span>
-                    				</span>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" id="dateEnd">
+			                    	
 			                    </div>				                  
 			                </div>
 			            </div>

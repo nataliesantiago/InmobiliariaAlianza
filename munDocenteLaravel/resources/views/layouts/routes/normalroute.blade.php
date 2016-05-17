@@ -13,7 +13,7 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
+ <link rel="stylesheet" href="css/datepicker.css">
     <link rel="stylesheet" type="text/css" href="css/simpletree.css" />
 @stop
 
@@ -47,4 +47,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+<script src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="js/date.js"></script>
 @stop
