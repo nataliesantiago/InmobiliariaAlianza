@@ -24,7 +24,7 @@
 @stop
 
 	@section('content')		
-				
+		<center><h3>No se encontraron publicaciones</h3></center> 
 				
 	@stop
 
