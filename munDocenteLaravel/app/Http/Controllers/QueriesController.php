@@ -137,7 +137,7 @@ class QueriesController extends Controller
             foreach ($publications as $value) {
               //dd($cont);
               foreach ($value as $key) {
-                dd($key);
+                //dd($key);
                 $publications[$cont] = $key;
                 $cont += 1;
               }
