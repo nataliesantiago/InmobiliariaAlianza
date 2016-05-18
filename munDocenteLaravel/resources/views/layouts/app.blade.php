@@ -14,92 +14,101 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </head>
 
 <body class="right-sidebar">
+
 <div id="page-wrapper">
 
     <!-- Header -->
     <div id="header-wrapper">
         <div id="header">
                     <!-- Nav -->
-             <nav class="navbar navbar-default navbar-static-top">
-                <div class="container">
-                     <div class="row">
-                        <div class="2u 12u(mobile)">
-                                 <div class="10u 12u$(xsmall)">
-                                @yield('logo')
-                            </div>
-                        </div>
-                        <div class="5u 12u(mobile)">
-                        </div>              
-                        <div class="5u 12u(mobile)">
-                            <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
-                            {!! csrf_field() !!}
-                            <div class="row uniform">
-
-                                 <div class="1u 12u$(xsmall)"></div>
-                                 <div class="8u 12u$(xsmall)">
-                                    <input type="text" name="keyLetter"  placeholder="Búsqueda" /> 
-                                    @if ($errors->has('keyLetter'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('keyLetter') }}</strong>
-                                            </span>
-                                    @endif
-                                    @if (Auth::guest())
-                                    @else   
-                                    <a href="/search_advanced">Búsqueda avanzada</a>
-                                    @endif
-                                </div>
-
-                                <div class="2u 12u$(small)">
-                                    <input class="btnSearch btn-default" type="submit" value="Ir">
-                                </div>
-                            </div>
-
-                            </form>             
-                        </div>
+            <nav role="navigation" class="navbar navbar-default">
+                
+            <div class="container">
+                 <div class="row">
+                    <div class="1u 12u(mobile)">
                     </div>
-                  
-                    <div>
-                        <!-- Left Side Of Navbar -->
-                        <ul class="nav navbar-nav">                            
-                            @yield('menu')
-                            <li style="white-space: nowrap;">
-                                <a href="#footer-wrapper">
-                                    <i class="glyphicon glyphicon-info-sign"></i> Contacto
-                                </a>
-                            </li>                                 
-                            <!-- Authentication Links -->
-                            @if (Auth::guest())
-                           
-                                <li class="white-space: nowrap;">
-                                    <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> </i>  Registrarse</a>
-                                </li>
-                            @else
-                                <li class="dropdown">
-                                   
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
-                                        {{ Auth::user()->username }} 
-                                        <img class="imguser col-xs-3" src="images/user.png" alt="" > 
-                                        <span class="caret"></span>
-                                        </a>
+                    <div class="2u 12u(mobile)">
+                        @yield('logo')
+                    </div>              
+                    <div class="4u 12u(mobile)">
+                    </div>
+                    <div class="5u 12u(mobile)">
+                        <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
+                        {!! csrf_field() !!}
+                        <div class="row uniform">
 
-                                    <ul class="dropdown-menu" role="menu">
-                                    @if(Auth::user()->type==2)
-                                    <li><a href="{{ url('/teacher_call/call_form') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
-                                    <li><a href="{{ url('/scientific_magazine/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
-                                    <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
-                                    @endif
-                                    <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
-                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
-                                                                       
-                                    </ul>
-                                
-                                </li>
-                            @endif
-                            @yield('intro')   
-                        </ul>
+                             <div class="1u 12u$(xsmall)"></div>
+                             <div class="8u 12u$(xsmall)">
+                                <input type="text" name="keyLetter"  placeholder="Búsqueda" /> 
+                                @if ($errors->has('keyLetter'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('keyLetter') }}</strong>
+                                        </span>
+                                @endif
+                                @if (Auth::guest())
+                                @else   
+                                <a href="/search_advanced">Búsqueda avanzada</a>
+                                @endif
+                            </div>
+
+                            <div class="2u 12u$(small)">
+                                <input class="btnSearch" type="submit" value="Ir">
+                            </div>
+                        </div>
+
+                        </form>             
                     </div>
                 </div>
+
+                <div class="navbar-header">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>           
+                </div>
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav nav-tabs">
+                     @yield('menu')
+                    <li style="white-space: nowrap;">
+                        <a href="#footer-wrapper">
+                            <i class="glyphicon glyphicon-info-sign"></i> Contacto
+                        </a>
+                    </li>                                 
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                   
+                        <li class="white-space: nowrap;">
+                            <a href="/user/create_docent"><i class="glyphicon glyphicon-user"> </i>  Registrarse</a>
+                        </li>
+                    @else
+                        <li class="dropdown">
+                           
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+                                {{ Auth::user()->username }} 
+                                <img class="imguser col-xs-3" src="images/user.png" alt="" > 
+                                <span class="caret"></span>
+                                </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                            @if(Auth::user()->type==2)
+                            <li><a href="{{ url('/teacher_call/call_form') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
+                            <li><a href="{{ url('/scientific_magazine/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
+                            <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
+                            @endif
+                            <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
+                            <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
+                                                               
+                            </ul>
+                        
+                        </li>
+                    @endif
+                    @yield('intro')   
+                    </ul>
+                    
+                </div>
+            </div>
             </nav>
 
         </div>

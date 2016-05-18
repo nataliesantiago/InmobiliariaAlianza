@@ -66,6 +66,10 @@
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar foto</a>
 								</div>
+
+								<div class="col-xs-12">
+								<a class="forgot btn-link" href="#"> </a>
+								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
 								<label class="control-label col-xs-4">Nombres y Apellidos</label>

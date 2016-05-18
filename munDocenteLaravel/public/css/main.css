@@ -25,7 +25,8 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: baseline;
+		vertical-align: 
+		baseline;
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -1446,6 +1447,7 @@
 	ul.default {
 		list-style: disc;
 		padding-left: 1em;
+		
 	}
 
 		ul.default li {
@@ -2420,7 +2422,7 @@ div#slider div.elemento img{
 			}
 
 			#header-wrapper {
-				padding: 2em 0;
+				padding: 0 0 350px 25px;
 			}
 
 			#footer-wrapper {
@@ -2558,7 +2560,9 @@ div#slider div.elemento img{
 .navbar {
 	height: 135px;
 	background-color: #E5E5E5;
+	text-align:center;
 }
+
 
 .forgot{
 	color: #0044CC;
@@ -2567,8 +2571,8 @@ div#slider div.elemento img{
 
  
 .dropdown{
-	    position: relative;
-    left: -70px;
+	position: relative;
+    left: -40px;
 }
 
 .register{
@@ -2764,10 +2768,11 @@ ul.social_login {
 }
  
  .btnSearch{
- 	    width: 10px;
+ 	 width: 10px;
      height: 40px;
      position: relative;
     right: 30px;
+    text-align: top;
 
  }
 

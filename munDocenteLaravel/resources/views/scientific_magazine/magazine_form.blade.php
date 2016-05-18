@@ -80,7 +80,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" id="dateEnd">
+			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha fin *" id="dateEnd">
 			                    	
 			                    </div>				                  
 			                </div>
