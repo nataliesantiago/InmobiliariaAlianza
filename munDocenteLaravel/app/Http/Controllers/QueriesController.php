@@ -131,18 +131,24 @@ class QueriesController extends Controller
               }
             } 
           }
+       // dd($publications);
           if($cont != 0){
             $cont = 0;
             foreach ($publications as $value) {
+              //dd($cont);
               foreach ($value as $key) {
+                //dd($key);
                 $publications[$cont] = $key;
                 $cont += 1;
+              }
+              if($cont == 0){
+                $publications[$cont] = 'vacio';
               }
             }
           } else {
             $publications[$cont] = 'vacio';
           }
-         
+        //dd($publications);
           return $publications;
     }
 
