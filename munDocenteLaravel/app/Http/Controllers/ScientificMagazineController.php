@@ -14,6 +14,7 @@ use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use MunDocente\TypeOfScientificMagazine;
+use DB;
 
 
 class ScientificMagazineController extends Controller
@@ -80,8 +81,12 @@ class ScientificMagazineController extends Controller
      */
     public function create()
     {
-         $type_of_scientific_magazines = TypeOfScientificMagazine::all();
-         return view('scientific_magazine.magazine_form', compact('type_of_scientific_magazines'));
+        if($this->isValidate()){
+            $type_of_scientific_magazines = TypeOfScientificMagazine::all();
+            return view('scientific_magazine.create', compact('type_of_scientific_magazines'));
+        } else {            
+            return view('errors.validation'); 
+        }        
     }
 
     /**
@@ -92,9 +97,22 @@ class ScientificMagazineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id_category = $this->getIdCategory($request->category);
+        $request->user()->publications()->create([
+            'name' => $request->name,
+            'date_publication' => $request->date_publication,
+            'type' => 2,
+            'category'  => $id_category,
+            'url' => $request->url,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'description' => $request->description,
+            'user_id' => $request->user()->id,
+            ]);
+        return 'agregada correctamente la revista cientifica';
     }
 
+   
     /**
      * Display the specified resource.
      *
@@ -180,4 +198,29 @@ class ScientificMagazineController extends Controller
        // dd($publications);
         return $publications;
    }
+
+    //validación del uusario para ingresar al formulario de crear
+   private function isValidate(){
+        if(! Auth::guest()){
+            $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            foreach ($users as $value) {
+               $user = $value;
+            }
+            return $user->type == 2 ? true : false;
+        } else {            
+            return false; 
+        } 
+   }
+
+    private function getIdCategory($name_category){
+        $category = DB::table('type_of_scientific_magazines')
+                    ->where('value', '=' , $name_category)
+                    ->get();
+        foreach ($category as $key) {
+            $id = $key->id;
+        }
+        return $id;   
+    }
 }

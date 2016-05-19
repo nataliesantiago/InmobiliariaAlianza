@@ -95,11 +95,9 @@ class UserController extends Controller
 
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
-
         foreach ($user as $key) {
             $typeUser = $key->type;
         }
-        
         if($typeUser == 1){
                 foreach ($user as $key) {
                     $idUser = $key->id;
@@ -115,8 +113,6 @@ class UserController extends Controller
                                         ->get();
                     $cont += 1;
                 }
-                
-               
                 $cont = 0;
                 foreach ($areasUser as $collection) {
                     
@@ -128,9 +124,6 @@ class UserController extends Controller
                // dd($name);
         } else {
         }
-        
-       
-
         return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
     }
 

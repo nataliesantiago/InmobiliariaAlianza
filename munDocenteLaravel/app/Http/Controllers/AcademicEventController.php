@@ -77,7 +77,11 @@ class AcademicEventController extends Controller
      */
     public function create()
     {
-        return view('academic_event.event_form');
+        if($this->isValidate()){
+            return view('academic_event.create');
+        } else {            
+            return view('errors.validation'); 
+        }     
     }
 
     /**
@@ -88,7 +92,17 @@ class AcademicEventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->user()->publications()->create([
+            'name' => $request->name,
+            'date_publication' => $request->date_publication,
+            'type' => 3,
+            'url' => $request->url,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'description' => $request->description,
+            'user_id' => $request->user()->id,
+            ]);
+        return 'agregada correctamente el evento academico';
     }
 
     /**
@@ -175,5 +189,19 @@ class AcademicEventController extends Controller
         }
        // dd($publications);
         return $publications;
+   }
+    //validación del uusario para ingresar al formulario de crear
+   private function isValidate(){
+        if(! Auth::guest()){
+            $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            foreach ($users as $value) {
+               $user = $value;
+            }
+            return $user->type == 2 ? true : false;
+        } else {            
+            return false; 
+        } 
    }
 }
