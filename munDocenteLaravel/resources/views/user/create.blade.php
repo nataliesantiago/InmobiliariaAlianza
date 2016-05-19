@@ -24,51 +24,47 @@
 			<div class="8u 12u(mobile)">
 				<section class="box">
 
-			        <form class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
-			            {!! csrf_field() !!}
-
-			   		<div class="row uniform">
 						<div class="btn-group">
-  							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-   									<label>Tipo de usuario <span class="caret"></span></label> 
-  							</button>
- 
+  						 <button type="button" class="btn btn-info">Tipo de Usuario</button>
+						  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <span class="caret"></span>
+						    <span class="sr-only">Toggle Dropdown</span>
+						  </button>
  						 <ul class="dropdown-menu" role="menu">
 					    <li><a href="/user/create_docent">Docente</a></li>
 					    <li><a href="/user/create_publisher">Publicador</a></li>
 					     </ul>
 						</div>
 						<p>Campos obligatorios *</p>
-					</div>
+					
 				
 					<hr>
+			        <form id="valForm" class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
+			            {!! csrf_field() !!}
+
 			        <div class="row uniform">
 			            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-			                <div class="12u$(xsmall)">
-			                    <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de usuario *" name="username" value="{{ old('username') }}">
-			                    </div>		
-			                    @if ($errors->has('username'))
-			                        <span class="help-block">
-			                            <strong>{{ $errors->first('username') }}</strong>
-			                        </span>
-			                    @endif
-			                </div>
+		                    <div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		                    	<input type="text" class="form-control" placeholder="Nombre de usuario *" name="username" value="{{ old('username') }}">
+		                    </div>
+		                    @if ($errors->has('username'))
+		                        <span class="help-block">
+		                            <strong>{{ $errors->first('username') }}</strong>
+		                        </span>
+			                @endif
 			            </div>
 
 			            <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
-			                <div class="12u$(xsmall)">
-			                    <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-			                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos *" value="{{ old('fullname') }}">
-			                    </div>	
-			                    @if ($errors->has('fullname'))
-			                        <span class="help-block">
-			                            <strong>{{ $errors->first('fullname') }}</strong>
-			                        </span>
-			                    @endif
-			                </div>
+		                    <div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+		                    	<input type="text" class="form-control" name="fullname" placeholder="Nombres y apellidos *" value="{{ old('fullname') }}">
+		                    </div>
+		                    @if ($errors->has('fullname'))
+		                        <span class="help-block">
+		                            <strong>{{ $errors->first('fullname') }}</strong>
+		                        </span>
+			                @endif
 			            </div>
 
 			            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -86,31 +82,28 @@
 			            </div>
 
 			            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-			                <div class="12u$(xsmall)">
-			                	<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-			                      	<input type="password" class="form-control" placeholder="Contraseña *" name="password">
-			                    </div> 	
-			                    @if ($errors->has('password'))
-			                        <span class="help-block">
-			                            <strong>{{ $errors->first('password') }}</strong>
-			                        </span>
-			                    @endif
-			                </div>
-			                <p>La contraseña debe tener mínimo 6 caracteres</p>
+		                	<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		                      	<input type="password" class="form-control" placeholder="Contraseña *" name="password">
+		                    </div>
+		                    @if ($errors->has('password'))
+		                        <span class="help-block">
+		                            <strong>{{ $errors->first('password') }}</strong>
+		                        </span>
+			                @endif 	
 			            </div>
 
 
 			            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-			                	<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				                    <input type="password" class="form-control" placeholder="Confirmar contraseña *" name="password_confirmation">
-				                </div>    
-			                    @if ($errors->has('password_confirmation'))
-			                        <span class="help-block">
-			                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-			                        </span>
-			                    @endif
+		                	<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			                    <input type="password" class="form-control" placeholder="Confirmar contraseña *" name="password_confirmation">
+			                </div>    
+		                    @if ($errors->has('password_confirmation'))
+		                        <span class="help-block">
+		                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+		                        </span>
+			                @endif
 			            </div>
 
 
@@ -132,7 +125,8 @@
 						
 						<div class="12u 12u$(small)">
 							<center>
-								<label class="checkbox inline"><input type="checkbox" name="termsConditions"> Acepto términos y condiciones *
+								<label class="checkbox inline">
+									<input type="checkbox" name="termsConditions"> Acepto términos y condiciones *
 								 @if ($errors->has('termsConditions'))
 			                        <span class="help-block">
 			                            <strong>{{ $errors->first('termsConditions') }}</strong>

@@ -18,8 +18,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-		<center><h2 class="count">AGREGAR EVENTOS ACADÉMICOS</h2></center>			
-	</div>
+				<center><h2 class="count">AGREGAR EVENTOS ACADÉMICOS</h2></center>			
+			</div>
 			<div class="2u 12u(mobile)"></div>
 
 			<div class="8u 12u(mobile)">
@@ -27,13 +27,14 @@
 
 					{!! Form::open(['route' => 'academic_event.store', 'method' => 'POST']) !!}
 			         {!! csrf_field() !!}			            
+
 			   		<div class="row uniform">
 						<p>Campos obligatorios *</p>
 					</div>
 				
 					<hr>
 			        <div class="row uniform">
-			            <div >
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
@@ -43,7 +44,7 @@
 			                </div>
 			            </div>
 
-			            <div >
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -54,7 +55,7 @@
 			                </div>
 			            </div>
 
-			            <div >
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
@@ -64,11 +65,12 @@
 			                </div>
 			            </div>
 			           
-			            <div >
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 			                    	<input type="text" class="form-control" required name="start_date" placeholder="Fecha de inicio *" value="{{ old('start_date') }}" >
+
 			                    	
 			                    </div>	
 			                  
@@ -76,7 +78,7 @@
 			            </div>
 
 
-			             <div >
+			             <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -91,6 +93,7 @@
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
 			                    	<input type="text" class="form-control" placeholder="Descripción *" name="description" required value="{{ old('description') }}">
+
 			                    </div>		
 			                    
 			                </div>

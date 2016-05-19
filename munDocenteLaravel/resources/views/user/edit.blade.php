@@ -39,7 +39,7 @@
 			<!-- Content -->
 			<div class="8u 12u(mobile)">
 				<section class="box">
-
+				<form id="valForm">
 				@if(Session::has('flash_message'))
    					 <div class="alert alert-success">
       				  {{ Session::get('flash_message') }}
@@ -54,6 +54,7 @@
 								            {!! csrf_field() !!}
 
 						<div class="row uniform">
+
 							<div class="12u 12u$(xsmall)">	
 								<label class="control-label col-xs-4"><h2>{{ $r->username }} </h2></label>
 								<div class="col-xs-8">
@@ -72,12 +73,15 @@
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
+								<div class="form-group">
 								<label class="control-label col-xs-4">Nombres y Apellidos</label>
 								<div class="col-xs-8">
 								<input type="text" name="fullname" value="{{ $r->fullname }}" />
 								</div>
+								</div>
 							</div>
 							<div class="12u$">
+								<div class="form-group">
 								<label class="control-label col-xs-4">Correo Electrónico</label>
 								<div class="col-xs-8">
 								<input type="email" name="email" required class="form-control" value="{{ $r->email }}" />
@@ -87,6 +91,7 @@
 			                            <strong>{{ $errors->first('email') }}</strong>
 			                        </span>
 			                    @endif
+			                	</div>
 							</div>
 							<div class="12u$">
 								<label class="control-label col-xs-4">Institución</label>
@@ -130,13 +135,15 @@
 @endif
 
 							<div class="12u 12u$(xsmall)">
-								<label class="control-label col-xs-4">Teléfono</label>
+								<div class="form-group">
+								<label class="control-label col-xs-4">Celular</label>
 								<div class="col-xs-8">
 								@if($r->phone == null)
 								<input type="text" name="phone" placeholder="Ingrese su número telefónico" />
 								@else
 								<input type="text" name="phone" value="{{ $r->phone }}" />
 								@endif
+								</div>
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
@@ -174,6 +181,7 @@
 					    </body>
 					    @endcan
 				@endforeach
+			</form>
 				</section>
 			</div>
 		</div>
