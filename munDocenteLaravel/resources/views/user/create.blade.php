@@ -151,9 +151,11 @@
 			            </div></center>
 			        </div>
 			        </form>
+			        
 			    </section>
 			</div>
         </div>
     </div>
 </div>
+
 @endsection

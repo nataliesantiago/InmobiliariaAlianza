@@ -119,9 +119,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 @yield('principal')
 
 <!-- Footer DIVIDIR APARTIR DE AQUI-->
+
     <div id="footer-wrapper">
         <section id="footer" class="container">
             <div class="row">
+
                 <div class="6u 12u(mobile)">
                     <section>
                         <header>                
@@ -194,6 +196,25 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 </div>
 
+             <form id="loginForm" method="post" class="form-horizontal" action="none">
+                 <div class="form-group">
+                     <label class="col-md-3 control-label">Nombre de Usuario</label>
+                     <div class="col-md-7">
+                         <input type="text" class="form-control" name="usuario" />
+                     </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="col-md-3 control-label">Password</label>
+                     <div class="col-md-7">
+                         <input type="password" class="form-control" name="password" />
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="col-md-5 col-md-offset-3">
+                         <button type="submit" class="btn btn-default">Login</button>
+                     </div>
+                 </div>
+             </form>
 <!-- Scripts -->
 @yield('scripts')
 
