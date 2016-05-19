@@ -52,7 +52,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </div>
 
                             <div class="2u 12u$(small)">
-                                <input class="btnSearch" type="submit" value="Ir">
+                                <input class="btn btn-primary" type="submit" value="Ir">
                             </div>
                         </div>
 
@@ -157,18 +157,24 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <header>
                         <h2 class="major">Sugerencias</h2>
                     </header>           
-                    <form method="post" action="#">
-                        <div class="field">
-                            <h7>Nombre</h7>
-                            <input type="text" name="name" id="name" />
+                    <form method="post" id="valForm" action="#">
+                        <div class="form-group">
+                            <div class="field">
+                                <h7>Nombre</h7>
+                                <input type="text" name="name" id="name" />
+                            </div>
                         </div>
-                        <div class="field">
-                            <h7>Email</h7>
-                            <input type="email" name="email" id="email" />
+                        <div class="form-group">
+                            <div class="field">
+                                <h7>Email</h7>
+                                <input type="email" name="email" id="email" />
+                            </div>
                         </div>
-                        <div class="field">
-                            <h7>Mensaje</h7>
-                            <textarea name="message" id="message" rows="4"></textarea>
+                        <div class="form-group">
+                            <div class="field">
+                                <h7>Mensaje</h7>
+                                <textarea name="message" id="message" rows="4"></textarea>
+                            </div>
                         </div>
                         <br>
                         <ul class="actions">
@@ -195,26 +201,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 
 </div>
-
-             <form id="loginForm" method="post" class="form-horizontal" action="none">
-                 <div class="form-group">
-                     <label class="col-md-3 control-label">Nombre de Usuario</label>
-                     <div class="col-md-7">
-                         <input type="text" class="form-control" name="usuario" />
-                     </div>
-                 </div>
-                 <div class="form-group">
-                    <label class="col-md-3 control-label">Password</label>
-                     <div class="col-md-7">
-                         <input type="password" class="form-control" name="password" />
-                     </div>
-                 </div>
-                 <div class="form-group">
-                     <div class="col-md-5 col-md-offset-3">
-                         <button type="submit" class="btn btn-default">Login</button>
-                     </div>
-                 </div>
-             </form>
 <!-- Scripts -->
 @yield('scripts')
 
