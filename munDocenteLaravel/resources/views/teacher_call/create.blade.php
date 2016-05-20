@@ -25,8 +25,9 @@
 			<div class="8u 12u(mobile)">
 				<section class="box">
 
-			        <form id="valForm" method="post">
-			            
+				{!! Form::open(['route' => 'teacher_call.store', 'method' => 'POST']) !!}
+			         {!! csrf_field() !!}
+		            
 			   		<div class="row uniform">
 						<p>Campos obligatorios *</p>
 					</div>
@@ -37,7 +38,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la convocatoria docente *" name="name" >
+			                    	<input type="text" class="form-control" placeholder="Nombre de la convocatoria docente *" required  name="name" value="{{ old('name') }}" >
 			                    </div>		
 			            	</div>
 			            </div>
@@ -45,7 +46,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" id="datePublication">
+			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" required value="{{ old('date_publication') }}">
 			                    	
 			                    </div>	
 			            	</div>
@@ -55,7 +56,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-			                    	<input type="text" class="form-control" placeholder="URL *" name="url" >
+			                    	<input type="text" required class="form-control" placeholder="URL *" name="url" >
 			                    </div>		
 			                    
 			                </div>
@@ -65,8 +66,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="init_date" placeholder="Fecha de inicio *" id="dateInit">
-			                    	
+			                    	<input type="text" class="form-control" name="start_date" placeholder="Fecha de inicio *" required value="{{ old('start_date') }}">			                
 			                    </div>	
 			                  
 			                </div>
@@ -76,7 +76,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" id="dateEnd">
+			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" required value="{{ old('end_date') }}">
 			                    	
 			                    </div>				                  
 			                </div>
@@ -86,7 +86,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Cargo *" name="position" >
+			                    	<input type="text" class="form-control" placeholder="Cargo *" required name="position" value="{{ old('position') }}">
 			                    </div>		
 			                    
 			                </div>
@@ -96,7 +96,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Descripción" name="description" >
+			                    	<input type="text" class="form-control" placeholder="Descripción *" name="description" required value="{{ old('description') }}" >
 			                    </div>		
 			                    
 			                </div>
@@ -110,7 +110,7 @@
 			                </div>
 			            </div></center>
 			        </div>
-			        </form>
+			        {!! Form::close() !!}
 			    </section>
 			</div>
         </div>

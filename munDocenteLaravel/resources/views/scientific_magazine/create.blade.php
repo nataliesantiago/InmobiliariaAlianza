@@ -18,57 +18,61 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-				<center><h2 class="count">AGREGAR EVENTOS ACADÉMICOS</h2></center>			
+				<center><h2 class="count">AGREGAR REVISTAS CIENTÍFICAS</h2></center>			
 			</div>
 			<div class="2u 12u(mobile)"></div>
 
 			<div class="8u 12u(mobile)">
 				<section class="box">
 
-			        <form id="valForm" method="post">
+			        {!! Form::open(['route' => 'scientific_magazine.store', 'method' => 'POST']) !!}
+			         {!! csrf_field() !!}
 			            
+
 			   		<div class="row uniform">
 						<p>Campos obligatorios *</p>
 					</div>
-				
-					<hr>
+			        
+			        <form id="valForm" method="post">
+			            
 			        <div class="row uniform">
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre del evento académico *" name="name" >
+			                    	<input type="text" class="form-control" placeholder="Nombre de la revista científica *" required name="name" value="{{ old('name') }}">
 			                    </div>		
 			                    
 			                </div>
 			            </div>
 
-			            <div class="form-group">
+			           <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" id="datePublication">
+			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" required value="{{ old('date_publication') }}">
 			                    	
 			                    </div>	
 			                  
 			                </div>
 			            </div>
-
+			            
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-			                    	<input type="text" class="form-control" placeholder="URL *" name="url" >
+			                    	<input type="text" class="form-control" required placeholder="URL *" name="url" value="{{ old('url') }}">
 			                    </div>		
 			                    
 			                </div>
 			            </div>
 			           
-			            <div class="form-group">
+			             <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="init_date" placeholder="Fecha de inicio *" id="dateInit">
+			                    	<input type="text" class="form-control" required name="start_date" placeholder="Fecha de inicio *" value="{{ old('start_date') }}">
+
 			                    	
 			                    </div>	
 			                  
@@ -76,21 +80,37 @@
 			            </div>
 
 
-			             <div class="form-group">
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha de fin *" id="dateEnd">
+			                    	<input type="text" class="form-control" required name="end_date" placeholder="Fecha fin *"  value="{{ old('end_date') }}">
 			                    	
 			                    </div>				                  
 			                </div>
 			            </div>
 
+			        	  <div>
+			                <div class="12u$(xsmall)">
+			                <p>Categoría *</p>
+			                    <div class="input-group">			                    
+								<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
+								<select name="category" placeholder="Categoria *"class="form-control" />
+								@foreach($type_of_scientific_magazines as $type_of_scientific_magazine)
+									<option>{{ $type_of_scientific_magazine->value }} </option>
+								@endforeach
+								</select>
+							</div>
+			                    
+			                </div>
+			            </div>    
+					
 			            <div >
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Descripción" name="description" >
+			                    	<input type="text" class="form-control" placeholder="Descripción *" name="description" required value="{{ old('description') }}">
+
 			                    </div>		
 			                    
 			                </div>
@@ -104,12 +124,10 @@
 			                </div>
 			            </div></center>
 			        </div>
-			        </form>
+			        {!! Form::close() !!}
 			    </section>
 			</div>
         </div>
     </div>
 </div>
-
-
 @endsection

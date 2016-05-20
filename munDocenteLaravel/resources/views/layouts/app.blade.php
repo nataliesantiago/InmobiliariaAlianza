@@ -45,9 +45,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                             <strong>{{ $errors->first('keyLetter') }}</strong>
                                         </span>
                                 @endif
-                                @if (Auth::guest())
-                                @else   
+                                @if (! Auth::guest())
+                                @if(Auth::user()->type==1)
                                 <a href="/search_advanced">Búsqueda avanzada</a>
+                                @endif
                                 @endif
                             </div>
 
@@ -92,9 +93,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                             <ul class="dropdown-menu" role="menu">
                             @if(Auth::user()->type==2)
-                            <li><a href="{{ url('/teacher_call/call_form') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
-                            <li><a href="{{ url('/scientific_magazine/magazine_form') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
-                            <li><a href="{{ url('/academic_event/event_form') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
+                            <li><a href="{{ url('/teacher_call/create') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
+                            <li><a href="{{ url('/scientific_magazine/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
+                            <li><a href="{{ url('/academic_event/create') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
                             @endif
                             <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
                             <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>

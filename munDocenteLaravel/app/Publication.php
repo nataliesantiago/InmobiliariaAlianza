@@ -13,6 +13,14 @@ class Publication extends Model
 {
     protected $table = 'publications';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name','date_publication', 'type', 'place_id', 'url', 'start_date', 'end_date', 'category','position', 'description', 'contact', 'user_id',
+    ];
 
     public function typeOfPublication()
     {
