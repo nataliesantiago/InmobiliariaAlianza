@@ -25,6 +25,7 @@ Route::group(['middleware' => ['web']], function(){
 	Route::auth();
 
 	Route::get('/', 'IndexController@index');
+	Route::get('/admin', 'IndexController@index');
 
 	Route::get('/user/create_docent', 'UserController@create_docent');
 	Route::get('/user/create_publisher', 'UserController@create_publisher');

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!--
+<!-- Faltan mensajes de alerta y barras de progreso
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
@@ -24,22 +24,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <nav role="navigation" class="navbar navbar-default">
                 
             <div class="container">
-                 <div class="row">
-                    <div class="1u 12u(mobile)">
-                    </div>
-                    <div class="2u 12u(mobile)">
-                        @yield('logo')
-                    </div>              
-                    <div class="4u 12u(mobile)">
-                    </div>
-                    <div class="5u 12u(mobile)">
-                        <form action="{{ url('result_search_basic')}}" method="post" class="form login-form">
+                <div class="row">
+                    <div class="col-xs-1"></div>    
+                    <div class="col-xs-10">
+                        <div class="col-sm-5 col-md-2">
+                            @yield('logo')
+                        </div>             
+                        
+                        <form action="{{ url('result_search_basic')}}" method="post" class="navbar-form navbar-right">
                         {!! csrf_field() !!}
-                        <div class="row uniform">
 
-                             <div class="1u 12u$(xsmall)"></div>
-                             <div class="8u 12u$(xsmall)">
-                                <input type="text" name="keyLetter"  placeholder="Búsqueda" /> 
+                            <div class="form-group">         
+                                <input type="text" class="form-control" name="keyLetter"  placeholder="Búsqueda" /> 
                                 @if ($errors->has('keyLetter'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('keyLetter') }}</strong>
@@ -52,24 +48,25 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 @endif
                             </div>
 
-                            <div class="2u 12u$(small)">
-                                <input class="btn btn-primary" type="submit" value="Ir">
-                            </div>
-                        </div>
+                            <input class="btn btn-default" type="submit" value="Ir">
+                            
+                        </form>
 
-                        </form>             
-                    </div>
+                    </div>    
                 </div>
-
-                <div class="navbar-header">
+                <div class="navbar-form navbar-left">
                     <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        
                     </button>           
                 </div>
                 <div id="navbarCollapse" class="collapse navbar-collapse">
-                    <ul class="nav nav-tabs">
+                        
+                    <div class="col-xs-12">
+                
+                    <ul class="nav nav-tabs ">
                      @yield('menu')
                     <li style="white-space: nowrap;">
                         <a href="#footer-wrapper">
@@ -107,16 +104,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @endif
                     @yield('intro')   
                     </ul>
-                    
-                </div>
+                    </div>
+                </div>          
+            
             </div>
             </nav>
 
         </div>
     <!-- Nav OCURRE LO MISMO -->
     </div>    
-       
 
+      
 @yield('principal')
 
 <!-- Footer DIVIDIR APARTIR DE AQUI-->

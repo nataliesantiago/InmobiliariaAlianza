@@ -66,9 +66,9 @@ class IndexController extends Controller
                 'publications' => $publications,
                 'areas' => $areas]);
             }
-            //admin
+            //admin(adminMunDocente)
             if($user->type == 3){
-                echo 'soy el admin :3';
+                return view('admin');
             } 
         }  
     }  

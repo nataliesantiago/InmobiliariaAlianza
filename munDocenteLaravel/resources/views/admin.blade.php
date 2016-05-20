@@ -1,17 +1,9 @@
-extends('layouts.routes.normalroute')
+@extends('layouts.routes.normalroute')
 
 @section('menus')
 
-    <li style="white-space: nowrap;"><a href="/">
-    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">
-    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">
-    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">
-    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
-	<li class="current"><a href="/admin">
-		<i class="glyphicon glyphicon-home"></i>Activar Usuarios</a></li>
+    <li class="current"><a href="/admin">
+		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
 
 
 @stop
@@ -22,14 +14,40 @@ extends('layouts.routes.normalroute')
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-				<center><h2 class="count">ACTIVAR USUARIOS</h2></center>			
+				<center><h2 class="count">ACTIVAR PUBLICADORES</h2></center>			
 			</div>
 			<div class="3u 12u(mobile)"></div>
 
 			<div class="6u 12u(mobile)">
 				<section class="box">
-				<a href="">Álvaro Hernández</a>
-			   	<button type="button" name="activateUser" class="btn btn-success">Activar</button>	
+				<!-- Aqui va el foreach -->
+				
+			    <div>
+			    <a class="forgot btn-link" href="#">Natalie Santiago</a>
+			   	<ul class="nav navbar-nav navbar-right">
+			        <button type="button" name="activateUser" class="btn btn-success">Activar 
+			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
+			    </ul>
+			    </div>
+			    <br>
+
+				<div>
+				<a class="forgot btn-link" href="#">Álvaro Hernández MIllán</a>
+			   	<ul class="nav navbar-nav navbar-right">
+			        <button type="button" name="activateUser" class="btn btn-success">Activar 
+			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
+			    </ul>
+			    </div>
+			    <br>
+			    
+			    <div>
+			    <a class="forgot btn-link" href="#">Diego Armando Sierra</a>
+			   	<ul class="nav navbar-nav navbar-right">
+			        <button type="button" name="activateUser" class="btn btn-success">Activar 
+			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
+			    </ul>
+			    </div>
+
 			    </section>
 			</div>
         </div>
