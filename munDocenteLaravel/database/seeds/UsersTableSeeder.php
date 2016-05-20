@@ -64,7 +64,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('ilovescrum'),
             'fullname' => 'Diego Escobar Gaviria',
             'email' => 'armando@gmail.com',
-            'academic_institution' => 8,
+            'academic_institution' => 6,
             'type' => 2,
         ]);
         DB::table('users')->insert([
@@ -88,7 +88,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('mundocente'),
             'fullname' => 'Milena de los Rios',
             'email' => 'mile1321@hotmail.com',
-            'academic_institution' => 10,
+            'academic_institution' => 6,
             'type' => 2,
         ]);
         DB::table('users')->insert([
@@ -104,7 +104,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('juan123x'),
             'fullname' => 'Juan Martinez',
             'email' => 'juan.martinez@gmail.com',
-            'academic_institution' => 6,
+            'academic_institution' => 11,
             'type' => 1,
         ]);
         DB::table('users')->insert([

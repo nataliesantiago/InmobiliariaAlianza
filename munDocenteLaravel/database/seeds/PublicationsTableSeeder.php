@@ -19,7 +19,7 @@ class PublicationsTableSeeder extends Seeder
             'start_date' => '2016-03-23',
             'end_date' => '2016-03-28',
             'description' => 'lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum',
-            'user_id' => '10',
+            'user_id' => '2',
             'place_id' => '3',
         ]);
         DB::table('publications')->insert([
@@ -31,7 +31,7 @@ class PublicationsTableSeeder extends Seeder
             'end_date' => '2016-02-02',
             'category' => 2,
             'description' => 'Busca contribuir con la difusión del conocimiento científico y el desarrollo tecnológico en el campo de la ingeniería  está dirigida especialmente a investigadores y demás interesados en temas relacionados con desarrollos científicos y tecnológicos en al campo de las ingenierías: Ambiental, Civil, Electrónica, Electromecánica, Geológica, Metalúrgica, Minas, Sistemas y Computación, Transportes y Vías y otras afines.',
-            'user_id' => '5',
+            'user_id' => '2',
 
             'place_id' => '3',
         ]);
@@ -56,7 +56,7 @@ class PublicationsTableSeeder extends Seeder
             'end_date' => '2014-10-10',
             'position' => 'COMPLETO',
             'description' => 'Se hace convocatoria a profesionales que deseen participar en un proceso de selección de hojas de vida, para alimentar el Banco de Información de Elegibles - BIE, como docentes ocasionales y catedráticos externos, para las diferentes Facultades de la Universidad Pedagógica y Tecnológica de Colombia.',
-            'user_id' => '7',
+            'user_id' => '2',
             'place_id' => '16',
         ]);
         DB::table('publications')->insert([
@@ -68,7 +68,7 @@ class PublicationsTableSeeder extends Seeder
             'end_date' => '2016-03-04',
             'position' => 'COMPLETO',
             'description' => 'Se hace convocatoria a profesionales que deseen participar en un proceso de selección de hojas de vida, para alimentar el Banco de Información de Elegibles - BIE, como docentes ocasionales y catedráticos externos, para las diferentes Facultades de la Universidad Pedagógica y Tecnológica de Colombia.',
-            'user_id' => '8',
+            'user_id' => '2',
         ]);
         DB::table('publications')->insert([
             'name' => 'CONGRESO INTERNACIONAL DE FOMRACION Y MODELACION EN CIENCIAS BASICAS - Medellín,Colombia ',
@@ -173,7 +173,7 @@ class PublicationsTableSeeder extends Seeder
             'start_date' => '2016-05-12',
             'end_date' => '2016-05-12',
             'description' => 'La Maestría en TIC Aplicadas a las Ciencias de la Educación en asocio con la Secretaría de Educación de Duitama, han organizado este evento que pretende presentar ante la comunidad educativa, especialmente a profesores vinculados a los colegios, el panel de discusión e intercambio público de ideas de expertos en el tema de las TIC y sus implicaciones socioeducativas. Con estas acciones se aspira presentar al sector educativo la actualidad e innovaciones que se acontecen para la educación, e integrar los proyectos que se proponen desde los posgrados de la UPTC, con las finalidades propuestas por las unidades educativas de esta región.',
-            'user_id' => '1',
+            'user_id' => '2',
         ]);   
          DB::table('publications')->insert([
             'name' => 'XII CONGRESO COLOMBIANO DE NEUMOLOGÍA Y ASMA PEDIÁTRICA',

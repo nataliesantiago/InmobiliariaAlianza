@@ -91,5 +91,13 @@ class AcademicInstitutionsTableSeeder extends Seeder
             'place' => 9,
             'type' => 1,
         ]);
+         DB::table('academic_institutions')->insert([
+            'name' => 'UNIVERSIDAD EAFIT',
+            'email' => 'contacto@eafit.edu.co',
+            'phone' => '4489500',
+            'description' => 'lorem ipsum lorem ipsum lorem ipsum ..... ',
+            'place' => 9,
+            'type' => 1,
+        ]);
     }
 }

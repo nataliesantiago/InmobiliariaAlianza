@@ -19,6 +19,40 @@
                 
                 @foreach($publications as $publication)
                
+                @if($publication->user->academic_institution==1)
+                <img class="" src="images/uptc.png" > 
+                @endif
+                    @if($publication->user->academic_institution==2)
+                <img class="" col-xs-3" src="images/nacional.png" > 
+                @endif
+                    @if($publication->user->academic_institution==3)
+                <img class="" col-xs-3" src="images/sena.png" > 
+                @endif
+                    @if($publication->user->academic_institution==4)
+                <img class="" col-xs-3" src="" > 
+                @endif
+                    @if($publication->user->academic_institution==5)
+                <img class="" col-xs-3" src="images/uniboy.png" > 
+                @endif
+                    @if($publication->user->academic_institution==6)
+                <img class="" col-xs-3" src="images/uis.png" > 
+                @endif
+                    @if($publication->user->academic_institution==7)
+                <img class="" col-xs-3" src="images/antioquia.png" > 
+                @endif
+                    @if($publication->user->academic_institution==8)
+                <img class="" col-xs-3" src="images/pereira.png" > 
+                @endif
+                    @if($publication->user->academic_institution==9)
+                <img class="" col-xs-3" src="images/caldas.png" > 
+                @endif
+                    @if($publication->user->academic_institution==10)
+                <img class="" col-xs-3" src="images/medellin.png" > 
+                @endif
+                    @if($publication->user->academic_institution==11)
+                <img class="" col-xs-3" src="images/eafit.png" > 
+                @endif
+               
                 <time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">
