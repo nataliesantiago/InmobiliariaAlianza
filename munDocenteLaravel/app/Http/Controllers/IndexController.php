@@ -19,7 +19,17 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class IndexController extends Controller
 {
 
-   
+   public function ownPublication(){
+
+        $publications = $this->publicationsGuest();
+        $areas = Area::all();
+               //dd($publications);
+        
+        return view('manage_ownpublication', [
+            'publications' => $publications,
+            'areas' => $areas]);
+   }
+
    public function index(){
    
      if (Auth::guest()){
@@ -76,6 +86,8 @@ class IndexController extends Controller
     public function forget(){
             return view('resetpass');
     }
+
+
     //publicacione sde los no registrados
     private function publicationsGuest(){
         $publications = $this->publicationsVigent();

@@ -93,6 +93,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <li><a href="{{ url('/teacher_call/create') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
                             <li><a href="{{ url('/scientific_magazine/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
                             <li><a href="{{ url('/academic_event/create') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
+                            <li><a href="{{ url('/manage_ownpublication') }}"><i class="glyphicon glyphicon-file"></i>      Administrar Públicaciones</a></li>
                             @endif
                             <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
                             <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>

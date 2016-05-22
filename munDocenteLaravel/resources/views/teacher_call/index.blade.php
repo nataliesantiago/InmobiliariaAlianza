@@ -56,7 +56,7 @@
                     @if($publication->user->academic_institution==11)
                 <img class="" col-xs-3" src="images/eafit.png" > 
                 @endif
-                
+                <br>
                 <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
                     <br><br>
                     <header class="name">

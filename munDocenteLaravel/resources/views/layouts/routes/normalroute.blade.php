@@ -34,11 +34,6 @@
 @stop
 
 @section('scripts')
- 
-<script type="text/javascript" src="js/validator.js"></script>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.dropotron.min.js"></script>
 <script src="js/skel.min.js"></script>
 <script src="js/skel-viewport.min.js"></script>
 <script src="js/util.js"></script>
@@ -56,7 +51,6 @@
 <script type="text/javascript" src="js/date.js"></script>
 
 <!--scripts para el validador en tiempo real-->
-<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="js/validator.js"></script>
 

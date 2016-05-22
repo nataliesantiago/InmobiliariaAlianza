@@ -1,68 +1,73 @@
-@extends('main')
+@extends('layouts.routes.normalroute')
 
-@section('menu')
-    <li class="current"><a href="/">
-    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">
-    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">
-    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">
-    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
-@stop
-
-@section('intro')
-
-    <li style="white-space: nowrap;"><a href="#intro">
-    	<i class="glyphicon glyphicon-plus-sign"></i></a></li>  
-@stop
-
-@section('login')
-               
-    @include('login')
+@section('menus')
+    <li style="white-space: nowrap;"><a href="/">Home</a></li>
+    <li style="white-space: nowrap;"><a href="/teacher_call">Convocatorias docente</a></li>
+    <li style="white-space: nowrap;"><a href="/scientific_magazine">Revistas científicas</a></li>
+    <li style="white-space: nowrap;"><a href="/academic_event">Eventos académicos</a></li>
 
 @stop
 
-	@section('content')		
-				
-				@foreach($publications as $publication)
-			 
+@section('principal')
+
+<div id="main-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="12u 12u(mobile)">
+				<section class="box">
+
+            <!-- Aqui se recorren las publicaciones 
+            hechas por el usuario -->        
+			@foreach($publications as $publication)
+	       <div class="col-sm-6 col-md-6">
+    
+      		 
                @if($publication->user->academic_institution==1)
-                <img class="" src="images/uptc.png" > 
+                <img src="images/uptc.png" > 
                 @endif
                     @if($publication->user->academic_institution==2)
-                <img class="col-xs-3" src="images/nacional.png" > 
+                <img src="images/nacional.png" > 
                 @endif
                     @if($publication->user->academic_institution==3)
-                <img class="col-xs-3" src="images/sena.png" > 
+                <img src="images/sena.png" > 
                 @endif
                     @if($publication->user->academic_institution==4)
-                <img class="col-xs-3" src="" > 
+                <img src="" > 
                 @endif
                     @if($publication->user->academic_institution==5)
-                <img class="col-xs-3" src="images/uniboy.png" > 
+                <img src="images/uniboy.png" > 
                 @endif
                     @if($publication->user->academic_institution==6)
-                <img class="col-xs-3" src="images/uis.png" > 
+                <img src="images/uis.png" > 
                 @endif
                     @if($publication->user->academic_institution==7)
-                <img class="col-xs-3" src="images/antioquia.png" > 
+                <img src="images/antioquia.png" > 
                 @endif
                     @if($publication->user->academic_institution==8)
-                <img class="col-xs-3" src="images/pereira.png" > 
+                <img src="images/pereira.png" > 
                 @endif
                     @if($publication->user->academic_institution==9)
-                <img class="col-xs-3" src="images/caldas.png" > 
+                <img src="images/caldas.png" > 
                 @endif
                     @if($publication->user->academic_institution==10)
-                <img class="col-xs-3" src="images/medellin.png" > 
+                <img src="images/medellin.png" > 
                 @endif
                     @if($publication->user->academic_institution==11)
-                <img class="col-xs-3" src="images/eafit.png" > 
+                <img src="images/eafit.png" > 
                 @endif
+
                 
-                <br>
-				<time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
+                
+			<div class="caption">
+                <time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
+
+                 <ul class="nav navbar-nav navbar-right">
+                    <button type="button" name="activateUser" class="btn btn-primary">Editar 
+                    <i class="glyphicon glyphicon-edit"></i></button>  
+                    <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
+                    <i class="glyphicon glyphicon-remove-circle"></i></button>  
+                    &nbsp;&nbsp;
+                </ul>
                     <br><br>
                     <header class="name">
                     @if($publication->type==1)
@@ -74,6 +79,7 @@
                     @if($publication->type==3)
                     	<h3 style="color: black;"><i class="glyphicon glyphicon-education"></i>  {{ $publication->name }}</h3>
                    @endif
+                   <br>
                     </header>
 
                     
@@ -102,7 +108,9 @@
 					<p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
                     </p>
                 <hr>
-             
+            
+              </div>
+            </div>    
 				@endforeach
 					
 				
@@ -112,13 +120,11 @@
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 				</div>
-
-	@stop
-
-    @section('area')
-    
-    @include('areas')
+			        
+			    </section>
+			</div>
+        </div>
+    </div>
+</div>
 
 @stop
-
-				

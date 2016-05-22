@@ -24,9 +24,7 @@
 
 			<div class="8u 12u(mobile)">
 				<section class="box">
-
-					{!! Form::open(['route' => 'academic_event.store', 'method' => 'POST']) !!}
-			         {!! csrf_field() !!}			            
+		            
 
 			   		<div class="row uniform">
 						<p>Campos obligatorios *</p>
@@ -34,6 +32,8 @@
 				
 					<hr>
 			        <div class="row uniform">
+			        {!! Form::open(['id' => 'valForm', 'route' => 'academic_event.store', 'method' => 'POST']) !!}
+			         {!! csrf_field() !!}	
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
@@ -88,7 +88,7 @@
 			                </div>
 			            </div>
 
-			            <div >
+			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
@@ -98,7 +98,7 @@
 			                    
 			                </div>
 			            </div>
-
+			            <br>
 			            <center class="btnregis"><div class="form-group">
 			                <div class="12u$">
 			                    <button type="submit" class="button special">
@@ -108,6 +108,7 @@
 			            </div></center>
 			        </div>
 			        {!! Form::close() !!}
+			    
 			    </section>
 			</div>
         </div>

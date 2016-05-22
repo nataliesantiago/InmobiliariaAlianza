@@ -61,7 +61,6 @@
     <script type="text/javascript" src="../../js/date.js"></script>
 <!--scripts para el validador en tiempo real-->
 
-<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
  
 <script type="text/javascript" src="../../js/validator.js"></script>
