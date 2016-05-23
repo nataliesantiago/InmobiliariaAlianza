@@ -2776,3 +2776,17 @@ ul.social_login {
 
  }
 
+ .btnClose{
+ 	top: 0px;
+ 	left: 98%;
+ 	position: relative;
+	padding: 0em 0 0em 0 !important;
+	width: 20px;
+	text-align: center;
+	margin: 0em 0 0em 0;
+		
+ }
+
+.btnClose:hover {
+	background: #F1F1F1;
+}

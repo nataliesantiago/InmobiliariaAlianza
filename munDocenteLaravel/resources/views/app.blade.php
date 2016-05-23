@@ -24,7 +24,6 @@
 @stop
 
 	@section('content')		
-				
 				@foreach($publications as $publication)
 			 
                @if($publication->user->academic_institution==1)
@@ -63,7 +62,7 @@
                 
                 <br>
 				<time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
-                    <br><br>
+                    <br><br>    
                     <header class="name">
                     @if($publication->type==1)
                     	 <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>

@@ -109,7 +109,9 @@ class ScientificMagazineController extends Controller
             'description' => $request->description,
             'user_id' => $request->user()->id,
             ]);
-        return 'agregada correctamente la revista cientifica';
+        
+        $type_of_scientific_magazines = TypeOfScientificMagazine::all();
+        return view('scientific_magazine.update', compact('type_of_scientific_magazines'));
     }
 
    

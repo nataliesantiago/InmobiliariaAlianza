@@ -34,7 +34,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <form action="{{ url('result_search_basic')}}" method="post" class="navbar-form navbar-right">
                         {!! csrf_field() !!}
 
-                            <div class="form-group">         
+                            <div class="nav nav-pills nav-stacked">         
                                 <input type="text" class="form-control" name="keyLetter"  placeholder="Búsqueda" /> 
                                 @if ($errors->has('keyLetter'))
                                         <span class="help-block">
@@ -114,8 +114,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </div>
     <!-- Nav OCURRE LO MISMO -->
     </div>    
-
-      
+           
 @yield('principal')
 
 <!-- Footer DIVIDIR APARTIR DE AQUI-->

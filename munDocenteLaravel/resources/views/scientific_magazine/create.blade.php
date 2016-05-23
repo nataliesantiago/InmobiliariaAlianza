@@ -17,12 +17,14 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
+
 			<div class="12u 12u(mobile)">
 				<center><h2 class="count">AGREGAR REVISTAS CIENTÍFICAS</h2></center>			
 			</div>
 			<div class="2u 12u(mobile)"></div>
 
 			<div class="8u 12u(mobile)">
+				@yield('alert')
 				<section class="box">
 			   		<div class="row uniform">
 						<p>Campos obligatorios *</p>

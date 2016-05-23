@@ -39,7 +39,6 @@
 			<!-- Content -->
 			<div class="8u 12u(mobile)">
 				<section class="box">
-				<form id="valForm">
 				@if(Session::has('flash_message'))
    					 <div class="alert alert-success">
       				  {{ Session::get('flash_message') }}
@@ -48,6 +47,7 @@
 				@foreach($user as $r)
 				@can('owner', $r)
 					{!! Form::model($r, [
+					'id' => 'valForm',
     				'method' => 'PATCH',
 					 'route' => ['user.update', $r->id]
 					]) !!}
@@ -55,13 +55,15 @@
 
 						<div class="row uniform">
 
-							<div class="12u 12u$(xsmall)">	
+							<div class="12u 12u$(xsmall)">
+								<div class="form-group">	
 								<label class="control-label col-xs-4"><h2>{{ $r->username }} </h2></label>
 								<div class="col-xs-8">
 								<a class="forgot btn-link" href="#">Cambiar contraseña</a>
-								</div>
+								</div></div>
 							</div>
 							<div class="12u 12u$(xsmall)">
+								<div class="form-group">
 								<img class="control-label col-xs-3" src="../../images/user.png" alt="" />
 								<div class="col-xs-1"></div>
 								<div class="col-xs-8">
@@ -70,7 +72,7 @@
 
 								<div class="col-xs-12">
 								<a class="forgot btn-link" href="#"> </a>
-								</div>
+								</div></div>
 							</div>
 							<div class="12u 12u$(xsmall)">
 								<div class="form-group">
@@ -94,6 +96,7 @@
 			                	</div>
 							</div>
 							<div class="12u$">
+								<div class="form-group">
 								<label class="control-label col-xs-4">Institución</label>
 								<div class="col-xs-8">
 								<select name="academic_institution" class="form-control" />
@@ -105,6 +108,7 @@
 									@endforeach
 								</select>
 								</div>
+								</div>
 							</div>
 
 							<!-- SECCION AREAS DE ITNERES PARA USUARIO DOCENTE
@@ -114,6 +118,7 @@
 @if($typeUser == 1)
 
 							<div class="12u 12u$(xsmall)">
+								<div class="form-group">
 								<label class="control-label col-xs-4">Áreas de interés</label>
 						      	<a class="control-label col-xs-1" 
 							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
@@ -130,7 +135,7 @@
 									</select>
 									@endforeach
 						     	</div> 
-						     	
+						     	</div>
 							</div>
 @endif
 
@@ -147,6 +152,8 @@
 								</div>
 							</div>
 							<div class="12u 12u$(xsmall)">
+								<div class="form-group">
+								
 								<label class="control-label col-xs-4">Contacto</label>
 								<div class="col-xs-8">
 								@if($r->contact == null)
@@ -181,7 +188,6 @@
 					    </body>
 					    @endcan
 				@endforeach
-			</form>
 				</section>
 			</div>
 		</div>

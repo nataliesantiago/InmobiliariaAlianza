@@ -23,6 +23,7 @@
 			<div class="2u 12u(mobile)"></div>
 
 			<div class="8u 12u(mobile)">
+					@yield('alert')
 				<section class="box">
 		            
 

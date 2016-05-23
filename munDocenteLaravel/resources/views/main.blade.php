@@ -11,6 +11,7 @@
     <div id="main-wrapper">
         <div class="container">
             <div class="row">
+            
             @if (Auth::guest())
              <div class="4u 12u(mobile)">    
                @yield('login')

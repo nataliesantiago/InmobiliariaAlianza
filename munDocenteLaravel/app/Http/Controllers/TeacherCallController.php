@@ -104,7 +104,7 @@ class TeacherCallController extends Controller
             'description' => $request->description,
             'user_id' => $request->user()->id,
             ]);
-        return 'agregada correctamente la convocatoria docente';
+         return view('teacher_call.update');
     }
 
     /**

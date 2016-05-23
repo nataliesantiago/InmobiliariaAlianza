@@ -102,7 +102,7 @@ class AcademicEventController extends Controller
             'description' => $request->description,
             'user_id' => $request->user()->id,
             ]);
-        return 'agregada correctamente el evento academico';
+        return view('academic_event.update');
     }
 
     /**
