@@ -27,6 +27,8 @@
 			   	<ul class="nav navbar-nav navbar-right">
 			        <button type="button" name="activateUser" class="btn btn-success">Activar 
 			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
+			    	<button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
+			   		<i class="glyphicon glyphicon-remove-circle"></i></button>
 			    </ul>
 			    </div>
 			    <br>

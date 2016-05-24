@@ -9,6 +9,7 @@ use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
 use MunDocente\User;
+use MunDocente\Place;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
@@ -79,7 +80,9 @@ class TeacherCallController extends Controller
     public function create()
     {
          if($this->isValidate()){
-            return view('teacher_call.create');
+            $areas = Area::all();
+            $places = Place::all();
+            return view('teacher_call.create', compact('areas','places'));
         } else {            
             return view('errors.validation'); 
         } 

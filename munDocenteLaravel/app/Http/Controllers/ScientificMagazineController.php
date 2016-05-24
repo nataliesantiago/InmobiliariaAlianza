@@ -83,7 +83,8 @@ class ScientificMagazineController extends Controller
     {
         if($this->isValidate()){
             $type_of_scientific_magazines = TypeOfScientificMagazine::all();
-            return view('scientific_magazine.create', compact('type_of_scientific_magazines'));
+            $areas = Area::all();
+            return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas'));
         } else {            
             return view('errors.validation'); 
         }        

@@ -33,7 +33,7 @@ Route::group(['middleware' => ['web']], function(){
 	Route::resource('user', 'UserController');
 
 	Route::resource('area', 'AreaController');
-	Route::get('/resetpass', 'IndexController@forget');
+	Route::get('/reset', 'UserController@forget');
 	Route::get('/search_advanced', 'QueriesController@search_advanced');
 	Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 	Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');

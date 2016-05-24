@@ -34,7 +34,7 @@
             
         </center>
         <HR>
-        <center><a class="forgot btn-link" href="/resetpass">¿Olvido su contraseña?</a></center>
+        <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
     </form>
 <hr >       
 </section>

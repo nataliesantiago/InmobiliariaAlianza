@@ -1,3 +1,12 @@
+<?php
+	$arrayArea = array();
+	//<?php echo $arrayArea;
+	$arrayArea[0]='Sin definir-'; 
+	foreach ($areas as $i => $area) {
+	$arrayArea[$i+1]=$area->name.'-';
+	}
+?>
+
 @extends('layouts.routes.routedown')
 
 @section('menus')
@@ -88,6 +97,40 @@
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
 			                    	<input type="text" class="form-control" placeholder="Cargo *" required name="position" value="{{ old('position') }}">
+			                    </div>		
+			                    
+			                </div>
+			            </div>
+
+			            <div class="form-group">
+			            	<div class="12u$(xsmall)">
+								
+								<a class="control-label col-xs-1" 
+							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
+							    	<i class="glyphicon glyphicon-plus"></i>
+							    </a>
+						        <label>Áreas de interés</label>
+						      	
+						      	<div id="listArea" class="input-group">
+						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
+						      		<select class="form-control" required name="area[]">             
+										@foreach($areas as $area)
+										<option>{{ $area->name }}</option>
+										@endforeach
+									</select>
+						     	</div> 
+					     	</div>
+						</div>
+
+						<div class="form-group">
+			                <div class="12u$(xsmall)">
+			                    <div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+			                    	<select class="form-control">             
+										@foreach($places as $place)
+										<option>{{ $place->name }}</option>
+										@endforeach
+									</select>
 			                    </div>		
 			                    
 			                </div>

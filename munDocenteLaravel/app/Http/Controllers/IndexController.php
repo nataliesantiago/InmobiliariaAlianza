@@ -83,11 +83,6 @@ class IndexController extends Controller
         }  
     }  
 
-    public function forget(){
-            return view('resetpass');
-    }
-
-
     //publicacione sde los no registrados
     private function publicationsGuest(){
         $publications = $this->publicationsVigent();
