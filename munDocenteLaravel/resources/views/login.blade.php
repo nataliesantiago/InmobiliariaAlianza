@@ -34,6 +34,7 @@
             
         </center>
         <HR>
+            <!--la ruta del rest es auth/passwords/email-->
         <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
     </form>
 <hr >       
