@@ -8,6 +8,7 @@ use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
+use MunDocente\Place;
 use MunDocente\User;
 use Carbon\Carbon;
 use Auth;
@@ -78,7 +79,9 @@ class AcademicEventController extends Controller
     public function create()
     {
         if($this->isValidate()){
-            return view('academic_event.create');
+            $areas = Area::all();
+            $places = Place::all();       
+            return view('academic_event.create', compact('areas','places'));
         } else {            
             return view('errors.validation'); 
         }     

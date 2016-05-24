@@ -8,6 +8,7 @@ use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
 use MunDocente\Publication;
 use MunDocente\Area;
+use MunDocente\Place;
 use MunDocente\User;
 use Carbon\Carbon;
 use Auth;
@@ -84,7 +85,8 @@ class ScientificMagazineController extends Controller
         if($this->isValidate()){
             $type_of_scientific_magazines = TypeOfScientificMagazine::all();
             $areas = Area::all();
-            return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas'));
+            $places = Place::all();
+            return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas','places'));
         } else {            
             return view('errors.validation'); 
         }        

@@ -1,4 +1,12 @@
-	@extends('layouts.routes.routedown')
+<?php
+	$arrayArea = array();
+	//<?php echo $arrayArea;
+	$arrayArea[0]='Sin definir-'; 
+	foreach ($areas as $i => $area) {
+	$arrayArea[$i+1]=$area->name.'-';
+	}
+?>
+@extends('layouts.routes.routedown')
 
 @section('menus')
 
@@ -88,17 +96,51 @@
 			                </div>
 			            </div>
 
+			            <div class="form-group">
+			            	<div class="12u$(xsmall)">
+								
+								<a class="control-label col-xs-1" 
+							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
+							    	<i class="glyphicon glyphicon-plus"></i>
+							    </a>
+						        <h4>Áreas de interés</h4>
+						      	<div id="listArea" class="input-group">
+						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
+						      		<select class="form-control" required name="area[]">             
+										@foreach($areas as $area)
+										<option>{{ $area->name }}</option>
+										@endforeach
+									</select>
+						     	</div> 
+					     	</div>
+						</div>
+
+						<div class="form-group">
+			                <div class="12u$(xsmall)">
+			                    <div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+			                    	<select class="form-control">             
+										@foreach($places as $place)
+										<option>{{ $place->name }}</option>
+										@endforeach
+									</select>
+			                    </div>		
+			                    
+			                </div>
+			            </div>
+
 			        	  <div class="form-group">
 			                <div class="12u$(xsmall)">
-			                Categoría *
+			                	<h4>Categoría *</h4>
+			                    
 			                    <div class="input-group">			                    
-								<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
-								<select name="category" placeholder="Categoria *"class="form-control" />
-								@foreach($type_of_scientific_magazines as $type_of_scientific_magazine)
-									<option>{{ $type_of_scientific_magazine->value }} </option>
-								@endforeach
-								</select>
-							</div>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
+									<select name="category" placeholder="Categoria *"class="form-control" />
+									@foreach($type_of_scientific_magazines as $type_of_scientific_magazine)
+										<option>{{ $type_of_scientific_magazine->value }} </option>
+									@endforeach
+									</select>
+								</div>
 			                    
 			                </div>
 			            </div>    

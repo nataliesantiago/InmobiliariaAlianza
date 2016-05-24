@@ -109,7 +109,7 @@
 							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
 							    	<i class="glyphicon glyphicon-plus"></i>
 							    </a>
-						        <label>Áreas de interés</label>
+						        <h4>Áreas de interés</h4>
 						      	
 						      	<div id="listArea" class="input-group">
 						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
