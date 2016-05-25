@@ -20,40 +20,25 @@ class IndexController extends Controller
 {
 
    public function ownPublication(){
-
-        $publications = $this->publicationsGuest();
-        $areas = Area::all();
-               //dd($publications);
-        
-        return view('manage_ownpublication', [
-            'publications' => $publications,
-            'areas' => $areas]);
+    $areas = Area::all();
+    if($this->isActived()){
+        $publications = $this->publicationsGuest();        
+        return view('manage_ownpublication', compact('publications','areas'));
+    } else {
+        return view('user_desactived', compact('areas'));
+    } 
    }
 
    public function index(){
-   
-     if (Auth::guest()){
+    $areas = Area::all();
+     if (Auth::guest()){ //usuario visitante sin registro
         $publications = $this->publicationsGuest();
-        $areas = Area::all();
-               //dd($publications);
-        return view('app', [
-            'publications' => $publications,
-            'areas' => $areas]);
-
+        return view('app', compact('publications','areas'));
      } else {
-            $users = User::with('typeOfUser', 'areas.publications')
-                        ->where('id' ,'=', Auth::user()->id)
-                        ->get();
-
-            //dd($users);
-            foreach ($users as $value) {
-               $user = $value;
-            }
-            $areas = Area::all();
-            if($this->isActived($user)){
+            if($this->isActived()){
                 if($user->type == 1){
                      $resultPublications = $this->getPublicationsDocent();
-                     if( $resultPublications[0] != 'vacio'){
+                     if( $resultPublications[0] != 'vacio'){ 
                        $publications = $this->paginate($resultPublications);   
                         return view('app', [
                         'publications' => $publications,
@@ -81,9 +66,12 @@ class IndexController extends Controller
             }
         }  
     }  
-    private function isActived($user){
+    //se valida si el usuario esta activado al sistema
+    private function isActived(){
+        $user = $this->getUser();
         return $user->activedMe ? true : false;
     }
+    //se realiza la paginación a partir de un arreglo 
     private function paginate($resultPublications){
         $pageStart = \Request::get('page', 1);
         $perPage = 2;
@@ -131,5 +119,15 @@ class IndexController extends Controller
         }
        // dd($publications);
         return $publications;
+   }
+   //obteniendo el usuario actual
+   private function getUser(){
+        $users = User::with('typeOfUser', 'areas.publications')
+                        ->where('id' ,'=', Auth::user()->id)
+                        ->get();
+        foreach ($users as $value) {
+            $user = $value;
+        }
+        return $user;
    }
 }
