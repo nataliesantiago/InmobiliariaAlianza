@@ -13,32 +13,32 @@
 
 
 
-Route::group(['middleware' => ['web']], function(){
-	Route::resource('teacher_call', 'TeacherCallController');
-
-	Route::resource('academic_event', 'AcademicEventController');
-
-	Route::resource('scientific_magazine', 'ScientificMagazineController');
-});
-
-Route::group(['middleware' => ['web']], function(){
-	Route::auth();
-
-	Route::get('/', 'IndexController@index');
-	Route::get('/admin', 'IndexController@index');
-	Route::get('/manage_ownpublication', 'IndexController@ownpublication');
+Route::auth();
 	
-	Route::get('/user/create_docent', 'UserController@create_docent');
-	Route::get('/user/create_publisher', 'UserController@create_publisher');
-	Route::resource('user', 'UserController');
+Route::get('/', 'IndexController@index');
 
+Route::resource('teacher_call', 'TeacherCallController');
+
+Route::resource('academic_event', 'AcademicEventController');
+
+Route::resource('scientific_magazine', 'ScientificMagazineController');
+
+Route::get('/user/create_docent', 'UserController@create_docent');
+Route::get('/user/create_publisher', 'UserController@create_publisher');
+Route::resource('user', 'UserController');
+
+Route::post('/result_search_basic', 'QueriesController@result_search_basic');
+
+
+Route::group(['middleware' => ['web']], function(){
+	
 	Route::resource('area', 'AreaController');
-	Route::get('/reset', 'UserController@forget');
+	Route::get('/resetpass', 'IndexController@forget');
 	Route::get('/search_advanced', 'QueriesController@search_advanced');
-	Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 	Route::post('/result_search_advanced', 'QueriesController@result_search_advanced');
 
 });
+
 
 
 
