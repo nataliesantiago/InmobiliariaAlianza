@@ -89,14 +89,16 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            @if(Auth::user()->type==2)
-                            <li><a href="{{ url('/teacher_call/create') }}"><i class="glyphicon glyphicon-plus"></i>    Agregar Convocatorias</a></li>
+                            @if(Auth::user()->type==2 && Auth::user()->activedMe)
+                            <li><a href="{{ url('/teacher_call/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Convocatorias</a></li>
                             <li><a href="{{ url('/scientific_magazine/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
                             <li><a href="{{ url('/academic_event/create') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
                             <li><a href="{{ url('/manage_ownpublication') }}"><i class="glyphicon glyphicon-file"></i>      Administrar Públicaciones</a></li>
                             @endif
                             <!--<a href="/setting_account/{{ Auth::user()->id }}">-->
+                            @if(Auth::user()->type==2 || Auth::user()->type==1)
                             <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
+                            @endif
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
                                                                
                             </ul>

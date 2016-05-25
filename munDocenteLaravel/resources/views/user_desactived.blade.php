@@ -23,9 +23,13 @@
 
 @stop
 
-	@section('content')		
-		<center><h3>No se encontraron publicaciones</h3></center> 
-				
+	@section('content')
+    <center><h3>Cuenta desactivada</h3></center> 		
+		<div class="container">
+                    <div class="content">
+                        <li><a href="/actived_me" class="button big special">Activar cuenta</a></li>
+                      </div>
+        </div>
 	@stop
 
     @section('area')
@@ -33,5 +37,3 @@
     @include('areas')
 
 @stop
-
-				

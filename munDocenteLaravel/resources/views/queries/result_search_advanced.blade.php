@@ -11,7 +11,7 @@
 
 @section('login')
                
-    @include('login')
+    @include('auth.login')
 
 @stop
 

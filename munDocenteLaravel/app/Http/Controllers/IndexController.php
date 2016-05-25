@@ -49,40 +49,49 @@ class IndexController extends Controller
             foreach ($users as $value) {
                $user = $value;
             }
-            //tipo de usuario docente
-            if($user->type == 1){
-                 $resultPublications = $this->getPublicationsDocent();
-                 $areas = Area::all();
-                 if( $resultPublications[0] != 'vacio'){
-                    $pageStart = \Request::get('page', 1);
-                     $perPage = 2;
-                     $offSet = ($pageStart * $perPage) - $perPage; 
-                     $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
-                     $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));     
+            $areas = Area::all();
+            if($this->isActived($user)){
+                if($user->type == 1){
+                     $resultPublications = $this->getPublicationsDocent();
+                     if( $resultPublications[0] != 'vacio'){
+                       $publications = $this->paginate($resultPublications);   
+                        return view('app', [
+                        'publications' => $publications,
+                        'areas' => $areas]);
+                     } else {
+                        return view('without_publication', [
+                        'areas' => $areas]); 
+                     }        
+                     
+                }
+                //tipo de usuario publicador
+                if($user->type == 2){
+                    $publications = $this->publicationsGuest();
+                    $areas = Area::all();
                     return view('app', [
                     'publications' => $publications,
                     'areas' => $areas]);
-                 } else {
-                    return view('without_publication', [
-                    'areas' => $areas]); 
-                 }        
-                 
+                }
+                //admin(adminMunDocente)
+                if($user->type == 3){
+                    return view('admin');
+                }                
+            } else {
+                return view('user_desactived', compact('areas'));
             }
-            //tipo de usuario publicador
-            if($user->type == 2){
-                $publications = $this->publicationsGuest();
-                $areas = Area::all();
-                return view('app', [
-                'publications' => $publications,
-                'areas' => $areas]);
-            }
-            //admin(adminMunDocente)
-            if($user->type == 3){
-                return view('admin');
-            } 
         }  
     }  
-
+    private function isActived($user){
+        return $user->activedMe ? true : false;
+    }
+    private function paginate($resultPublications){
+        $pageStart = \Request::get('page', 1);
+        $perPage = 2;
+        $offSet = ($pageStart * $perPage) - $perPage; 
+        $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+        $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));  
+        return $publications;
+    }
     //publicacione sde los no registrados
     private function publicationsGuest(){
         $publications = $this->publicationsVigent();

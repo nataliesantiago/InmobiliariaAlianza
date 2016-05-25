@@ -11,6 +11,7 @@ use MunDocente\User;
 use MunDocente\Area;
 use DB;
 use Session;
+use Auth;
 
 class UserController extends Controller
 {
@@ -56,6 +57,35 @@ class UserController extends Controller
         return view('auth.reset');
 
     }
+
+    public function desactived_me(){
+        $id = Auth::user()->id;
+        DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'activedMe' => false                
+                        ]);
+        $user = User::where('id', '=', $id)
+                    ->get();
+        //dd($user);
+        Session::flash('flash_message', 'Cuenta desactivada sin problemas.');
+        return $this->edit($id);
+    }
+
+    public function actived_me(){
+        $id = Auth::user()->id;
+        DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'activedMe' => true                
+                        ]);
+        $user = User::where('id', '=', $id)
+                    ->get();
+        //dd($user);
+        Session::flash('flash_message', 'Cuenta activada correctamente.');
+        return $this->edit($id);
+    }
+    
 
     /**
      * Store a newly created resource in storage.

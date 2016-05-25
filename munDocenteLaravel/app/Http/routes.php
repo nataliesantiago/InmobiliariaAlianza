@@ -27,6 +27,8 @@ Route::get('/manage_ownpublication', 'IndexController@ownpublication');
 
 Route::get('/user/create_docent', 'UserController@create_docent');
 Route::get('/user/create_publisher', 'UserController@create_publisher');
+Route::get('/desactived_me', 'UserController@desactived_me');
+Route::get('/actived_me', 'UserController@actived_me');
 Route::resource('user', 'UserController');
 
 Route::post('/result_search_basic', 'QueriesController@result_search_basic');

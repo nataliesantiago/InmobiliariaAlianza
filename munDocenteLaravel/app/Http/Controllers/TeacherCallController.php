@@ -32,43 +32,37 @@ class TeacherCallController extends Controller
              return view('teacher_call.index', [
             'publications' => $publications,
             'areas' => $areas]);
-        } else {
-            $users = User::with('typeOfUser', 'areas.publications')
-                    ->where('id' ,'=', Auth::user()->id)
-                    ->get();
-            //dd($users);
-            foreach ($users as $value) {
-               $user = $value;
-            }
-            if($user->type == 1){
-                 $resultPublications = $this->getPublicationsDocent();
-                 $areas = Area::all();
-                 if( $resultPublications[0] != 'vacio'){
-                    $pageStart = \Request::get('page', 1);
-                     $perPage = 2;
-                     $offSet = ($pageStart * $perPage) - $perPage; 
-                     $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
-                     $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));     
+        } else {            
+            $user = $this->getUser();
+            $areas = Area::all();
+            if($this->isActived($user)){
+                if($user->type == 1){
+                     $resultPublications = $this->getPublicationsDocent();
+                     if( $resultPublications[0] != 'vacio'){
+                        $resultPublications = $this->getPublicationsDocent();
+                        return view('teacher_call.index', [
+                        'publications' => $publications,
+                        'areas' => $areas]);
+                     } else {
+                        return view('without_publication', [
+                        'areas' => $areas]); 
+                     }                     
+                }
+                 //tipo de usuario publicador
+                if($user->type == 2){
+                    $publications = $this->publicationsGuest();
+                    $areas = Area::all();
                     return view('teacher_call.index', [
                     'publications' => $publications,
                     'areas' => $areas]);
-                 } else {
-                    return view('without_publication', [
-                    'areas' => $areas]); 
-                 }                     
+                }
+                //admin
+                if($user->type == 3){
+                    echo 'soy el admin :3';
+                } 
+            } else {
+                return view('user_desactived', compact('areas'));
             }
-             //tipo de usuario publicador
-            if($user->type == 2){
-                $publications = $this->publicationsGuest();
-                $areas = Area::all();
-                return view('teacher_call.index', [
-                'publications' => $publications,
-                'areas' => $areas]);
-            }
-            //admin
-            if($user->type == 3){
-                echo 'soy el admin :3';
-            } 
         }
     }
 
@@ -80,9 +74,19 @@ class TeacherCallController extends Controller
     public function create()
     {
          if($this->isValidate()){
+            $user = $this->getUser();
             $areas = Area::all();
-            $places = Place::all();
-            return view('teacher_call.create', compact('areas','places'));
+            if($this->isActived($user)){            
+                $places = Place::all();
+                return view('teacher_call.create', compact('areas','places'));
+            } else {
+                $user = User::where('id', '=', Auth::user()->id)
+                    ->get();
+                foreach ($user as $key) {
+                    $typeUser = $key->type;
+                }
+                return view('user.edit', compact('user','areas','typeUser'));
+            }
         } else {            
             return view('errors.validation'); 
         } 
@@ -210,4 +214,28 @@ class TeacherCallController extends Controller
             return false; 
         } 
    }
+
+   private function paginate($resultPublications){
+        $pageStart = \Request::get('page', 1);
+        $perPage = 2;
+        $offSet = ($pageStart * $perPage) - $perPage; 
+        $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+        $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));  
+        return $publications;
+    }
+
+    private function isActived($user){
+        return $user->activedMe ? true : false;
+    }
+
+    private function getUser(){
+        $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            //dd($users);
+            foreach ($users as $value) {
+               $user = $value;
+        }
+        return $user;
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
+use MunDocente\Http\Controllers\UserController;
 use MunDocente\Publication;
 use MunDocente\Area;
 use MunDocente\Place;
@@ -35,42 +36,36 @@ class ScientificMagazineController extends Controller
             'publications' => $publications,
             'areas' => $areas]);
         } else {
-            $users = User::with('typeOfUser', 'areas.publications')
-                    ->where('id' ,'=', Auth::user()->id)
-                    ->get();
-            //dd($users);
-            foreach ($users as $value) {
-               $user = $value;
-            }
-            if($user->type == 1){
-                 $resultPublications = $this->getPublicationsDocent();
-                 $areas = Area::all();
-                 if( $resultPublications[0] != 'vacio'){
-                    $pageStart = \Request::get('page', 1);
-                     $perPage = 2;
-                     $offSet = ($pageStart * $perPage) - $perPage; 
-                     $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
-                     $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));     
+            $user = $this->getUser();
+            $areas = Area::all();
+            if($this->isActived($user)){  
+                if($user->type == 1){
+                     $resultPublications = $this->getPublicationsDocent();
+                     if( $resultPublications[0] != 'vacio'){
+                        $publications = $this->paginate($resultPublications);
+                        return view('scientific_magazine.index', [
+                        'publications' => $publications,
+                        'areas' => $areas]);
+                     } else {
+                        return view('without_publication', [
+                        'areas' => $areas]); 
+                     }                     
+                }
+                //tipo de usuario publicador
+                if($user->type == 2){
+                    $publications = $this->publicationsGuest();
+                    $areas = Area::all();
                     return view('scientific_magazine.index', [
                     'publications' => $publications,
                     'areas' => $areas]);
-                 } else {
-                    return view('without_publication', [
-                    'areas' => $areas]); 
-                 }                     
-            }
-            //tipo de usuario publicador
-            if($user->type == 2){
-                $publications = $this->publicationsGuest();
-                $areas = Area::all();
-                return view('scientific_magazine.index', [
-                'publications' => $publications,
-                'areas' => $areas]);
-            }
-            //admin
-            if($user->type == 3){
-                echo 'soy el admin :3';
-            } 
+                }
+                //admin
+                if($user->type == 3){
+                    echo 'soy el admin :3';
+                }
+            } else {
+                return view('user_desactived', compact('areas'));
+            }   
         }
 
     }
@@ -83,10 +78,20 @@ class ScientificMagazineController extends Controller
     public function create()
     {
         if($this->isValidate()){
-            $type_of_scientific_magazines = TypeOfScientificMagazine::all();
             $areas = Area::all();
-            $places = Place::all();
-            return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas','places'));
+            $user = $this->getUser();
+            if($this->isActived($user)){
+                $type_of_scientific_magazines = TypeOfScientificMagazine::all();
+                $places = Place::all();
+                return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas','places'));
+            } else {
+                 $user = User::where('id', '=', Auth::user()->id)
+                    ->get();
+                foreach ($user as $key) {
+                    $typeUser = $key->type;
+                }
+                return view('user.edit', compact('user','areas','typeUser'));
+            }         
         } else {            
             return view('errors.validation'); 
         }        
@@ -227,5 +232,29 @@ class ScientificMagazineController extends Controller
             $id = $key->id;
         }
         return $id;   
+    }
+
+    private function paginate($resultPublications){
+        $pageStart = \Request::get('page', 1);
+        $perPage = 2;
+        $offSet = ($pageStart * $perPage) - $perPage; 
+        $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+        $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));  
+        return $publications;
+    }
+
+    private function isActived($user){
+        return $user->activedMe ? true : false;
+    }
+
+    private function getUser(){
+        $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            //dd($users);
+            foreach ($users as $value) {
+               $user = $value;
+        }
+        return $user;
     }
 }

@@ -220,5 +220,4 @@ class QueriesController extends Controller
         	return $selectedArea;
            //dd($selectedArea); //Arreglos de areas seleccionadas en numeros :D
 	  }
-
 }
