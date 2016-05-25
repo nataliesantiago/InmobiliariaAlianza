@@ -82,7 +82,8 @@ class ScientificMagazineController extends Controller
             $user = $this->getUser();
             if($this->isActived($user)){
                 $type_of_scientific_magazines = TypeOfScientificMagazine::all();
-                $places = Place::all();
+                $places = Place::where('type', '=', 1)
+                            ->get();
                 return view('scientific_magazine.create', compact('type_of_scientific_magazines','areas','places'));
             } else {
                  $user = User::where('id', '=', Auth::user()->id)
@@ -105,10 +106,11 @@ class ScientificMagazineController extends Controller
      */
     public function store(Request $request)
     {
+        $dt = Carbon::now()->format('Y-m-d');
         $id_category = $this->getIdCategory($request->category);
-        $request->user()->publications()->create([
+        $publication = $request->user()->publications()->create([
             'name' => $request->name,
-            'date_publication' => $request->date_publication,
+            'date_publication' => $dt,
             'type' => 2,
             'category'  => $id_category,
             'url' => $request->url,
@@ -116,10 +118,14 @@ class ScientificMagazineController extends Controller
             'end_date' => $request->end_date,
             'description' => $request->description,
             'user_id' => $request->user()->id,
+            'place_id' => $this->getIdCity($request->city),
             ]);
-        
+        $this->assignAreasToPublication($publication, $request->area);
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
         $type_of_scientific_magazines = TypeOfScientificMagazine::all();
-        return view('scientific_magazine.update', compact('type_of_scientific_magazines'));
+        return view('scientific_magazine.update', compact('type_of_scientific_magazines','areas','places'));
     }
 
    
@@ -256,5 +262,24 @@ class ScientificMagazineController extends Controller
                $user = $value;
         }
         return $user;
+    }
+
+    private function getIdAreaOne($areas){
+        return Area::where('name',$areas[0])->first()->id;
+    }
+
+    private function getIdCity($nameCity){
+        return Place::where('name',$nameCity)->first()->id;
+    }
+    private function assignAreasToPublication($publication, $areas){
+        $cont = 0;
+        foreach ($areas as $value) {
+            if($cont == 0){
+              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            } else {
+              $publication->areas()->attach($value);
+            }
+            $cont += 1;
+        }
     }
 }

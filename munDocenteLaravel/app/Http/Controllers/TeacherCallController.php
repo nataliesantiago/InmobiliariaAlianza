@@ -39,7 +39,7 @@ class TeacherCallController extends Controller
                 if($user->type == 1){
                      $resultPublications = $this->getPublicationsDocent();
                      if( $resultPublications[0] != 'vacio'){
-                        $resultPublications = $this->getPublicationsDocent();
+                        $publications = $this->paginate($resultPublications);
                         return view('teacher_call.index', [
                         'publications' => $publications,
                         'areas' => $areas]);
@@ -77,7 +77,8 @@ class TeacherCallController extends Controller
             $user = $this->getUser();
             $areas = Area::all();
             if($this->isActived($user)){            
-                $places = Place::all();
+                $places = Place::where('type', '=', 1)
+                            ->get();
                 return view('teacher_call.create', compact('areas','places'));
             } else {
                 $user = User::where('id', '=', Auth::user()->id)
@@ -100,9 +101,11 @@ class TeacherCallController extends Controller
      */
     public function store(Request $request)
     {
-        $request->user()->publications()->create([
+        //dd($this->getIdAreaOne($request->area));
+        $dt = Carbon::now()->format('Y-m-d');
+        $publication = $request->user()->publications()->create([
             'name' => $request->name,
-            'date_publication' => $request->date_publication,
+            'date_publication' => $dt,
             'type' => 1,
             'url' => $request->url,
             'start_date' => $request->start_date,
@@ -110,11 +113,19 @@ class TeacherCallController extends Controller
             'position' => $request->position,
             'description' => $request->description,
             'user_id' => $request->user()->id,
+            'place_id' => $this->getIdCity($request->city),
             ]);
-         return view('teacher_call.update');
+       // dd($publication);
+        $this->assignAreasToPublication($publication, $request->area);
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
+         return view('teacher_call.update', compact('areas', 'places'));
     }
 
-    /**
+    
+
+      /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -237,5 +248,24 @@ class TeacherCallController extends Controller
                $user = $value;
         }
         return $user;
+    }
+
+     private function getIdAreaOne($areas){
+        return Area::where('name',$areas[0])->first()->id;
+    }
+
+    private function getIdCity($nameCity){
+        return Place::where('name',$nameCity)->first()->id;
+    }
+    private function assignAreasToPublication($publication, $areas){
+        $cont = 0;
+        foreach ($areas as $value) {
+            if($cont == 0){
+              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            } else {
+              $publication->areas()->attach($value);
+            }
+            $cont += 1;
+        }
     }
 }

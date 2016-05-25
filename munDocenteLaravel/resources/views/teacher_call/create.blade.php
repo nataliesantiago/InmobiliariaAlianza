@@ -52,15 +52,7 @@
 			                    </div>		
 			            	</div>
 			            </div>
-			            <div class="form-group">
-			                <div class="12u$(xsmall)">
-			                    <div class="input-group" id='datetimepicker1'>
-									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" name="date_publication" placeholder="Fecha de publicación *" id="datePublication" required value="{{ old('date_publication') }}">
-			                    	
-			                    </div>	
-			            	</div>
-			            </div>
+			            
 
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
@@ -126,7 +118,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-			                    	<select class="form-control">             
+			                    	<select class="form-control" name="city">             
 										@foreach($places as $place)
 										<option>{{ $place->name }}</option>
 										@endforeach

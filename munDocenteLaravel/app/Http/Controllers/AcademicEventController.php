@@ -77,7 +77,8 @@ class AcademicEventController extends Controller
             $areas = Area::all();
             $user = $this->getUser();
             if($this->isActived($user)){
-                $places = Place::all();       
+                $places = Place::where('type', '=', 1)
+                            ->get();       
                 return view('academic_event.create', compact('areas','places'));
             } else {
                 $user = User::where('id', '=', Auth::user()->id)
@@ -100,17 +101,23 @@ class AcademicEventController extends Controller
      */
     public function store(Request $request)
     {
-        $request->user()->publications()->create([
+        $dt = Carbon::now()->format('Y-m-d');
+        $publication = $request->user()->publications()->create([
             'name' => $request->name,
-            'date_publication' => $request->date_publication,
+            'date_publication' => $dt,
             'type' => 3,
             'url' => $request->url,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'description' => $request->description,
             'user_id' => $request->user()->id,
+            'place_id' => $this->getIdCity($request->city),
             ]);
-        return view('academic_event.update');
+        $this->assignAreasToPublication($publication, $request->area);
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
+        return view('academic_event.update', compact('areas','places'));
     }
 
     /**
@@ -235,5 +242,24 @@ class AcademicEventController extends Controller
                $user = $value;
         }
         return $user;
+    }
+
+    private function getIdAreaOne($areas){
+        return Area::where('name',$areas[0])->first()->id;
+    }
+
+    private function getIdCity($nameCity){
+        return Place::where('name',$nameCity)->first()->id;
+    }
+    private function assignAreasToPublication($publication, $areas){
+        $cont = 0;
+        foreach ($areas as $value) {
+            if($cont == 0){
+              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            } else {
+              $publication->areas()->attach($value);
+            }
+            $cont += 1;
+        }
     }
 }
