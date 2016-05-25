@@ -27,6 +27,7 @@
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
+                @else
             @endif
 
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
