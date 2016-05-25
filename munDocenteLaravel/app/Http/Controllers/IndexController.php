@@ -35,6 +35,7 @@ class IndexController extends Controller
         $publications = $this->publicationsGuest();
         return view('app', compact('publications','areas'));
      } else {
+            $user = $this->getUser();
             if($this->isActived()){
                 if($user->type == 1){
                      $resultPublications = $this->getPublicationsDocent();

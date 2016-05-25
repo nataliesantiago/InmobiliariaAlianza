@@ -117,44 +117,43 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-         $user = User::with('academicInstitution')
+        $user = User::with('academicInstitution')
                     ->where('id','=',$id)
                     ->get();
 
-         $areas = Area::all();
+        $areas = Area::all();
 
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
         foreach ($user as $key) {
             $typeUser = $key->type;
         }
-        if($typeUser == 1){
-                foreach ($user as $key) {
-                    $idUser = $key->id;
-                }
-                $areasUser = DB::table('area_user')
-                            ->where('user_id', '=', $idUser)
-                            ->select('area_id')
-                            ->get();
-                $cont = 0;
-                foreach ($areasUser as $area) {
-                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                        ->select('name')
-                                        ->get();
-                    $cont += 1;
-                }
-                $cont = 0;
-                foreach ($areasUser as $collection) {
-                    
-                    foreach ($collection as $array) {
-                        $name[$cont] = $array->name;
-                        $cont += 1;
-                    }
-               }          
-               // dd($name);
-        } else {
+        if($typeUser != 3){
+          foreach ($user as $key) {
+              $idUser = $key->id;
+          }
+          $areasUser = DB::table('area_user')
+                      ->where('user_id', '=', $idUser)
+                      ->select('area_id')
+                      ->get();
+          $cont = 0;
+          foreach ($areasUser as $area) {
+             $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                      ->select('name')
+                                      ->get();
+             $cont += 1;
+          }
+          $cont = 0;
+          foreach ($areasUser as $collection) {
+            foreach ($collection as $array) {
+                $name[$cont] = $array->name;
+                $cont += 1;
+            }
+          } 
+          return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
+        }else {
+          return view('errors.edit_admin');
         }
-        return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
     }
 
     /**
@@ -176,26 +175,20 @@ class UserController extends Controller
             'email' => 'required|email|max:255',
             'academic_institution' => 'required',
             ]);
-
-        $fullname = $request->input('fullname');
-        $email = $request->input('email');
         $academic_institution = AcademicInstitution::where('name', '=', $request->input('academic_institution'))
                                                     ->select('id', 'name')
                                                     ->get();
         foreach ($academic_institution as $key) {
             $valueId = $key->id;
         }
-        $phone = $request->input('phone');
-        $contact = $request->input('contact');
-
         DB::table('users')
                     ->where('id', '=', $id)
                     ->update([
-                        'fullname' => $fullname,
-                        'email' => $email,
+                        'fullname' => $request->input('fullname'),
+                        'email' => $request->input('email'),
                         'academic_institution' => $valueId,
-                        'phone' => $phone,
-                        'contact' => $contact
+                        'phone' => $request->input('phone'),
+                        'contact' => $request->input('contact')
                         ]);
 
         $user = User::with('academicInstitution','areas')
