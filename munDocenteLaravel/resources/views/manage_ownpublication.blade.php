@@ -62,8 +62,8 @@
                 <time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
 
                  <ul class="nav navbar-nav navbar-right">
-                    <button type="button" name="activateUser" class="btn btn-primary">Editar 
-                    <i class="glyphicon glyphicon-edit"></i></button>  
+                    <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub">Editar 
+                    <i class="glyphicon glyphicon-edit"></i></a></button>  
                     <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
                     <i class="glyphicon glyphicon-remove-circle"></i></button>  
                     &nbsp;&nbsp;

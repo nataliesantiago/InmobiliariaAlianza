@@ -6,6 +6,7 @@
 	$arrayArea[$i+1]=$area->name.'-';
 	}
 ?>
+
 @extends('layouts.routes.routedown')
 
 @section('menus')
@@ -23,64 +24,68 @@
 <div id="main-wrapper">
 	<div class="container">
 		<div class="row">
-
 			<div class="12u 12u(mobile)">
-				<center><h2 class="count">AGREGAR REVISTAS CIENTÍFICAS</h2></center>			
-			</div>
+		<center><h2 class="count">EDITAR CONVOCATORIA DOCENTE</h2></center>			
+	</div>
 			<div class="2u 12u(mobile)"></div>
 
 			<div class="8u 12u(mobile)">
 				@yield('alert')
+
 				<section class="box">
-			   		<div class="row uniform">
-						<p>Campos obligatorios *</p>
-					</div>
-			        
-			        <div class="row uniform">
-			        {!! Form::open(['id' => 'valForm','route' => 'scientific_magazine.store', 'method' => 'POST']) !!}
-			         {!! csrf_field() !!}
-			         
+					
+					<div class="row uniform">
+				
 			            <div class="form-group">
+			            <label>Nombre de la convocatoria docente</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la revista científica *" required name="name" value="{{ old('name') }}">
+			                    	<input type="text" class="form-control" name="name" >
 			                    </div>		
-			                    
-			                </div>
+			            	</div>
 			            </div>
-
 			            
+
 			            <div class="form-group">
+			            <label>URL</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-			                    	<input type="text" class="form-control" required placeholder="URL *" name="url" value="{{ old('url') }}">
+			                    	<input type="text" required class="form-control" name="url" >
 			                    </div>		
 			                    
 			                </div>
 			            </div>
 			           
 			             <div class="form-group">
+			             <label>Fecha de inicio</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" required name="start_date" placeholder="Fecha de inicio *" id="dateInit" value="{{ old('start_date') }}">
-
-			                    	
+			                    	<input type="text" class="form-control" name="start_date" id="dateInit" >			                
 			                    </div>	
 			                  
 			                </div>
 			            </div>
 
-
 			            <div class="form-group">
+			            <label>Fecha fin</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" required name="end_date" placeholder="Fecha fin *" id="dateEnd"  value="{{ old('end_date') }}">
-			                    	
+			                    	<input type="text" class="form-control" name="end_date" id="dateEnd" >
 			                    </div>				                  
+			                </div>
+			            </div>
+						
+						<div class="form-group">
+						<label>Cargo</label>
+			                <div class="12u$(xsmall)">
+			                    <div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
+			                    	<input type="text" class="form-control" name="position" >
+			                    </div>	
 			                </div>
 			            </div>
 
@@ -92,6 +97,7 @@
 							    	<i class="glyphicon glyphicon-plus"></i>
 							    </a>
 						        <h4>Áreas de interés</h4>
+						      	
 						      	<div id="listArea" class="input-group">
 						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
 						      		<select class="form-control" required name="area[]">             
@@ -117,28 +123,12 @@
 			                </div>
 			            </div>
 
-			        	  <div class="form-group">
-			                <div class="12u$(xsmall)">
-			                	<h4>Categoría *</h4>
-			                    
-			                    <div class="input-group">			                    
-									<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
-									<select name="category" placeholder="Categoria *"class="form-control" />
-									@foreach($type_of_scientific_magazines as $type_of_scientific_magazine)
-										<option>{{ $type_of_scientific_magazine->value }} </option>
-									@endforeach
-									</select>
-								</div>
-			                    
-			                </div>
-			            </div>    
-						<br>
 			            <div class="form-group">
+			            <label>Descripción</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Descripción *" name="description" required value="{{ old('description') }}">
-
+			                    	<input type="text" class="form-control" name="description" >
 			                    </div>		
 			                    
 			                </div>
@@ -147,13 +137,12 @@
 			            <center class="btnregis"><div class="form-group">
 			                <div class="12u$">
 			                    <button type="submit" class="button special">
-			                        Agregar
+			                        Editar
 			                    </button>
 			                </div>
 			            </div></center>
-			        
-			    {!! Form::close() !!}
 			    </div>
+			    
 			    </section>
 			</div>
         </div>

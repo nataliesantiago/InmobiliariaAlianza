@@ -151,6 +151,15 @@ class ScientificMagazineController extends Controller
         //
     }
 
+    //metodo que eduta las publicaciones de una revista cientifica
+    public function edit_magazine(){
+         $areas = Area::all();
+        $publications = $this->publicationsGuest();  
+        $places = Place::all();
+        $type_of_scientific_magazines = TypeOfScientificMagazine::all();
+        return view('scientific_magazine.edit_magazine', compact('publications','areas','places','type_of_scientific_magazines'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

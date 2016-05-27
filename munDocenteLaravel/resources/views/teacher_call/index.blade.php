@@ -2,8 +2,6 @@
 
 @section('menu')
 
-    <li style="white-space: nowrap;"><a href="/">
-        <i class="glyphicon glyphicon-home"></i> Home</a></li>
     <li class="current"><a href="/teacher_call">
         <i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
     <li style="white-space: nowrap;"><a href="/scientific_magazine">
@@ -58,6 +56,17 @@
     @endif
     <br>
     <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
+
+            @if(Auth::user()->type==2 && Auth::user()->activedMe)
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ url('/teacher_call/edit_teacher') }}">Editar 
+                    <i class="glyphicon glyphicon-edit"></i></a></button>  
+                    <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
+                    <i class="glyphicon glyphicon-remove-circle"></i></button>  
+                    &nbsp;&nbsp;
+                </ul>
+                @endif
+                
         <br><br>
         <header class="name">
             <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>

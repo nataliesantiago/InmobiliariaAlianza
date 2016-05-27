@@ -139,7 +139,15 @@ class AcademicEventController extends Controller
      */
     public function edit($id)
     {
-        //
+          //
+    } 
+
+//metodo que eduta las publicaciones de un evento academico
+    public function edit_event(){
+         $areas = Area::all();
+        $publications = $this->publicationsGuest();  
+        $places = Place::all();     
+        return view('academic_event.edit_event', compact('publications','areas','places'));
     }
 
     /**

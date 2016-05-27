@@ -183,9 +183,9 @@
 						{!! Form::close() !!}
 						@else
 						<body>
-					        <div class="container">
+					        <div class="container1">
 					            <div class="content">
-					                <li><a href="/actived_me" class="button big special">Activar cuenta</a></li>
+					                <center><a href="/actived_me" class="button big special">Activar cuenta</a></center>
 					            </div>
 					        </div>
 					    </body>

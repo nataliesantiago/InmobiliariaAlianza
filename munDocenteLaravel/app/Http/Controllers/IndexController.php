@@ -19,7 +19,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class IndexController extends Controller
 {
 
-   public function ownPublication(){
+    public function ownPublication(){
     $areas = Area::all();
     if($this->isActived()){
         $publications = $this->publicationsGuest();        

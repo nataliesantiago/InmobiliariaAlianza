@@ -147,6 +147,13 @@ class TeacherCallController extends Controller
         //
     }
 
+    public function edit_teacher(){
+         $areas = Area::all();
+        $publications = $this->publicationsGuest();  
+        $places = Place::all();     
+        return view('teacher_call.edit_teacher', compact('publications','areas','places'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
