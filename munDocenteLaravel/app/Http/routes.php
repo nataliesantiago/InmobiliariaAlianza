@@ -16,13 +16,10 @@ Route::auth();
 	
 Route::get('/', 'IndexController@index');
 
-Route::get('/teacher_call/edit_teacher', 'TeacherCallController@edit_teacher');
 Route::resource('teacher_call', 'TeacherCallController');
 
-Route::get('/academic_event/edit_event', 'AcademicEventController@edit_event');
 Route::resource('academic_event', 'AcademicEventController');
 
-Route::get('/scientific_magazine/edit_magazine', 'ScientificMagazineController@edit_magazine');
 Route::resource('scientific_magazine', 'ScientificMagazineController');
 
 Route::get('/admin', 'IndexController@index');

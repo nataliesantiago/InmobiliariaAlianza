@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Session;
 
 class AcademicEventController extends Controller
 {
@@ -49,7 +50,7 @@ class AcademicEventController extends Controller
                 }
                 //tipo de usuario publicador
                 if($user->type == 2){
-                    $publications = $this->publicationsGuest();
+                    $publications = $this->getPublicationPublisher();
                     $areas = Area::all();
                     return view('academic_event.index', [
                     'publications' => $publications,
@@ -139,16 +140,16 @@ class AcademicEventController extends Controller
      */
     public function edit($id)
     {
-          //
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        if($publication->user_id == Auth::user()->id){
+            $areas = Area::all();
+            $places = Place::where('type', '=', 1)
+                            ->get();
+            return view('academic_event.edit', compact('publication','areas','places'));
+        } else {
+            return view('errors.validation_publication');
+        }
     } 
-
-//metodo que eduta las publicaciones de un evento academico
-    public function edit_event(){
-         $areas = Area::all();
-        $publications = $this->publicationsGuest();  
-        $places = Place::all();     
-        return view('academic_event.edit_event', compact('publications','areas','places'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -159,7 +160,22 @@ class AcademicEventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        $this->assignAreasToPublication($publication, $request->input('area'));
+        $publication->update([
+            'name' => $request->input('name'),
+            'place_id' => $this->getIdCity($request->input('city')),
+            'url' => $request->input('url'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'description' => $request->input('description'),
+            ]);
+        Session::flash('flash_message', 'Publicación actualizada correctamente');
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        return view('academic_event.edit', compact('publication','areas','places'));
     }
 
     /**
@@ -177,6 +193,9 @@ class AcademicEventController extends Controller
         $publications = $this->publicationsVigent();
         return $publications;
    } 
+   private function getPublicationPublisher(){
+        return $this->getUser()->publications()->where('type',3)->paginate(2);
+    }
    //publications vigentes
     private function publicationsVigent(){
         $dt = Carbon::now()->format('Y-m-d');
@@ -252,22 +271,21 @@ class AcademicEventController extends Controller
         return $user;
     }
 
-    private function getIdAreaOne($areas){
-        return Area::where('name',$areas[0])->first()->id;
+    private function getIdArea($value){
+        return Area::where('name',$value)->first()->id;
     }
 
     private function getIdCity($nameCity){
         return Place::where('name',$nameCity)->first()->id;
     }
     private function assignAreasToPublication($publication, $areas){
-        $cont = 0;
+        $publication->areas()->detach();
         foreach ($areas as $value) {
-            if($cont == 0){
-              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            if(! is_numeric($value)){
+              $publication->areas()->attach($this->getIdArea($value)); 
             } else {
               $publication->areas()->attach($value);
             }
-            $cont += 1;
         }
     }
 }

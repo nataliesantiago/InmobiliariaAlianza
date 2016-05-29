@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Session;
 
 class TeacherCallController extends Controller
 {
@@ -50,7 +51,7 @@ class TeacherCallController extends Controller
                 }
                  //tipo de usuario publicador
                 if($user->type == 2){
-                    $publications = $this->publicationsGuest();
+                    $publications = $this->getPublicationPublisher();
                     $areas = Area::all();
                     return view('teacher_call.index', [
                     'publications' => $publications,
@@ -144,14 +145,15 @@ class TeacherCallController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
-
-    public function edit_teacher(){
-         $areas = Area::all();
-        $publications = $this->publicationsGuest();  
-        $places = Place::all();     
-        return view('teacher_call.edit_teacher', compact('publications','areas','places'));
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        if($publication->user_id == Auth::user()->id){
+            $areas = Area::all();
+            $places = Place::where('type', '=', 1)
+                            ->get();
+            return view('teacher_call.edit', compact('publication','areas','places'));
+        } else {
+            return view('errors.validation_publication');
+        }
     }
 
     /**
@@ -163,7 +165,24 @@ class TeacherCallController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        $this->assignAreasToPublication($publication, $request->input('area'));
+        $publication->update([
+            'name' => $request->input('name'),
+            'place_id' => $this->getIdCity($request->input('city')),
+            'url' => $request->input('url'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'description' => $request->input('description'),
+            'position' => $request->input('position'),
+            ]);
+        Session::flash('flash_message', 'Publicación actualizada correctamente');
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
+        $publication = Publication::where('id',$id)->with('areas','place')->first();
+        return view('teacher_call.edit', compact('publication','areas','places'));
+
     }
 
     /**
@@ -177,6 +196,10 @@ class TeacherCallController extends Controller
         //
     }
 
+    private function getPublicationPublisher(){
+        return $this->getUser()->publications()->where('type',1)->paginate(2);
+    }
+
     //publicacione sde los no registrados
     private function publicationsGuest(){
         $publications = $this->publicationsVigent();
@@ -184,10 +207,9 @@ class TeacherCallController extends Controller
    } 
    //publications vigentes
     private function publicationsVigent(){
-        $dt = Carbon::now()->format('Y-m-d');
         return Publication::with('user' ,'typeScientificMagazine', 'place')
                                     ->where('type', '=', 1)
-                                    ->where('end_date', '>=', $dt)
+                                    ->where('end_date', '>=', Carbon::now()->format('Y-m-d'))
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
                                     ->paginate(2);
@@ -257,22 +279,21 @@ class TeacherCallController extends Controller
         return $user;
     }
 
-     private function getIdAreaOne($areas){
-        return Area::where('name',$areas[0])->first()->id;
+     private function getIdArea($value){
+        return Area::where('name',$value)->first()->id;
     }
 
     private function getIdCity($nameCity){
         return Place::where('name',$nameCity)->first()->id;
     }
     private function assignAreasToPublication($publication, $areas){
-        $cont = 0;
+        $publication->areas()->detach();
         foreach ($areas as $value) {
-            if($cont == 0){
-              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            if(! is_numeric($value)){
+              $publication->areas()->attach($this->getIdArea($value)); 
             } else {
               $publication->areas()->attach($value);
             }
-            $cont += 1;
         }
     }
 }

@@ -6,7 +6,7 @@
 	$arrayArea[$i+1]=$area->name.'-';
 	}
 ?>
-@extends('layouts.routes.routedown')
+@extends('layouts.routes.downtwice')
 
 @section('menus')
 
@@ -32,18 +32,30 @@
 			<div class="8u 12u(mobile)">
 				
 				<section class="box">
-			   		
+			   		@if(Session::has('flash_message'))
+   					 <div class="alert alert-success">
+      				  {{ Session::get('flash_message') }}
+  					  </div>
+					@endif
 			        
 			        <div class="row uniform">
+
+			        	{!! Form::model($publication, [
+						'id' => 'valForm',
+	    				'method' => 'PATCH',
+						 'route' => ['scientific_magazine.update', $publication->id]
+						]) !!}
+
+						{!! csrf_field() !!}
+
 			        			         
 			            <div class="form-group">
 			            <label>Nombre de la revista científica</label>
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" required name="name" >
+			                    	<input type="text" class="form-control" required name="name" value="{{$publication->name}}">
 			                    </div>		
-			                    
 			                </div>
 			            </div>
 
@@ -53,7 +65,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-			                    	<input type="text" class="form-control" name="url" >
+			                    	<input type="text" class="form-control" name="url" value="{{$publication->url}}">
 			                    </div>		
 			                    
 			                </div>
@@ -64,7 +76,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control"  name="start_date"  id="dateInit" >
+			                    	<input type="text" class="form-control"  name="start_date"  id="dateInit" value="{{$publication->start_date}}">
 			                    </div>	
 			                  
 			                </div>
@@ -76,7 +88,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control"  name="end_date"  id="dateEnd">
+			                    	<input type="text" class="form-control"  name="end_date"  id="dateEnd" value="{{$publication->end_date}}">
 			                    </div>				                  
 			                </div>
 			            </div>
@@ -91,11 +103,16 @@
 						        <h4>Áreas de interés</h4>
 						      	<div id="listArea" class="input-group">
 						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
+						      		@foreach($publication->areas as $area)
 						      		<select class="form-control" required name="area[]">             
-										@foreach($areas as $area)
 										<option>{{ $area->name }}</option>
+										@foreach($areas as $areaAdd)
+											@if($area->name != $areaAdd->name)
+											<option>{{ $areaAdd->name }}</option>
+											@endif
 										@endforeach
 									</select>
+									@endforeach
 						     	</div> 
 					     	</div>
 						</div>
@@ -105,9 +122,14 @@
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
 			                    	<select class="form-control" name="city">             
+										@if($publication->place != null)
+										<option>{{ $publication->place->name }}</option>
 										@foreach($places as $place)
-										<option>{{ $place->name }}</option>
+											@if($place->name != $publication->place->name)
+											<option>{{ $place->name }}</option>
+											@endif
 										@endforeach
+										@endif
 									</select>
 			                    </div>		
 			                    
@@ -121,9 +143,14 @@
 			                    <div class="input-group">			                    
 									<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>				
 									<select name="category" placeholder="Categoria *"class="form-control" />
-									@foreach($type_of_scientific_magazines as $type_of_scientific_magazine)
-										<option>{{ $type_of_scientific_magazine->value }} </option>
-									@endforeach
+									@if($publication->typeScientificMagazine != null)
+										<option>{{ $publication->typeScientificMagazine->value }} </option>
+										@foreach($typeOfScientificMagazine as $type)
+											@if($type->value != $publication->typeScientificMagazine->value)
+											<option>{{ $type->value }} </option>
+											@endif
+										@endforeach
+									@endif
 									</select>
 								</div>
 			                    
@@ -135,7 +162,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-			                    	<input type="text" class="form-control"  name="description" >
+			                    	<input type="text" class="form-control"  name="description" value="{{$publication->description}}" >
 			                    </div>	
 			                </div>
 			            </div>
@@ -147,6 +174,7 @@
 			                    </button>
 			                </div>
 			            </div></center>
+			      {!! Form::close() !!}
 			    </div>
 			    </section>
 			</div>

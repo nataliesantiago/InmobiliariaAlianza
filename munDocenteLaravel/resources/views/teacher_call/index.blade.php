@@ -59,7 +59,7 @@
 
             @if(Auth::user()->type==2 && Auth::user()->activedMe)
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ url('/teacher_call/edit_teacher') }}">Editar 
+                    <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ route('teacher_call.edit', $publication->id) }}">Editar 
                     <i class="glyphicon glyphicon-edit"></i></a></button>  
                     <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
                     <i class="glyphicon glyphicon-remove-circle"></i></button>  
@@ -77,7 +77,9 @@
         @endif
 
         <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
-        <p class="place">{{ $publication->place->name }}</p>                  
+        @if($publication->place!=null)
+        <p class="place">{{ $publication->place->name }}</p>
+        @endif
         <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 
         @if($publication->end_date!=null)

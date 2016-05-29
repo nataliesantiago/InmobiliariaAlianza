@@ -79,11 +79,11 @@
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
-
                     <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
-                    <p class="place">{{ $publication->place }}</p>					
-					<p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
-
+                    @if($publication->place!=null)
+                    <p class="place">{{ $publication->place->name }}</p>					
+					@endif
+                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>            
 					@if($publication->end_date!=null)
 					<p class="end">Fecha final: {{ $publication->end_date }} </p>
 					@endif					

@@ -17,6 +17,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use MunDocente\TypeOfScientificMagazine;
 use DB;
+use Session;
 
 
 class ScientificMagazineController extends Controller
@@ -53,7 +54,7 @@ class ScientificMagazineController extends Controller
                 }
                 //tipo de usuario publicador
                 if($user->type == 2){
-                    $publications = $this->publicationsGuest();
+                    $publications = $this->getPublicationPublisher();
                     $areas = Area::all();
                     return view('scientific_magazine.index', [
                     'publications' => $publications,
@@ -106,13 +107,11 @@ class ScientificMagazineController extends Controller
      */
     public function store(Request $request)
     {
-        $dt = Carbon::now()->format('Y-m-d');
-        $id_category = $this->getIdCategory($request->category);
         $publication = $request->user()->publications()->create([
             'name' => $request->name,
-            'date_publication' => $dt,
+            'date_publication' => Carbon::now()->format('Y-m-d'),
             'type' => 2,
-            'category'  => $id_category,
+            'category'  => $this->getIdCategory($request->category),
             'url' => $request->url,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
@@ -148,16 +147,16 @@ class ScientificMagazineController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
-
-    //metodo que eduta las publicaciones de una revista cientifica
-    public function edit_magazine(){
-         $areas = Area::all();
-        $publications = $this->publicationsGuest();  
-        $places = Place::all();
-        $type_of_scientific_magazines = TypeOfScientificMagazine::all();
-        return view('scientific_magazine.edit_magazine', compact('publications','areas','places','type_of_scientific_magazines'));
+        $publication = Publication::where('id',$id)->with('areas','place','typeScientificMagazine')->first();
+        if($publication->user_id == Auth::user()->id){
+            $areas = Area::all();
+            $places = Place::where('type', '=', 1)
+                            ->get();
+            $typeOfScientificMagazine = TypeOfScientificMagazine::all();
+            return view('scientific_magazine.edit', compact('publication','areas','places','typeOfScientificMagazine'));
+        } else {
+            return view('errors.validation_publication');
+        }
     }
 
     /**
@@ -169,7 +168,24 @@ class ScientificMagazineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $publication = Publication::where('id',$id)->with('areas','place','typeScientificMagazine')->first();
+        $this->assignAreasToPublication($publication, $request->input('area'));
+        $publication->update([
+            'name' => $request->input('name'),
+            'place_id' => $this->getIdCity($request->input('city')),
+            'url' => $request->input('url'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'category' => $this->getIdCategory($request->input('category')),
+            'description' => $request->input('description'),
+            ]);
+        Session::flash('flash_message', 'Publicación actualizada correctamente');
+        $areas = Area::all();
+        $places = Place::where('type', '=', 1)
+                            ->get();
+        $typeOfScientificMagazine = TypeOfScientificMagazine::all();
+        $publication = Publication::where('id',$id)->with('areas','place','typeScientificMagazine')->first();
+        return view('scientific_magazine.edit', compact('publication','areas','places','typeOfScientificMagazine'));
     }
 
     /**
@@ -184,15 +200,16 @@ class ScientificMagazineController extends Controller
     }
     //publicacione sde los no registrados
     private function publicationsGuest(){
-        $publications = $this->publicationsVigent();
-        return $publications;
+        return $this->publicationsVigent();
    } 
+   private function getPublicationPublisher(){
+        return $this->getUser()->publications()->where('type',2)->paginate(2);
+    }
    //publications vigentes
     private function publicationsVigent(){
-        $dt = Carbon::now()->format('Y-m-d');
         return Publication::with('user' ,'typeScientificMagazine', 'place')
                                     ->where('type', '=', 2)
-                                    ->where('end_date', '>=', $dt)
+                                    ->where('end_date', '>=', Carbon::now()->format('Y-m-d'))
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
                                     ->paginate(2);
@@ -273,22 +290,21 @@ class ScientificMagazineController extends Controller
         return $user;
     }
 
-    private function getIdAreaOne($areas){
-        return Area::where('name',$areas[0])->first()->id;
+    private function getIdArea($value){
+        return Area::where('name',$value)->first()->id;
     }
 
     private function getIdCity($nameCity){
         return Place::where('name',$nameCity)->first()->id;
     }
     private function assignAreasToPublication($publication, $areas){
-        $cont = 0;
+        $publication->areas()->detach();
         foreach ($areas as $value) {
-            if($cont == 0){
-              $publication->areas()->attach($this->getIdAreaOne($areas)); 
+            if(! is_numeric($value)){
+              $publication->areas()->attach($this->getIdArea($value)); 
             } else {
               $publication->areas()->attach($value);
             }
-            $cont += 1;
         }
     }
 }
