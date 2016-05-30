@@ -174,6 +174,7 @@ class UserController extends Controller
             'fullname' => 'required|max:255',
             'email' => 'required|email|max:255',
             'academic_institution' => 'required',
+            'photo' => 'mimes:jpg,jpeg,png|max:100', //kb
             ]);
         $academic_institution = AcademicInstitution::where('name', '=', $request->input('academic_institution'))
                                                     ->select('id', 'name')
@@ -181,6 +182,12 @@ class UserController extends Controller
         foreach ($academic_institution as $key) {
             $valueId = $key->id;
         }
+        //foto del usuario
+        $photo = $request->file('photo');
+        $upload = 'uploads/photo/'.$id;
+        $file_name = $photo->getClientOriginalName();
+        $success = $photo->move($upload, $file_name);
+
         DB::table('users')
                     ->where('id', '=', $id)
                     ->update([
@@ -188,7 +195,8 @@ class UserController extends Controller
                         'email' => $request->input('email'),
                         'academic_institution' => $valueId,
                         'phone' => $request->input('phone'),
-                        'contact' => $request->input('contact')
+                        'contact' => $request->input('contact'),
+                        'photo' => $file_name
                         ]);
 
         $user = User::with('academicInstitution','areas')

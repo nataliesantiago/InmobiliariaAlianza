@@ -134,5 +134,6 @@ return [
         'message'               => 'mensaje',
         'termsConditions'      => 'términos y condiciones',
         'search'               => 'palabra clave',
+        'photo'               => 'foto',
     ],
 ];

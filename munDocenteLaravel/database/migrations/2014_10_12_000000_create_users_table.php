@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email',45 )->unique();
             $table->string('password');
             $table->string('phone',15)->nullable();
+            $table->string('photo')->nullable();
             $table->string('contact',255)->nullable();
             $table->boolean('activedMe')->default(true);
             $table->integer('academic_institution')->unsigned();

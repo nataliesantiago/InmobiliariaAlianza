@@ -54,7 +54,8 @@
 						{!! Form::model($r, [
 						'id' => 'valForm',
 	    				'method' => 'PATCH',
-						 'route' => ['user.update', $r->id]
+						 'route' => ['user.update', $r->id],
+						 'files' => true
 						]) !!}
 									            {!! csrf_field() !!}
 
@@ -69,12 +70,23 @@
 								</div>
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
-									<img class="control-label col-xs-3" src="../../images/user.png" alt="" />
+									@if($r->photo != null)
+									<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$r->id.'/'.$r->photo)}}" alt="" />
+									@else
+									<img class="control-label col-xs-3" src="{{url('images/user.png')}}" alt="" />
+									@endif
 									<div class="col-xs-1"></div>
 									<div class="col-xs-8">
-									<a class="forgot btn-link" href="#">Cambiar foto</a>
+									<label class="control-label col-xs-4"><h4>Cambiar foto</h4></label>		
 									</div>
-
+									<div class="col-md-6">
+                					<input type="file" name="photo">
+                					@if ($errors->has('photo'))
+				                        <span class="help-block">
+				                            <strong>{{ $errors->first('photo') }}</strong>
+				                        </span>
+				                    @endif
+						            </div>
 									<div class="col-xs-12">
 									<a class="forgot btn-link" href="#"> </a>
 									</div></div>
