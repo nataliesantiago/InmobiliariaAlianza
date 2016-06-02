@@ -60,11 +60,19 @@ class IndexController extends Controller
                 }
                 //admin(adminMunDocente)
                 if($user->type == 3){
-                    return view('admin');
-                }                
+                    $users = User::all();
+                    return view('admin', compact('users'));
+                }
             } else {
-                return view('user_desactived', compact('areas'));
+                //admin(adminMunDocente)
+                if($user->type == 3){
+                    $users = User::all();
+                    return view('admin', compact('users'));
+                }else{        
+                    return view('user_desactived', compact('areas'));
+                }                
             }
+
         }  
     }  
     //se valida si el usuario esta activado al sistema

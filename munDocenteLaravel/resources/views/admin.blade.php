@@ -21,9 +21,9 @@
 			<div class="6u 12u(mobile)">
 				<section class="box">
 				<!-- Aqui va el foreach -->
-				
+				@foreach($users as $user)
 			    <div>
-			    <a class="forgot btn-link" href="#">Natalie Santiago</a>
+			    <a class="forgot btn-link" href="{{ route('user.edit', Auth::user()->id) }}">{{ $user->fullname }}</a>
 			   	<ul class="nav navbar-nav navbar-right">
 			        <button type="button" name="activateUser" class="btn btn-success">Activar 
 			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
@@ -32,27 +32,7 @@
 			    </ul>
 			    </div>
 			    <br>
-
-				<div>
-				<a class="forgot btn-link" href="#">Álvaro Hernández MIllán</a>
-			   	<ul class="nav navbar-nav navbar-right">
-			        <button type="button" name="activateUser" class="btn btn-success">Activar 
-			   		<i class="glyphicon glyphicon-ok-circle"></i></button>
-			   		<button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
-			   		<i class="glyphicon glyphicon-remove-circle"></i></button>	
-			    </ul>
-			    </div>
-			    <br>
-			    
-			    <div>
-			    <a class="forgot btn-link" href="#">Diego Armando Sierra</a>
-			   	<ul class="nav navbar-nav navbar-right">
-			        <button type="button" name="activateUser" class="btn btn-success">Activar 
-			   		<i class="glyphicon glyphicon-ok-circle"></i></button>
-			   		<button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
-			   		<i class="glyphicon glyphicon-remove-circle"></i></button>	
-			    </ul>
-			    </div>
+			    @endforeach
 
 			    </section>
 			</div>
