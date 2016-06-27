@@ -25,7 +25,7 @@
 			    <div>
 			    <a class="forgot btn-link" href="{{ route('user.edit', Auth::user()->id) }}">{{ $user->fullname }}</a>
 			   	<ul class="nav navbar-nav navbar-right">
-			        <button type="button" name="activateUser" class="btn btn-success">Activar 
+			        <button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
 			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
 			    	<button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
 			   		<i class="glyphicon glyphicon-remove-circle"></i></button>

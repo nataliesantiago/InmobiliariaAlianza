@@ -127,6 +127,13 @@
 			                    
 			                </div>
 			            </div>
+
+			            <div class="form-group">
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Contacto" rows="2"></textarea>
+                            </div>
+                        </div>
+
 			            <br>
 			            <center class="btnregis"><div class="form-group">
 			                <div class="12u$">

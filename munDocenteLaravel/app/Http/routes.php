@@ -36,7 +36,7 @@ Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/manage_ownpublication', 'IndexController@ownpublication');
-	
+	Route::get('/manage_users', 'AdminController@index');
 	Route::resource('area', 'AreaController');
 	Route::get('/resetpass', 'IndexController@forget');
 	Route::get('/search_advanced', 'QueriesController@search_advanced');
