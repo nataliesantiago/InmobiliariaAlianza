@@ -182,22 +182,10 @@ class UserController extends Controller
         foreach ($academic_institution as $key) {
             $valueId = $key->id;
         }
-        //foto del usuario
-        $photo = $request->file('photo');
-        $upload = 'uploads/photo/'.$id;
-        $file_name = $photo->getClientOriginalName();
-        $success = $photo->move($upload, $file_name);
-
-        DB::table('users')
-                    ->where('id', '=', $id)
-                    ->update([
-                        'fullname' => $request->input('fullname'),
-                        'email' => $request->input('email'),
-                        'academic_institution' => $valueId,
-                        'phone' => $request->input('phone'),
-                        'contact' => $request->input('contact'),
-                        'photo' => $file_name
-                        ]);
+        
+        
+        $this->updateData($request, $id, $valueId);
+        
 
         $user = User::with('academicInstitution','areas')
                     ->where('id','=',$id)
@@ -249,7 +237,7 @@ class UserController extends Controller
         return view('user.edit', compact('user', 'typeUser', 'areas', 'name','academic_institutions'));
     }
 
-    /**
+       /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -288,4 +276,37 @@ class UserController extends Controller
         }           
         return $selectedArea;
       }
+
+      private function updateData($request, $id, $valueId){
+
+        if(!(is_null($request->file('photo')))){
+
+          //foto del usuario
+          $photo = $request->file('photo');
+          $upload = 'uploads/photo/'.$id;
+          $file_name = $photo->getClientOriginalName();
+          $success = $photo->move($upload, $file_name);
+
+           DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'fullname' => $request->input('fullname'),
+                        'email' => $request->input('email'),
+                        'academic_institution' => $valueId,
+                        'phone' => $request->input('phone'),
+                        'contact' => $request->input('contact'),
+                        'photo' => $file_name
+                        ]);
+        } else {
+           DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'fullname' => $request->input('fullname'),
+                        'email' => $request->input('email'),
+                        'academic_institution' => $valueId,
+                        'phone' => $request->input('phone'),
+                        'contact' => $request->input('contact')
+                        ]);
+        }  
+    }
 }
