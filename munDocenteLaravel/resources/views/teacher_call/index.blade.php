@@ -56,7 +56,7 @@
     @endif
     <br>
     <time class="published" datetime="2016-05-01">{{ $publication->date_publication }}</time>
-
+        @if (! Auth::guest())
             @if(Auth::user()->type==2 && Auth::user()->activedMe)
                 <ul class="nav navbar-nav navbar-right">
                     <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ route('teacher_call.edit', $publication->id) }}">Editar 
@@ -65,7 +65,8 @@
                     <i class="glyphicon glyphicon-remove-circle"></i></button>  
                     &nbsp;&nbsp;
                 </ul>
-                @endif
+            @endif
+        @endif
                 
         <br><br>
         <header class="name">
