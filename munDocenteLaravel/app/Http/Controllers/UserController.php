@@ -52,6 +52,14 @@ class UserController extends Controller
         return view('user.create', compact('academic_institutions','areas'));
     }
 
+     public function read_user()
+    {
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
+        $areas = Area::all();
+        return view('user.read_user', compact('academic_institutions','areas'));
+    }
+
     public function forget(){
 
         return view('auth.reset');
