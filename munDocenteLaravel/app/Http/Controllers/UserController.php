@@ -52,14 +52,6 @@ class UserController extends Controller
         return view('user.create', compact('academic_institutions','areas'));
     }
 
-     public function read_user()
-    {
-        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
-                                                    ->get();
-        $areas = Area::all();
-        return view('user.read_user', compact('academic_institutions','areas'));
-    }
-
     public function forget(){
 
         return view('auth.reset');
@@ -103,7 +95,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -114,7 +106,34 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        //dd($user);
+        $areasUser = DB::table('area_user')
+                            ->where('user_id', '=', $id)
+                            ->select('area_id')
+                            ->get();
+                $cont = 0;
+                foreach ($areasUser as $area) {
+                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                        ->select('name')
+                                        ->get();
+                    $cont += 1;
+                }
+                
+               
+                $cont = 0;
+                foreach ($areasUser as $collection) {
+                    
+                    foreach ($collection as $array) {
+                        $name[$cont] = $array->name;
+                        $cont += 1;
+                    }
+               } 
+        $areas = Area::all();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
+        //dd($user);                                                  
+        return view('user.read_user', compact('user','areas','academic_institutions','name'));
     }
 
     /**
@@ -144,21 +163,7 @@ class UserController extends Controller
                       ->where('user_id', '=', $idUser)
                       ->select('area_id')
                       ->get();
-          $cont = 0;
-          foreach ($areasUser as $area) {
-             $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                      ->select('name')
-                                      ->get();
-             $cont += 1;
-          }
-          $cont = 0;
-          foreach ($areasUser as $collection) {
-            foreach ($collection as $array) {
-                $name[$cont] = $array->name;
-                $cont += 1;
-            }
-          } 
-          return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
+          return view('user.edit', compact('user','typeUser', 'areas', 'academic_institutions'));
         }else {
           return view('errors.edit_admin');
         }

@@ -23,7 +23,7 @@
 				<!-- Aqui va el foreach -->
 				@foreach($users as $user)
 			    <div>
-			    <a class="forgot btn-link" href="{{ route('user.read_user', Auth::user()->id) }}">{{ $user->fullname }}</a>
+			    <a class="forgot btn-link" href="{{ route('user.show', $user->id) }}">{{ $user->fullname }}</a>
 			   	<ul class="nav navbar-nav navbar-right">
 			        <button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
 			   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
