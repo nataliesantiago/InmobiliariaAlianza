@@ -95,7 +95,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -106,7 +106,34 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        //dd($user);
+        $areasUser = DB::table('area_user')
+                            ->where('user_id', '=', $id)
+                            ->select('area_id')
+                            ->get();
+                $cont = 0;
+                foreach ($areasUser as $area) {
+                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                        ->select('name')
+                                        ->get();
+                    $cont += 1;
+                }
+                
+               
+                $cont = 0;
+                foreach ($areasUser as $collection) {
+                    
+                    foreach ($collection as $array) {
+                        $name[$cont] = $array->name;
+                        $cont += 1;
+                    }
+               } 
+        $areas = Area::all();
+        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
+                                                    ->get();
+        //dd($user);                                                  
+        return view('user.read_user', compact('user','areas','academic_institutions','name'));
     }
 
     /**
@@ -136,21 +163,7 @@ class UserController extends Controller
                       ->where('user_id', '=', $idUser)
                       ->select('area_id')
                       ->get();
-          $cont = 0;
-          foreach ($areasUser as $area) {
-             $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                      ->select('name')
-                                      ->get();
-             $cont += 1;
-          }
-          $cont = 0;
-          foreach ($areasUser as $collection) {
-            foreach ($collection as $array) {
-                $name[$cont] = $array->name;
-                $cont += 1;
-            }
-          } 
-          return view('user.edit', compact('user','typeUser','name', 'areas', 'academic_institutions'));
+          return view('user.edit', compact('user','typeUser', 'areas', 'academic_institutions'));
         }else {
           return view('errors.edit_admin');
         }
@@ -182,22 +195,10 @@ class UserController extends Controller
         foreach ($academic_institution as $key) {
             $valueId = $key->id;
         }
-        //foto del usuario
-        $photo = $request->file('photo');
-        $upload = 'uploads/photo/'.$id;
-        $file_name = $photo->getClientOriginalName();
-        $success = $photo->move($upload, $file_name);
-
-        DB::table('users')
-                    ->where('id', '=', $id)
-                    ->update([
-                        'fullname' => $request->input('fullname'),
-                        'email' => $request->input('email'),
-                        'academic_institution' => $valueId,
-                        'phone' => $request->input('phone'),
-                        'contact' => $request->input('contact'),
-                        'photo' => $file_name
-                        ]);
+        
+        
+        $this->updateData($request, $id, $valueId);
+        
 
         $user = User::with('academicInstitution','areas')
                     ->where('id','=',$id)
@@ -249,7 +250,7 @@ class UserController extends Controller
         return view('user.edit', compact('user', 'typeUser', 'areas', 'name','academic_institutions'));
     }
 
-    /**
+       /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -288,4 +289,37 @@ class UserController extends Controller
         }           
         return $selectedArea;
       }
+
+      private function updateData($request, $id, $valueId){
+
+        if(!(is_null($request->file('photo')))){
+
+          //foto del usuario
+          $photo = $request->file('photo');
+          $upload = 'uploads/photo/'.$id;
+          $file_name = $photo->getClientOriginalName();
+          $success = $photo->move($upload, $file_name);
+
+           DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'fullname' => $request->input('fullname'),
+                        'email' => $request->input('email'),
+                        'academic_institution' => $valueId,
+                        'phone' => $request->input('phone'),
+                        'contact' => $request->input('contact'),
+                        'photo' => $file_name
+                        ]);
+        } else {
+           DB::table('users')
+                    ->where('id', '=', $id)
+                    ->update([
+                        'fullname' => $request->input('fullname'),
+                        'email' => $request->input('email'),
+                        'academic_institution' => $valueId,
+                        'phone' => $request->input('phone'),
+                        'contact' => $request->input('contact')
+                        ]);
+        }  
+    }
 }
