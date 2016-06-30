@@ -65,8 +65,8 @@
                     <i class="glyphicon glyphicon-remove-circle"></i></button>  
                     &nbsp;&nbsp;
                 </ul>
-             @endif
-     @endif           
+            @endif
+    @endif           
         <br><br>
         <header class="name">
             <h3 style="color: black;"><i class="glyphicon glyphicon-edit"></i>  {{ $publication->name }}</h3>
