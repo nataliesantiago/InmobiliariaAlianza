@@ -192,8 +192,16 @@ class TeacherCallController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {  
+        $publication = Publication::where('id',$id)->first();
+        if($publication->user_id == Auth::user()->id){
+            $publication->areas()->detach();
+            $publication->delete();
+            return view('teacher_call.destroy');
+        } else {
+            return view('errors.validation_publication');
+        } 
+
     }
 
     private function getPublicationPublisher(){

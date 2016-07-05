@@ -186,7 +186,14 @@ class AcademicEventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $publication = Publication::where('id',$id)->first();
+        if($publication->user_id == Auth::user()->id){
+            $publication->areas()->detach();
+            $publication->delete();
+            return view('scientific_magazine.destroy');
+        } else {
+            return view('errors.validation_publication');
+        } 
     }
     //publicacione sde los no registrados
     private function publicationsGuest(){

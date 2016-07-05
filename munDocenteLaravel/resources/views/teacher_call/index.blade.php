@@ -16,7 +16,9 @@
 
 @stop
     
-@section('content')     
+@section('content')
+
+        
 
     @foreach($publications as $publication)
     <div class="info">
@@ -59,10 +61,15 @@
         @if (! Auth::guest())
             @if(Auth::user()->type==2 && Auth::user()->activedMe)
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ route('teacher_call.edit', $publication->id) }}">Editar 
-                    <i class="glyphicon glyphicon-edit"></i></a></button>  
-                    <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
-                    <i class="glyphicon glyphicon-remove-circle"></i></button>  
+                    <a class="editPub" href="{{ route('teacher_call.edit', $publication->id) }}"><button type="button" class="btn btn-primary" >Editar 
+                    <i class="glyphicon glyphicon-edit"></i></button>  </a>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                {!! Form::open(array('route' => array('teacher_call.destroy', $publication->id), 'method' => 'delete')) !!}
+                    <button class="btn btn-danger" type="submit">Eliminar 
+                    <i class="glyphicon glyphicon-remove-circle"></i></button>
+                {!! Form::close() !!}
                     &nbsp;&nbsp;
                 </ul>
             @endif

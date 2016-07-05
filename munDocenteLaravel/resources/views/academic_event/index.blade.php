@@ -61,10 +61,14 @@
                     <ul class="nav navbar-nav navbar-right">
                         <button type="button" name="activateUser" class="btn btn-primary" ><a class="editPub" href="{{ route('academic_event.edit', $publication->id) }}">Editar 
                         <i class="glyphicon glyphicon-edit"></i></a></button>  
-                        <button type="button" name="activateUser" class="btn btn-danger">Eliminar 
-                        <i class="glyphicon glyphicon-remove-circle"></i></button>  
-                        &nbsp;&nbsp;
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    {!! Form::open(array('route' => array('academic_event.destroy', $publication->id), 'method' => 'delete')) !!}
+                        <button class="btn btn-danger" type="submit">Eliminar 
+                        <i class="glyphicon glyphicon-remove-circle"></i></button>
+                    {!! Form::close() !!}
+                        &nbsp;&nbsp;
+                     </ul>
                     @endif
                 @endif
 
