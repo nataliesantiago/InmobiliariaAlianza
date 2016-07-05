@@ -19,8 +19,8 @@ $('#valForm').bootstrapValidator({
 					 message: 'El nombre de usuario es requerido'
 				 },
 				 stringLength: {
-					 min: 6,
-					 message: 'El nombre de usuario debe contener al menos 6 caracteres'
+					 min: 4,
+					 message: 'El nombre de usuario debe contener al menos 4 caracteres'
 				 }
 			 }
 		 },
@@ -49,8 +49,20 @@ $('#valForm').bootstrapValidator({
 				 stringLength: {
 					 min: 6,
 					 message: 'La contraseña debe contener al menos 6 caracteres'
-				 }
+				 },
+				 different: {
+                    field: 'username',
+                    message: 'El nombre de usuario y la contraseña no pueden ser el mismo'
+                }
 			 }
+		 },
+		 password_confirmation: {
+		 	validators: {
+		 		identical: {
+		 			field: 'password',
+		 			message: 'Las contraseñas no coinciden'
+		 		}
+		 	}
 		 },
 		 phone: {
 		 	message: 'El teléfono no es valido',
