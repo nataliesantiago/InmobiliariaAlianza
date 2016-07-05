@@ -60,17 +60,11 @@ class IndexController extends Controller
                 }
                 //admin(adminMunDocente)
                 if($user->type == 3){
-                    $users = User::all();
+                    $users = $this->getUserPublication();
                     return view('admin', compact('users'));
                 }
             } else {
-                //admin(adminMunDocente)
-                if($user->type == 3){
-                    $users = User::all();
-                    return view('admin', compact('users'));
-                }else{        
-                    return view('user_desactived', compact('areas'));
-                }                
+               return view('user_desactived', compact('areas'));            
             }
 
         }  
@@ -138,5 +132,11 @@ class IndexController extends Controller
             $user = $value;
         }
         return $user;
+   }
+
+   private function getUserPublication(){
+        $userPublications = User::where('type',2)
+                                ->get();
+        return $userPublications;
    }
 }

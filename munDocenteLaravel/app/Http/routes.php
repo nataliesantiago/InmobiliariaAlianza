@@ -24,6 +24,8 @@ Route::resource('scientific_magazine', 'ScientificMagazineController');
 
 Route::get('/admin', 'IndexController@index');
 
+Route::get('/desactived_admin/{id}', 'UserController@desactived_admin');
+Route::get('/actived_admin/{id}', 'UserController@actived_admin');
 Route::get('/user/create_docent', 'UserController@create_docent');
 Route::get('/user/create_publisher', 'UserController@create_publisher');
 Route::get('/desactived_me', 'UserController@desactived_me');

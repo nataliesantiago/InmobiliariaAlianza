@@ -72,6 +72,28 @@ class UserController extends Controller
         return $this->edit($id);
     }
 
+    public function actived_admin($id){
+      DB::table('users')
+          ->where('id', '=', $id)
+          ->update([
+                'activedAdmin' => true                
+              ]);
+      $user = User::where('id', '=', $id)
+                    ->first();
+        return view('user.state_count', compact('user'));   
+     }
+
+    public function desactived_admin($id){
+        DB::table('users')
+          ->where('id', '=', $id)
+          ->update([
+                'activedAdmin' => false                
+              ]);
+      $user = User::where('id', '=', $id)
+                    ->first();
+        return view('user.state_count', compact('user'));
+    }
+
     public function actived_me(){
         $id = Auth::user()->id;
         DB::table('users')
@@ -108,32 +130,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         //dd($user);
-        $areasUser = DB::table('area_user')
-                            ->where('user_id', '=', $id)
-                            ->select('area_id')
-                            ->get();
-                $cont = 0;
-                foreach ($areasUser as $area) {
-                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                        ->select('name')
-                                        ->get();
-                    $cont += 1;
-                }
-                
-               
-                $cont = 0;
-                foreach ($areasUser as $collection) {
-                    
-                    foreach ($collection as $array) {
-                        $name[$cont] = $array->name;
-                        $cont += 1;
-                    }
-               } 
         $areas = Area::all();
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
         //dd($user);                                                  
-        return view('user.read_user', compact('user','areas','academic_institutions','name'));
+        return view('user.read_user', compact('user','areas','academic_institutions'));
     }
 
     /**
