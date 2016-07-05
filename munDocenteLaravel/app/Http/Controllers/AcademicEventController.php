@@ -82,12 +82,7 @@ class AcademicEventController extends Controller
                             ->get();       
                 return view('academic_event.create', compact('areas','places'));
             } else {
-                $user = User::where('id', '=', Auth::user()->id)
-                    ->get();
-                foreach ($user as $key) {
-                    $typeUser = $key->type;
-                }
-                return view('user.edit', compact('user','areas','typeUser')); 
+                return view('errors.validation');  
             }            
         } else {            
             return view('errors.validation'); 
@@ -264,8 +259,12 @@ class AcademicEventController extends Controller
     }
 
     private function isActived($user){
-        return $user->activedMe ? true : false;
-    }
+        if($user->activedMe && $user->activedAdmin){
+           return true; 
+        } else {
+            return false;
+        }    
+      }
 
     private function getUser(){
         $users = User::with('typeOfUser', 'areas.publications')

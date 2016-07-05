@@ -12,6 +12,7 @@ use MunDocente\Area;
 use DB;
 use Session;
 use Auth;
+use Mail;
 
 class UserController extends Controller
 {
@@ -80,6 +81,11 @@ class UserController extends Controller
               ]);
       $user = User::where('id', '=', $id)
                     ->first();
+      //enviar mensaje al publicdor de que ya fue activado
+      Mail::send('emails.actived_admin', ['text' => 'Tu usuario de MunDocente ha sido activado por parte del adminsitrador, para que hagas uso pleno de tu cuenta'], function($msj) use ($user){
+            $msj->subject('Activación de tu cuenta: '.$user->username);
+            $msj->to($user->email);
+      });
         return view('user.state_count', compact('user'));   
      }
 
@@ -91,6 +97,10 @@ class UserController extends Controller
               ]);
       $user = User::where('id', '=', $id)
                     ->first();
+      Mail::send('emails.actived_admin', ['text' => 'Tu usuario de MunDocente ha sido desactivado, para más información comunicate con el administrador'], function($msj) use ($user){
+            $msj->subject('Desactivación de tu cuenta: '.$user->username);
+            $msj->to($user->email);
+      });
         return view('user.state_count', compact('user'));
     }
 
@@ -164,7 +174,24 @@ class UserController extends Controller
                       ->where('user_id', '=', $idUser)
                       ->select('area_id')
                       ->get();
-          return view('user.edit', compact('user','typeUser', 'areas', 'academic_institutions'));
+          $cont = 0;
+                foreach ($areasUser as $area) {
+                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
+                                        ->select('name')
+                                        ->get();
+                    $cont += 1;
+                }
+                
+               
+            $cont = 0;
+            foreach ($areasUser as $collection) {
+                    
+                    foreach ($collection as $array) {
+                        $name[$cont] = $array->name;
+                        $cont += 1;
+                    }
+               }  
+          return view('user.edit', compact('user','typeUser', 'areas', 'academic_institutions', 'name'));
         }else {
           return view('errors.edit_admin');
         }
