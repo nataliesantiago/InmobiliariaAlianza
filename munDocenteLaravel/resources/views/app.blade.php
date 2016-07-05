@@ -61,7 +61,7 @@
                 @endif
                 
                 <br>
-				<time class="published" datetime="yyyy-MM-dd">{{ $publication->date_publication }}</time>
+				<time class="published" datetime="yyyy-MM-dd"><?php echo date('d-M-Y', strtotime($publication->date_publication)); ?></time>
                     <br><br>    
                     <header class="name">
                     @if($publication->type==1)
@@ -83,9 +83,9 @@
                     @if($publication->place!=null)
                     <p class="place">{{ $publication->place->name }}</p>					
 					@endif
-                    <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>            
+                    <p class="start">Fecha de inicio: <?php echo date('d-M-Y', strtotime($publication->start_date)); ?></p>            
 					@if($publication->end_date!=null)
-					<p class="end">Fecha final: {{ $publication->end_date }} </p>
+					<p class="end">Fecha final: <?php echo date('d-M-Y', strtotime($publication->end_date)); ?></p>
 					@endif					
 					@if($publication->contact!=null)
 					<p class="contact">Contacto: {{ $publication->contact }}</p>
