@@ -19,6 +19,12 @@
 
                 <section class="box">
 
+                @if(Session::has('flash_message'))
+                     <div class="alert alert-success">
+                      {{ Session::get('flash_message') }}
+                      </div>
+                @endif
+
                 @if($user->activedAdmin == 0)
                     <center><h1>Cuenta desactivada correctamente</h1></center> 
                 @else
