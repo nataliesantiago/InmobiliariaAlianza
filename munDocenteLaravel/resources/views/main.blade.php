@@ -32,11 +32,7 @@
                             </div>
                              <div class ="elemento">
                                 <img src="images/img4.png">
-                            </div>
-                              <div class ="elemento">
-                                <img src="images/img5.png">
-                            </div>
-                              <div class ="elemento">
+                            <div class ="elemento">
                                 <img src="images/img6.png">
                             </div>
                               <div class ="elemento">
@@ -69,11 +65,7 @@
                             </div>
                              <div class ="elemento">
                                 <img src="images/img4.png">
-                            </div>
-                              <div class ="elemento">
-                                <img src="images/img5.png">
-                            </div>
-                              <div class ="elemento">
+                            <div class ="elemento">
                                 <img src="images/img6.png">
                             </div>
                               <div class ="elemento">
