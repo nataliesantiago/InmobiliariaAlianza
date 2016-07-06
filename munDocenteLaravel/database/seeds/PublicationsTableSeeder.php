@@ -11,6 +11,7 @@ class PublicationsTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
          DB::table('publications')->insert([
             'name' => 'DECIMO EVENTO DE ENCUENTRO DE DOCENTES EN LA UPTC',
             'date_publication' => '2015-06-15',
@@ -185,5 +186,6 @@ class PublicationsTableSeeder extends Seeder
             'description' => 'Este evento se realizará de forma simultánea con el XII Encuentro de Fibrosis Quística en la ciudad de Bucaramanga, y contará con la participación de conferencistas internacionales, entre ellos: Dra. Yarury Delgado, de Inglaterra; Dr. Antonio Moreno Galdó, de España; y del Dr. Gustavo Niño, Dr. Octavio Ramilo, Dra. Asunción Mejías, Dr. Juan Celedón y del Dr. Carlos Pérez, de Estados Unidos.',
             'user_id' => '10',
         ]); 
+        */
     }
 }

@@ -11,6 +11,7 @@ class AreaUserTableSeeder extends Seeder
      */
     public function run()
     {
+        /**
         DB::table('area_user')->insert([
             'area_id' => 4,
             'user_id' => 11,
@@ -65,5 +66,6 @@ class AreaUserTableSeeder extends Seeder
             'area_id' => 9,
             'user_id' => 20,
         ]);
+        */
     }
 }

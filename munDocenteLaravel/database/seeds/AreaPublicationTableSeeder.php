@@ -11,6 +11,7 @@ class AreaPublicationTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
          DB::table('area_publication')->insert([
             'area_id' => 2,
             'publication_id' => 1,
@@ -91,6 +92,6 @@ class AreaPublicationTableSeeder extends Seeder
             'area_id' => 30,
             'publication_id' => 16,
         ]);
-
+    */
     }
 }

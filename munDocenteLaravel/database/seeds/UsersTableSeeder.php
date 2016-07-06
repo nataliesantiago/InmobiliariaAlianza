@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             'academic_institution' => 1,
             'type' => 3,
         ]);
+        /*
         DB::table('users')->insert([
             'username' => 'PepitoPerez',
             'password' => bcrypt('miPassword'),
@@ -187,5 +188,6 @@ class UsersTableSeeder extends Seeder
             'academic_institution' => 10,
             'type' => 1,
         ]);
+        */
     }
 }

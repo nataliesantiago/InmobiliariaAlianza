@@ -71,7 +71,8 @@
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
 									@if($r->photo != null)
-									<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$r->id.'/'.$r->photo)}}" alt="" />
+									<!--<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$r->id.'/'.$r->photo)}}" alt="" />-->
+									<img class="control-label col-xs-3" src="{{url('../uploads/photo/'.$r->id.'/'.$r->photo)}}" alt="" />
 									@else
 									<img class="control-label col-xs-3" src="{{url('images/user.png')}}" alt="" />
 									@endif

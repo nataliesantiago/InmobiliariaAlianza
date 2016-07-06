@@ -324,7 +324,8 @@ class UserController extends Controller
 
           //foto del usuario
           $photo = $request->file('photo');
-          $upload = 'uploads/photo/'.$id;
+          //$upload = 'uploads/photo/'.$id;
+          $upload = '../uploads/photo/'.$id;
           $file_name = $photo->getClientOriginalName();
           $success = $photo->move($upload, $file_name);
 
