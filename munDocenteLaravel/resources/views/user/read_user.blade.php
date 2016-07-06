@@ -42,13 +42,17 @@
 							</center>
 							@endif
 							<label class="control-label col-xs-4"><h2>{{ $user->username }} </h2></label>
-							<ul class="nav navbar-nav navbar-right">
-						        <button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
-						   		<i class="glyphicon glyphicon-ok-circle"></i></button>	
-						    	<button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
-						   		<i class="glyphicon glyphicon-remove-circle"></i></button>
-						    	&nbsp;&nbsp;
-						    </ul>
+							@if($user->activedAdmin == 0)
+						   		<ul class="nav navbar-nav navbar-right">
+						        <a href="/actived_admin/{{ $user->id }}"><button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
+						   		<i class="glyphicon glyphicon-ok-circle"></i></button></a>
+								</ul>
+						   	@else
+						   	<ul class="nav navbar-nav navbar-right">
+						    	<a href="/desactived_admin/{{ $user->id }}"><button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
+						   		<i class="glyphicon glyphicon-remove-circle"></i></button></a>
+						   		</ul>
+						   	@endif
 							</div>
 						</div>
 						<div class="12u 12u$(xsmall)">
