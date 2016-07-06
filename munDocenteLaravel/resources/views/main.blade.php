@@ -32,6 +32,7 @@
                             </div>
                              <div class ="elemento">
                                 <img src="images/img4.png">
+                            </div>
                             <div class ="elemento">
                                 <img src="images/img6.png">
                             </div>

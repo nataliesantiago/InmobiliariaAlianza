@@ -24,13 +24,10 @@
 
                 <section class="box">
 
-                    @if(Session::has('flash_message'))
-                     <div class="alert alert-success">
-                      {{ Session::get('flash_message') }}
-                      </div>
-                    @endif
-                    <h1>eliminada la revista cientifica correctamnete</h1>    
-                
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                      <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      ¡Completo!</h4>&nbsp;&nbsp;&nbsp;La revista científica fue eliminada correctamente. 
+                    </div>
                 </section>
             </div>
         </div>

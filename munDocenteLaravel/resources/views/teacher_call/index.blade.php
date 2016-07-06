@@ -20,7 +20,7 @@
     
 @section('content')
 
-        
+    @yield('alert')
 
     @foreach($publications as $publication)
     <div class="info">
