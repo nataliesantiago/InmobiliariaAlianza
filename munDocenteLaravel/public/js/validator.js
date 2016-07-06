@@ -91,7 +91,7 @@ $('#valForm').bootstrapValidator({
 				 }
 		 	}
 		 },
-		 init_date: {
+		 start_date: {
 		 	validators: {
 		 		notEmpty: {
 					 message: 'La fecha de inicio es requerida y no puede ser vacia'
