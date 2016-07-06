@@ -66,7 +66,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control" required name="start_date" placeholder="Fecha de inicio *" id="dateInit" value="{{ old('start_date') }}" >
+			                    	<input type="text" class="form-control" name="start_date" placeholder="Fecha de inicio *" id="dateInit" value="{{ old('start_date') }}" >
 
 			                    	
 			                    </div>	
@@ -79,7 +79,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			                    	<input type="text" class="form-control"  required name="end_date" placeholder="Fecha fin *" id="dateEnd" value="{{ old('end_date') }}">
+			                    	<input type="text" class="form-control"  name="end_date" placeholder="Fecha fin " id="dateEnd" value="{{ old('end_date') }}">
 			                    	
 			                    </div>				                  
 			                </div>
@@ -122,7 +122,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Descripción *" name="description" required value="{{ old('description') }}">
+			                    	<input type="text" class="form-control" placeholder="Descripción " name="description" value="{{ old('description') }}">
 
 			                    </div>		
 			                    
