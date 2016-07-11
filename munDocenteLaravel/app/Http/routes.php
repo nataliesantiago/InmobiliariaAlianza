@@ -32,6 +32,7 @@ Route::get('/desactived_me', 'UserController@desactived_me');
 Route::get('/actived_me', 'UserController@actived_me');
 Route::resource('user', 'UserController');
 
+Route::get('/search_area/{id}', 'QueriesController@search_area');
 Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 
 

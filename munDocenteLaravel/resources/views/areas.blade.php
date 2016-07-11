@@ -9,16 +9,16 @@
 
         <ul id="tree1" class="mktree">
             @foreach($areas as $key=>$area)
-            @if($area->parent==null)
-                @if($key > 1)
-                    </ul>
-                    </li>
+                @if($area->parent==null)
+                    @if($key > 1)
+                        </ul>
+                        </li>
+                    @endif
+                <li>&nbsp;&nbsp;<a href="/search_area/{{ $area->id }}">{{ $area->name }}</a>
+                <ul>
+                @else
+                    <li><a href="/search_area/{{ $area->id }}">{{  $area->name }}</a></li>
                 @endif
-            <li>&nbsp;&nbsp;<a href="#">{{ $area->name }}</a>
-            <ul>
-            @else
-            <li><a href="#">{{  $area->name }}</a></li>
-            @endif
             @endforeach
             </ul>
             </li>

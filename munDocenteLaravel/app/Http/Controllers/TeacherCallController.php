@@ -268,11 +268,19 @@ class TeacherCallController extends Controller
     }
 
     private function isActived($user){
-        if($user->activedMe && $user->activedAdmin){
+        if($user->type == 1){
+            if($user->activedMe){
            return true; 
+            } else {
+                return false;
+            }  
         } else {
-            return false;
-        }
+            if($user->activedMe && $user->activedAdmin){
+           return true; 
+            } else {
+                return false;
+            }   
+        } 
     }
 
     private function getUser(){

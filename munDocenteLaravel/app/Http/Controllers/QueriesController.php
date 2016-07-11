@@ -17,6 +17,31 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class QueriesController extends Controller
 {
     
+  public function search_area($id){
+    /*
+        $result_publications = DB::table('area_publication')
+                                    ->where('area_id','=',$id)
+                                    ->select('publication_id')
+                                    ->get();
+        if(! is_null($result_publications)){
+          $publications = $this->paginate($result_publications);
+          $areas = Area::all();
+          return view('queries.result_search_advanced', compact('publications','areas'));
+        } else {
+          return view('without_publication');
+        }
+        */
+  }
+
+  private function paginate($resultPublications){
+        $pageStart = \Request::get('page', 1);
+        $perPage = 2;
+        $offSet = ($pageStart * $perPage) - $perPage; 
+        $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+        $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));  
+        return $publications;
+    }
+
 	 public function search_advanced(){
 	        $places = Place::where('type', '=', 1)
 	                        ->get();
