@@ -1,4 +1,4 @@
-c<?php
+<?php
 
 namespace MunDocente\Http\Controllers;
 
