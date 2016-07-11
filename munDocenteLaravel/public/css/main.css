@@ -2561,6 +2561,10 @@ div#slider div.elemento img{
 	height: 135px;
 	background-color: #E5E5E5;
 	text-align:center;
+	margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    padding-top: 10px;
 }
 
 

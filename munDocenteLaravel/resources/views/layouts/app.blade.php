@@ -24,9 +24,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <nav role="navigation" class="navbar navbar-default">
                 
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-1"></div>    
-                    <div class="col-xs-10">
+                <div class="navbar">
+                    <div class="col-xs-12">
                         <div class="col-sm-5 col-md-2">
                             @yield('logo')
                         </div>             
@@ -53,20 +52,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         </form>
 
                     </div>    
-                </div>
-                <div class="navbar-form navbar-left">
-                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        
-                    </button>           
-                </div>
-                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <div class="navbar-form navbar-left">
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            
+                        </button>           
+                    </div>
                         
                     <div class="col-xs-12">
                 
-                    <ul class="nav nav-tabs ">
+                    <ul class="nav nav-tabs">
                      @yield('menu')
                     <li style="white-space: nowrap;">
                         <a href="#footer-wrapper">
@@ -112,8 +109,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     @yield('intro')   
                     </ul>
                     </div>
-                </div>          
-            
+                </div>
+                
             </div>
             </nav>
 
