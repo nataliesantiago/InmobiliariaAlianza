@@ -61,7 +61,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         </button>           
                     </div>
                         
-                    <div class="col-xs-12">
+                    <div class="col-xs-13">
                 
                     <ul class="nav nav-tabs">
                      @yield('menu')

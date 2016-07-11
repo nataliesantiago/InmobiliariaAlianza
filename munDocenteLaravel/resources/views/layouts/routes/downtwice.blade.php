@@ -25,7 +25,7 @@
 @stop
 
 @section('logo')
-    <a class="logo" href="/"><img  src="../../images/logomundocente.png"></a>
+    <a class="logo" href="/"><img  src="../../images/bj.png"></a>
 @stop
 
 @section('main')

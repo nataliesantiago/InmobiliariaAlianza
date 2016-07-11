@@ -24,6 +24,7 @@
 @stop
 
 	@section('content')		
+
 				@foreach($publications as $publication)
 			 
                @if($publication->user->academic_institution==1)
@@ -103,14 +104,25 @@
                 <hr>
              
 				@endforeach
-					
-				
+
 
 				<div class="inner">
 					<ul>
 					<center><li>{!! $publications->links() !!}</li></center>
 					</ul>
 				</div>
+
+                    
+                
+                 <div class="panel-body" >   
+                    <p class=" mediano text-center"><small>Cerrando sesión</small></p>     
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar" role="progressbar"
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 100%">
+                      </div>          
+                    </div>
+                  </div> 
 
 	@stop
 
