@@ -142,10 +142,19 @@
 								    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
 								    	<i class="glyphicon glyphicon-plus"></i>
 								    </a>
+								    <a class="control-label col-xs-6"></a>
+								    <a class="control-label col-xs-1" 
+								    href="javascript:eliminarArea()">
+								    	<i class="glyphicon glyphicon-remove"></i>
+								    </a>
 							        
 							      	<div class="col-xs-8" id="listArea">
-							      		@foreach($name as $areaSelected)
-										<select class="form-control" required name="area[]">             
+							      		@foreach($name as $i => $areaSelected)
+							      		@if($i == 0)							      		
+										<select class="form-control" id="Unremove" required name="area[]">             
+										@else
+										<select class="form-control" id="selectArea" required name="area[]">             
+										@endif
 											<option>{{ $areaSelected}}</option>
 											@foreach($areas as $area)
 											<option>{{ $area->name }}</option>

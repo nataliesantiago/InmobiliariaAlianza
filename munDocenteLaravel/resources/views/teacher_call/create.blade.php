@@ -100,11 +100,15 @@
 							    href="javascript:crearArea('<?php echo implode($arrayArea) ?>'.split('-'))" >
 							    	<i class="glyphicon glyphicon-plus"></i>
 							    </a>
+						        <a class="control-label col-xs-10"></a>
+							    <a class="control-label col-xs-1" 
+							    href="javascript:eliminarArea()">
+							    	<i class="glyphicon glyphicon-remove"></i>
+							    </a>
 						        <h4>Áreas de interés</h4>
-						      	
 						      	<div id="listArea" class="input-group">
 						      		<span class="input-group-addon"><i class="glyphicon glyphicon-blackboard"></i></span>
-						      		<select class="form-control" required name="area[]">             
+						      		<select class="form-control" id="Unremove" required name="area[]">             
 										@foreach($areas as $area)
 										<option>{{ $area->name }}</option>
 										@endforeach
