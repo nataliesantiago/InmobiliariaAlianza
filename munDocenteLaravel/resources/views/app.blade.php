@@ -1,14 +1,9 @@
 @extends('main')
 
 @section('menu')
-    <li class="current"><a href="/">
-    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">
-    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">
-    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">
-    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
+
+    @include('menus.home')
+    
 @stop
 
 @section('intro')
@@ -69,10 +64,10 @@
                     	 <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>
                    @endif
                     @if($publication->type==2)
-                    	 <h3 style="color: black;"><i class="glyphicon glyphicon-edit"></i>  {{ $publication->name }}</h3>
+                    	 <h3 style="color: black;"><i class="glyphicon glyphicon-book"></i>  {{ $publication->name }}</h3>
                    @endif
                     @if($publication->type==3)
-                    	<h3 style="color: black;"><i class="glyphicon glyphicon-education"></i>  {{ $publication->name }}</h3>
+                    	<h3 style="color: black;"><i class="glyphicon glyphicon-bullhorn"></i>  {{ $publication->name }}</h3>
                    @endif
                     </header>
 

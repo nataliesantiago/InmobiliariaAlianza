@@ -3,10 +3,10 @@
 @section('name')
 
 	<div class="12u 12u(mobile)">
-				<header>
-					<center><h2 class="config">CONFIGURAR CUENTA DOCENTE</h2></center>			
-				</header>
-			</div>
+		<header>
+			<center><h2 class="config">CONFIGURAR CUENTA DOCENTE</h2></center>			
+		</header>
+	</div>
 
 @stop
 

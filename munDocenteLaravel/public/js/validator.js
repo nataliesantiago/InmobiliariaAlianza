@@ -18,9 +18,6 @@ $('#valForm').bootstrapValidator({
 				 notEmpty: {
 					 message: 'El nombre de usuario es requerido'
 				 },
-				 base64: {
-				 	message: 'El nombre de usuario solo puede contener carácteres alfanuméricos'
-				 },
 				 stringLength: {
 					 min: 4,
 					 message: 'El nombre de usuario debe contener al menos 4 caracteres'

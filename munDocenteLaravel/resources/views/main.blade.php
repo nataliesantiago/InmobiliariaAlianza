@@ -100,29 +100,29 @@
                         <header>
                             <h2>Convocatorias docente</h2>
                         </header>
-                        <p>Acá podrá encontrar todas las publicaciones relacionadas a convocatorias de docentes universitarios.</p>
+                        <p>Entérate oportunamente sobre las oportunidades laborales del ámbito universitario y cumple con tus metas de crecimiento profesional.</p>
                         <br>
                         <a href="/teacher_call" class="button big">Ver más</a>
                     </section>
                 </div>
                 <div class="4u 12u(mobile)">
                     <section class="middle">
-                        <i class="icon featured alt fa-edit"></i>
+                        <i class="icon featured alt fa-book"></i>
                         <header>
                             <h2>Revistas científicas</h2>
                         </header>
-                        <p>Acá podrá encontrar todas las publicaciones relacionadas a las revistas científicas indexadas en Colombia.</p>
+                        <p>Ahorra tiempo conociendo las revistas científicas que a la fecha reciben artículos de tu área de interés.</p>
                         <br>
                         <a href="/scientific_magazine" class="button alt big">Ver más</a>
                     </section>
                 </div>
                 <div class="4u 12u(mobile)">
                     <section class="last">
-                        <i class="icon featured alt2 fa-graduation-cap"></i>
+                        <i class="icon featured alt2 fa-bullhorn"></i>
                         <header>
                             <h2>Eventos académicos</h2>
                         </header>
-                        <p>Acá podrá encontrar todas las publicaciones relacionadas con eventos académicos en Colombia.</p>
+                        <p>Encuentra congresos, seminarios, conferencias y demás eventos académicos de tu interés para capacitación o presentación de tus resultados de investigación.</p>
                         <br>
                         <a href="/academic_event" class="button alt2 big">Ver más</a>
                     </section>
