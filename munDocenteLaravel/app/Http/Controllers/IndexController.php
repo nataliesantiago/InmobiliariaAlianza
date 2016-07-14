@@ -19,17 +19,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class IndexController extends Controller
 {
 
-    public function ownPublication(){
-    $areas = Area::all();
-    if($this->isActived()){
-        $publications = $this->publicationsGuest();        
-        return view('manage_ownpublication', compact('publications','areas'));
-    } else {
-        return view('user_desactived', compact('areas'));
-    } 
-   }
-
-   public function index(){
+    public function index(){
     $areas = Area::all();
      if (Auth::guest()){ //usuario visitante sin registro
         $publications = $this->publicationsGuest();
@@ -123,6 +113,17 @@ class IndexController extends Controller
        // dd($publications);
         return $publications;
    }
+
+   public function ownPublication(){
+    $areas = Area::all();
+    if($this->isActived()){
+        $publications = $this->publicationsGuest();        
+        return view('manage_ownpublication', compact('publications','areas'));
+    } else {
+        return view('user_desactived', compact('areas'));
+    } 
+   }
+   
    //obteniendo el usuario actual
    private function getUser(){
         $users = User::with('typeOfUser', 'areas.publications')

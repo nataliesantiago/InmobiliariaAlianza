@@ -70,36 +70,31 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $academic_institution = AcademicInstitution::where('name', '=', $data['academic_institution'])
-                                                    ->select('id', 'name')
-                                                    ->get();
-        foreach ($academic_institution as $key) {
-            $valueId = $key->id;
-        }
-        //dd($valueId); 
+        //dd($this->get_academic_institution($data['academic_institution'])); 
         $user = User::create([
             'username' => $data['username'],
             'fullname' => $data['fullname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'type' => $data['type'],
-            'academic_institution' => $valueId,
+            'academic_institution' => $this->get_academic_institution($data['academic_institution']),
         ]);
-        if($user->type == 1){
-        foreach ($data['area'] as $area){
-            $area = Area::where('name', '=', $area)
-                        ->select('id', 'name')
-                        ->get();
-            foreach ($area as $key) {
-                $idArea = $key->id;                
-            }
-         //   dd($idArea);
-        } 
-
-        $user->areas()->attach($idArea); 
-        }
-        
-
+        //dd($data['area'][0]);
+        $user->areas()->attach($this->get_area($data['area'][0]));     
         return $user;
+    }
+
+    private function get_area($area){
+        $area = Area::where('name',$area)
+                    ->select('id')
+                    ->first();
+        return $area->id;
+    }
+
+    private function get_academic_institution($academic_institution){
+        $academic_institution = AcademicInstitution::where('name', '=', $academic_institution)
+                                                    ->select('id')
+                                                    ->first();
+        return $academic_institution->id;                                           
     }
 }

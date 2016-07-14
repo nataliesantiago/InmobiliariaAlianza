@@ -47,10 +47,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
-                                                    ->get();
-        $areas = Area::all();
-        return view('user.create', compact('academic_institutions','areas'));
+       
     }
 
     public function forget(){
@@ -147,6 +144,7 @@ class UserController extends Controller
         return view('user.read_user', compact('user','areas','academic_institutions'));
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -157,44 +155,29 @@ class UserController extends Controller
     {
         $user = User::with('academicInstitution')
                     ->where('id','=',$id)
-                    ->get();
+                    ->first();
 
         $areas = Area::all();
 
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
-        foreach ($user as $key) {
-            $typeUser = $key->type;
-        }
-        if($typeUser != 3){
-          foreach ($user as $key) {
-              $idUser = $key->id;
-          }
-          $areasUser = DB::table('area_user')
-                      ->where('user_id', '=', $idUser)
-                      ->select('area_id')
-                      ->get();
-          $cont = 0;
-                foreach ($areasUser as $area) {
-                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                        ->select('name')
-                                        ->get();
-                    $cont += 1;
-                }
-                
-               
-            $cont = 0;
-            foreach ($areasUser as $collection) {
-                    
-                    foreach ($collection as $array) {
-                        $name[$cont] = $array->name;
-                        $cont += 1;
-                    }
-               }  
-          return view('user.edit', compact('user','typeUser', 'areas', 'academic_institutions', 'name'));
+        if($user->type != 3){
+            $name = $this->get_areas($user);  
+          return view('user.edit', compact('user', 'areas', 'academic_institutions', 'name'));
         }else {
           return view('errors.edit_admin');
         }
+    }
+
+    private function save_areas($user, $areas){
+        if($user->type == 1){
+              $user->areas()->detach(); 
+              $areas = $areas; 
+              $areas = $this->getAreasSelected($areas);
+              foreach ($areas as $area) {
+                  $user->areas()->attach($area); 
+              }
+          }
     }
 
     /**
@@ -206,76 +189,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::with('academicInstitution')
-                    ->where('id','=',$id)
-                    ->get();
-        //dd($request);
-        //$this->authorize('owner', $user);
         $this->validate($request, [
             'fullname' => 'required|max:255',
             'email' => 'required|email|max:255',
             'academic_institution' => 'required',
             'photo' => 'mimes:jpg,jpeg,png|max:100', //kb
             ]);
-        $academic_institution = AcademicInstitution::where('name', '=', $request->input('academic_institution'))
-                                                    ->select('id', 'name')
-                                                    ->get();
-        foreach ($academic_institution as $key) {
-            $valueId = $key->id;
-        }
-        
-        
-        $this->updateData($request, $id, $valueId);
-        
 
-        $user = User::with('academicInstitution','areas')
-                    ->where('id','=',$id)
-                    ->get();
-        foreach ($user as $key) {
-                $userOne = $key;
-        }
-
-        $typeUser = $userOne->type;
-        if($typeUser == 1){
-             $userOne->areas()->detach(); 
-           $areas = $request->input('area'); 
-            $areas = $this->getAreasSelected($areas);
-            //dd($areas);//arreglo de areas seleccionadas en formato de numeros
-            foreach ($areas as $area) {
-                $userOne->areas()->attach($area); 
-            }
-        }
-
-         $areasUser = DB::table('area_user')
-                            ->where('user_id', '=', $userOne->id)
-                            ->select('area_id')
-                            ->get();
-                $cont = 0;
-                foreach ($areasUser as $area) {
-                    $areasUser[$cont] = Area::where('id', '=', $area->area_id)
-                                        ->select('name')
-                                        ->get();
-                    $cont += 1;
-                }
-                
-               
-                $cont = 0;
-                foreach ($areasUser as $collection) {
-                    
-                    foreach ($collection as $array) {
-                        $name[$cont] = $array->name;
-                        $cont += 1;
-                    }
-               }          
-               // dd($name);
+        $this->updateData($request, $id, $this->get_id_academic_institution($request->input('academic_institution')));
+      
+        $user = User::with('areas')
+                    ->where('id',$id)
+                    ->first();
+        $this->save_areas($user, $request->input('area'));
         
+        $name = $this->get_areas($user);  
 
-         $areas = Area::all();
+        $areas = Area::all();
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
-
         Session::flash('flash_message', 'Usuario actualizado correctamente');
-        return view('user.edit', compact('user', 'typeUser', 'areas', 'name','academic_institutions'));
+        return view('user.edit', compact('user', 'areas', 'name','academic_institutions'));
     }
 
        /**
@@ -293,24 +227,17 @@ class UserController extends Controller
        $cont = 0;
         foreach ($areas as $areaId ) {
         if(is_numeric($areaId)){
-            $idArea = Area::where('id', '=', $areaId)
+            $area = Area::where('id', '=', $areaId)
                             ->select('id')
-                            ->get();
-            foreach ($idArea as $key2) {
-                    $valueArea = $key2->id;             
-            }
-            //dd($valueArea);
-            $selectedArea[$cont] = $valueArea;
+                            ->first();
+            $selectedArea[$cont] = $area->id;
             $cont += 1;
           }
          else {
-            $idArea = Area::where('name', '=', $areaId)
+            $area = Area::where('name', '=', $areaId)
                             ->select('id', 'name')
-                            ->get();
-            foreach ($idArea as $key2) {
-                    $valueArea = $key2->id;             
-            }
-            $selectedArea[$cont] = $valueArea;
+                            ->first();
+            $selectedArea[$cont] = $area->id;
             $cont += 1;      
          //   dd($areas[1]); //Arreglos de areas seleccionadas en numeros :D
              }
@@ -318,7 +245,7 @@ class UserController extends Controller
         return $selectedArea;
       }
 
-      private function updateData($request, $id, $valueId){
+      private function updateData($request, $id, $academic_institution){
 
         if(!(is_null($request->file('photo')))){
 
@@ -329,26 +256,41 @@ class UserController extends Controller
           $file_name = $photo->getClientOriginalName();
           $success = $photo->move($upload, $file_name);
 
-           DB::table('users')
-                    ->where('id', '=', $id)
+           User::where('id', '=', $id)
                     ->update([
                         'fullname' => $request->input('fullname'),
                         'email' => $request->input('email'),
-                        'academic_institution' => $valueId,
+                        'academic_institution' => $academic_institution,
                         'phone' => $request->input('phone'),
                         'contact' => $request->input('contact'),
                         'photo' => $file_name
                         ]);
         } else {
-           DB::table('users')
-                    ->where('id', '=', $id)
+           User::where('id', '=', $id)
                     ->update([
                         'fullname' => $request->input('fullname'),
                         'email' => $request->input('email'),
-                        'academic_institution' => $valueId,
+                        'academic_institution' => $academic_institution,
                         'phone' => $request->input('phone'),
                         'contact' => $request->input('contact')
                         ]);
         }  
+    }
+
+    private function get_id_academic_institution($academic_institution){
+      $academic_instituion = AcademicInstitution::where('name',$academic_institution)
+                                                    ->select('id')
+                                                    ->first();
+      return $academic_instituion->id;                                    
+    }
+
+    private function get_areas($user){
+        $areasUser = $user->areas()->select('name')->get();
+        $cont = 0;
+        foreach ($areasUser as $collection) {
+                $name[$cont] = $collection->name;
+                $cont += 1;
+        }
+        return $name;
     }
 }
