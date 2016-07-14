@@ -73,7 +73,7 @@
                     @endif
 
                     <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
-                    <p class="place">{{ $publication->place }}</p>                  
+                    <p class="place">{{ $publication->place->name }}</p>                  
                     <p class="start">Fecha de inicio: {{ $publication->start_date }}</p>
 
                     @if($publication->end_date!=null)

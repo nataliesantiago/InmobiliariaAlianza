@@ -18,19 +18,17 @@ class QueriesController extends Controller
 {
     
   public function search_area($id){
-    /*
-        $result_publications = DB::table('area_publication')
-                                    ->where('area_id','=',$id)
-                                    ->select('publication_id')
-                                    ->get();
-        if(! is_null($result_publications)){
-          $publications = $this->paginate($result_publications);
-          $areas = Area::all();
+        $areas = Area::all();
+        $area = Area::with('publications')
+                      ->where('id',$id)
+                      ->first();
+        if(count($area->publications()->get()) != 0){
+          $publications = $area->publications()->with('place')->paginate(2);
           return view('queries.result_search_advanced', compact('publications','areas'));
         } else {
-          return view('without_publication');
+          return view('without_publication', compact('areas'));
         }
-        */
+        
   }
 
   private function paginate($resultPublications){
@@ -114,11 +112,7 @@ class QueriesController extends Controller
           $result_publications = $this->getPublicationAreas($search,$areasSelected,$valueCity,$valueTypePublication);
          //dd($result_publications);
           if($result_publications[0] != 'vacio'){
-            $pageStart = \Request::get('page', 1);
-            $perPage = 50;
-            $offSet = ($pageStart * $perPage) - $perPage; 
-            $itemsForCurrentPage = array_slice($result_publications, $offSet, $perPage, true);
-            $publications = new LengthAwarePaginator($itemsForCurrentPage, count($result_publications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));
+            $publication = $this->paginate($result_publications);
             return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
