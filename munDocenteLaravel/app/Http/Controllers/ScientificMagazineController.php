@@ -31,6 +31,7 @@ class ScientificMagazineController extends Controller
     {
         if (Auth::guest()){
             $publications = $this->publicationsGuest();
+            //dd($publications);
             $areas = Area::all();
                //dd($publications);
              return view('scientific_magazine.index', [
@@ -109,11 +110,18 @@ class ScientificMagazineController extends Controller
             'category'  => $this->getIdCategory($request->category),
             'url' => $request->url,
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
             'description' => $request->description,
             'user_id' => $request->user()->id,
             'place_id' => $this->getIdCity($request->city),
             ]);
+        if($request->end_date == ""){
+           
+        } else {
+            Publication::where('id',$publication->id)
+                        ->update([
+                            'end_date' => $request->end_date
+                            ]);
+        }
         $this->assignAreasToPublication($publication, $request->area);
         $areas = Area::all();
         $places = Place::where('type', '=', 1)
@@ -209,12 +217,21 @@ class ScientificMagazineController extends Controller
     }
    //publications vigentes
     private function publicationsVigent(){
-        return Publication::with('user' ,'typeScientificMagazine', 'place')
-                                    ->where('type', '=', 2)
+        $date_vigent = Publication::with('user' ,'typeScientificMagazine', 'place')
                                     ->where('end_date', '>=', Carbon::now()->format('Y-m-d'))
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
+                                    ->get();
+        $cont = 0;                                    
+        foreach ($date_vigent as $publication) {
+            if($publication->type == 2){
+                 $publications[$cont] = $publication;
+                 $cont += 1;
+            }
+        }                                 
+        $publications = $this->paginate($publications);
+        //dd($publications);
+        return $publications;
    }
    //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
    private function getPublicationsDocent(){
@@ -230,9 +247,11 @@ class ScientificMagazineController extends Controller
         $count = 0; 
         foreach ($areasDocent as $area) {
             if(count($area->publications()->get()) != 0){
-                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('type', '=', 2)->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
-                    $publications[$count] = $publication;
-                    $count += 1;
+                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
+                    if($publication->type == 2){
+                        $publications[$count] = $publication;
+                        $count += 1;
+                    }
                 }
             }           
         }

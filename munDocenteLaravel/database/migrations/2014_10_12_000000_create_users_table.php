@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('contact',255)->nullable();
             $table->boolean('activedMe')->default(true);
             $table->boolean('activedAdmin')->default(false);
+            $table->boolean('receive_notifications')->default(false);
             $table->integer('academic_institution')->unsigned();
             $table->integer('type')->unsigned();
             $table->foreign('type')->references('id')->on('type_of_mundocente_users');

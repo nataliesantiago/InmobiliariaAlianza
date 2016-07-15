@@ -70,6 +70,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        //dd(isset($data['notifications']));
         //dd($this->get_academic_institution($data['academic_institution'])); 
         $user = User::create([
             'username' => $data['username'],
@@ -80,7 +81,13 @@ class AuthController extends Controller
             'academic_institution' => $this->get_academic_institution($data['academic_institution']),
         ]);
         //dd($data['area'][0]);
-        $user->areas()->attach($this->get_area($data['area'][0]));     
+        if($user->type == 1){
+         $user->areas()->attach($this->get_area($data['area'][0]));
+         User::where('id',$user->id)
+               ->update([
+                    'receive_notifications' => isset($data['notifications'])  
+                ]);   
+        }
         return $user;
     }
 

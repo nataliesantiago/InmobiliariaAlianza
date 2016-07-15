@@ -104,11 +104,18 @@ class AcademicEventController extends Controller
             'type' => 3,
             'url' => $request->url,
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
             'description' => $request->description,
             'user_id' => $request->user()->id,
             'place_id' => $this->getIdCity($request->city),
             ]);
+        if($request->end_date == ""){
+           
+        } else {
+            Publication::where('id',$publication->id)
+                        ->update([
+                            'end_date' => $request->end_date
+                            ]);
+        }
         $this->assignAreasToPublication($publication, $request->area);
         $areas = Area::all();
         $places = Place::where('type', '=', 1)
@@ -200,13 +207,20 @@ class AcademicEventController extends Controller
     }
    //publications vigentes
     private function publicationsVigent(){
-        $dt = Carbon::now()->format('Y-m-d');
-        return Publication::with('user' ,'typeScientificMagazine', 'place')
-                                    ->where('type', '=', 3)
-                                    ->where('end_date', '>=', $dt)
+        $date_vigent = Publication::with('user' ,'typeScientificMagazine', 'place')
+                                    ->where('end_date', '>=', Carbon::now()->format('Y-m-d'))
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
+                                    ->get();
+        $cont = 0;                                    
+        foreach ($date_vigent as $publication) {
+            if($publication->type == 3){
+                 $publications[$cont] = $publication;
+                 $cont += 1;
+            }
+        }                                 
+        $publications = $this->paginate($publications);
+        return $publications;
    }
    //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
    private function getPublicationsDocent(){
@@ -222,9 +236,11 @@ class AcademicEventController extends Controller
         $count = 0; 
         foreach ($areasDocent as $area) {
             if(count($area->publications()->get()) != 0){
-                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('type', '=', 3)->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
-                    $publications[$count] = $publication;
-                    $count += 1;
+                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
+                    if($publication->type == 3){
+                        $publications[$count] = $publication;
+                        $count += 1;
+                    }
                 }
             }           
         }

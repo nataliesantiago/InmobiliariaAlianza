@@ -126,12 +126,9 @@ class IndexController extends Controller
    
    //obteniendo el usuario actual
    private function getUser(){
-        $users = User::with('typeOfUser', 'areas.publications')
+        $user = User::with('typeOfUser', 'areas.publications')
                         ->where('id' ,'=', Auth::user()->id)
-                        ->get();
-        foreach ($users as $value) {
-            $user = $value;
-        }
+                        ->first();
         return $user;
    }
 
