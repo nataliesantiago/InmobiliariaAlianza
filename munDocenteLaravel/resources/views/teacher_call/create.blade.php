@@ -76,6 +76,7 @@
 
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
+			                <h4>Al dejar vacio el campo fecha fin esta indicando que la convocatoria es permanente</h4>
 			                    <div class="input-group" id='datetimepicker1'>
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 			                    	<input type="text" class="form-control" name="end_date" placeholder="Fecha fin " id="dateEnd" value="{{ old('end_date') }}">

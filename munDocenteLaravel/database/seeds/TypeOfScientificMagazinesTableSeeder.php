@@ -18,34 +18,10 @@ class TypeOfScientificMagazinesTableSeeder extends Seeder
         	'value' => 'A2',	
         ]);
         DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'B1',	
+        	'value' => 'B',	
         ]);
         DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'B2',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'B3',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'B4',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'C1',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'C2',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'C3',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'D1',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'EX1',	
-        ]);
-        DB::table('type_of_scientific_magazines')->insert([
-        	'value' => 'EX2',	
+        	'value' => 'C',	
         ]);
         DB::table('type_of_scientific_magazines')->insert([
         	'value' => 'SIN CATEGORIA',	

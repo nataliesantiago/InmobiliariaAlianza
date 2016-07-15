@@ -88,8 +88,18 @@
                     @endif
                     
 
-                    <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
+                   @if($publication->type==1)
+                        <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir convocatoria <i class="glyphicon glyphicon glyphicon-link"></i></a>
                     </p>
+                   @endif
+                    @if($publication->type==2)
+                          <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir revista <i class="glyphicon glyphicon glyphicon-link"></i></a>
+                    </p>
+                   @endif
+                    @if($publication->type==3)
+                         <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir evento <i class="glyphicon glyphicon glyphicon-link"></i></a>
+                    </p>
+                   @endif
                 <hr>
              
                 @endforeach

@@ -103,7 +103,7 @@
                 @endif
                 
 
-                <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir link</a>
+                <p class="category"><a href="{{ $publication->url }}" class="button alt2"> Abrir evento <i class="glyphicon glyphicon glyphicon-link"></i></a>
                 </p>
                 </div>
             <hr>
