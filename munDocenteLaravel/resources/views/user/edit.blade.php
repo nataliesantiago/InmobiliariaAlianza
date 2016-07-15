@@ -189,6 +189,7 @@
 										@endif
 										</div>
 									</div>
+									@yield('notification_mail')
 									<div class="12u$">
 										<ul class="actions">
 											<center>
