@@ -161,8 +161,11 @@ class UserController extends Controller
 
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
+        //dd($user);
         if($user->type != 3){
+          if($user->type == 1){
             $name = $this->get_areas($user);  
+          }
           return view('user.edit', compact('user', 'areas', 'academic_institutions', 'name'));
         }else {
           return view('errors.edit_admin');
