@@ -235,32 +235,30 @@ class TeacherCallController extends Controller
    }
    //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
    private function getPublicationsDocent(){
-        //extrayendo las areas de un usuario
-        $users = User::with('areas')
-                    ->where('id', '=', Auth::user()->id)
-                    ->get();
-        foreach ($users as $user) {
-            $areasDocent = $user->areas()->with('publications')->orderBy('name')->get();
-        }
+    $areasDocent = $this->getUser()->areas()->with('publications')->orderBy('name')->get();
+        // dd($areasDocent);
         //tomando las publicaciones de las áreas del usuario
         $dt = Carbon::now()->format('Y-m-d');
         $count = 0; 
         foreach ($areasDocent as $area) {
+            //dd($area->publications()->get());
             if(count($area->publications()->get()) != 0){
-                foreach ($area->publications()->with('user' ,'typeScientificMagazine', 'place')->where('end_date', '>=', $dt)->orWhere('end_date', '=', null)->orderBy('start_date', 'desc')->get() as $publication) {
-                    //dd($publication);
+                foreach ($area->publications()->orderBy('start_date', 'desc')->get() as $publication) {
                     if($publication->type == 1){
-                        $publications[$count] = $publication;
-                        $count += 1;
-                    }    
+                        if($publication->end_date >= $dt || $publication->end_date == null){
+                            $publications[$count] = $publication;
+                            $count += 1;
+                         }  
+                    }                    
                 }
             }           
         }
-        if($count==0){
+        if($count == 0){
             $publications[$count] = 'vacio';
         }
-       // dd($publications);
+        //dd($publications);
         return $publications;
+        
    }
     //validación del uusario para ingresar al formulario de crear
    private function isValidate(){
