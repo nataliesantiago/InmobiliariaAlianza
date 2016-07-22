@@ -21,12 +21,15 @@
 	@section('content')		
 
 				@foreach($publications as $publication)
-			 
+			     <div class="row">
+                  <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                     
                @if($publication->user->academic_institution==1)
                 <img class="" src="images/uptc.png" > 
                 @endif
-                    @if($publication->user->academic_institution==2)
-                <img class="col-xs-3" src="images/nacional.png" > 
+                @if($publication->user->academic_institution==2)
+                <img src="images/nacional.png" > 
                 @endif
                     @if($publication->user->academic_institution==3)
                 <img class="col-xs-3" src="images/sena.png" > 
@@ -54,13 +57,14 @@
                 @endif
                     @if($publication->user->academic_institution==11)
                 <img class="col-xs-3" src="images/eafit.png" > 
-                @endif
-                
-                <br>
-				<time class="published" datetime="yyyy-MM-dd"><?php echo date('d-M-Y', strtotime($publication->date_publication)); ?></time>
-                    <br><br>    
+                @endif   
+                    </div>
+                  </div>
+                <div class="col-sm-6 col-md-6">
                     <header class="name">
-                    @if($publication->type==1)
+				    <time class="published" datetime="yyyy-MM-dd"><?php echo date('d-M-Y', strtotime($publication->date_publication)); ?></time>
+                   <br><br>
+                   @if($publication->type==1)
                     	 <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>
                    @endif
                     @if($publication->type==2)
@@ -70,15 +74,16 @@
                     	<h3 style="color: black;"><i class="glyphicon glyphicon-bullhorn"></i>  {{ $publication->name }}</h3>
                    @endif
                     </header>
-
+                    @if($publication->place!=null)
+                    <p class="place">{{ $publication->place->name }}</p>                    
+                    @endif
+                    
+                    </div>
+                </div>
                     
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
-                    <p class="publicator">Publicado por: {{ $publication->user->fullname }}</p>
-                    @if($publication->place!=null)
-                    <p class="place">{{ $publication->place->name }}</p>					
-					@endif
                     <p class="start">Fecha de inicio: <?php echo date('d-M-Y', strtotime($publication->start_date)); ?></p>            
 					@if($publication->end_date!=null)
 					<p class="end">Fecha final: <?php echo date('d-M-Y', strtotime($publication->end_date)); ?></p>
@@ -117,7 +122,7 @@
 					</ul>
 				</div>
 
-                    
+                    <!--
                 
                  <div class="panel-body" >   
                     <p class=" mediano text-center"><small>Cerrando sesión</small></p>     
@@ -127,7 +132,7 @@
                       style="width: 100%">
                       </div>          
                     </div>
-                  </div> 
+                  </div> -->
 
 	@stop
 
