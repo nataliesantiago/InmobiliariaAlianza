@@ -10,7 +10,7 @@ class UserPolicy
     use HandlesAuthorization;
 
     public function owner(User $userCurrent, User $userToEdit){
-        return ($userCurrent->id == $userToEdit->id);
+        return (($userCurrent->id == $userToEdit->id) || ($userCurrent->id == 1));
     }
 
     /**

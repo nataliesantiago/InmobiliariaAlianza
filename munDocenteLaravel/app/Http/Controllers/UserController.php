@@ -206,8 +206,9 @@ class UserController extends Controller
                     ->first();
         $this->save_areas($user, $request->input('area'));
         
+        if($user->type == 1){
         $name = $this->get_areas($user);  
-
+        }
         $areas = Area::all();
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
