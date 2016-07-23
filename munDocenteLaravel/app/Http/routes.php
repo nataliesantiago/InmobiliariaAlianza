@@ -22,6 +22,8 @@ Route::resource('academic_event', 'AcademicEventController');
 
 Route::resource('scientific_magazine', 'ScientificMagazineController');
 
+Route::resource('university', 'UniversityController');
+
 Route::get('/admin', 'IndexController@index');
 
 Route::get('/desactived_admin/{id}', 'UserController@desactived_admin');

@@ -100,6 +100,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             @if(Auth::user()->type==2 || Auth::user()->type==1)
                             <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
                             @endif
+                             @if(Auth::user()->type==3)                            
+                            <li><a href="{{ url('/university/create') }}"><ii class="glyphicon glyphicon-plus"></i>      Agregar universidad o institucion</a></li>
+                            @endif
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
                                                                
                             </ul>
