@@ -5,8 +5,9 @@
     <li class="current"><a href="/admin">
 		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
 		<li ><a href="/university">
-<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Academicas</a></li>
+<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
 
+       
 @stop
 
 @section('principal')

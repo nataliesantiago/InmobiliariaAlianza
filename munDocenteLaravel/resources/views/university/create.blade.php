@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-				<center><h2 class="count">AGREGAR UNIVERSIDAD O INSTITUCION ACADEMICA</h2></center>			
+				<center><h2 class="count">AGREGAR UNIVERSIDAD O INSTITUCIÓN ACADÉMICA</h2></center>			
 			</div>
 			<div class="2u 12u(mobile)"></div>
 
@@ -36,7 +36,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institucion *" name="name" value="{{ old('name') }}">
+			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institución *" name="name" value="{{ old('name') }}">
 			                    </div>		
 			                    
 			                </div>
@@ -60,7 +60,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			                    	<input type="text" class="form-control" required placeholder="Correo electronico *" name="email" value="{{ old('email') }}" >
+			                    	<input type="text" class="form-control" required placeholder="Correo electrónico *" name="email" value="{{ old('email') }}" >
 			                    </div>		
 			                    
 			                </div>
@@ -70,7 +70,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" >
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			                    	<input type="text" class="form-control" name="phone" placeholder="Telefono *" value="{{ old('phone') }}" >
+			                    	<input type="text" class="form-control" name="phone" placeholder="Teléfono *" value="{{ old('phone') }}" >
 
 			                    	
 			                    </div>	

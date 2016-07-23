@@ -5,7 +5,7 @@
      <li ><a href="/admin">
 		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
 	<li class="current"><a href="/university">
-		<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Academicas</a></li>
+		<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
 
 @stop
 
@@ -44,11 +44,11 @@
             @endif
 
              @if($academic_institution->email!=null)
-            <p class="emailUn">Correo electronico: {{ $academic_institution->email }}</p>
+            <p class="emailUn">Correo electrónico: {{ $academic_institution->email }}</p>
             @endif
 
              @if($academic_institution->phone!=null)
-            <p class="phoneU">Telefono: {{ $academic_institution->phone }}</p>
+            <p class="phoneU">Teléfono: {{ $academic_institution->phone }}</p>
             @endif
 
              @if($academic_institution->description!=null)
@@ -56,7 +56,7 @@
             @endif
 
              @if($academic_institution->place!=null)
-            <p class="placeU">{{ $academic_institution->place->name}}</p>
+            <p class="placeU">Lugar: {{ $academic_institution->place->name}}</p>
             @endif     
 			                             
                

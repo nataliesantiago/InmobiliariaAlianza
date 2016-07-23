@@ -6,7 +6,7 @@
      <li><a href="/admin">
 		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
 		<li ><a href="/university">
-<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Academicas</a></li>
+<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
 
 @stop
 
@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u 12u(mobile)">
-				<center><h2 class="count">EDITAR UNIVERSIDAD O INSTITUCION ACADEMICA</h2></center>			
+				<center><h2 class="count">EDITAR UNIVERSIDAD O INSTITUCIÓN ACADÉMICA</h2></center>			
 			</div>
 			<div class="2u 12u(mobile)"></div>
 
@@ -44,7 +44,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institucion *" name="name" value="{{ $academic_institution->name }}">
+			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institución *" name="name" value="{{ $academic_institution->name }}">
 			                    </div>		
 			                    
 			                </div>
@@ -69,7 +69,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			                    	<input type="text" class="form-control" required placeholder="Correo electronico *" name="email" value="{{ $academic_institution->email }}" >
+			                    	<input type="text" class="form-control" required placeholder="Correo electrónico *" name="email" value="{{ $academic_institution->email }}" >
 			                    </div>		
 			                    
 			                </div>
@@ -79,7 +79,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" >
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			                    	<input type="text" class="form-control" name="phone" placeholder="Telefono *" value="{{ $academic_institution->phone }}" >
+			                    	<input type="text" class="form-control" name="phone" placeholder="Teléfono *" value="{{ $academic_institution->phone }}" >
 
 			                    	
 			                    </div>	

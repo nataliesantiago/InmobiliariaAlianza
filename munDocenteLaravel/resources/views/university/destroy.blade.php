@@ -6,7 +6,7 @@
      <li><a href="/admin">
         <i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
         <li ><a href="/university">
-<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Academicas</a></li>
+<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
 
 @stop
 
@@ -25,7 +25,7 @@
 
                     <div class="alert alert-danger alert-dismissible" role="alert">
                       <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      ¡Completo!</h4>&nbsp;&nbsp;&nbsp;La institución academica fue eliminada correctamente. 
+                      ¡Completo!</h4>&nbsp;&nbsp;&nbsp;La institución académica fue eliminada correctamente. 
                     </div>
                 </section>
             </div>

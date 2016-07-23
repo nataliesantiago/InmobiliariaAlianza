@@ -100,9 +100,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             @if(Auth::user()->type==2 || Auth::user()->type==1)
                             <li><a href="{{ route('user.edit', Auth::user()->id) }}"><i class="glyphicon glyphicon-cog"></i>     Configuración</a></li>
                             @endif
-                             @if(Auth::user()->type==3)                            
-                            <li><a href="{{ url('/university/create') }}"><ii class="glyphicon glyphicon-plus"></i>      Agregar universidad o institucion</a></li>
+
+                             @if(Auth::user()->type==3 )                            
+                           <li><a href="{{ url('/university/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Universidad o Institución</a></li>
+                            <li><a href="{{ url('/teacher_call/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Convocatorias</a></li>
+                            <li><a href="{{ url('/scientific_magazine/create') }}"><i class="glyphicon glyphicon-plus"></i>      Agregar Revistas Científicas </a></li>
+                            <li><a href="{{ url('/academic_event/create') }}"><i class="glyphicon glyphicon-plus"></i>     Agregar Eventos Académicos</a></li>
                             @endif
+
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>      Salir</a></li>
                                                                
                             </ul>
