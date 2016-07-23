@@ -51,13 +51,12 @@
 			                </div>
 			            </div>
 			           
-			            <div class="form-group">
+			             <div class="form-group">
 			                <div class="12u$(xsmall)">
-			                    <div class="input-group" id='datetimepicker1'>
+			                    <div class="input-group" >
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			                    	<input type="text" class="form-control" name="start_date" placeholder="Telefono *" id="phone_univ" >
-
-			                    	
+			                    	<input type="text" class="form-control" name="phone" placeholder="Telefono *"  >
+                    	
 			                    </div>	
 			                  
 			                </div>

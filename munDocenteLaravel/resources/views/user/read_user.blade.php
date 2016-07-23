@@ -48,15 +48,17 @@
 						   		<ul class="nav navbar-nav navbar-right">
 						        <a href="/actived_admin/{{ $user->id }}"><button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
 						   		<i class="glyphicon glyphicon-ok-circle"></i></button></a>
-						   		<a href=""><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
-						   		<i class="glyphicon glyphicon-edit"></i></button></a>
-								</ul>
+						   		</ul>
 						   	@else
 						   	<ul class="nav navbar-nav navbar-right">
 						    	<a href="/desactived_admin/{{ $user->id }}"><button type="button" name="inactivateUser" class="btn btn-danger">Inactivar 
 						   		<i class="glyphicon glyphicon-remove-circle"></i></button></a>
 						   		</ul>
 						   	@endif
+							<ul class="nav navbar-nav navbar-right">
+						   	<a href=""><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
+						   		<i class="glyphicon glyphicon-edit"></i></button></a>
+						   	</ul>
 							</div>
 						</div>
 						<div class="12u 12u$(xsmall)">

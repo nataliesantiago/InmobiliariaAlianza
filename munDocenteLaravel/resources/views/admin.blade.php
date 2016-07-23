@@ -36,6 +36,10 @@
 			   		<i class="glyphicon glyphicon-remove-circle"></i></button></a>
 			   		</ul>
 			   	@endif
+			   	<ul class="nav navbar-nav navbar-right">
+						   	<a href=""><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
+						   		<i class="glyphicon glyphicon-edit"></i></button></a>
+						   	</ul>
 			    </div>
 			    <br>
 			    @endforeach
