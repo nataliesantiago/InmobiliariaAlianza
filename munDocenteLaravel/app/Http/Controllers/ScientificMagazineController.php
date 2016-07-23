@@ -210,7 +210,7 @@ class ScientificMagazineController extends Controller
     }
     //publicacione sde los no registrados
     private function publicationsGuest(){
-        return $this->publicationsVigent();
+        return $this->paginate($this->publicationsVigent());
    } 
    private function getPublicationPublisher(){
         return $this->getUser()->publications()->where('type',2)->paginate(2);
@@ -218,11 +218,22 @@ class ScientificMagazineController extends Controller
    //publications vigentes
     private function publicationsVigent(){
         $dt = Carbon::now()->format('Y-m-d');
-        return Publication::with('user' ,'typeScientificMagazine', 'place')
+        $publications = Publication::with('user' ,'typeScientificMagazine', 'place')
                                     ->where('end_date', '>=', $dt)
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
+                                    ->get();
+    $count = 0;                                
+    foreach ($publications as $publication) {
+        if($publication->type == 2){
+            $aux[$count] = $publication;
+            $count += 1;
+        }
+    }
+    if($count == 0){
+        $aux[$count] = 'vacio';
+    }
+        return $aux;
    }
    //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
    private function getPublicationsDocent(){

@@ -212,17 +212,27 @@ class TeacherCallController extends Controller
 
     //publicacione sde los no registrados
     private function publicationsGuest(){
-        $publications = $this->publicationsVigent();
-        return $publications;
+        return $this->paginate($this->publicationsVigent());
    } 
    //publications vigentes
     private function publicationsVigent(){
         $dt = Carbon::now()->format('Y-m-d');
-        return Publication::with('user' ,'typeScientificMagazine', 'place')
+        $publications = Publication::with('user' ,'typeScientificMagazine', 'place')
                                     ->where('end_date', '>=', $dt)
                                     ->orWhere('end_date', '=', null)
                                     ->orderBy('start_date', 'desc')
-                                    ->paginate(2);
+                                    ->get();
+        $count = 0;                                
+        foreach ($publications as $publication) {
+            if($publication->type ==1){
+                $aux[$count] = $publication;
+                $count += 1;
+            }
+        }
+        if($count == 0){
+            $aux[$count] = 'vacio';
+        }
+            return $aux;
    }
    //metodo que evalua las areas del usuario y retorna la pbulicaciones de ese usuario
    private function getPublicationsDocent(){
