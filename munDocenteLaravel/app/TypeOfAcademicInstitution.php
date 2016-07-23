@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\;
+namespace MunDocente;
 
 use Illuminate\Database\Eloquent\Model;
 use MunDocente\AcademicInstitution;

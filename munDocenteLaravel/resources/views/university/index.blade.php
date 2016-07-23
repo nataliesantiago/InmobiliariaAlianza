@@ -17,21 +17,23 @@
 
  			<div class="2u 12u(mobile)"></div>
  			<div class="8u 12u(mobile)">
- 			<section class="box">
-
+            @foreach($academic_institutions as $academic_institution)
+ 			<section class="box">  
  			<ul class="nav navbar-nav navbar-right">
-                        <button type="button" name="editUniversity" class="btn btn-primary" ><a class="editPub" href="">Editar 
+                        <button type="button" name="editUniversity" class="btn btn-primary" ><a class="editPub" href="{{ route('university.edit', $academic_institution->id) }}">Editar 
                         <i class="glyphicon glyphicon-edit"></i></a></button>  
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     
-                        <button class="btn btn-danger" type="submit">Eliminar 
-                        <i class="glyphicon glyphicon-remove-circle"></i></button>
+                        {!! Form::open(array('route' => array('university.destroy', $academic_institution->id), 'method' => 'delete')) !!}
+                            <button class="btn btn-danger" type="submit">Eliminar 
+                            <i class="glyphicon glyphicon-remove-circle"></i></button>
+                        {!! Form::close() !!}
                     
                         &nbsp;&nbsp;
                      </ul>
-   
                 </section>
+            @endforeach
 			</div>
 		</div>
 	</div>

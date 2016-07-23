@@ -30,12 +30,27 @@
 				
 					<hr>
 			        <div class="row uniform">
-			        	
+			        {!! Form::open(['id' => 'valForm','route' => 'university.store', 'method' => 'POST']) !!}
+			        {!! csrf_field() !!}
 			            <div class="form-group">
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institucion *" name="name_university">
+			                    	<input type="text" class="form-control" placeholder="Nombre de la universidad o institucion *" name="name" value="{{ old('name') }}">
+			                    </div>		
+			                    
+			                </div>
+			            </div>
+
+			            <div class="form-group">
+			                <div class="12u$(xsmall)">
+			                    <div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+			                    	<select class="form-control" name="type">             
+										@foreach($type_universitys as $type)
+										<option>{{ $type->value }}</option>
+										@endforeach
+									</select>
 			                    </div>		
 			                    
 			                </div>
@@ -45,7 +60,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			                    	<input type="text" class="form-control" required placeholder="Correo electronico *" name="email_university" >
+			                    	<input type="text" class="form-control" required placeholder="Correo electronico *" name="email" value="{{ old('email') }}" >
 			                    </div>		
 			                    
 			                </div>
@@ -55,7 +70,7 @@
 			                <div class="12u$(xsmall)">
 			                    <div class="input-group" >
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			                    	<input type="text" class="form-control" name="phone" placeholder="Telefono *"  >
+			                    	<input type="text" class="form-control" name="phone" placeholder="Telefono *" value="{{ old('phone') }}" >
 
 			                    	
 			                    </div>	
@@ -89,7 +104,7 @@
 			                </div>
 			            </div>
 
-
+			             
 
 			            <br>
 			            <center class="btnregis"><div class="form-group">
@@ -99,9 +114,9 @@
 			                    </button>
 			                </div>
 			            </div></center>
-			        </div>
-			     
-			    
+			        {!! Form::close() !!}
+
+			        </div>			    
 			    </section>
 			</div>
         </div>
