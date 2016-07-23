@@ -48,6 +48,8 @@
 						   		<ul class="nav navbar-nav navbar-right">
 						        <a href="/actived_admin/{{ $user->id }}"><button type="button" href="/manage_users" name="activateUser" class="btn btn-success">Activar 
 						   		<i class="glyphicon glyphicon-ok-circle"></i></button></a>
+						   		<a href=""><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
+						   		<i class="glyphicon glyphicon-edit"></i></button></a>
 								</ul>
 						   	@else
 						   	<ul class="nav navbar-nav navbar-right">
