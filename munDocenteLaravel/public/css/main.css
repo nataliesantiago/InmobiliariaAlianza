@@ -2806,3 +2806,32 @@ ul.social_login {
 .checkbox{
 	top: -20px;
 }
+
+.typeU{
+	position: relative;
+    top: -40px;
+}
+
+.emailUn{
+	position: relative;
+    top: -79px;
+}
+
+.phoneU{
+	position: relative;
+    top: -116px;
+}
+
+.descriptionU{
+	 position: relative;
+    top: -153px;
+}
+
+.placeU{
+	position: relative;
+    top: -190px;
+}
+
+.university{
+	height: 210px;
+}

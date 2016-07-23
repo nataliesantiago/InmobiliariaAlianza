@@ -17,9 +17,12 @@
 
  			<div class="2u 12u(mobile)"></div>
  			<div class="8u 12u(mobile)">
+<section class="box">  
+
             @foreach($academic_institutions as $academic_institution)
- 			<section class="box">  
- 			<ul class="nav navbar-nav navbar-right">
+ 			 <div class="university">
+
+            <ul class="nav navbar-nav navbar-right">
                         <button type="button" name="editUniversity" class="btn btn-primary" ><a class="editPub" href="{{ route('university.edit', $academic_institution->id) }}">Editar 
                         <i class="glyphicon glyphicon-edit"></i></a></button>  
                     </ul>
@@ -32,8 +35,36 @@
                     
                         &nbsp;&nbsp;
                      </ul>
-                </section>
+            @if($academic_institution->name!=null)
+            <p class="nameU">Nombre: {{ $academic_institution->name }}</p>
+            @endif
+
+            @if($academic_institution->type!=null)
+            <p class="typeU">Tipo de universidad o institución: {{ $academic_institution->type_universitys->value}}</p>
+            @endif
+
+             @if($academic_institution->email!=null)
+            <p class="emailUn">Correo electronico: {{ $academic_institution->email }}</p>
+            @endif
+
+             @if($academic_institution->phone!=null)
+            <p class="phoneU">Telefono: {{ $academic_institution->phone }}</p>
+            @endif
+
+             @if($academic_institution->description!=null)
+            <p class="descriptionU">Descripción: {{ $academic_institution->description }}</p>
+            @endif
+
+             @if($academic_institution->place!=null)
+            <p class="placeU">{{ $academic_institution->place->name}}</p>
+            @endif     
+			                             
+               
+               </div> 
+               <hr>
             @endforeach
+            
+          </section>
 			</div>
 		</div>
 	</div>
