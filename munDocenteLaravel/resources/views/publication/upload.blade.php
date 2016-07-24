@@ -14,7 +14,7 @@
     <div class="12u$(xsmall)">
         <div class="input-group" id='datetimepicker1'>
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        	<input type="text" class="form-control"  name="start_date"  id="dateInit" value="{{$publication->start_date}}">
+        	<input type="text" class="form-control"  name="start_date"  id="dateInit" value="<?php echo date('Y/m/d', strtotime($publication->start_date)); ?>">
         </div>	
       
     </div>
@@ -26,7 +26,7 @@
     <div class="12u$(xsmall)">
         <div class="input-group" id='datetimepicker1'>
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        	<input type="text" class="form-control"  name="end_date"  id="dateEnd" value="{{$publication->end_date}}">
+        	<input type="text" class="form-control"  name="end_date"  id="dateEnd" value="<?php echo date('Y/m/d', strtotime($publication->end_date)); ?>">
         </div>				                  
     </div>
 </div>

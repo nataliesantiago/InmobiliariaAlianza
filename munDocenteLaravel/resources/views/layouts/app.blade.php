@@ -32,23 +32,22 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         
                         <form action="{{ url('result_search_basic')}}" method="post" class="navbar-form navbar-right">
                         {!! csrf_field() !!}
-
-                            <div class="nav nav-pills nav-stacked">         
+                            <div class="search">    
                                 <input type="text" class="form-control" name="keyLetter"  placeholder="Búsqueda" /> 
                                 @if ($errors->has('keyLetter'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('keyLetter') }}</strong>
                                         </span>
                                 @endif
+                                 <input class="btn btn-default" type="submit" value="Ir">
+                            </div>
                                 @if (! Auth::guest())
                                 @if(Auth::user()->type==1)
-                                <a href="/search_advanced">Búsqueda avanzada</a>
+                                    <a href="/search_advanced" class="searchA">Búsqueda avanzada</a>
                                 @endif
                                 @endif
-                            </div>
-
-                            <input class="btn btn-default" type="submit" value="Ir">
-                            
+                               
+                             
                         </form>
 
                     </div>    

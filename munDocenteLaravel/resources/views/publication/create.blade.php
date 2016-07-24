@@ -2,7 +2,7 @@
     <div class="12u$(xsmall)">
         <div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-        	<input type="text" class="form-control" placeholder="Nombre de la revista científica *" required name="name" value="{{ old('name') }}">
+        	<input type="text" class="form-control" placeholder="Nombre *" required name="name" value="{{ old('name') }}">
         </div>		
         
     </div>

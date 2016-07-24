@@ -1884,7 +1884,6 @@ div#slider div.elemento img{
 
 			.box {
 				padding: 2.75em 1.75em 2.75em 1.75em;
-				
 			}
 
 				.box .image.featured {
@@ -2524,7 +2523,7 @@ div#slider div.elemento img{
 
 .place{
 	position: relative;
-    top: -110px;
+    top: -16px;
 }
 
 .start{
@@ -2835,4 +2834,16 @@ ul.social_login {
 
 .university{
 	height: 210px;
+}
+
+.searchA{
+	position: relative;
+    top: 17px;
+    left: -10px;
+}
+
+.search{
+	position: relative;
+    top: 5px;
+    left: 0px;
 }
