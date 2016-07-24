@@ -176,6 +176,25 @@
 										</div>
 										</div>
 									</div>
+								@if($user->type == 1)
+										<div class="12u$">
+											<div class="form-group">
+											<label class="control-label col-xs-4">Recibir notificaciones al correo</label>
+											<div class="col-xs-8">
+											<select name="receive_notificacions" class="form-control" />
+												@if($user->receive_notifications)
+												<option>Sí</option>
+												<option>No</option>
+												@else
+												<option>No</option>
+												<option>Sí</option>
+												@endif
+											</select>
+											</div>
+											</div>
+										</div>								
+								@endif
+
 									<div class="12u 12u$(xsmall)">
 										<div class="form-group">
 										
@@ -188,7 +207,6 @@
 										@endif
 										</div>
 									</div>
-									@yield('notification_mail')
 									<div class="12u$">
 										<ul class="actions">
 											<center>

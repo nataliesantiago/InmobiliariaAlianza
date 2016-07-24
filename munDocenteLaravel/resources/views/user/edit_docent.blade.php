@@ -31,12 +31,4 @@
 !-->
 @stop
 
-@section('notification_mail')
 
-	<div class="col-xs-12">		            	
-			<label class="checkbox ">
-				<input type="checkbox" name="notifications"> Autorizó recibir notificaciones por correo electronico								 
-            </label>
-		
-	</div>				
-@stop
