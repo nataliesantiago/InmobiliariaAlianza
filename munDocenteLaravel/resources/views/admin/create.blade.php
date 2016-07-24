@@ -25,17 +25,21 @@
 						    <span class="sr-only">Toggle Dropdown</span>
 						  </button>
  						 <ul class="dropdown-menu" role="menu">
-					    <li><a href="/user/create_docent">Docente</a></li>
-					    <li><a href="/user/create_publisher">Publicador</a></li>
+					    <li><a href="/admin/create_docent">Docente</a></li>
+					    <li><a href="/admin/create_publisher">Publicador</a></li>
 					     </ul>
 						</div>
 						<p>Campos obligatorios *</p>
 					
-				
+					
 					<hr>
-			        <form id="valForm" class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
+			        <form id="valForm" class="form login-form" role="form" method="POST" action="{{ url('/create_user') }}">
 			            {!! csrf_field() !!}
-
+			            @if(Session::has('flash_message'))
+	   						 <div class="alert alert-success">
+	      				  		{{ Session::get('flash_message') }}
+	  					  	 </div>
+						@endif
 			        <div class="row uniform">
 			            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 		                    <div class="input-group">
