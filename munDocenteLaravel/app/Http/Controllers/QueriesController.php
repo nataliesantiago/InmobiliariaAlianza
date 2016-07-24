@@ -24,9 +24,9 @@ class QueriesController extends Controller
                       ->first();
         if(count($area->publications()->get()) != 0){
           $publications = $area->publications()->with('place')->paginate(2);
-          return view('queries.result_search_advanced', compact('publications','areas'));
+          return view('queries.result_search_areas', compact('publications','areas'));
         } else {
-          return view('without_publication', compact('areas'));
+          return view('without_area', compact('areas'));
         }
         
   }

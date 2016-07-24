@@ -106,7 +106,7 @@ $('#valForm').bootstrapValidator({
 		 	validators: {
 				 date: {
 					 format: 'YYYY/MM/DD',
-					 message: 'La fecha de finalización no es valida'
+					 message:  'La fecha de finalización no es valida'
 				 }
 		 	}
 		 },

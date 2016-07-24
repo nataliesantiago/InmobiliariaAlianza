@@ -17,6 +17,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
  <link rel="stylesheet" href="../css/datepicker.css">
     <link rel="stylesheet" type="text/css" href="../css/simpletree.css" />
+    <link rel="stylesheet" type="text/css" href="../css/mktree.css" >
 @stop
 
 @section('menu')
@@ -52,9 +53,10 @@
     <script src="../js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="../js/date.js"></script>
 <!--scripts para el validador en tiempo real-->
-
+v
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
  
 <script type="text/javascript" src="../js/validator.js"></script>
+<script type="text/javascript" src="../js/mktree.js"></script>
 
 @stop
