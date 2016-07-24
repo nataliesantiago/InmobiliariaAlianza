@@ -22,6 +22,7 @@
         <div class="col-sm-6 col-md-9">
           <time class="published" datetime="yyyy-MM-dd"><?php echo date('d-M-Y', strtotime($publication->date_publication)); ?></time>
           @include('publication.information')
+
         </div>
         
                 @endforeach

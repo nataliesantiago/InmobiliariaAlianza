@@ -43,7 +43,7 @@
 						<div class="12u">
 							<label class="control-label col-xs-12"><h3>Palabra clave</h3></label>
 							<div class="col-xs-12">
-							<input class="form-control" required type="text" name="search"/>
+							<input class="form-control" type="text" name="search"/>
 							@if ($errors->has('search'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('search') }}</strong>

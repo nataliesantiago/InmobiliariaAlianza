@@ -18,6 +18,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use MunDocente\TypeOfScientificMagazine;
 use DB;
 use Session;
+use Mail;
 
 
 class ScientificMagazineController extends Controller
@@ -123,6 +124,7 @@ class ScientificMagazineController extends Controller
                             ]);
         }
         $this->assignAreasToPublication($publication, $request->area);
+        $this->send_email_users_area($publication);
         $areas = Area::all();
         $places = Place::where('type', '=', 1)
                             ->get();
@@ -338,6 +340,23 @@ class ScientificMagazineController extends Controller
             } else {
               $publication->areas()->attach($value);
             }
+        }
+    }
+
+     private function send_email_users_area($publication){
+        $areas = $publication->areas()->with('users')->get();
+        foreach ($areas as $area) {
+                if(count($area->users) != 0){
+                       foreach ($area->users as $user) {
+                           if($user->receive_notifications){
+                                 //enviar correo al usuario que ha activdado notificaciones
+                                  Mail::send('emails.receive_notifications', ['text' => 'Ha sido publicada una revista cientifica en Mundocente que se encuentra en un área de tu interés: '.$area->name], function($msj) use ($user,$area){
+                                        $msj->subject('Usuario: '.$user->username.' ha sido publicado una revista cientifica en el siguiente área de su interés: '.$area->name);
+                                        $msj->to($user->email);
+                                  });
+                           }
+                       }
+                }
         }
     }
 }

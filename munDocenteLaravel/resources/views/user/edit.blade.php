@@ -64,10 +64,10 @@
 									<a class="forgot btn-link" href="#">Cambiar contraseña</a>
 									</div></div>
 								</div>
+								<!--
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
 									@if($user->photo != null)
-									<!--<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />-->
 									<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />
 									@else
 									<img class="control-label col-xs-3" src="{{url('images/user.png')}}" alt="" />
@@ -88,6 +88,8 @@
 									<a class="forgot btn-link" href="#"> </a>
 									</div></div>
 								</div>
+								--><!--<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />-->
+									
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
 									<label class="control-label col-xs-4">Nombres y Apellidos</label>
