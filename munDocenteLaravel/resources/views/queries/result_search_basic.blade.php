@@ -13,7 +13,6 @@
 @stop
 
     @section('content')     
-                
         @foreach($publications as $publication)
                
 

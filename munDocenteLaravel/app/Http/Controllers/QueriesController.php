@@ -78,14 +78,11 @@ class QueriesController extends Controller
 	  
 
 	   public function result_search_advanced(Request $request){
-        $this->validate($request, [
-            'search' => 'required'
-            ]);
-       // dd($request);
+        
         $search = $request->input('search');
         $areasSelected = $request->input('area'); 
         $areasSelected = $this->getAreasSelected($areasSelected);
-       // dd($areasSelected);//arreglo de areas seleccionadas en formato de numeros
+      //  dd($areasSelected);//arreglo de areas seleccionadas en formato de numeros
         $valueCity = $request->input('city');
         $valueCity = $this->getValueCity($valueCity);
 		    //dd($valueCity);
@@ -94,8 +91,10 @@ class QueriesController extends Controller
         //dd($valueTypePublication);
         $areas = Area::all();
         if($areasSelected[0] == -1){
-          $publications =Publication::with('user','typeScientificMagazine', 'place', 'areas')
-                                  ->where('name', 'LIKE', '%' . $search . '%');
+          $publications =Publication::with('user','typeScientificMagazine', 'place', 'areas');
+          if(! empty($search)){
+            $publications = $publications->where('name', 'LIKE', '%' . $search . '%');
+          }                          
           if($valueCity!=-1){
           	$publications = $publications->where('place_id', '=', $valueCity);
           }
@@ -103,7 +102,6 @@ class QueriesController extends Controller
           	$publications = $publications->where('type', '=', $valueTypePublication);
           }
           $publications = $publications->paginate(5);
-           
              return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
@@ -112,7 +110,8 @@ class QueriesController extends Controller
           $result_publications = $this->getPublicationAreas($search,$areasSelected,$valueCity,$valueTypePublication);
          //dd($result_publications);
           if($result_publications[0] != 'vacio'){
-            $publication = $this->paginate($result_publications);
+            $publications = $this->paginate($result_publications);
+            //ldd($publications);
             return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
@@ -131,6 +130,7 @@ class QueriesController extends Controller
                                     ->where('area_id','=',$area)
                                     ->select('publication_id')
                                     ->get();
+            //dd(count($areasId));
             if(count($areasId) != 0){
               foreach ($areasId as $id) {
                   $publications[$cont] =Publication::with('user','typeScientificMagazine', 'place', 'areas')
@@ -167,7 +167,7 @@ class QueriesController extends Controller
           } else {
             $publications[$cont] = 'vacio';
           }
-        //dd($publications);
+       //dd($publications);
           return $publications;
     }
 
@@ -236,7 +236,7 @@ class QueriesController extends Controller
         }
               
         }
+                 //  dd($selectedArea); //Arreglos de areas seleccionadas en numeros :D
         	return $selectedArea;
-           //dd($selectedArea); //Arreglos de areas seleccionadas en numeros :D
 	  }
 }
