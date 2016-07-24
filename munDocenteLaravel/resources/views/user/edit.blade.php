@@ -11,14 +11,7 @@
 
 @section('menus')
 
-    <li ><a href="/">
-    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">
-    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">
-    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">
-    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
+ @include('menus.empty')
 
 @stop
 
@@ -71,10 +64,10 @@
 									<a class="forgot btn-link" href="#">Cambiar contraseña</a>
 									</div></div>
 								</div>
+								<!--
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
 									@if($user->photo != null)
-									<!--<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />-->
 									<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />
 									@else
 									<img class="control-label col-xs-3" src="{{url('images/user.png')}}" alt="" />
@@ -95,6 +88,8 @@
 									<a class="forgot btn-link" href="#"> </a>
 									</div></div>
 								</div>
+								--><!--<img class="control-label col-xs-3" src="{{url('uploads/photo/'.$user->id.'/'.$user->photo)}}" alt="" />-->
+									
 								<div class="12u 12u$(xsmall)">
 									<div class="form-group">
 									<label class="control-label col-xs-4">Nombres y Apellidos</label>

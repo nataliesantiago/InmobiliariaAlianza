@@ -40,6 +40,7 @@
                                 <img src="images/img7.png">
                             </div>
                         </div>
+                        <br>
 
                         @yield('content')
   
@@ -75,8 +76,7 @@
                                 <img src="images/img7.png">
                             </div>
                         </div>
-    
-                    @yield('content')
+                        @yield('content')
                     </article>
 
 

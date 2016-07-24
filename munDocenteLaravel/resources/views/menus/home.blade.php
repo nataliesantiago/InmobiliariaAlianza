@@ -1,4 +1,3 @@
-
 <li class="current"><a href="/">
 	<i class="glyphicon glyphicon-home"></i> Home</a></li>
 <li style="white-space: nowrap;"><a href="/teacher_call">

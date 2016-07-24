@@ -20,10 +20,7 @@
 
                     <!-- Content -->
                           <article class="box post">
-                            <a class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-                            <div class="information">
                                 @yield('content')
-                            </div>
                         </article>
 
                 </div>
@@ -35,10 +32,7 @@
 
                     <!-- Content -->
                           <article class="box post">
-                            <a class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-                            <div class="information">
                                 @yield('content')
-                            </div>
                         </article>
 
                 </div>
