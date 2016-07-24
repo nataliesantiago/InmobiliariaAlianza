@@ -134,8 +134,10 @@ class QueriesController extends Controller
             if(count($areasId) != 0){
               foreach ($areasId as $id) {
                   $publications[$cont] =Publication::with('user','typeScientificMagazine', 'place', 'areas')
-                                  ->where('id', '=', $id->publication_id)
-                                  ->where('name', 'LIKE', '%' . $search . '%');
+                                  ->where('id', '=', $id->publication_id);
+                   if(! empty($search)){
+                    $publications = $publications->where('name', 'LIKE', '%' . $search . '%');
+                   } 
                   if($valueCity!=-1){
                     $publications[$cont] = $publications[$cont]->where('place_id', '=', $valueCity);
                   }
