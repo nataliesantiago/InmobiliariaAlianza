@@ -15,6 +15,8 @@ use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Session;
+use Mail;
+
 
 class TeacherCallController extends Controller
 {
@@ -120,13 +122,29 @@ class TeacherCallController extends Controller
         }
        // dd($publication);
         $this->assignAreasToPublication($publication, $request->area);
+        $this->send_email_users_area($publication);
         $areas = Area::all();
         $places = Place::where('type', '=', 1)
                             ->get();
          return view('teacher_call.update', compact('areas', 'places'));
     }
 
-    
+    private function send_email_users_area($publication){
+        $areas = $publication->areas()->with('users')->get();
+        foreach ($areas as $area) {
+                if(count($area->users) != 0){
+                       foreach ($area->users as $user) {
+                           if($user->receive_notifications){
+                                 //enviar correo al usuario que ha activdado notificaciones
+                                  Mail::send('emails.receive_notifications', ['text' => 'Ha sido publicada una convocatoria en Mundocente que se encuentra en un área de tu interés: '.$area->name], function($msj) use ($user,$area){
+                                        $msj->subject('Usuario: '.$user->username.' ha sido publicada una convocatoria docente en el siguiente área de su interés: '.$area->name);
+                                        $msj->to($user->email);
+                                  });
+                           }
+                       }
+                }
+        }
+    }
 
       /**
      * Display the specified resource.
