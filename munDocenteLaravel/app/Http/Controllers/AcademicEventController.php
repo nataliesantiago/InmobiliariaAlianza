@@ -256,13 +256,11 @@ class AcademicEventController extends Controller
     //validación del uusario para ingresar al formulario de crear
    private function isValidate(){
         if(! Auth::guest()){
-            $users = User::with('typeOfUser', 'areas.publications')
+            $user = User::with('typeOfUser', 'areas.publications')
                     ->where('id' ,'=', Auth::user()->id)
-                    ->get();
-            foreach ($users as $value) {
-               $user = $value;
-            }
-            return $user->type == 2 ? true : false;
+                    ->first();
+                    //dd($user->type == 2 || $user->type == 3);
+            return ($user->type == 2 || $user->type == 3);
         } else {            
             return false; 
         } 
@@ -278,19 +276,21 @@ class AcademicEventController extends Controller
     }
 
     private function isActived($user){
-        if($user->type == 1){
-            if($user->activedMe){
-           return true; 
+        if($user->type == 3){
+            return true;
+        } else if($user->type == 1){
+                if($user->activedMe){
+               return true; 
+                } else {
+                    return false;
+                }  
             } else {
-                return false;
-            }  
-        } else {
-            if($user->activedMe && $user->activedAdmin){
-           return true; 
-            } else {
-                return false;
-            }   
-        }  
+                if($user->activedMe && $user->activedAdmin){
+               return true; 
+                } else {
+                    return false;
+                }   
+            }       
       }
 
     private function getUser(){
