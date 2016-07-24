@@ -161,7 +161,6 @@ class UserController extends Controller
 
         $academic_institutions = AcademicInstitution::orderBy('name', 'asc')
                                                     ->get();
-        //dd($user);
         if($user->type != 3){
           if($user->type == 1){
             $name = $this->get_areas($user);  
@@ -250,7 +249,6 @@ class UserController extends Controller
       }
 
       private function updateData($request, $id, $academic_institution){
-
         if(!(is_null($request->file('photo')))){
 
           //foto del usuario
@@ -267,6 +265,7 @@ class UserController extends Controller
                         'academic_institution' => $academic_institution,
                         'phone' => $request->input('phone'),
                         'contact' => $request->input('contact'),
+                        'receive_notifications' => $request->receive_notifications == 'Sí',
                         'photo' => $file_name
                         ]);
         } else {
@@ -276,6 +275,7 @@ class UserController extends Controller
                         'email' => $request->input('email'),
                         'academic_institution' => $academic_institution,
                         'phone' => $request->input('phone'),
+                        'receive_notifications' => $request->receive_notificacions == 'Sí',
                         'contact' => $request->input('contact')
                         ]);
         }  
