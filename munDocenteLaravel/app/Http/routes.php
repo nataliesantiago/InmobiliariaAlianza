@@ -41,6 +41,9 @@ Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/manage_ownpublication', 'IndexController@ownpublication');
+	Route::get('/admin/create_docent', 'AdminController@create_docent');
+	Route::get('/admin/create_publisher', 'AdminController@create_publisher');
+	Route::post('/create_user', 'AdminController@create');
 	Route::get('/manage_users', 'AdminController@index');
 	Route::resource('area', 'AreaController');
 	Route::get('/resetpass', 'IndexController@forget');

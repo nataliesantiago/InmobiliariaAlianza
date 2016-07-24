@@ -2,15 +2,10 @@
 
 @section('menus')
 
-	 <li ><a href="/">
-    	<i class="glyphicon glyphicon-home"></i> Home</a></li>
-    <li style="white-space: nowrap;"><a href="/teacher_call">
-    	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
-    <li style="white-space: nowrap;"><a href="/scientific_magazine">
-    	<i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
-    <li style="white-space: nowrap;"><a href="/academic_event">
-    	<i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
-
+		<li ><a href="/admin">
+		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
+		<li ><a href="/university">
+		<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
 @stop
 
 @section('principal')
@@ -30,17 +25,21 @@
 						    <span class="sr-only">Toggle Dropdown</span>
 						  </button>
  						 <ul class="dropdown-menu" role="menu">
-					    <li><a href="/user/create_docent">Docente</a></li>
-					    <li><a href="/user/create_publisher">Publicador</a></li>
+					    <li><a href="/admin/create_docent">Docente</a></li>
+					    <li><a href="/admin/create_publisher">Publicador</a></li>
 					     </ul>
 						</div>
 						<p>Campos obligatorios *</p>
 					
-				
+					
 					<hr>
-			        <form id="valForm" class="form login-form" role="form" method="POST" action="{{ url('/register') }}">
+			        <form id="valForm" class="form login-form" role="form" method="POST" action="{{ url('/create_user') }}">
 			            {!! csrf_field() !!}
-
+			            @if(Session::has('flash_message'))
+	   						 <div class="alert alert-success">
+	      				  		{{ Session::get('flash_message') }}
+	  					  	 </div>
+						@endif
 			        <div class="row uniform">
 			            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 		                    <div class="input-group">
