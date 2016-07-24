@@ -35,7 +35,7 @@
 <div class="form-group">
     <div class="12u$(xsmall)">
     <h5>Al dejar vacío el campo fecha fin esta indicando que la recepción es permanente.</h5>
-        <div class="input-group" id='datetimepicker1'>
+        <div class="input-group" id='datetimepicker2'>
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         	<input type="text" class="form-control" name="end_date" placeholder="Fecha fin " id="dateEnd"  value="{{ old('end_date') }}">
         	

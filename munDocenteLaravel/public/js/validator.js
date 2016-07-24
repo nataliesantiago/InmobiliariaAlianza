@@ -1,11 +1,22 @@
-$('#valForm').bootstrapValidator({
+$('#datetimepicker1')
+	.on('changeDate', function(e) {
+	// Revalidate the start date field
+	$('#valForm').bootstrapValidator('revalidateField', 'start_date');
+	});
+$('#datetimepicker2')
+	.on('changeDate', function(e) {
+	// Revalidate the start date field
+	$('#valForm').bootstrapValidator('revalidateField', 'end_date');
+	});
+$('#valForm')
+.bootstrapValidator({
 	 message: 'Este valor no es valido',
 	 feedbackIcons: {
 		 valid: 'glyphicon glyphicon-ok',
 		 invalid: 'glyphicon glyphicon-remove',
 		 validating: 'glyphicon glyphicon-refresh'
 	 },
-	 fields: {
+	 fields: {	
 	 	message: {
 	 		validators: {
 				 notEmpty: {
@@ -80,24 +91,14 @@ $('#valForm').bootstrapValidator({
 				 }
 			 }
 		 },
-		 date_publication: {
-		 	validators: {
-		 		notEmpty: {
-					 message: 'La fecha de publicación es requerida y no puede ser vacia'
-				 },
-				 date: {
-					 format: 'YYYY/MM/DD',
-					 message: 'La fecha no es valida'
-				 }
-		 	}
-		 },
 		 start_date: {
 		 	validators: {
 		 		notEmpty: {
 					 message: 'La fecha de inicio es requerida y no puede ser vacia'
 				 },
 				 date: {
-					 format: 'YYYY/MM/DD',
+				 	max: 'end_date',
+				 	 format: 'YYYY/MM/DD',
 					 message: 'La fecha de inicio no es valida'
 				 }
 		 	}
@@ -105,7 +106,8 @@ $('#valForm').bootstrapValidator({
 		 end_date: {
 		 	validators: {
 				 date: {
-					 format: 'YYYY/MM/DD',
+				 	min: 'start_date',
+				 	 format: 'YYYY/MM/DD',
 					 message:  'La fecha de finalización no es valida'
 				 }
 		 	}
@@ -128,4 +130,20 @@ $('#valForm').bootstrapValidator({
 		 	}
 		 }
 	 }
+})
+.on('success.field.fv', function(e, data) {
+// The success.field.fv is triggered when a field is valid
+// data.field ---> the field name
+// data.fv    ---> the plugin instance which you can call some APIs on
+
+if (data.field === 'start_date' && !data.fv.isValidField('end_date')) {
+    // We need to revalidate the end date
+    data.fv.revalidateField('end_date');
+}
+if (data.field === 'end_date' && !data.fv.isValidField('start_date')) {
+	// We need to revalidate the start date
+	data.fv.revalidateField('start_date');
+}
+// Do the same check for the end date
+// ...
 });

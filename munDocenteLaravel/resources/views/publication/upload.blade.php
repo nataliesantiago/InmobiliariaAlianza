@@ -24,7 +24,7 @@
 <div class="form-group">
 <label>Fecha fin</label>
     <div class="12u$(xsmall)">
-        <div class="input-group" id='datetimepicker1'>
+        <div class="input-group" id='datetimepicker2'>
 			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         	<input type="text" class="form-control"  name="end_date"  id="dateEnd" value="<?php echo date('Y/m/d', strtotime($publication->end_date)); ?>">
         </div>				                  
