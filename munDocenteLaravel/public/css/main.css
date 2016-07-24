@@ -2523,7 +2523,7 @@ div#slider div.elemento img{
 
 .place{
 	position: relative;
-    top: -110px;
+    top: -16px;
 }
 
 .start{
@@ -2834,4 +2834,16 @@ ul.social_login {
 
 .university{
 	height: 210px;
+}
+
+.searchA{
+	position: relative;
+    top: 17px;
+    left: -10px;
+}
+
+.search{
+	position: relative;
+    top: 20px;
+    left: -68px;
 }

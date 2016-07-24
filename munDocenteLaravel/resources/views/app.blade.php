@@ -74,16 +74,18 @@
                     	<h3 style="color: black;"><i class="glyphicon glyphicon-bullhorn"></i>  {{ $publication->name }}</h3>
                    @endif
                     </header>
-                    @if($publication->place!=null)
-                    <p class="place">{{ $publication->place->name }}</p>                    
-                    @endif
+                    
                     
                     </div>
                 </div>
-                    
+                    @if($publication->place!=null)
+                    <p class="place">{{ $publication->place->name }}</p>                    
+                    @endif
                     @if($publication->description!=null)
                     <p class="description">{{ $publication->description }}</p>
                     @endif
+                    
+                    
                     <p class="start">Fecha de inicio: <?php echo date('d-M-Y', strtotime($publication->start_date)); ?></p>            
 					@if($publication->end_date!=null)
 					<p class="end">Fecha final: <?php echo date('d-M-Y', strtotime($publication->end_date)); ?></p>
