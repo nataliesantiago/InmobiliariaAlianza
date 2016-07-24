@@ -61,7 +61,11 @@ class TeacherCallController extends Controller
                 }
                 //admin
                 if($user->type == 3){
-                    echo 'soy el admin :3';
+                    $publications = $this->getPublicationPublisher();
+                    $areas = Area::all();
+                    return view('teacher_call.index', [
+                    'publications' => $publications,
+                    'areas' => $areas]);
                 } 
             } else {
                 return view('user_desactived', compact('areas'));

@@ -3,9 +3,11 @@
 namespace MunDocente\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Database\Eloquent\Model;
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
+use MunDocente\Http\Controllers\UserController;
 use MunDocente\Publication;
 use MunDocente\Area;
 use MunDocente\Place;
@@ -13,6 +15,7 @@ use MunDocente\User;
 use MunDocente\AcademicInstitution;
 use Carbon\Carbon;
 use Auth;
+use DB;
 use Session;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -36,6 +39,38 @@ class AdminController extends Controller
                                                     ->get();
         return view('admin.create_publisher', compact('academic_institutions'));
     }
+
+    public function managepublications()
+    {
+        if (Auth::guest()){
+        }else{
+            $user = $this->getUser();
+            if($user->type == 3){
+                $users = $this->getUserPublication();
+                return view('admin.check_publications', compact('users'));
+            }
+        }
+    }
+
+    public function ownpublications()
+    {   
+        if (Auth::guest()){
+        }else{
+            $user = $this->getUser();
+            if($user->type == 3){
+                $publications = $this->getPublicationAdmin();
+                $areas = Area::all();
+                return view('admin.own_publications', [
+                'publications' => $publications,
+                'areas' => $areas]);
+            }
+        }
+    }
+
+    private function getPublicationAdmin(){
+        return $this->getUser()->publications()->paginate(2);
+    }
+
 
     public function create(Request $request)
     {
@@ -88,6 +123,23 @@ class AdminController extends Controller
                                                     ->first();
         return $academic_institution->id;                                           
     }
+
+    private function getUser(){
+        $users = User::with('typeOfUser', 'areas.publications')
+                    ->where('id' ,'=', Auth::user()->id)
+                    ->get();
+            //dd($users);
+            foreach ($users as $value) {
+               $user = $value;
+        }
+        return $user;
+    }
+
+    private function getUserPublication(){
+        $userPublications = User::where('type',2)
+                                ->get();
+        return $userPublications;
+   }
 }
 
 ?>

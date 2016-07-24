@@ -1,4 +1,5 @@
 <header class="name">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 @if($publication->type==1)
    <h3 style="color: black;"><i class="glyphicon glyphicon-briefcase"></i>  {{ $publication->name }}</h3>
 @endif

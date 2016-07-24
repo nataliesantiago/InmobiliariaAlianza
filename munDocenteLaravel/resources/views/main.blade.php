@@ -12,6 +12,21 @@
         <div class="container">
             <div class="row">
             
+            @if (! Auth::guest())
+                @if(Auth::user()->type==2)
+                <div class="12u 12u(mobile)">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                      <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      ¡Bienvenido!</h4>&nbsp;&nbsp;&nbsp;Aquí se muestran sus publicaciones vigentes, si quiere modificar alguna diríjase a la pestaña que corresponda a su tipo de actividad. 
+                    </div>
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                      <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      Consultas</h4>&nbsp;&nbsp;&nbsp;Puede realizar búsquedas como docente, a través del campo de búsqueda, la búsqueda avanzada o el panel de áreas. 
+                    </div>
+                </div>
+                @endif
+              @endif
+
              <div class="4u 12u(mobile)">
              @if (Auth::guest())     
                @yield('login')

@@ -61,8 +61,8 @@
 									<div class="form-group">	
 									<label class="control-label col-xs-4"><h2>{{ $user->username }} </h2></label>
 									<div class="col-xs-8">
-									<a class="forgot btn-link" href="#">Cambiar contraseña</a>
-									</div></div>
+									<!--<a class="forgot btn-link" href="#">Cambiar contraseña</a>
+									--></div></div>
 								</div>
 								<!--
 								<div class="12u 12u$(xsmall)">

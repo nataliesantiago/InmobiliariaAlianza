@@ -2,10 +2,14 @@
 
 @section('menus')
 
-     <li ><a href="/admin">
+    <li ><a href="/admin">
 		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
-	<li class="current"><a href="/university">
-		<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
+	<li><a href="/own_publications">
+        <i class="glyphicon glyphicon-education"></i> Mis publicaciones</a></li>       
+    <li class="current"><a href="/university">
+		<i class="glyphicon glyphicon-education"></i> Universidades</a></li>
+    <li><a href="/manage_publications">
+        <i class="glyphicon glyphicon-education"></i> Administrar Publicaciones</a></li>
 
 @stop
 
@@ -23,18 +27,18 @@
  			 <div class="university">
 
             <ul class="nav navbar-nav navbar-right">
-                        <button type="button" name="editUniversity" class="btn btn-primary" ><a class="editPub" href="{{ route('university.edit', $academic_institution->id) }}">Editar 
-                        <i class="glyphicon glyphicon-edit"></i></a></button>  
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                    
-                        {!! Form::open(array('route' => array('university.destroy', $academic_institution->id), 'method' => 'delete')) !!}
-                            <button class="btn btn-danger" type="submit">Eliminar 
-                            <i class="glyphicon glyphicon-remove-circle"></i></button>
-                        {!! Form::close() !!}
-                    
-                        &nbsp;&nbsp;
-                     </ul>
+                <button type="button" name="editUniversity" class="btn btn-primary" ><a class="editPub" href="{{ route('university.edit', $academic_institution->id) }}">Editar 
+                <i class="glyphicon glyphicon-edit"></i></a></button>  
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            
+                {!! Form::open(array('route' => array('university.destroy', $academic_institution->id), 'method' => 'delete')) !!}
+                    <button class="btn btn-danger" type="submit">Eliminar 
+                    <i class="glyphicon glyphicon-remove-circle"></i></button>
+                {!! Form::close() !!}
+            
+                &nbsp;&nbsp;
+             </ul>
             @if($academic_institution->name!=null)
             <p class="nameU">Nombre: {{ $academic_institution->name }}</p>
             @endif

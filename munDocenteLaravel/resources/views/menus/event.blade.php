@@ -1,4 +1,4 @@
-	<li style="white-space: nowrap;"><a href="/">
+    <li style="white-space: nowrap;"><a href="/">
     	<i class="glyphicon glyphicon-home"></i> Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">
     	<i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>

@@ -1,13 +1,15 @@
 @extends('layouts.routes.normalroute')
 
 @section('menus')
-
+	
     <li class="current"><a href="/admin">
 		<i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
-		<li ><a href="/university">
-<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
-
-       
+    <li><a href="/own_publications">
+		<i class="glyphicon glyphicon-education"></i> Mis publicaciones</a></li>       
+	<li><a href="/university">
+		<i class="glyphicon glyphicon-education"></i> Universidades</a></li>
+    <li><a href="/manage_publications">
+		<i class="glyphicon glyphicon-education"></i> Administrar Publicaciones</a></li>
 @stop
 
 @section('principal')
@@ -38,9 +40,9 @@
 			   		</ul>
 			   	@endif
 			   	<ul class="nav navbar-nav navbar-right">
-						   	<a href="{{ route('user.edit', $user->id) }}"><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
-						   		<i class="glyphicon glyphicon-edit"></i></button></a>
-						   	</ul>
+			   		<a href="{{ route('user.edit', $user->id) }}"><button type="button" href="" name="editUser" class="btn btn-primary">Editar 
+			   		<i class="glyphicon glyphicon-edit"></i></button></a>
+			   	</ul>
 			    </div>
 			    <br>
 			    @endforeach

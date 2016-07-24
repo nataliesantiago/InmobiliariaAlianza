@@ -42,7 +42,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                  <input class="btn btn-default" type="submit" value="Ir">
                             </div>
                                 @if (! Auth::guest())
-                                @if(Auth::user()->type==1)
+                                @if(Auth::user()->type==1 || Auth::user()->type==2)
                                     <a href="/search_advanced" class="searchA">Búsqueda avanzada</a>
                                 @endif
                                 @endif
@@ -64,11 +64,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 
                     <ul class="nav nav-tabs">
                      @yield('menu')
+                     @if(Auth::guest() || Auth::user()->type==2 || Auth::user()->type==1)
                     <li style="white-space: nowrap;">
                         <a href="#footer-wrapper">
                             <i class="glyphicon glyphicon-info-sign"></i> Contacto
                         </a>
-                    </li>                                 
+                    </li>   
+                    @endif                              
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                    

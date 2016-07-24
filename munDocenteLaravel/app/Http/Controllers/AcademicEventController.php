@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use MunDocente\Http\Requests;
 use MunDocente\Http\Controllers\Controller;
+use MunDocente\Http\Controllers\UserController;
 use MunDocente\Publication;
 use MunDocente\Area;
 use MunDocente\Place;
@@ -14,6 +15,8 @@ use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use MunDocente\TypeOfScientificMagazine;
+use DB;
 use Session;
 use Mail;
 

@@ -19,6 +19,7 @@
 @stop
 
 	@section('content')		
+  
   <div class="row">
 				@foreach($publications as $publication)
         

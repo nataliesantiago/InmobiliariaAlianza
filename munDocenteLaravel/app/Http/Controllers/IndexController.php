@@ -51,7 +51,7 @@ class IndexController extends Controller
                 //admin(adminMunDocente)
                 if($user->type == 3){
                     $users = $this->getUserPublication();
-                    return view('admin', compact('users'));
+                    return view('admin.activate', compact('users'));
                 }
             } else {
                return view('user_desactived', compact('areas'));            

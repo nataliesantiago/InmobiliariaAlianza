@@ -15,7 +15,7 @@
   @section('content')     
                 
        <div class="row">
-                @foreach($publications as $publication)
+       @foreach($publications as $publication)
         
         @include('publication.institution')
 
@@ -24,7 +24,7 @@
           @include('publication.information')
         </div>
         
-                @endforeach
+          @endforeach
   </div>
 
   @include('publication.inner')
