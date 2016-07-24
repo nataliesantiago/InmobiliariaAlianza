@@ -22,7 +22,7 @@ class UniversityController extends Controller
 {
 
     public function index(){
-        $academic_institutions = AcademicInstitution::all();
+        $academic_institutions = AcademicInstitution::with('typeOfAcademicInstitution', 'place_id')->get();
         return view('university.index', compact('academic_institutions'));
     }
 

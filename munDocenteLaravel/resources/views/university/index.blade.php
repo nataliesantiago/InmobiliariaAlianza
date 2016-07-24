@@ -40,7 +40,7 @@
             @endif
 
             @if($academic_institution->type!=null)
-            <p class="typeU">Tipo de universidad o institución: {{ $academic_institution->type_universitys->value}}</p>
+            <p class="typeU">Tipo de universidad o institución: {{ $academic_institution->typeOfAcademicInstitution->value}}</p>
             @endif
 
              @if($academic_institution->email!=null)
@@ -56,7 +56,7 @@
             @endif
 
              @if($academic_institution->place!=null)
-            <p class="placeU">Lugar: {{ $academic_institution->place->name}}</p>
+            <p class="placeU">Lugar: {{ $academic_institution->place_id->name}}</p>
             @endif     
 			                             
                

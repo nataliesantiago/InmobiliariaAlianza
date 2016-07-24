@@ -24,7 +24,7 @@ class AcademicInstitution extends Model
     	return $this->hasMany('MunDocente\User');
     }
 
-    public function place()
+    public function place_id()
     {
     	return $this->belongsTo('MunDocente\Place', 'place');
     }
