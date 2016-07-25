@@ -58,6 +58,23 @@ class AdminController extends Controller
         }
     }
 
+    public function get_publications_user($id){
+            $user = User::where('id',$id)
+                            ->first();
+            $cont = 0;
+            foreach ($user->publications as $publication) {
+                $publications[$cont] = $publication;
+                $cont+=1;
+            }
+            if($cont != 0){
+                    $publications = $this->paginate($publications);    
+                    return view('user.list_publications', compact('publications'));
+            } else {
+                $areas = Area::all();
+                return view('without_area', compact('areas'));
+            }                                        
+    }
+
     public function ownpublications()
     {   
         if (Auth::guest()){
@@ -143,9 +160,19 @@ class AdminController extends Controller
 
     private function getUserPublication(){
         $userPublications = User::where('type',2)
+                                ->where('activedAdmin','!=',0)
                                 ->get();
         return $userPublications;
    }
+
+   private function paginate($resultPublications){
+        $pageStart = \Request::get('page', 1);
+        $perPage = 2;
+        $offSet = ($pageStart * $perPage) - $perPage;       
+        $itemsForCurrentPage = array_slice($resultPublications, $offSet, $perPage, true);
+        $publications = new LengthAwarePaginator($itemsForCurrentPage, count($resultPublications), $perPage, Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));  
+        return $publications;
+    }
 }
 
 ?>

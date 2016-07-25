@@ -153,7 +153,7 @@ class ScientificMagazineController extends Controller
     public function edit($id)
     {
         $publication = Publication::where('id',$id)->with('areas','place','typeScientificMagazine')->first();
-        if($publication->user_id == Auth::user()->id){
+        if(($publication->user_id == Auth::user()->id) || Auth::user()->id){
             $areas = Area::all();
             $places = Place::where('type', '=', 1)
                             ->get();
@@ -202,7 +202,7 @@ class ScientificMagazineController extends Controller
     public function destroy($id)
     {
         $publication = Publication::where('id',$id)->first();
-        if($publication->user_id == Auth::user()->id){
+        if(($publication->user_id == Auth::user()->id) || Auth::user()->id){
             $publication->areas()->detach();
             $publication->delete();
             return view('scientific_magazine.destroy');

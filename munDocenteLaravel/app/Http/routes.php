@@ -39,7 +39,7 @@ Route::post('/result_search_basic', 'QueriesController@result_search_basic');
 
 
 Route::group(['middleware' => ['web']], function(){
-
+	Route::get('/publication_user/{id}', 'AdminController@get_publications_user');
 	Route::get('/own_publications', 'AdminController@ownpublications');
 	Route::get('/manage_publications', 'AdminController@managepublications');
 	Route::get('/admin/create_docent', 'AdminController@create_docent');
