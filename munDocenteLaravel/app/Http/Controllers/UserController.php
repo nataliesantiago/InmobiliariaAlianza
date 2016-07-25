@@ -264,6 +264,7 @@ class UserController extends Controller
                         'email' => $request->input('email'),
                         'academic_institution' => $academic_institution,
                         'phone' => $request->input('phone'),
+                        'chargue' => $request->input('chargue'),
                         'contact' => $request->input('contact'),
                         'receive_notifications' => $request->receive_notifications == 'Sí',
                         'photo' => $file_name
@@ -274,6 +275,7 @@ class UserController extends Controller
                         'fullname' => $request->input('fullname'),
                         'email' => $request->input('email'),
                         'academic_institution' => $academic_institution,
+                        'chargue' => $request->input('chargue'),
                         'phone' => $request->input('phone'),
                         'receive_notifications' => $request->receive_notificacions == 'Sí',
                         'contact' => $request->input('contact')

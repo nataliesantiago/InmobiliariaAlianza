@@ -61,7 +61,7 @@ class QueriesController extends Controller
 	        $keyLetter = $request->input('keyLetter');
 	        $publications =Publication::with('user','typeScientificMagazine', 'place')
 	                                ->where('name', 'LIKE', '%' . $keyLetter . '%')
-	                                ->paginate(5);
+	                                ->get();
 	        $places = Place::where('type', '=', 1)
 	                        ->get();
 	        $areas = Area::whereNotNull('parent')
@@ -101,7 +101,7 @@ class QueriesController extends Controller
           if($valueTypePublication!=-1){
           	$publications = $publications->where('type', '=', $valueTypePublication);
           }
-          $publications = $publications->paginate(5);
+          $publications = $publications->get();
              return view('queries.result_search_advanced', [
             'publications' => $publications,
             'areas' => $areas
@@ -110,7 +110,7 @@ class QueriesController extends Controller
           $result_publications = $this->getPublicationAreas($search,$areasSelected,$valueCity,$valueTypePublication);
          //dd($result_publications);
           if($result_publications[0] != 'vacio'){
-            $publications = $this->paginate($result_publications);
+            $publications = $result_publications;
             //ldd($publications);
             return view('queries.result_search_advanced', [
             'publications' => $publications,

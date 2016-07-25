@@ -27,7 +27,6 @@
           @endforeach
   </div>
 
-  @include('publication.inner')
   
 @stop
 
