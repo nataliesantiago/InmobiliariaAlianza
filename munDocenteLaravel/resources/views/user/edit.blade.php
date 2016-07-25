@@ -162,6 +162,15 @@
 								     	</div> 
 								     	</div>
 									</div>
+								@else
+									<div class="12u 12u$(xsmall)">
+										<div class="form-group">
+										<label class="control-label col-xs-4">Cargo</label>
+										<div class="col-xs-8">
+										<input type="text" name="position" value="" />
+										</div>
+										</div>
+									</div>
 								@endif
 
 									<div class="12u 12u$(xsmall)">

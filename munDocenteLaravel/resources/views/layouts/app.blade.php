@@ -10,7 +10,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     @yield('links')
-
 </head>
 
 <body class="right-sidebar">
