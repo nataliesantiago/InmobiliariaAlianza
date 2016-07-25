@@ -1,64 +1,74 @@
-@extends('layouts.routes.routedown')
+@extends('layouts.routes.downtwice')
 
 @section('menus')
-    <li ><a href="/">
+
+    <li style="white-space: nowrap;"><a href="/">
         <i class="glyphicon glyphicon-home"></i> Home</a></li>
     <li style="white-space: nowrap;"><a href="/teacher_call">
         <i class="glyphicon glyphicon-briefcase"></i> Convocatorias</a></li>
     <li style="white-space: nowrap;"><a href="/scientific_magazine">
-        <i class="glyphicon glyphicon-edit"></i> Revistas científicas</a></li>
+        <i class="glyphicon glyphicon-book"></i> Revistas científicas</a></li>
     <li style="white-space: nowrap;"><a href="/academic_event">
-        <i class="glyphicon glyphicon-education"></i> Eventos académicos</a></li>
+        <i class="glyphicon glyphicon-bullhorn"></i> Eventos académicos</a></li>
 
 @stop
-
-<!-- Main Content -->
 @section('principal')
 <div id="main-wrapper">
 <div class="container">
     <div class="row">
         <div class="12u 12u(mobile)">
-            <center><h2 class="count">RECORDAR CONTRASEÑA</h2></center>            
+            <center><h2 class="count">CAMBIAR CONTRASEÑA</h2></center>            
         </div>
-        <div class="3u 12u(mobile)"></div>
-        <div class="6u 12u(mobile)">
+        <div class="4u 12u(mobile)"></div>
+        <div class="4u 12u(mobile)">
         <section class="box">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+            <form method="POST" action="/password/reset">
                 {!! csrf_field() !!}
+                <input type="hidden" name="token" value="{{ $token }}">
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input type="email" class="form-control" name="email" placeholder="Correo electrónico *" value="{{ old('email') }}">
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+                <div class="form-group">
+                    <div class="12u$(xsmall)">
+                        Email
+                        <div class="input-group">
+                        <input type="email" name="email" value="{{ old('email') }}">
                     </div>
                 </div>
-                <center class="btnregis">
-                    <div class="form-group">
-                        <div class="12u$">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-envelope"></i> Enviar link
+                <div class="form-group">
+                    <div class="12u$(xsmall)">
+                        Contraseña
+                        <div class="input-group">
+                        <input type="password" name="password">
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <div class="12u$(xsmall)">
+                        Confirmar Contraseña
+                        <div class="input-group">
+                        <input type="password" name="password_confirmation">
+                    </div>
+                </div>
+                <div>
+                <div class="form-group">
+                    <div class="12u$(xsmall)">
+                        <div class="input-group">
+                
+                            <button type="submit">
+                            Asignar nueva contraseña
                             </button>
                         </div>
                     </div>
-                </center>
+                </div>
             </form>
-        
-    
         </section>
         </div>
     </div>
 </div>
 </div>
-@endsection
+ @stop

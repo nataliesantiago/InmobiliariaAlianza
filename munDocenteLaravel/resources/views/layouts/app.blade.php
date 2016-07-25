@@ -15,14 +15,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <body class="right-sidebar">
 
 <div id="cargando">
-    <p>hola</p>
-    <p class=" mediano text-center"><small>Cargando</small></p>     
-    <div class="progress progress-striped active">
-      <div class="progress-bar" role="progressbar"
-      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-      style="width: 100%">
-      </div>          
-    </div>
+        <center><h3>Cargando...</h3></center>     
+        <div class="progress progress-striped active">
+          <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+          style="width: 100%">
+          </div>          
+        </div>
 </div>
 
 <div id="page-wrapper">

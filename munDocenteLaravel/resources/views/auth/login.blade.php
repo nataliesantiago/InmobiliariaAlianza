@@ -33,9 +33,9 @@
             </ul>-->
             
         </center>    
-    <!--<hr >-->
-    <!--<center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>-->
+    <hr>
+    <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
     </form>
-<!--<hr >-->       
+<hr >
 </section>
 

@@ -31,6 +31,7 @@ $('#valForm')
 				 },
 				 stringLength: {
 					 min: 4,
+					 max: 255,
 					 message: 'El nombre de usuario debe contener al menos 4 caracteres'
 				 }
 			 }
@@ -46,6 +47,10 @@ $('#valForm')
 			 validators: {
 				 notEmpty: {
 					 message: 'El correo es requerido y no puede ser vacio'
+				 },
+				 stringLength: {
+					 max: 255,
+					 message: 'No debe exceder los 255 caracteres'
 				 },
 				 emailAddress: {
 					 message: 'El correo electronico no es valido'

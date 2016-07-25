@@ -38,6 +38,9 @@
 @stop
 
 @section('scripts')
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>    <link rel="stylesheet" href="css/main.css" />
+
+<script src="../../js/carga.js"></script>
 
 <script src="../../js/skel.min.js"></script>
 <script src="../../js/skel-viewport.min.js"></script>

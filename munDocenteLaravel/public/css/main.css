@@ -2867,7 +2867,7 @@ ul.social_login {
 }
 
 #cargando{
-	position:absolute;
-    width:100%;
-    height:100%;
+	width:100%;
+	height:100%;
+	background-color: #E5E5E5;
 }

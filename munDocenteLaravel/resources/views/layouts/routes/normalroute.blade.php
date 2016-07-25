@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('links')
-<script src="js/carga.js"></script>
+
 <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
 
     <link rel="shortcut icon" href="images/favicon.png" ></link>
@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="js/bootstrap/css/bootstrap-responsive.min.css" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
  <link rel="stylesheet" href="css/datepicker.css">
     <link rel="stylesheet" type="text/css" href="css/simpletree.css" />
@@ -39,6 +38,9 @@
 @stop
 
 @section('scripts')
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>    <link rel="stylesheet" href="css/main.css" />
+
+<script src="js/carga.js"></script>
 
 <script src="js/skel.min.js"></script>
 <script src="js/skel-viewport.min.js"></script>

@@ -18,7 +18,7 @@
                     @if(Auth::user()->activedAdmin != 0)
                     <div class="alert alert-info alert-dismissible" role="alert">
                       <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      ¡Bienvenido!</h4>&nbsp;&nbsp;&nbsp;Aquí se muestran todas las publicaciones vigentes, si quiere modificar alguna de sus publicaciones diríjase a la pestaña que corresponda según el tipo de actividad. 
+                      ¡Bienvenido!</h4>&nbsp;&nbsp;&nbsp;Si quiere modificar alguna de sus publicaciones diríjase a la pestaña que corresponda según el tipo de actividad. 
                     </div>      
                     @else
                     <div class="alert alert-warning alert-dismissible" role="alert">
@@ -28,7 +28,7 @@
                     @endif
                     <div class="alert alert-success alert-dismissible" role="alert">
                       <h4><button type="btnClose" class="btnClose" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      Consultas</h4>&nbsp;&nbsp;&nbsp;Puede informarse acerca de las publicaciones actuales y realizar búsquedas como docente, a través del campo de búsqueda, la búsqueda avanzada o el panel de áreas. 
+                      Consultas</h4>&nbsp;&nbsp;&nbsp;Aquí puede informarse acerca de las publicaciones vigentes y realizar búsquedas como docente, a través del campo de búsqueda, la búsqueda avanzada o el panel de áreas. 
                     </div>
                 </div>
                 @endif
