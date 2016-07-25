@@ -39,7 +39,7 @@
 
 			            <div class="form-group">
                             <div class="field">
-                             <input type="text" id="contacto " class="form-control" placeholder="Contacto" name="contacto">
+                             <input type="text" id="contacto " class="form-control" placeholder="Contacto" name="contact">
                             </div>
                         </div>
 

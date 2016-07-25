@@ -35,20 +35,17 @@
 					<td><h4>Institución académica</h4></td>
 					</tr>
 				@foreach($users as $user)
-				@if($user->type==2 && $user->activedAdmin != 0)
-			    <tr>
-				<!-- Aqui va la ruta para manejar las publicaciones  -->	
-			    <td>
-			    	<a class="forgot btn-link" href="">{{ $user->fullname }}</a>
-			    </td>
-			    	@foreach($academic_institutions as $academic_institution)
-			    		@if($academic_institution->id == $user->academic_institution)
-			    		<td>{{ $academic_institution->name }}</td>
-			    		@endif
-			    	@endforeach
-			    
-			    </tr>
-			    @endif
+					    <tr>
+						<!-- Aqui va la ruta para manejar las publicaciones  -->	
+					    <td>
+					    	<a class="forgot btn-link" href="/publication_user/{{$user->id}}">{{ $user->fullname }}</a>
+					    </td>
+					    	@foreach($academic_institutions as $academic_institution)
+					    		@if($academic_institution->id == $user->academic_institution)
+					    		<td>{{ $academic_institution->name }}</td>
+					    		@endif
+					    	@endforeach					    
+					    </tr>
 			    @endforeach
 			    </table>
 			    </section>

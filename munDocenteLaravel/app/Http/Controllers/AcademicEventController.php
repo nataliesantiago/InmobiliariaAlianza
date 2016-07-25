@@ -112,6 +112,7 @@ class AcademicEventController extends Controller
             'description' => $request->description,
             'user_id' => $request->user()->id,
             'place_id' => $this->getIdCity($request->city),
+            'contact' => $request->contact,
             ]);
         if($request->end_date == ""){
            
@@ -149,7 +150,7 @@ class AcademicEventController extends Controller
     public function edit($id)
     {
         $publication = Publication::where('id',$id)->with('areas','place')->first();
-        if($publication->user_id == Auth::user()->id){
+        if(($publication->user_id == Auth::user()->id) || Auth::user()->id){
             $areas = Area::all();
             $places = Place::where('type', '=', 1)
                             ->get();
@@ -195,7 +196,7 @@ class AcademicEventController extends Controller
     public function destroy($id)
     {
         $publication = Publication::where('id',$id)->first();
-        if($publication->user_id == Auth::user()->id){
+        if(($publication->user_id == Auth::user()->id) || Auth::user()->id){
             $publication->areas()->detach();
             $publication->delete();
             return view('scientific_magazine.destroy');

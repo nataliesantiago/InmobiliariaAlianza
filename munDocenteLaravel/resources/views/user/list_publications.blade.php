@@ -1,4 +1,4 @@
-@extends('layouts.routes.normalroute')
+@extends('layouts.routes.downtwice')
 
 @section('menus')
 
