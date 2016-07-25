@@ -75,6 +75,12 @@
 							<label class="control-label col-xs-8">{{ $user->academicInstitution->name}}</label>
 							</div>
 						</div>
+						<div class="12u$">
+							<div class="form-group">
+							<label class="control-label col-xs-4">Cargo</label>
+							<label class="control-label col-xs-8"></label>
+							</div>
+						</div>
 						<div class="12u 12u$(xsmall)">
 							<div class="form-group">
 							<label class="control-label col-xs-4">Celular</label>
