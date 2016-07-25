@@ -2,12 +2,8 @@
 
 @section('menus')
 
+    @include('admin.main_menu')
     
-     <li><a href="/admin">
-        <i class="glyphicon glyphicon-ok-sign"></i> Activar Usuarios</a></li>
-        <li ><a href="/university">
-<i class="glyphicon glyphicon-education"></i> Universidades o Instituciones Académicas</a></li>
-
 @stop
 
 @section('principal')

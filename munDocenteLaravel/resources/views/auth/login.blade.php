@@ -25,17 +25,17 @@
          </label><input type="checkbox" name="remember">           Recordar</center><br>
         <center>
         <button type="submit" class="btn2 btn-default">Ingresar</button>
-            <ul class="social_login">
+            <!--<ul class="social_login">
                 
             <li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
             <li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
             <li><a class="icon fa-google-plus" href="#"><span class="label">Google+</span></a></li>
-            </ul>
+            </ul>-->
             
-        </center>
-        <HR>
-        <center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>
+        </center>    
+    <!--<hr >-->
+    <!--<center><a class="forgot btn-link" href="{{ url('/password/reset') }}">¿Olvido su contraseña?</a></center>-->
     </form>
-<hr >       
+<!--<hr >-->       
 </section>
 

@@ -23,6 +23,10 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminController extends Controller
 {
+     //Aqui debe ir el codigo para redireccionar al admin 
+     //a las publicaciones de un usario
+     //supongo que le entrara un parametro, que sera el id   
+ 
 	public function index(){
 		return view('read_user');
 	}
@@ -47,7 +51,9 @@ class AdminController extends Controller
             $user = $this->getUser();
             if($user->type == 3){
                 $users = $this->getUserPublication();
-                return view('admin.check_publications', compact('users'));
+                //$publications =  mysql_num_rows(usr);
+                $academic_institutions = AcademicInstitution::all();
+                return view('admin.check_publications', compact('users','academic_institutions'));
             }
         }
     }

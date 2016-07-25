@@ -87,7 +87,7 @@ $('#valForm')
 		 name: {
 			 validators: {
 				 notEmpty: {
-					 message: 'El nombre de la actividad es requerido'
+					 message: 'El nombre es requerido'
 				 }
 			 }
 		 },
