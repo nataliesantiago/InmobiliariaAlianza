@@ -2865,3 +2865,9 @@ ul.social_login {
   	width:5%;
   	background-color: #FFFFFF;
 }
+
+#cargando{
+	position:absolute;
+    width:100%;
+    height:100%;
+}
