@@ -164,13 +164,17 @@
 									</div>
 								@else
 									<div class="12u 12u$(xsmall)">
-										<div class="form-group">
-										<label class="control-label col-xs-4">Cargo</label>
-										<div class="col-xs-8">
-										<input type="text" name="position" value="" />
-										</div>
-										</div>
+									<div class="form-group">
+									<label class="control-label col-xs-4">Cargo</label>
+									<div class="col-xs-8">
+									@if($user->chargue == null)
+										<input type="text" name="chargue" placeholder="Ingrese su cargo" />
+										@else
+										<input type="text" name="chargue" value="{{ $user->chargue }}" />
+										@endif
 									</div>
+									</div>
+								</div>
 								@endif
 
 									<div class="12u 12u$(xsmall)">
@@ -185,6 +189,8 @@
 										</div>
 										</div>
 									</div>
+
+									
 								@if($user->type == 1)
 										<div class="12u$">
 											<div class="form-group">
