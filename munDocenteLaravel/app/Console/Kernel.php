@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Console;
+namespace alianza\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

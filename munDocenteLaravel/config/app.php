@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        MunDocente\Providers\AppServiceProvider::class,
-        MunDocente\Providers\AuthServiceProvider::class,
-        MunDocente\Providers\EventServiceProvider::class,
-        MunDocente\Providers\RouteServiceProvider::class,
+        alianza\Providers\AppServiceProvider::class,
+        alianza\Providers\AuthServiceProvider::class,
+        alianza\Providers\EventServiceProvider::class,
+        alianza\Providers\RouteServiceProvider::class,
 
         /*
         * Collective\Bus\BusServiceProvider::class,

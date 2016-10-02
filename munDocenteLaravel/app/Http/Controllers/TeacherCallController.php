@@ -1,15 +1,15 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use MunDocente\Http\Requests;
-use MunDocente\Http\Controllers\Controller;
-use MunDocente\Publication;
-use MunDocente\Area;
-use MunDocente\User;
-use MunDocente\Place;
+use alianza\Http\Requests;
+use alianza\Http\Controllers\Controller;
+use alianza\Publication;
+use alianza\Area;
+use alianza\User;
+use alianza\Place;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;

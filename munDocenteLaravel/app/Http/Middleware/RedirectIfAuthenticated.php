@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Http\Middleware;
+namespace alianza\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

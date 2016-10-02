@@ -1,15 +1,15 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use MunDocente\Http\Requests;
-use MunDocente\Area;
-use MunDocente\Place;
-use MunDocente\Publication;
-use MunDocente\TypeOfPublication;
-use MunDocente\AreaPublication;
+use alianza\Http\Requests;
+use alianza\Area;
+use alianza\Place;
+use alianza\Publication;
+use alianza\TypeOfPublication;
+use alianza\AreaPublication;
 use DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;

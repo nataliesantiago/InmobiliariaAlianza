@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Events;
+namespace alianza\Events;
 
 abstract class Event
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Console\Commands;
+namespace alianza\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

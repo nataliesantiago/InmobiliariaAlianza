@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => MunDocente\User::class,
+            'model' => alianza\User::class,
         ],
 
         // 'users' => [

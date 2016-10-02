@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Exceptions;
+namespace alianza\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;

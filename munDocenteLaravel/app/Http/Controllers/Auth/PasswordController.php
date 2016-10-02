@@ -1,8 +1,8 @@
 <?php
 
-namespace MunDocente\Http\Controllers\Auth;
+namespace alianza\Http\Controllers\Auth;
 
-use MunDocente\Http\Controllers\Controller;
+use alianza\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

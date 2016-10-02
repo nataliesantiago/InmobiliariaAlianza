@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Providers;
+namespace alianza\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

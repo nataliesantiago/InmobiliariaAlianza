@@ -1,11 +1,11 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\User;
-use MunDocente\Place;
-use MunDocente\TypeOfAcademicInstitution;
+use alianza\User;
+use alianza\Place;
+use alianza\TypeOfAcademicInstitution;
 
 class AcademicInstitution extends Model
 {
@@ -17,16 +17,16 @@ class AcademicInstitution extends Model
 
     public function typeOfAcademicInstitution()
     {
-    	return $this->belongsTo('MunDocente\TypeOfAcademicInstitution', 'type');
+    	return $this->belongsTo('alianza\TypeOfAcademicInstitution', 'type');
     }
 
     public function users(){
-    	return $this->hasMany('MunDocente\User');
+    	return $this->hasMany('alianza\User');
     }
 
     public function place_id()
     {
-    	return $this->belongsTo('MunDocente\Place', 'place');
+    	return $this->belongsTo('alianza\Place', 'place');
     }
 
 }

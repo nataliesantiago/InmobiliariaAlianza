@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
 

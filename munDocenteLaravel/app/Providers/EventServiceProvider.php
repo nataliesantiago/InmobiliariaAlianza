@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Providers;
+namespace alianza\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'MunDocente\Events\SomeEvent' => [
-            'MunDocente\Listeners\EventListener',
+        'alianza\Events\SomeEvent' => [
+            'alianza\Listeners\EventListener',
         ],
     ];
 

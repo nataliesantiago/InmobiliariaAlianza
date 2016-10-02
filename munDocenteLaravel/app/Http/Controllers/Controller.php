@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

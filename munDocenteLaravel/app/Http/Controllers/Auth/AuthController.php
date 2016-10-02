@@ -1,12 +1,12 @@
 <?php
 
-namespace MunDocente\Http\Controllers\Auth;
+namespace alianza\Http\Controllers\Auth;
 
-use MunDocente\User;
-use MunDocente\Area;
-use MunDocente\AcademicInstitution;
+use alianza\User;
+use alianza\Area;
+use alianza\AcademicInstitution;
 use Validator;
-use MunDocente\Http\Controllers\Controller;
+use alianza\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

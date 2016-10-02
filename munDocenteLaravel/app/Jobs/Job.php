@@ -1,6 +1,6 @@
 <?php
 
-namespace MunDocente\Jobs;
+namespace alianza\Jobs;
 
 use Illuminate\Bus\Queueable;
 

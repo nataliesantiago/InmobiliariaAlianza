@@ -1,9 +1,9 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\AcademicInstitution;
+use alianza\AcademicInstitution;
 
 class TypeOfAcademicInstitution extends Model
 {
@@ -11,6 +11,6 @@ class TypeOfAcademicInstitution extends Model
 
     public function academicInstitutions()
     {
-    	return $this->hasMany('MunDocente\AcademicInstitution');
+    	return $this->hasMany('alianza\AcademicInstitution');
     }
 }

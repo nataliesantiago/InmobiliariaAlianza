@@ -1,18 +1,18 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\Http\Requests;
-use MunDocente\Http\Controllers\Controller;
-use MunDocente\Http\Controllers\UserController;
-use MunDocente\Publication;
-use MunDocente\Area;
-use MunDocente\Place;
-use MunDocente\User;
-use MunDocente\AcademicInstitution;
+use alianza\Http\Requests;
+use alianza\Http\Controllers\Controller;
+use alianza\Http\Controllers\UserController;
+use alianza\Publication;
+use alianza\Area;
+use alianza\Place;
+use alianza\User;
+use alianza\AcademicInstitution;
 use Carbon\Carbon;
 use Auth;
 use DB;

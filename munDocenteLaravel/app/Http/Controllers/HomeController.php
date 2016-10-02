@@ -1,8 +1,8 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
-use MunDocente\Http\Requests;
+use alianza\Http\Requests;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

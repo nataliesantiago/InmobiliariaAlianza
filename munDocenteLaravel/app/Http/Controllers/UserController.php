@@ -1,14 +1,14 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use MunDocente\Http\Requests;
-use MunDocente\Http\Controllers\Controller;
-use MunDocente\AcademicInstitution;
-use MunDocente\User;
-use MunDocente\Area;
+use alianza\Http\Requests;
+use alianza\Http\Controllers\Controller;
+use alianza\AcademicInstitution;
+use alianza\User;
+use alianza\Area;
 use DB;
 use Session;
 use Auth;

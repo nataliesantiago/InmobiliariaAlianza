@@ -1,13 +1,13 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\TypeOfPublication;
-use MunDocente\TypeOfScientificMagazine;
-use MunDocente\Place;
-use MunDocente\User;
-use MunDocente\Area;
+use alianza\TypeOfPublication;
+use alianza\TypeOfScientificMagazine;
+use alianza\Place;
+use alianza\User;
+use alianza\Area;
 
 class Publication extends Model
 {
@@ -24,24 +24,24 @@ class Publication extends Model
 
     public function typeOfPublication()
     {
-    	return $this->belongsTo('MunDocente\TypeOfPublication', 'type');
+    	return $this->belongsTo('alianza\TypeOfPublication', 'type');
     }
 
     public function typeScientificMagazine()
     {
-    	return $this->belongsTo('MunDocente\TypeOfScientificMagazine', 'category');
+    	return $this->belongsTo('alianza\TypeOfScientificMagazine', 'category');
     }
 
     public function place()
     {
-    	return $this->belongsTo('MunDocente\Place');
+    	return $this->belongsTo('alianza\Place');
     }
 
     public function user(){
-    	return $this->belongsTo('MunDocente\User', 'user_id');
+    	return $this->belongsTo('alianza\User', 'user_id');
     }
 
     public function areas(){
-        return $this->belongsToMany('MunDocente\Area');
+        return $this->belongsToMany('alianza\Area');
     }
 }

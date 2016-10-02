@@ -1,21 +1,21 @@
 <?php
 
-namespace MunDocente\Http\Controllers;
+namespace alianza\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use MunDocente\Http\Requests;
-use MunDocente\Http\Controllers\Controller;
-use MunDocente\Http\Controllers\UserController;
-use MunDocente\Publication;
-use MunDocente\Area;
-use MunDocente\Place;
-use MunDocente\User;
+use alianza\Http\Requests;
+use alianza\Http\Controllers\Controller;
+use alianza\Http\Controllers\UserController;
+use alianza\Publication;
+use alianza\Area;
+use alianza\Place;
+use alianza\User;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
-use MunDocente\TypeOfScientificMagazine;
+use alianza\TypeOfScientificMagazine;
 use DB;
 use Session;
 use Mail;

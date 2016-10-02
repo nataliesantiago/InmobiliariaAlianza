@@ -1,9 +1,9 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\Publication;
+use alianza\Publication;
 
 class TypeOfScientificMagazine extends Model
 {
@@ -11,6 +11,6 @@ class TypeOfScientificMagazine extends Model
 
     public function scientificMagazines()
     {
-    	return $this->hasMany('MunDocente\Publication');
+    	return $this->hasMany('alianza\Publication');
     }
 }

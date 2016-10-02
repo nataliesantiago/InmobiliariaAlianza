@@ -1,11 +1,11 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\Area;
-use MunDocente\Publication;
-use MunDocente\User;
+use alianza\Area;
+use alianza\Publication;
+use alianza\User;
 
 class Area extends Model
 {
@@ -14,19 +14,19 @@ class Area extends Model
 
     public function parent()
     {
-    	return $this->belongsTo('MunDocente\Area', 'parent');
+    	return $this->belongsTo('alianza\Area', 'parent');
     }
 
     public function myAreas()
     {
-    	return $this->hasMany('MunDocente\Area');
+    	return $this->hasMany('alianza\Area');
     }
 
     public function publications(){
-        return $this->belongsToMany('MunDocente\Publication');
+        return $this->belongsToMany('alianza\Publication');
     }
 
     public function users(){
-        return $this->belongsToMany('MunDocente\User');
+        return $this->belongsToMany('alianza\User');
     }
 }

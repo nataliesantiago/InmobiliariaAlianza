@@ -23,7 +23,7 @@
             "database"
         ],
         "psr-4": {
-            "MunDocente\\": "app/"
+            "alianza\\": "app/"
         }
     },
     "autoload-dev": {

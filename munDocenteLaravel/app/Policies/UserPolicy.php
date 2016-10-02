@@ -1,9 +1,9 @@
 <?php
 
-namespace MunDocente\Policies;
+namespace alianza\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use MunDocente\User;
+use alianza\User;
 
 class UserPolicy
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
 
-use MunDocente\User;
+use alianza\User;
 
 class TypeOfMundocenteUser extends Model
 {
@@ -12,6 +12,6 @@ class TypeOfMundocenteUser extends Model
 
     public function users()
     {
-    	return $this->hasMany('MunDocente\User');
+    	return $this->hasMany('alianza\User');
     }
 }

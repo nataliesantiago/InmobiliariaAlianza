@@ -1,12 +1,12 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use MunDocente\TypeOfUser;
-use MunDocente\Publication;
-use MunDocente\AcademicInstitution;
-use MunDocente\Area;
+use alianza\TypeOfUser;
+use alianza\Publication;
+use alianza\AcademicInstitution;
+use alianza\Area;
 
 class User extends Authenticatable
 {
@@ -31,19 +31,19 @@ class User extends Authenticatable
 
     public function typeOfUser()
     {
-        return $this->belongsTo('MunDocente\TypeOfMundocenteUser', 'type');
+        return $this->belongsTo('alianza\TypeOfMundocenteUser', 'type');
     }
 
     public function publications(){
-        return $this->hasMany('MunDocente\Publication');
+        return $this->hasMany('alianza\Publication');
     }
 
     public function academicInstitution()
     {
-        return $this->belongsTo('MunDocente\AcademicInstitution', 'academic_institution');
+        return $this->belongsTo('alianza\AcademicInstitution', 'academic_institution');
     }
 
     public function areas(){
-        return $this->belongsToMany('MunDocente\Area');
+        return $this->belongsToMany('alianza\Area');
     }
 }

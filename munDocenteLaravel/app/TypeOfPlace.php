@@ -1,9 +1,9 @@
 <?php
 
-namespace MunDocente;
+namespace alianza;
 
 use Illuminate\Database\Eloquent\Model;
-use MunDocente\Place;
+use alianza\Place;
 
 class TypeOfPlace extends Model
 {
@@ -11,6 +11,6 @@ class TypeOfPlace extends Model
 
     public function places()
     {
-    	return $this->hasMany('MunDocente\Place');
+    	return $this->hasMany('alianza\Place');
     }
 }
