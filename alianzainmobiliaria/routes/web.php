@@ -11,36 +11,13 @@
 |
 */
 
-/**Route::get('/', function () {
-    return view('usuario.inicio');
-});**/
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
-Route::get('/', 'InicioController@indexInicio');
-
-/**administrador**/
-Route::get('home', 'HomeController@index');
-
-Route::get('apartamentos', 'ApartamentosController@indexApartamentos');
-
-Route::get('casas','CasasController@indexCasas');
-
-Route::get('apartaestudios', 'ApartaestudioController@indexApartaestudio');
-
-Route::get('lotes', 'LotesController@indexLotes');
-
-/**usuario**/
-Route::get('arriendos', 'ArriendosController@indexArriendos');
-
-Route::get('ventas','VentasController@indexVentas');
-
-Route::get('servicios', 'ServiciosController@indexServicios');
-
-Route::get('acercaDe', 'InicioController@acercaDe');
-
-Route::get('contacto', 'InicioController@contacto');
-
+Route::get('/home', 'HomeController@index');
 
 Route::get('error',function(){
 	abort(404);

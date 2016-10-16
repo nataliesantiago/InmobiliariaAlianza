@@ -26,6 +26,8 @@ class CreateDistribucionesTable extends Migration
                 ->on('detalles')
                 ->onDelete('cascade');
             $table->integer('cantidad');
+             $table->primary(array('inmueble_id', 'detalle_id'));
+            $table->unique(array('inmueble_id', 'detalle_id'));
             $table->timestamps();
         });
     }
